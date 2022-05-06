@@ -16,57 +16,52 @@
     background-color: lightblue;
 }
 
+.nav {
+    min-width: 10%;
+    min-height: 80vh;
+    background-color: rgb(58, 58, 208);
+}
+
 header {
-   background-color:rgb(58, 58, 208);
+    background-color: rgb(58, 58, 208);
     min-width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.titulo{
-    width: 70%;    
-}
-.nav{     
-    max-width: 20vh; 
-    min-height:80vh ;   
-    background-color: rgb(58, 58, 208);
-}
 
 footer {
     min-width: 100%;
     background-color: rgb(58, 58, 208);
-    position: absolute;
-    top: 95vh;
+    position: ;
     height: 5vh;
     text-align: center;
 }
 
-h1 {
+footer p {
     margin-top: 10px;
 }
 
-.logo {
-    width: 20%;
-    margin: 10px;
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-height: 80vh;
+    background-color: rgb(58, 58, 208);
 }
 
-.icono {
-    top: 5px;
-    left: 5px;
-    width: 80px;
-    height: 80px;
-}
-
-h4 {
+button{
+    height: 25px;
+    width: 125px;
+    border-radius: 5px;
+    background-color: rgb(58, 58, 208);
+    color: white;
     font-style: oblique;
-    top: 75px;
-    margin-left: 15px;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
 
-button {
-    background-color: transparent;
-    color: gold;
-
-    right: 5px;
-    top: 50px;
+button:hover{
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 1px white;
+    background-color: lightblue;
 }
