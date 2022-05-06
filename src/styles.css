@@ -1,1 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    color: gold;
+    text-shadow: 2px 2px 2px black;
+    font-style: oblique;
+    background-color: lightblue;
+}
+
+header {
+   background-color:rgb(58, 58, 208);
+    min-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.titulo{
+    width: 70%;    
+}
+.nav{     
+    max-width: 20vh; 
+    min-height:80vh ;   
+    background-color: rgb(58, 58, 208);
+}
+
+footer {
+    min-width: 100%;
+    background-color: rgb(58, 58, 208);
+    position: absolute;
+    top: 95vh;
+    height: 5vh;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 10px;
+}
+
+.logo {
+    width: 20%;
+    margin: 10px;
+}
+
+.icono {
+    top: 5px;
+    left: 5px;
+    width: 80px;
+    height: 80px;
+}
+
+h4 {
+    font-style: oblique;
+    top: 75px;
+    margin-left: 15px;
+}
+
+button {
+    background-color: transparent;
+    color: gold;
+
+    right: 5px;
+    top: 50px;
+}

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Carlos_Inmuebles';
+  fechasistema: any;
+  constructor(
+   
+  ) { this.fechasistema = new Date }
 }
