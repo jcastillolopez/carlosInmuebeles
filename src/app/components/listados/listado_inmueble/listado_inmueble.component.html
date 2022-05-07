@@ -1,0 +1,100 @@
+
+  <header>
+    <h2>Inmuebles:</h2>
+
+    <button type="button" data-toggle="modal" data-target="#prueba" (click)="crear()">
+      Nuevo Inmueble
+    </button>
+    <p>{{ 'Bienvenido/a : '}} </p>
+  </header>
+
+  <div class="fondo">
+    <div class="listado">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Tipo Inmueble</th>
+            <th>Alias</th>
+            <th>Ref Catastral</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody [routerLink]="['/Inmuebles/detalle/'+inmueble.idInmueble]" routerLinkActive="activo activoBoton" *ngFor="let inmueble of arrListaInmuebles; let i = index">
+          <tr>
+            <td>{{inmueble.tipoInmueble}}</td>
+            <td>{{inmueble.alias}}</td>
+            <td>{{inmueble.refCatastral}}</td>
+            <td>
+              <button type="button" class="botonOculto" data-toggle="modal" data-target="#prueba" (click)=detalle(inmueble)>
+               Modificar Inmueble
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  
+
+  <div class="modal ventana" id="prueba" tabindex="1" rol="dialog" aria-labelledby="prueba"
+    aria-hidden="false" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Datos del Inmueble</h3> 
+        </div>
+        <form class="registro" [formGroup]="registroForm" (ngSubmit)="enviar()">
+          <div class="modal-body">
+            <div class="form">             
+              <div class="form-group campo">
+                <label class="form-label">Tipo inmueble</label>
+                <select type="text" formControlName="idTipoInmueble">
+                  <option [value]="tipo.idTipoInmueble" *ngFor="let tipo of arrSelectTipos">
+                    {{tipo.tipoInmueble}} </option>
+                </select>
+              </div>
+              <div class="form-group campo">
+                <label class="form-label">Alias</label>
+                <input type="text" class="form-control" formControlName="alias">
+              </div>
+              <div class="form-group campo">
+                <label class="form-label">refCatastral</label>
+                <input type="text" class="form-control" formControlName="refCatastral">
+              </div>
+              <div class="form-group campo">
+                <label class="form-label">Localidad</label>
+                <input type="text" class="form-control" formControlName="localidad">
+              </div>
+              <div class="form-group campo">
+                <label class="form-label">Direccion</label>
+                <input type="text" class="form-control" formControlName="direccion">
+              </div>
+              <div class="form-group campo">
+                <label class="form-label">Codigo Postal</label>
+                <input type="number" class="form-control" formControlName="codigoPostal">
+              </div>
+              <div class="form-group campo">
+                <label class="form-label">Id Administrador</label>
+                <input type="text" class="form-control" formControlName="idAdministrador">
+              </div>
+              <div class="form-group campo">
+                <label class="form-label">Eliminar Inmueble</label>
+                <input type="checkbox" formControlName="borrado">
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal"
+              data-backdrop="false">Close</button>
+            <button data-dismiss="modal" (click)="enviar()">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

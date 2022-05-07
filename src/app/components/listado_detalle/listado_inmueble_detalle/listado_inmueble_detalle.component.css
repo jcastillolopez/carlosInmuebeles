@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 5px;
+    font-style: oblique;
+    margin-top: 0.4em;
+    background-color: transparent;
+ }
+ 
+ .lista {
+    margin-left: 50px;
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    color: gold;
+    font-style: oblique;
+    text-shadow: 1px 1px 1px black
+ }
+ 
+ .campo {
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    margin-left: 10px;
+ }
+ 
+ label {
+    min-width: 150px;
+    text-align: left;
+    text-shadow: 1px 1px 1px black
+ }
+ h4{
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    color: gold;
+ }
+ 
+ p {
+    margin-left: 5px;
+    text-shadow: 1px 1px 1px black;
+    color: white;
+ }

@@ -1,31 +1,49 @@
-//Genericos
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-//Propios
 import { inmuebleInterface } from 'src/app/interfaces/inmuebles';
 import { Globales } from 'src/app/services/Globales.service';
+import { tiposService } from 'src/app/services/tipos.service';
+
 
 @Component({
-  selector: 'app-registro_inmueble',
-  templateUrl: './registro_inmueble.component.html',
-  styleUrls: ['./registro_inmueble.component.css']
+  selector: 'app-listado_inmueble',
+  templateUrl: './listado_inmueble.component.html',
+  styleUrls: ['./listado_inmueble.component.css'],
 })
-export class Registro_inmuebleComponent implements OnInit {
+export class Listado_inmuebleComponent implements OnInit {
 
-  registroForm: FormGroup;
-  arrListaInmuebles: inmuebleInterface;
+  //paths
+  path: string;
   path_lista: string;
   path_create_update: string;
 
+
+  //Formulario Modal
+  registroForm: FormGroup;
+  inmuebleform: inmuebleInterface;
+  arrSelectTipos: any[];
+
+  //Tabla para la lista
+  arrListaInmuebles: any[];
+
   constructor(
     private metodosGlobales: Globales,
+    private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute
   ) {
+    //Paths APIS CARLOS
+    this.path = 'Inmuebles/';
     this.path_lista = 'Inmuebles/detalle/'
     this.path_create_update = 'Inmuebles/'
-    this.arrListaInmuebles = {
+
+    //Tabla para la lista
+    this.arrListaInmuebles = [];
+
+    //Formulario Modal
+    this.arrSelectTipos = [];
+    this.inmuebleform = {
       idInmueble: 0,
       idTipoInmueble: 0,
       tipoInmueble: '',
@@ -49,20 +67,39 @@ export class Registro_inmuebleComponent implements OnInit {
       idAdministrador: new FormControl(),
       borrado: new FormControl(),
     })
+
   }
 
   async ngOnInit() {
-    this.activateRouter.params.subscribe(async params => {
-      let response = await this.metodosGlobales.getById(this.path_lista, params['id'])
-      this.registroForm.patchValue(response[0])
-      this.registroForm.patchValue({ idTipoInmueble: response[0].idTipoInmueble.idTipoInmueble })
-    })
+    
+    this.arrSelectTipos = await this.metodosTipos.getAllTipos('Inmuebles');
+    this.arrListaInmuebles = await this.metodosGlobales.getById(this.path, 1);
+    for (const inmueble of this.arrListaInmuebles) {
+      for (const tipos of this.arrSelectTipos) {
+        if (tipos.idTipoInmueble == inmueble.idTipoInmueble) {
+          inmueble.tipoInmueble = tipos.tipoInmueble;
+        }
+      }
+    }
   }
+
+  public crear() {
+    
+  }
+
+  async detalle(inmueble: any) {
+    this.registroForm.patchValue(inmueble);
+    this.arrSelectTipos = await this.metodosTipos.getAllTipos('Inmuebles');
+  }
+
   async enviar() {
+    console.log(this.registroForm.value.idInmueble)
     if (this.registroForm.value.idInmueble != 0) {
       await this.metodosGlobales.update(this.registroForm.value, this.path_create_update);
     } else {
       await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);
     }
+    window.location.reload();
   }
+
 }
