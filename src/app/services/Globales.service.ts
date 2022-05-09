@@ -19,7 +19,6 @@ export class Globales {
     );
   }
   getById(paramurl: string, pid: number) {
-    console.log(pid);
     return firstValueFrom(this.httpClient.get<any>(this.url + paramurl + pid))
   }
 

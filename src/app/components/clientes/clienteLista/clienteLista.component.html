@@ -1,0 +1,41 @@
+<header>
+  <navApp></navApp>
+</header>
+
+<div class="fondo"> 
+  <div class="nav">
+    <clienteNav></clienteNav>
+  </div>
+  <div class="listado">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>nie</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody routerLinkActive="activo activoBoton"
+        *ngFor="let cliente of arrListaClientes; let i = index">
+        <tr (click)="navegar(cliente.idCliente)"
+          [routerLink]="['/cliente/detalle/'+cliente.idCliente]">
+          <td>{{cliente.nombre}}</td>
+          <td>{{cliente.apellidos}}</td>
+          <td>{{cliente.nie}}</td>
+          <td>
+            <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#prueba">
+              Modificar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="router">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<clientesRegistro></clientesRegistro>

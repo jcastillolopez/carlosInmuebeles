@@ -10,7 +10,7 @@ export class tiposService {
   constructor(
     private metodosGlobales: Globales
   ) { 
-    this.urlBase = 'Tipos/';
+    this.urlBase = 'tipos/';
 }
   getAllTipos(tipoSelect: string) {
     return this.metodosGlobales.getAll(this.urlBase + tipoSelect)

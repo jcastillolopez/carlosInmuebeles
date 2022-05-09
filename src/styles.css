@@ -13,13 +13,45 @@
     text-shadow: 2px 2px 2px black;
     font-style: oblique;
     background-color: lightblue;
+    font-size: 125%;
 }
 
 .nav {
-    margin-top: 30px;
     min-width: 10%;
-    min-height: 80vh;
     background-color: rgb(58, 58, 208);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.usuario {
+    margin-top: 2%;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-left: 30px;
+}
+
+li:hover {
+    padding: 20px;
+    background-color: rgb(81, 181, 85);
+    color: black;
+    text-shadow: 1px 1px 1px gray;
+    border-radius: 10px;
+}
+
+.activo {
+    color: white;
+    text-shadow: none;
+    font-size: 125%;
+    font-weight: 600;
+    padding: 20px;
+    background-color: rgb(16, 99, 19);
+    border-radius: 10px;
 }
 
 header {
@@ -27,13 +59,12 @@ header {
     min-width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 footer {
     min-width: 100%;
     background-color: rgb(58, 58, 208);
-
     min-height: 5vh;
     text-align: center;
 }
@@ -52,9 +83,10 @@ footer p {
 }
 
 button {
-    min-width: 200px;
-    height: 40px;
-    padding: 5px;
+    margin: 10px;
+    min-width: 150px;
+    height: 30px;
+    padding: 10px;
     border-radius: 10px;
     background-color: transparent;
     color: white;
@@ -71,25 +103,46 @@ button:hover {
 
 
 .fondo {
+    position: relative;
+    top: -50px;
     background-color: rgb(100, 115, 122);
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-wrap: wrap;  
     min-height: 80vh;
     font-style: oblique;
 }
 
-.router {
-    min-width: 50%;
-}
-
 .modal-dialog {
-    top: 22%;
-    left: 40%;
-    height: 60vh;
+    height: 50%;
+    min-width: 35%;
 }
 
-.modal-content{
-    background-color:rgb(58, 58, 208);
+.modal-content {
+    background-color: rgb(58, 58, 208);
     border-radius: 15px;
+}
+
+.campo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
+    margin-bottom: 0.5em;
+}
+
+.campo label {
+    grid-column: 1;
+    text-align: left;
+    margin-right: 5px;
+}
+
+.campo input {
+    background-color: rgba(255, 255, 255, 0.827);
+    grid-column: 2/3;
+    font-style: oblique;
+}
+
+.campo select {
+    background-color: rgb(155, 155, 155);
+    font-style: oblique;
+    text-shadow: 2px 2px 2px rgb(196, 196, 196);
 }

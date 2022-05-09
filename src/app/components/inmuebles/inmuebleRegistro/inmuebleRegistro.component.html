@@ -1,0 +1,70 @@
+<div class="modal ventana" id="prueba" tabindex="1" rol="dialog" aria-labelledby="prueba"
+  aria-hidden="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Datos del Inmueble</h3>
+      </div>
+      <form class="registro"
+       [formGroup]="registroForm">
+
+        <div class="modal-body">
+          <div class="form">
+            <div class="form-group campo">
+              <label class="form-label">Tipo inmueble</label>
+              <select type="text" formControlName="idTipoInmueble">
+                <option [value]="tipo.idTipoInmueble" *ngFor="let tipo of arrSelectTipos">
+                  {{tipo.tipoInmueble}} </option>
+              </select>
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Alias</label>
+              <input type="text" class="form-control" formControlName="alias">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">refCatastral</label>
+              <input type="text" class="form-control" formControlName="refCatastral">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Localidad</label>
+              <input type="text" class="form-control" formControlName="localidad">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Direccion</label>
+              <input type="text" class="form-control" formControlName="direccion">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Codigo Postal</label>
+              <input type="number" class="form-control" formControlName="codigoPostal">
+            </div>            
+            <div class="form-group campo">
+              <label class="form-label">Nº Planta </label>
+              <input type="number" class="form-control" formControlName="planta">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Nº Habitaciones</label>
+              <input type="number" class="form-control" formControlName="nhabitaciones">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label"> Metros Cuadrados</label>
+              <input type="number" class="form-control" formControlName="mcuadrados">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Nº Baños</label>
+              <input type="number" class="form-control" formControlName="nbanos">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Eliminar Inmueble</label>
+              <input type="checkbox" formControlName="borrado">
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
+          <button data-dismiss="modal" (click)="enviar()">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

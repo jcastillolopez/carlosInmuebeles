@@ -1,0 +1,42 @@
+<header>
+  <navApp></navApp>
+</header>
+
+<div class="fondo"> 
+  <div class="nav">
+  <usuarioNav></usuarioNav>
+  </div>
+  <div class="listado">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>password</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody routerLinkActive="activo activoBoton"
+        *ngFor="let usuario of arrListaUsuarios; let i = index">
+        <tr (click)="navegar(usuario.idusuario)"
+          [routerLink]="['/usuarios/detalle/'+usuario.idCliente]">
+          <td>{{usuario.nombre}}</td>
+          <td>{{usuario.apellidos}}</td>
+          <td>{{usuario.nie}}</td>
+          <td>
+            <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#prueba">
+              Modificar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="router">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<usuarioRegistro></usuarioRegistro>
+

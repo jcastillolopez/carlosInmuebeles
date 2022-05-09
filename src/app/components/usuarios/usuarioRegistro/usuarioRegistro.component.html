@@ -1,0 +1,62 @@
+<div class="modal ventana" id="prueba" tabindex="1" rol="dialog" aria-labelledby="prueba"
+  aria-hidden="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Datos del Usuario</h3>
+      </div>
+      <form class="registro" [formGroup]="registroForm" (ngSubmit)="enviar()">
+        <div class="modal-body">
+          <div class="form">
+            <div class="form-group campo">
+              <label class="form-label">Nombre</label>
+              <input type="text" class="form-control" formControlName="nombre">
+              <p class="error" *ngIf="checkError('nombre', 'required')">requerido</p>
+              <p class="error" *ngIf="checkError('nombre', 'minlength')">
+                debe tener más de 3 caracteres
+              </p>
+              <p class="error" *ngIf="checkError('nombre', 'maxlength')">
+                debe tener menos de 45 caracteres
+              </p>
+            </div>
+
+            <div class="form-group campo">
+              <label class="form-label">Nif</label>
+              <input type="text" class="form-control" formControlName="nie">
+              <p class="error" *ngIf="checkError('nie', 'required')">
+                requerido
+              </p>
+              <p class="error" *ngIf="checkError('nie', 'dnivalidator')">
+                El campo Nif no es valido
+              </p>
+            </div>
+
+            <div class="form-group campo">
+              <label class="form-label">Email</label>
+              <input type="text" class="form-control" formControlName="email">
+              <p class="error" *ngIf="checkError('email','required')">
+                requerido</p>
+              <p class="error" *ngIf="checkError('email','pattern')">
+                El campo Email no es valido
+              </p>
+            </div>
+
+            <div class="form-group campo">
+              <label class="form-label">Borrado</label>
+              <input type="checkbox" class="form-control" formControlName="borrado">
+            </div>
+
+            <div class="form-group campo">
+              <label class="form-label">Id Administrador</label>
+              <input type="number" class="form-control" formControlName="idAdministrador">
+            </div>
+          </div>
+        </div>
+      
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
+              <button data-dismiss="modal" (click)="enviar()">Save changes</button>
+            </div>
+      </form>
+    </div>
+  </div>

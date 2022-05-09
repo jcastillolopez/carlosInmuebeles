@@ -1,0 +1,11 @@
+.nav{
+    position: relative;
+    top: -50px;
+    margin: 0 auto;
+}
+.login{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+} 

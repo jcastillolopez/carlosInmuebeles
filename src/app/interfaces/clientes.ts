@@ -1,0 +1,17 @@
+export interface clienteInterface {
+    id?: number,
+    nombre: string,
+    apellidos: string,
+    fechaNacimiento: Date,
+    nie: string,
+    email: string,
+    tlf: string,
+    tlfMovil: string,
+    localidad: string,
+    direccion: string,
+    codigoPostal: string,
+    usuarioId?: number,
+    borrado: boolean,
+    createTime?: Date,
+    updateTime?:Date,
+}

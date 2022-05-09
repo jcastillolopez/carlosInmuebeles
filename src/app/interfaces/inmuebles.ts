@@ -12,5 +12,9 @@ export interface inmuebleInterface {
     idAdministrador: number,
     create_time?: Date,
     update_time?: Date,
+    planta: number,
+    nhabitaciones: number,
+    mcuadrados: number,
+    nbanos:number,
 
 }

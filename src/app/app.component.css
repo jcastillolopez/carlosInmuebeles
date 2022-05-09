@@ -1,11 +1,8 @@
-.titulo {
-    width: 70%;
-}
+
 
 .router {
-    min-width: 90%; 
-    position: relative;
-    top: -30px;
+    min-width: 100%; 
+    position: relative;   
 }
 
 h1 {
