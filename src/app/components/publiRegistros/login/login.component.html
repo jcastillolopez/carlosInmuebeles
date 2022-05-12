@@ -1,0 +1,40 @@
+<div class="modal ventana" id="login" tabindex="1" rol="dialog" aria-labelledby="login"
+  aria-hidden="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Login</h3>
+      </div>
+      <form class="registro" [formGroup]="registroForm" (ngSubmit)="loguearse()">
+        <div class="modal-body">
+          <div class="form">
+            
+            <div class="form-group campo">
+              <label class="form-label">Email</label>
+              <input type="text" class="form-control" formControlName="email">
+              <p class="error" *ngIf="checkError('email','required')">
+                requerido</p>
+              <p class="error" *ngIf="checkError('email','pattern')">
+                Algun dato no es valido
+              </p>
+            </div>
+
+            <div class="form-group campo">
+              <label class="form-label">Password</label>
+              <input type="text" class="form-control" formControlName="password">
+              <p class="error" *ngIf="checkError('password','required')">
+                requerido</p>
+              <p class="error" *ngIf="checkError('password','pattern')">
+                Algun dato no es valido
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
+          <button data-dismiss="modal" (click)="loguearse()">Iniciar Sesion</button>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -38,7 +38,7 @@ export class InmuebleDetalleComponent implements OnInit {
    }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmuebles')
+    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmuebles/1')
     this.activateRouter.params.subscribe(async params => {
       let response = await this.metodosGlobales.getById(this.path, params['id'])
       this.inmuebleDetalle = response[0]

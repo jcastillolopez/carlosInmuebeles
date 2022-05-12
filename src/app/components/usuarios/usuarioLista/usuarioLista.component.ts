@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 
 import { Globales } from 'src/app/services/Globales.service';
+import { tiposService } from 'src/app/services/tipos.service';
 
 @Component({
   selector: 'usuarioLista',
@@ -20,11 +21,12 @@ export class UsuarioListaComponent implements OnInit {
 
   constructor(
     private metodosGlobales: Globales,
+    private tiposService: tiposService,
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.path_usuarios = 'Usuario/';
-    this.path_roles = 'Roles';
+    this.path_usuarios = 'usuario/';
+    this.path_roles = 'rol/10';
     this.usuarioSeleccionadoId = "";
     //Tabla para la lista
     this.arrListaUsuarios = [];
@@ -32,7 +34,7 @@ export class UsuarioListaComponent implements OnInit {
    }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.metodosGlobales.getAll(this.path_roles);
+    this.arrSelectTipos = await this.tiposService.getAllTipos(this.path_roles);
     this.arrListaUsuarios = await this.metodosGlobales.getById(this.path_usuarios, 1);
 
     this.activateRouter.params.subscribe(params => {

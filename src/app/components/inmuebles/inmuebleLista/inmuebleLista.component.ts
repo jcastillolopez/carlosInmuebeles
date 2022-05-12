@@ -13,7 +13,7 @@ import { tiposService } from 'src/app/services/tipos.service';
 })
 export class InmuebleListaComponent implements OnInit {
 
-  inmuebleSeleccionadoId: string;
+  inmuebleSeleccionadoId: number;
   path: string;
   //Formulario Modal
   arrSelectTipos: any[];
@@ -29,7 +29,7 @@ export class InmuebleListaComponent implements OnInit {
   ) {
 
     this.path = 'inmuebles/';
-    this.inmuebleSeleccionadoId = "";
+    this.inmuebleSeleccionadoId = 1;
 
     //Tabla para la lista
     this.arrListaInmuebles = [];
@@ -38,7 +38,7 @@ export class InmuebleListaComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmuebles');
+    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmuebles/1');
     this.arrListaInmuebles = await this.metodosGlobales.getById(this.path, 1);
 
     this.activateRouter.params.subscribe(params => {

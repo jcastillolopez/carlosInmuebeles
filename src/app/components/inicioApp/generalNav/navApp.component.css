@@ -1,0 +1,12 @@
+.nav{
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+    font-size: 125%;
+}
+.general{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+} 

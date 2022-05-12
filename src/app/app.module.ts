@@ -17,7 +17,7 @@ import { UsuarioDetalleComponent } from './components/usuarios/usuarioDetalle/us
 import { UsuarioNavComponent } from './components/usuarios/usuarioNav/usuarioNav.component';
 import { UsuarioListaComponent } from './components/usuarios/usuarioLista/usuarioLista.component';
 import { UsuarioRegistroComponent } from './components/usuarios/usuarioRegistro/usuarioRegistro.component';
-import { NavAppComponent } from './components/inicio/generalNav/navApp.component';
+import { NavAppComponent } from './components/inicioApp/generalNav/navApp.component';
 import { PubliInicioComponent } from './components/publiRegistros/publicidad/publiInicio/publiInicio.component';
 import { PubliNavComponent } from './components/publiRegistros/publicidad/publiNav/publiNav.component';
 import { LoginNavComponent } from './components/publiRegistros/loginNav/loginNav.component';
@@ -25,15 +25,30 @@ import { RolListaComponent } from './components/tipos/roles/rolLista/rolLista.co
 import { RolRegistroComponent } from './components/tipos/roles/rolRegistro/rolRegistro.component';
 import { PeriodoListaComponent } from './components/tipos/periodos/periodoLista/periodoLista.component';
 import { PeriodoRegistroComponent } from './components/tipos/periodos/periodoRegistro/periodoRegistro.component';
-import { IntervinienteListaComponent } from './components/tipos/intervinientes/intervinienteLista/intervinienteLista.component';
-import { IntervinienteRegistroComponent } from './components/tipos/intervinientes/intervinienteRegistro/intervinienteRegistro.component';
 import { TipoInmuebleListaComponent } from './components/tipos/inmuebles/tipoInmuebleLista/tipoInmuebleLista.component';
 import { TipoInmuebleRegistroComponent } from './components/tipos/inmuebles/tipoInmuebleRegistro/tipoInmuebleRegistro.component';
-import { ContratoListaComponent } from './components/tipos/contratos/contratoLista/contratoLista.component';
-import { ContratoRegistroComponent } from './components/tipos/contratos/contratoRegistro/contratoRegistro.component';
 import { TiposComponent } from './components/tipos/tipos/tipos.component';
-import { ContratoDetalleComponent } from './components/contratos/contratos/contratoDetalle/contratoDetalle.component';
-import { ContratoNavComponent } from './components/contratos/contratos/contratoNav/contratoNav.component';
+import { ContratoDetalleComponent } from './components/contratosIntervinientes/contratos/contratoDetalle/contratoDetalle.component';
+import { ContratoNavComponent } from './components/contratosIntervinientes/contratoNav/contratoNav.component';
+import { ContratoRegistroComponent } from './components/contratosIntervinientes/contratos/contratoRegistro/contratoRegistro.component';
+
+import { TipoContratoRegistroComponent } from './components/tipos/contratos/tipoContratoRegistro/tipoContratoRegistro.component';
+import { TipoIntervinienteListaComponent } from './components/tipos/intervinientes/tipoIntervinienteLista/tipoIntervinienteLista.component';
+import { TipoIntervinienteRegistroComponent } from './components/tipos/intervinientes/tipoIntervinienteRegistro/tipoIntervinienteRegistro.component';
+import { IntervinienteListaComponent } from './components/contratosIntervinientes/intervinientes/intervinienteLista/intervinienteLista.component';
+import { IntervinienteRegistroComponent } from './components/contratosIntervinientes/intervinientes/intervinienteRegistro/intervinienteRegistro.component';
+import { ContratoListaComponent } from './components/contratosIntervinientes/contratos/contratoLista/contratoLista.component';
+import { InicioNavComponent } from './components/inicioApp/inicioNav/inicioNav.component';
+import { InicioListaComponent } from './components/inicioApp/inicioLista/inicioLista.component';
+import { TipoNavComponent } from './components/tipos/tipoNav/tipoNav.component';
+import { BalanceListaComponent } from './components/balances/balanceLista/balanceLista.component';
+import { BalanceNavComponent } from './components/balances/balanceNav/balanceNav.component';
+import { LoginComponent } from './components/publiRegistros/login/login.component';
+import { TipoContratoListaComponent } from './components/tipos/contratos/tipoContratoLista/tipoContratoLista.component';
+import { AdministradorRegistroComponent } from './components/usuarios/administradorRegistro/administradorRegistro.component';
+
+
+
 
 
 
@@ -41,8 +56,9 @@ import { ContratoNavComponent } from './components/contratos/contratos/contratoN
 @NgModule({
   declarations: [
     AppComponent,
-
-
+    // Balance ingreso gasto
+    BalanceListaComponent,
+    BalanceNavComponent,
     //Clientes
     ClienteDetalleComponent,
     ClienteListaComponent,
@@ -50,17 +66,19 @@ import { ContratoNavComponent } from './components/contratos/contratos/contratoN
     ClienteRegistroComponent,
 
     //Contratos
-    ContratoListaComponent,
     ContratoDetalleComponent,
-    ContratoRegistroComponent,
+    ContratoListaComponent,
     ContratoNavComponent,
-  
+    ContratoRegistroComponent,
+
     //Intervinientes
     IntervinienteListaComponent,
     IntervinienteRegistroComponent,
 
     //Inicio
     NavAppComponent,
+    InicioNavComponent,
+    InicioListaComponent,
 
     //Inmuebles
     InmuebleDetalleComponent,
@@ -72,27 +90,33 @@ import { ContratoNavComponent } from './components/contratos/contratos/contratoN
     PubliInicioComponent,
     PubliNavComponent,
     LoginNavComponent,
+   LoginComponent,
+  
 
 
     //Tipos  
     TiposComponent,
+    TipoNavComponent,
     RolListaComponent,
     RolRegistroComponent,
     PeriodoListaComponent,
     PeriodoRegistroComponent,
-    IntervinienteListaComponent,
-    IntervinienteRegistroComponent,
+    TipoIntervinienteListaComponent,
+    TipoIntervinienteRegistroComponent,
     TipoInmuebleListaComponent,
     TipoInmuebleRegistroComponent,
-    ContratoListaComponent,
-    ContratoRegistroComponent,
-  
+    TipoContratoListaComponent,  
+    TipoContratoRegistroComponent,
+
 
     //Usuarios
     UsuarioDetalleComponent,
     UsuarioNavComponent,
     UsuarioListaComponent,
-    UsuarioRegistroComponent
+    UsuarioRegistroComponent,
+    LoginNavComponent,
+    AdministradorRegistroComponent,
+ 
 
 
   ],

@@ -21,8 +21,8 @@ export class UsuarioRegistroComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router,
   ) {
-    this.path_lista = 'Usuario/detalle/'
-    this.path_create_update = 'Usuario'
+    this.path_lista = 'usuario/detalle/'
+    this.path_create_update = 'usuario'
     this.result = "";
     this.registroForm = new FormGroup({
       idUsuario: new FormControl(),
@@ -45,7 +45,7 @@ export class UsuarioRegistroComponent implements OnInit {
       create_time: new FormControl(),
       update_time: new FormControl(),
       idRol: new FormControl(1),
-      idAdministrador: new FormControl()
+      idAdministrador: new FormControl(0)
     })
   }
 
@@ -53,7 +53,7 @@ export class UsuarioRegistroComponent implements OnInit {
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
         let response = await this.metodosGlobales.getById(this.path_lista,params['id'])
-        this.registroForm.setValue(response[0])
+        this.registroForm.patchValue(response[0])
       }
     })
   }
@@ -61,6 +61,7 @@ export class UsuarioRegistroComponent implements OnInit {
     if (this.registroForm.value.idUsuario !== null) {
       await this.metodosGlobales.update(this.registroForm.value, this.path_create_update);
     } else {
+      console.log("antes del if de validacion")
       if (this.registroForm.valid) {
         console.log('prueba antes de funcion creado', this.registroForm.value)
         await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);

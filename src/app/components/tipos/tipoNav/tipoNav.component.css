@@ -1,0 +1,11 @@
+.nav{
+    
+    min-height: 70vh;
+   
+}
+.general{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+   justify-content:  space-around;
+} 

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Inicio
-import { InicioComponent } from './components/inicio/inicio/inicio.component';
 
 //Inmuebles
 import { InmuebleListaComponent } from './components/inmuebles/inmuebleLista/inmuebleLista.component';
@@ -16,8 +15,17 @@ import { UsuarioDetalleComponent } from './components/usuarios/usuarioDetalle/us
 //Publi
 import { PubliInicioComponent } from './components/publiRegistros/publicidad/publiInicio/publiInicio.component';
 import { TiposComponent } from './components/tipos/tipos/tipos.component';
-import { ContratoListaComponent } from './components/contratos/contratos/contratoLista/contratoLista.component';
-import { IntervinienteListaComponent } from './components/tipos/intervinientes/intervinienteLista/intervinienteLista.component';
+import { IntervinienteListaComponent } from './components/contratosIntervinientes/intervinientes/intervinienteLista/intervinienteLista.component';
+import { ContratoListaComponent } from './components/contratosIntervinientes/contratos/contratoLista/contratoLista.component';
+import { InicioListaComponent } from './components/inicioApp/inicioLista/inicioLista.component';
+import { TipoInmuebleListaComponent } from './components/tipos/inmuebles/tipoInmuebleLista/tipoInmuebleLista.component';
+
+import { TipoIntervinienteListaComponent } from './components/tipos/intervinientes/tipoIntervinienteLista/tipoIntervinienteLista.component';
+import { PeriodoListaComponent } from './components/tipos/periodos/periodoLista/periodoLista.component';
+import { RolListaComponent } from './components/tipos/roles/rolLista/rolLista.component';
+import { BalanceListaComponent } from './components/balances/balanceLista/balanceLista.component';
+import { TipoContratoListaComponent } from './components/tipos/contratos/tipoContratoLista/tipoContratoLista.component';
+
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/publi' },
@@ -34,7 +42,9 @@ const routes: Routes = [
     ]
   },
   //inicio
-  { path: 'inicio', component: InicioComponent },
+  { path: 'inicio', component: InicioListaComponent },
+  // balance
+  { path: 'balances', component: BalanceListaComponent},
   // inmuebles
   {
     path: 'inmuebles', component: InmuebleListaComponent, children: [
@@ -55,7 +65,14 @@ const routes: Routes = [
   ] },
 
   // tipos
-  { path: 'tipos', component: TiposComponent },
+  {
+    path: 'tipos', component: TiposComponent, children: [
+      { path: 'inmueble', component: TipoInmuebleListaComponent },
+      {path: 'contrato', component: TipoContratoListaComponent},   
+      { path: 'interviniente', component: TipoIntervinienteListaComponent },
+      { path: 'periodo', component: PeriodoListaComponent },
+      { path: 'rol', component: RolListaComponent},
+  ]},
 
   { path: '**', pathMatch: 'full', redirectTo: '/publi' },
 

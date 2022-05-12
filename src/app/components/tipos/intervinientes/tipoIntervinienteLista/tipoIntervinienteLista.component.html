@@ -1,0 +1,30 @@
+
+
+<div class="listado">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>      
+        <th></th>
+      </tr>
+    </thead>
+    <tbody routerLinkActive="activo activoBoton"
+      *ngFor="let tipo of arrListaTipoInterviniente; let i = index">
+      <tr (click)="navegar(tipo.idtipoIntervinienteDetalle)"
+        [routerLink]="['/tipos/interviniente/detalle/'+tipo.idtipoIntervinienteDetalle]">
+        <td>{{tipo.nombre}}</td>
+        
+        <td>
+          <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#prueba">
+            Modificar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="router">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<tipoIntervinienteLista></tipoIntervinienteLista>
+

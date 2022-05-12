@@ -1,10 +1,12 @@
 .nav{
-    margin: 20px auto;
+    margin: 10px auto;
+    min-height: 70vh;
+   
    
 }
 .general{
     display:flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content:  space-around;
 } 

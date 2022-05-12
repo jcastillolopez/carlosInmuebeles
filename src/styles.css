@@ -13,7 +13,7 @@
     text-shadow: 2px 2px 2px black;
     font-style: oblique;
     background-color: lightblue;
-    font-size: 125%;
+    
 }
 
 .nav {
@@ -26,6 +26,7 @@
 
 .usuario {
     margin-top: 2%;
+    font-size: 125%;
 }
 
 ul {
@@ -56,17 +57,21 @@ li:hover {
 
 header {
     background-color: rgb(58, 58, 208);
-    min-width: 100%;
+    min-width: 100%;  
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-around;  
+    
 }
 
 footer {
+  
     min-width: 100%;
-    background-color: rgb(58, 58, 208);
+    background-color: rgb(58, 58, 208);    
     min-height: 5vh;
     text-align: center;
+  
+    
 }
 
 footer p {
@@ -103,12 +108,11 @@ button:hover {
 
 
 .fondo {
-    position: relative;
-    top: -50px;
+   
     background-color: rgb(100, 115, 122);
     display: flex;
     flex-wrap: wrap;  
-    min-height: 80vh;
+    min-height: 70vh;
     font-style: oblique;
 }
 
