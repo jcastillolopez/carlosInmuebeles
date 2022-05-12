@@ -61,15 +61,14 @@ export class UsuarioRegistroComponent implements OnInit {
     if (this.registroForm.value.idUsuario !== null) {
       await this.metodosGlobales.update(this.registroForm.value, this.path_create_update);
     } else {
-      console.log("antes del if de validacion")
       if (this.registroForm.valid) {
-        console.log('prueba antes de funcion creado', this.registroForm.value)
-        await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);
-        console.log('prueba despues de funcion creado', this.registroForm.value)
-
+        const temp = await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);
       } else { let result = 'hay datos no validos en el formulario' };
     }
   }
+  // navegar(idUsuario: number) {
+  //   this.router.navigate([this.path_usuarios_detalle + idUsuario])
+  // }
   dniValidators(pControl: FormControl) {
     const value = pControl.value;
     const grupoLetras = 'TRWAGMYFPDXBNJZSQVHLCKET';

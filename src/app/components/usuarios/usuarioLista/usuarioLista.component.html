@@ -21,8 +21,8 @@
         <tr (click)="navegar(usuario.idusuario)"
           [routerLink]="['/usuarios/detalle/'+usuario.idCliente]">
           <td>{{usuario.nombre}}</td>
-          <td>{{usuario.apellidos}}</td>
-          <td>{{usuario.nie}}</td>
+          <td>{{usuario.email}}</td>
+          <td>{{usuario.password}}</td>
           <td>
             <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#prueba">
               Modificar

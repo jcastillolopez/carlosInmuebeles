@@ -10,6 +10,9 @@ export class PubliInicioComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    sessionStorage.setItem('administradorId', "")
+    sessionStorage.setItem('idUsuario', "")
+    sessionStorage.setItem('nombreUsuario', "")
   }
 
 }

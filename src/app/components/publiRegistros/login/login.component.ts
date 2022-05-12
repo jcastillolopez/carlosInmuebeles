@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     private metodoGlobal:Globales,
     private router: Router,
   ) {
-    this.path_lista = 'usuario/detalle/'
+    this.path_lista = 'usuario/loggin/'
     this.nombre = "";
     this.idUsuario = 0;
     this.usuarioLogin = {};
@@ -43,20 +43,13 @@ export class LoginComponent implements OnInit {
   }
 
    async loguearse() {
-    console.log(this.registroForm.valid)
      if (this.registroForm.valid) {
-     
-      const result = await this.metodoGlobal.login(this.registroForm.value,this.path_lista);
-      console.log(result)
-      this.usuarioLogin = result;
-    
-     
-      console.log(this.administradorId)
-     
-      sessionStorage.setItem('administradorId', this.administradorId);
-      sessionStorage.setItem('username', this.nombre);
-      if (this.administradorId ) {
-        this.router.navigate(['publi']);     
+      const usuario = await this.metodoGlobal.login(this.path_lista, this.registroForm.value.email, this.registroForm.value.password);
+      sessionStorage.setItem('administradorId', usuario.administradorId);
+      sessionStorage.setItem('nombreUsuario', usuario.nombre);
+      sessionStorage.setItem('idUsuario', usuario.idUsuario);
+      if (usuario.idUsuario !== null) {
+        this.router.navigate(['/inicio']);     
       }    this.noLogin = 'El login no es correcto'   
     }
   

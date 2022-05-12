@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navApp.component.css']
 })
 export class NavAppComponent implements OnInit {
-
-  constructor() { }
+  nombreUsuario:any
+  constructor() { 
+    this.nombreUsuario = ''
+  }
 
   ngOnInit() {
+    this.nombreUsuario = sessionStorage.getItem('nombreUsuario');
   }
 
 }

@@ -11,6 +11,9 @@ import { Globales } from 'src/app/services/Globales.service';
 export class AdministradorRegistroComponent implements OnInit {
   registroForm: FormGroup;
   result: any;
+  administradorId: any;
+  idUsuario: any;
+  nombreUsuario: any;
   
   path_create_update: string;
   constructor(
@@ -18,11 +21,12 @@ export class AdministradorRegistroComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router,
   ) { 
-    
+    this.administradorId = 0;
+    this.idUsuario = 0;
+    this.nombreUsuario = '';
     this.path_create_update = 'personaspagadoras'
-    this.result = "";
     this.registroForm = new FormGroup({
-      idPersonaPagadora: new FormControl(),
+      idPersonasPagadora: new FormControl(),
       nombre: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
@@ -49,7 +53,7 @@ export class AdministradorRegistroComponent implements OnInit {
       codigoPostal: new FormControl(), 
       borrado: new FormControl(false),
       
-     
+      
     })
   }
 
@@ -57,15 +61,20 @@ export class AdministradorRegistroComponent implements OnInit {
   }
 
   async enviar() {
-    if (this.registroForm.value.idUsuario !== null) {
+    if (this.registroForm.value.idPersonasPagadora !== null) {
       await this.metodosGlobales.update(this.registroForm.value, this.path_create_update);
     } else {
-      console.log("antes del if de validacion")
       if (this.registroForm.valid) {
-        console.log('prueba antes de funcion creado', this.registroForm.value)
-        await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);
-        console.log('prueba despues de funcion creado', this.registroForm.value)
+        const administrador = await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);
+        const usuario = await this.metodosGlobales.getAll('usuario/'+administrador.idPersonasPagadora);
 
+        sessionStorage.setItem('administradorId', usuario[0].administradorId);
+        sessionStorage.setItem('nombreUsuario', usuario[0].nombre);
+        sessionStorage.setItem('idUsuario', usuario[0].idUsuario);
+
+        if (administrador.idPersonasPagadora !== null) {
+          this.router.navigate(['/inicio']);     
+        }  
       } else { let result = 'hay datos no validos en el formulario' };
     }
   }
