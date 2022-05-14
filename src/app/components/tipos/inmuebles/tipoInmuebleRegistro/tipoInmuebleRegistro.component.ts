@@ -21,7 +21,7 @@ export class TipoInmuebleRegistroComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router,
   ) {
-    this.path_lista = 'inmuebles/'
+    this.path_lista = 'inmuebles/detalle/'
     this.path_create_update = 'inmuebles'
     this.result = "";
     
@@ -47,11 +47,14 @@ export class TipoInmuebleRegistroComponent implements OnInit {
    ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
-        let response = await this.metodosTipos.getAllTipos(this.path_lista + this.administradorId)
+        let response = await this.metodosTipos.getAllTipos(this.path_lista + params['id'])
         this.registroForm.patchValue(response[0])
       }
     })
   }
+
+
+  
   async enviar() {
     if (this.registroForm.value.idUsuario !== null) {
       

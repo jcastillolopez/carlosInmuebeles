@@ -36,7 +36,7 @@ export class TipoContratoListaComponent implements OnInit {
     })
   }
   navegar(idUsuario: number) {
-    this.router.navigate(["/tipos/contrato/modificacion" + idUsuario])
+    this.router.navigate(["/tipos/contrato/modificacion/" + idUsuario])
   }
 
 }

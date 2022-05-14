@@ -1,6 +1,6 @@
 <div class="fondo">
   <div class="botonNuevosRegistros">
-    <button type="button" class="button" data-toggle="modal" data-target="#registroTiposInterviniente">
+    <button type="button" class="button" [routerLink]="['/tipos/interviniente/']" data-toggle="modal" data-target="#registroTiposInterviniente">
       Nuevo Tipo de Interviniente
     </button>
   </div>
@@ -14,7 +14,8 @@
         </tr>
       </thead>
       <tbody routerLinkActive="activo activoBoton" *ngFor="let tipo of arrListaTipoInterviniente; let i = index">
-        <tr>
+        <tr (click)="navegar(tipo.idTipoInterviniente)"
+        [routerLink]="['/interviniente/modificacion/'+tipo.idTipoInterviniente]">
           <td>{{tipo.tipoInterviniente}}</td>
           <td>
             <button type="button" class="buttonLista" data-toggle="modal" data-target="#registroTiposInterviniente">

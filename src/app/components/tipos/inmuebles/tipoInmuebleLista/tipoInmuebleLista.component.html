@@ -1,6 +1,6 @@
 <div class="fondo">
   <div class="botonNuevosRegistros">
-    <button type="button" class="button" data-toggle="modal" data-target="#registroTiposInmuebles">
+    <button type="button" class="button" [routerLink]="['/tipos/inmueble/']" data-toggle="modal" data-target="#registroTiposInmuebles">
       Nuevo Tipo de Inmueble
     </button>
   </div>
@@ -13,7 +13,8 @@
         </tr>
       </thead>
       <tbody routerLinkActive="activo activoBoton" *ngFor="let tipo of arrListaTipoInmueble; let i = index">
-        <tr>
+        <tr (click)="navegar(tipo.idTipoInmueble)"
+        [routerLink]="['/inmueble/modificacion/'+tipo.idTipoInmueble]">
           <td>{{tipo.tipoInmueble}}</td>
 
           <td>

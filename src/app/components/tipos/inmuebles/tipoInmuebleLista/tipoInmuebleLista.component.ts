@@ -35,7 +35,7 @@ export class TipoInmuebleListaComponent implements OnInit {
     })
    }
    navegar(idUsuario: number) {
-    this.router.navigate(["/tipos/inmueble/" + idUsuario])
+    this.router.navigate(["/tipos/inmueble/modificacion/" + idUsuario])
   }
  
 }

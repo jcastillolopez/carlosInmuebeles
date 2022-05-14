@@ -36,7 +36,7 @@ export class TipoIntervinienteListaComponent implements OnInit {
     })
   }
   navegar(idUsuario: number) {
-    this.router.navigate(["/tipos/contrato/" + idUsuario])
+    this.router.navigate(["/tipos/interviniente/modificacion/" + idUsuario])
   }
 
 }

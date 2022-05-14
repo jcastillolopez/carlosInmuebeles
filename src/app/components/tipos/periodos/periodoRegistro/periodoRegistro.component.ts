@@ -48,7 +48,6 @@ export class PeriodoRegistroComponent implements OnInit {
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
         let response = await this.metodosTipos.getAllTipos(this.path_lista + params['id'])
-        console.log(response)
       }
     })
   }
@@ -64,7 +63,6 @@ export class PeriodoRegistroComponent implements OnInit {
 
         this.registroForm.value.createTime = new Date();
         this.registroForm.value.updateTime = new Date();
-        console.log(this.registroForm.value)
         await this.metodosTipos.create(this.registroForm.value, this.path_create_update);
 
       } else { let result = 'hay datos no validos en el formulario' };

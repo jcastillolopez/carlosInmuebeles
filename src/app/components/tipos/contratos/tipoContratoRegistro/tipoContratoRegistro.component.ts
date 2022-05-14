@@ -22,7 +22,7 @@ export class TipoContratoRegistroComponent implements OnInit {
     private router: Router,
 
   ) {
-    this.path_lista = 'contratos/'
+    this.path_lista = 'contratos/detalle/'
     this.path_create_update = 'contratos'
     this.result = "";
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
@@ -63,7 +63,6 @@ export class TipoContratoRegistroComponent implements OnInit {
 
         this.registroForm.value.createTime = new Date();
         this.registroForm.value.updateTime = new Date();
-        console.log(this.registroForm.value)
         await this.metodosTipos.create(this.registroForm.value, this.path_create_update);
 
       } else { let result = 'hay datos no validos en el formulario' };
