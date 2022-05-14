@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, } from '@angular/router';
-
-import { Globales } from 'src/app/services/Globales.service';
+import { tiposService } from 'src/app/services/tipos.service';
 
 @Component({
   selector: 'tipoIntervinienteRegistro',
@@ -14,43 +13,57 @@ export class TipoIntervinienteRegistroComponent implements OnInit {
   result: any;
   path_lista: string;
   path_create_update: string;
+  administradorId: number;
+  idUsuario: number;
 
   constructor(
-    private metodosGlobales: Globales,
+    private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
     private router: Router,
-  ) { 
-    this.path_lista = 'tipos/interviniente/'
-    this.path_create_update = 'tipos/interviniente'
+
+  ) {
+    this.path_lista = 'intervinientes/'
+    this.path_create_update = 'intervinientes'
     this.result = "";
+    this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
+    this.idUsuario = parseInt(sessionStorage.getItem('idUsuario')!);
 
     this.registroForm = new FormGroup({
-      idUsuario: new FormControl(),
-      nombre: new FormControl('', [
+      idTipoInterviniente: new FormControl(),
+      tipoInterviniente: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(60),
       ]),
-      administradorId: new FormControl(),
+      borrado: new FormControl(false),
+      createTime: new FormControl(),
+      updateTime: new FormControl(),
+      usuarioId: new FormControl(this.idUsuario),
+      administradorId: new FormControl(this.administradorId),
     })
   }
 
   ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
-        let response = await this.metodosGlobales.getById(this.path_lista, params['id'])
+        let response = await this.metodosTipos.getAllTipos(this.path_lista + this.administradorId)
         this.registroForm.patchValue(response[0])
       }
     })
   }
   async enviar() {
-    if (this.registroForm.value.idUsuario !== null) {
-      await this.metodosGlobales.update(this.registroForm.value, this.path_create_update);
+    if (this.registroForm.value.idTipoInterviniente !== null) {
+
+      this.registroForm.value.updateTime = new Date();
+      this.registroForm.value.usuarioId = this.idUsuario;
+      await this.metodosTipos.update(this.registroForm.value, this.path_create_update);
+
     } else {
       if (this.registroForm.valid) {
-        console.log('prueba antes de funcion creado', this.registroForm.value)
-        await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);
-        console.log('prueba despues de funcion creado', this.registroForm.value)
+
+        this.registroForm.value.createTime = new Date();
+        this.registroForm.value.updateTime = new Date();
+        await this.metodosTipos.create(this.registroForm.value, this.path_create_update);
 
       } else { let result = 'hay datos no validos en el formulario' };
     }
@@ -58,5 +71,4 @@ export class TipoIntervinienteRegistroComponent implements OnInit {
   checkError(fieldName: string, errorType: string) {
     return this.registroForm.get(fieldName)!.hasError(errorType) && this.registroForm.get(fieldName)!.touched
   }
-
 }

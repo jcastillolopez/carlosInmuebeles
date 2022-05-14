@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, } from '@angular/router';
@@ -52,7 +53,8 @@ export class AdministradorRegistroComponent implements OnInit {
       direccion: new FormControl(),
       codigoPostal: new FormControl(), 
       borrado: new FormControl(false),
-      
+      createTime: new FormControl(),
+      updateTime: new FormControl()
       
     })
   }
@@ -62,9 +64,12 @@ export class AdministradorRegistroComponent implements OnInit {
 
   async enviar() {
     if (this.registroForm.value.idPersonasPagadora !== null) {
+      this.registroForm.value.updateTime = new Date();
       await this.metodosGlobales.update(this.registroForm.value, this.path_create_update);
     } else {
       if (this.registroForm.valid) {
+        this.registroForm.value.createTime = new Date();
+        this.registroForm.value.updateTime = new Date();
         const administrador = await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);
         const usuario = await this.metodosGlobales.getAll('usuario/'+administrador.idPersonasPagadora);
 

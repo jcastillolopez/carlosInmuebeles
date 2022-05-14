@@ -1,11 +1,16 @@
-.nav{
-    
+.nav {
     min-height: 70vh;
-   
 }
-.general{
-    display:flex;
+
+.general {
+    display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-   justify-content:  space-around;
-} 
+    justify-content: space-evenly;
+}
+
+li {
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

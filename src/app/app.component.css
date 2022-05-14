@@ -1,4 +1,13 @@
+header{
+    justify-content: space-between;
+}
 
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
 
 .router {
     min-width: 100%; 
@@ -10,8 +19,14 @@ h1 {
 }
 
 .logo {
-    width: 20%;
+    width: 10%;
+    display: flex;
     margin: 10px;
+    justify-content: lefts;
+}
+
+.titulo{
+    margin: 0 auto;
 }
 
 .icono {

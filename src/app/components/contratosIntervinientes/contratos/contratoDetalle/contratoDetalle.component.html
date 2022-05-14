@@ -1,9 +1,37 @@
-<header>
-  <navApp></navApp>
-</header>
-
-<div class="fondo"> 
-  <div class="nav">
-
+<div class="container">
+  <div class="lista">
+    <h4>Detalle del Cliente</h4>
+    <div class="campo">
+      <label> Tipo Contrato:</label>
+      <p>{{contrato.tipoContratoId}}</p>
+    </div>
+    <div class="campo">
+      <label> Inmueble:</label>
+      <p>{{contrato.inmueble}}</p>
+    </div>
+    <div class="campo">
+      <label> Fecha Contrato:</label>
+      <p>{{contrato.fechaContrato}}</p>
+    </div>
+    <div class="campo">
+      <label> Valor Contrato:</label>
+      <p>{{contrato.valorContrato}}</p>
+    </div>
+    <div class="campo">
+      <label> Fecha de Inicio:</label>
+      <p>{{contrato.fechaInicio}}</p>
+    </div>
+    <div class="campo">
+      <label> Fecha de Fin:</label>
+      <p>{{contrato.fechaFin}}</p>
+    </div>
+    <div class="campo">
+      <label> Tipo de Periodo:</label>
+      <p>{{contrato.tipoPeriodoId}}</p>
+    </div>
+    <div class="campo">
+      <label> Periodicidad:</label>
+      <p>{{contrato.cantidadPeriodo}}</p>
   </div>
-</div>
+  </div>
+  <contratoRegistro></contratoRegistro>

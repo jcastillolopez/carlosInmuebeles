@@ -28,7 +28,7 @@ export class UsuarioListaComponent implements OnInit {
   ) {
     this.path_usuarios = 'usuario/';
     this.path_roles = 'rol/1';
-    this.path_usuarios_detalle = 'usuario/detalle/'
+    this.path_usuarios_detalle = 'usuarios/detalle/'
     this.usuarioSeleccionadoId = "";
     //Tabla para la lista
     this.arrListaUsuarios = [];
@@ -37,7 +37,7 @@ export class UsuarioListaComponent implements OnInit {
 
   async ngOnInit() {
     this.arrSelectTipos = await this.tiposService.getAllTipos(this.path_roles);
-    this.arrListaUsuarios = await this.metodosGlobales.getById(this.path_usuarios, parseInt(sessionStorage.getItem('idUsuario')!));
+    this.arrListaUsuarios = await this.metodosGlobales.getById(this.path_usuarios, parseInt(sessionStorage.getItem('administradorId')!));
 
     this.activateRouter.params.subscribe(params => {
       this.usuarioSeleccionadoId = params['id']
