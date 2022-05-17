@@ -35,7 +35,7 @@ export class ClienteListaComponent implements OnInit {
 
   async ngOnInit() {
     // this.arrSelectTipos = await this.metodosTipos.getAllTipos('clientes');
-    this.arrListaClientes = await this.metodosGlobales.getById(this.path, 1);
+    this.arrListaClientes = await this.metodosGlobales.getById(this.path, parseInt(sessionStorage.getItem('administradorId')!));
 
     this.activateRouter.params.subscribe(params => {
       this.clienteSeleccionadoId = params['id']
