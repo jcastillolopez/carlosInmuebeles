@@ -47,6 +47,7 @@ import { LoginComponent } from './components/publiRegistros/login/login.componen
 import { TipoContratoListaComponent } from './components/tipos/contratos/tipoContratoLista/tipoContratoLista.component';
 import { AdministradorRegistroComponent } from './components/usuarios/administradorRegistro/administradorRegistro.component';
 import { ModificacionTiposComponent } from './components/tipos/modificacionTipos/modificacionTipos.component';
+import { IntervinienteDetalleComponent } from './components/contratosIntervinientes/intervinientes/intervinienteDetalle/intervinienteDetalle.component';
 
 
 
@@ -75,6 +76,7 @@ import { ModificacionTiposComponent } from './components/tipos/modificacionTipos
     //Intervinientes
     IntervinienteListaComponent,
     IntervinienteRegistroComponent,
+    IntervinienteDetalleComponent,
 
     //Inicio
     NavAppComponent,

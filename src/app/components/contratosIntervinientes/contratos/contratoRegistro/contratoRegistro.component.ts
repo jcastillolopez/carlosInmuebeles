@@ -15,10 +15,13 @@ export class ContratoRegistroComponent implements OnInit {
   path_lista: string;
   path_lista_inmuebles: string;
   path_lista_tipo_contrato: string;
+  path_lista_tipo_periodo: string;
   path_create_update: string;
   registroForm: FormGroup;
   arrSelectTipoContrato: any[];
   arrInmuebles: any[];
+  arrTipoPeriodo: any[];
+  sesionStorageAdministradorId: number;
 
   constructor(
     private metodosGlobales: Globales,
@@ -30,32 +33,39 @@ export class ContratoRegistroComponent implements OnInit {
     this.path_lista = 'contratos/detalles/'
     this.path_lista_inmuebles = 'inmuebles/'
     this.path_lista_tipo_contrato = 'contratos/'
+    this.path_lista_tipo_periodo = 'periodos/'
     this.path_create_update = 'contratos/'
     this.arrSelectTipoContrato = [];
     this.arrInmuebles = [];
+    this.arrTipoPeriodo = [];
+    this.sesionStorageAdministradorId = parseInt(sessionStorage.getItem('administradorId')!)
     this.registroForm = new FormGroup({
-      idContrato: new FormControl(),
+      idContratos: new FormControl(),
       fechaContrato: new FormControl(),
       valorContrato: new FormControl(),
       fechaInicio: new FormControl(),
-      fechafin: new FormControl(),
+      fechaFin: new FormControl(),
       cantidadPeriodo: new FormControl(),
-      inmubleId: new FormControl(),
+      hasIntervinientes: new FormControl(false),
+
+
+      inmuebleId: new FormControl(),
       tipoPeriodoId: new FormControl(),
       tipoContratoId: new FormControl(),
+
+
       administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!)),
       usuarioId: new FormControl(parseInt(sessionStorage.getItem('idUsuario')!)),
-      borrado: new FormControl(),
+      borrado: new FormControl(false),
       createTime: new FormControl(),
       updateTime: new FormControl(),
     })
    }
 
    async ngOnInit() {
-   this.arrInmuebles = await this.metodosGlobales.getAll(this.path_lista_inmuebles + parseInt(sessionStorage.getItem('administradorId')!));
-   this.arrSelectTipoContrato = await this.metodosTipos.getAllTipos(this.path_lista_tipo_contrato);
-   console.log(JSON.stringify(this.arrInmuebles))
-   console.log(JSON.stringify(this.arrSelectTipoContrato))
+   this.arrInmuebles = await this.metodosGlobales.getAll(this.path_lista_inmuebles + this.sesionStorageAdministradorId);
+   this.arrSelectTipoContrato = await this.metodosTipos.getAllTipos(this.path_lista_tipo_contrato + this.sesionStorageAdministradorId);
+   this.arrTipoPeriodo = await this.metodosTipos.getAllTipos(this.path_lista_tipo_periodo + this.sesionStorageAdministradorId)
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
         let response = await this.metodosGlobales.getById(this.path_lista, params['id'])
@@ -65,15 +75,16 @@ export class ContratoRegistroComponent implements OnInit {
     })
   }
   async enviar() {
-    if (this.registroForm.value.idInmueble !== null) {
+    if (this.registroForm.value.idContratos !== null) {
       this.registroForm.value.updateTime = new Date();
+      console.log(this.registroForm.value.idContratos)
       await this.metodosGlobales.update(this.registroForm.value, this.path_create_update);
     } else {
       this.registroForm.value.createTime = new Date();
       this.registroForm.value.updateTime = new Date();
       await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);
     }
-    window.location.href = 'http://localhost:4200/contratos'
+    // window.location.href = 'http://localhost:4200/contratos'
   }
 
 }

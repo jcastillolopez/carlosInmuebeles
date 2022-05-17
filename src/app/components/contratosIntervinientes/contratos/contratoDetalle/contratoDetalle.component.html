@@ -1,13 +1,13 @@
 <div class="container">
   <div class="lista">
-    <h4>Detalle del Cliente</h4>
+    <h4>Detalle del Contrato</h4>
     <div class="campo">
       <label> Tipo Contrato:</label>
-      <p>{{contrato.tipoContratoId}}</p>
+      <p>{{contrato.tipoContrato}}</p>
     </div>
     <div class="campo">
       <label> Inmueble:</label>
-      <p>{{contrato.inmueble}}</p>
+      <p>{{contrato.aliasInmueble}}</p>
     </div>
     <div class="campo">
       <label> Fecha Contrato:</label>
@@ -27,11 +27,14 @@
     </div>
     <div class="campo">
       <label> Tipo de Periodo:</label>
-      <p>{{contrato.tipoPeriodoId}}</p>
+      <p>{{contrato.tipoPeriodo}}</p>
     </div>
     <div class="campo">
       <label> Periodicidad:</label>
       <p>{{contrato.cantidadPeriodo}}</p>
+    </div>
   </div>
+  <div class="interviniete">
+    <intervinienteLista></intervinienteLista>
   </div>
   <contratoRegistro></contratoRegistro>

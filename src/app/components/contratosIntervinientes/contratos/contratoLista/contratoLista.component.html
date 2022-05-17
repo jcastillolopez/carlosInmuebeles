@@ -19,13 +19,13 @@
       </thead>
       <tbody routerLinkActive="activo activoBoton"
         *ngFor="let contrato of arrListaContratos; let i = index">
-        <tr (click)="navegar(contrato.idContrato!)"
-          [routerLink]="['/contratos/detalle/'+contrato.idContrato]">
+        <tr (click)="navegar(contrato.idContratos!)"
+          [routerLink]="['/contratos/detalle/' + contrato.idContratos + '/' + contrato.hasIntervinientes]">
           <td>{{contrato.tipoContrato}}</td>
-          <td>{{contrato.alias}}</td>
+          <td>{{contrato.aliasInmueble}}</td>
           <td>{{contrato.fechaContrato}}</td>
           <td>
-            <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#prueba">
+            <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#contrato">
               Modificar
             </button>
           </td>
@@ -33,12 +33,8 @@
       </tbody>
     </table>
   </div>
+  <div class="router">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-
-
-<div class="router">
-  <router-outlet></router-outlet>
-</div>
-
-
 <contratoRegistro></contratoRegistro>

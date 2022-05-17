@@ -35,45 +35,52 @@ import { IntervinienteListaComponent } from './components/contratosInterviniente
 //Balance
 import { BalanceListaComponent } from './components/balances/balanceLista/balanceLista.component';
 import { ModificacionTiposComponent } from './components/tipos/modificacionTipos/modificacionTipos.component';
+import { IntervinienteDetalleComponent } from './components/contratosIntervinientes/intervinientes/intervinienteDetalle/intervinienteDetalle.component';
 
 
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/publi' },
+
   // publi registro
   {
-    path: 'publi', component: PubliInicioComponent, children: [
-
-    ]
+    path: 'publi', component: PubliInicioComponent, children: []
   },
+
   // usuarios
   {
     path: 'usuarios', component: UsuarioListaComponent, children: [
       { path: 'detalle/:id', component: UsuarioDetalleComponent }
     ]
   },
+
   //inicio
   { path: 'inicio', component: InicioListaComponent },
+
   // balance
   { path: 'balances', component: BalanceListaComponent },
+
   // inmuebles
   {
     path: 'inmuebles', component: InmuebleListaComponent, children: [
       { path: 'detalle/:id', component: InmuebleDetalleComponent },
     ]
   },
+
   //clientes
   {
     path: 'clientes', component: ClienteListaComponent, children: [
       { path: 'detalle/:id', component: ClienteDetalleComponent }
     ]
   },
+   
   //  contratos
   {
     path: 'contratos', component: ContratoListaComponent, children: [
-      { path: 'detalle/:id', component: ContratoDetalleComponent },
-      { path: 'intervinientes/:id', component: IntervinienteListaComponent },
+      { path: 'detalle/:id/:hasIntervinientes', component: ContratoDetalleComponent , children: [
+        { path: 'interviniente/:idInterviniete', component: IntervinienteDetalleComponent}
+      ]},
     ]
   },
 

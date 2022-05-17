@@ -21,7 +21,7 @@
 
             <div class="form-group campo">
               <label class="form-label">Password</label>
-              <input type="text" class="form-control" formControlName="password">
+              <input type="password" class="form-control" formControlName="password">
               <p class="error" *ngIf="checkError('password','required')">
                 requerido</p>
               <p class="error" *ngIf="checkError('password','pattern')">
