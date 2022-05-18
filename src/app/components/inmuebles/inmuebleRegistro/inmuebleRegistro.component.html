@@ -1,4 +1,4 @@
-<div class="modal ventana" id="prueba" tabindex="1" rol="dialog" aria-labelledby="prueba"
+<div class="modal ventana" id="inmuebleRegistro" tabindex="1" rol="dialog" aria-labelledby="inmuebleRegistro"
   aria-hidden="false">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -12,7 +12,7 @@
           <div class="form">
             <div class="form-group campo">
               <label class="form-label">Tipo inmueble</label>
-              <select type="text" formControlName="idTipoInmueble">
+              <select type="text" formControlName="tipoInmueblesId">
                 <option [value]="tipo.idTipoInmueble" *ngFor="let tipo of arrSelectTipos">
                   {{tipo.tipoInmueble}} </option>
               </select>

@@ -1,7 +1,14 @@
-.nav{
-    margin: 0 auto;
+.container{
+    min-width: 125%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav{   
     position: relative;
-    top: -20px;
+    top: -20px;    
     font-size: 125%;
 }
 .general{
@@ -10,3 +17,13 @@
     flex-direction: row;
     justify-content: space-around;
 } 
+
+.bienvenida{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: right;
+    position: relative;
+    top: -75px;
+    left: -100px;
+}

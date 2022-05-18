@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TiposComponent implements OnInit {
 
-  constructor() { }
+  constructor( ) { }
 
   ngOnInit() {
   }

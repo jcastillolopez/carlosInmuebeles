@@ -1,3 +1,66 @@
-<p>
-  contratoRegistro works!
-</p>
+<div class="modal ventana" id="contrato" tabindex="1" rol="dialog" aria-labelledby="contrato"
+  aria-hidden="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Datos del Contrato</h3>
+      </div>
+      <form class="registro"
+      [formGroup]="registroForm">
+
+    <div class="modal-body">
+      <div class="form">
+    <div class="form-group campo">
+      <label class="form-label">Tipo Contrato</label>
+      <select type="text" formControlName="tipoContratoId">
+        <option [value]="tipo.idTipoContrato" *ngFor="let tipo of arrSelectTipoContrato">
+          {{tipo.tipoContrato}} </option>
+      </select>
+    </div>
+    <div class="form-group campo">
+      <label class="form-label">Inmueble</label>
+      <select type="text" formControlName="inmuebleId">
+        <option [value]="inmueble.idInmueble" *ngFor="let inmueble of arrInmuebles">
+          {{inmueble.alias}} </option>
+      </select>
+    </div>
+    <div class="form-group campo">
+      <label class="form-label">Fecha de Contrato</label>
+      <input type="date" class="form-control" formControlName="fechaContrato">
+    </div>
+    <div class="form-group campo">
+      <label class="form-label">Valor del Contrato</label>
+      <input type="number" class="form-control" formControlName="valorContrato">
+    </div>
+    <div class="form-group campo">
+      <label class="form-label">Fecha de Inicio</label>
+      <input type="date" class="form-control" formControlName="fechaInicio">
+    </div>
+    <div class="mform-group campo">
+      <label class="form-label">Fecha de Fin</label>
+      <input type="date" class="form-control" formControlName="fechaFin">
+    </div>
+    <div class="form-group campo">
+      <label class="form-label">Tipo de Periodo</label>
+     <select type="text" formControlName="tipoPeriodoId">
+        <option [value]="tipo.idTipoPeriodo" *ngFor="let tipo of arrTipoPeriodo">
+          {{tipo.tipoPeriodo}} </option>
+      </select>
+    </div>
+    <div class="form-group campo">
+      <label class="form-label">Periodicidad</label>
+      <input type="number" class="form-control" formControlName="cantidadPeriodo">
+    </div>
+    <div class="form-group campo">
+      <label class="form-label">Eliminar Cliente</label>
+      <input type="checkbox" formControlName="borrado" >
+    </div>
+  </div>
+    </div>  
+    <div class="modal-footer">
+      <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
+      <button data-dismiss="modal" (click)="enviar()">Save changes</button>
+    </div>
+  </form>
+</div>
+</div>

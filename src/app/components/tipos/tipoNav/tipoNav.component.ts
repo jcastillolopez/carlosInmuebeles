@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'tipoNav',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TipoNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private activateRouter: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }

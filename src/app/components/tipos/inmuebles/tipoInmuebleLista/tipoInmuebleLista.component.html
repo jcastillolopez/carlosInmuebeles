@@ -1,29 +1,33 @@
+<div class="fondo">
+  <div class="botonNuevosRegistros">
+    <button type="button" class="button" [routerLink]="['/tipos/inmueble/']" data-toggle="modal" data-target="#registroTiposInmuebles">
+      Nuevo Tipo de Inmueble
+    </button>
+  </div>
+  <div class="listado">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody routerLinkActive="activo activoBoton" *ngFor="let tipo of arrListaTipoInmueble; let i = index">
+        <tr (click)="navegar(tipo.idTipoInmueble)"
+        [routerLink]="['/inmueble/modificacion/'+tipo.idTipoInmueble]">
+          <td>{{tipo.tipoInmueble}}</td>
 
-<div class="listado">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Nombre</th>      
-        <th></th>
-      </tr>
-    </thead>
-    <tbody routerLinkActive="activo activoBoton"
-      *ngFor="let tipo of arrListaTipoInmueble; let i = index">
-      <tr (click)="navegar(tipo.idtipoInmuebleDetalle)"
-        [routerLink]="['/usuarios/detalle/'+tipo.idtipoInmuebleDetalle]">
-        <td>{{tipo.nombre}}</td>
-        
-        <td>
-          <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#prueba">
-            Modificar
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="router">
-    <router-outlet></router-outlet>
+          <td>
+            <button type="button" class="buttonLista" data-toggle="modal" data-target="#registroTiposInmuebles">
+              Modificar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
-<tipoInmuebleLista></tipoInmuebleLista>
-
+<tipoInmuebleRegistro></tipoInmuebleRegistro>

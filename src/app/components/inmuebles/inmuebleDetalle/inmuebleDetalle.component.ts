@@ -25,26 +25,24 @@ export class InmuebleDetalleComponent implements OnInit {
     this.arrSelectTipos = [];
     this.inmuebleDetalle = {
       idInmueble: 0,
-      idTipoInmueble: Object,
+      tipoInmueblesId: '',
       alias: '',
       refCatastral: '',
       localidad: '',
       direccion: '',
       cp: '',
-      usuario_id: 0,
       borrado: false,
-      idAdministrador: 0,
       }
    }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmuebles/1')
+    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmuebles/' + parseInt(sessionStorage.getItem('administradorId')!))
     this.activateRouter.params.subscribe(async params => {
-      let response = await this.metodosGlobales.getById(this.path, params['id'])
-      this.inmuebleDetalle = response[0]
+      let response = await this.metodosGlobales.getById(this.path, params['id']);
+      this.inmuebleDetalle = response[0];
       for (const tipo of this.arrSelectTipos) {
-        if (tipo.idTipoInmueble == this.inmuebleDetalle.idTipoInmueble) {
-          this.inmuebleDetalle.idTipoInmueble = tipo.tipoInmueble;
+        if (response.tipoInmueblesId == tipo.idTipoInmueble) {
+          this.inmuebleDetalle.tipoInmueblesId = tipo.tipoInmueble;
         }
       }
     })

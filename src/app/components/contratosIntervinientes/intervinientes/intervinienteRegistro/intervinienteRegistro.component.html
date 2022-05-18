@@ -1,3 +1,49 @@
-<p>
-  intervinientesRegistro works!
-</p>
+<div class="modal ventana" id="interviniente" tabindex="1" rol="dialog" aria-labelledby="interviniente"
+  aria-hidden="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Datos del Contrato</h3>
+      </div>
+      <form class="registro" [formGroup]="registroForm">
+
+        <div class="modal-body">
+          <div class="form">
+            <div class="form-group campo">
+              <label class="form-label">Porcentaje Propiedad</label>
+              <input type="number" class="form-control" formControlName="porcentajePropiedad">
+            </div>
+            <!-- <div class="form-group campo">
+              <label class="form-label">Inmueble</label>
+              <select type="number" formControlName="inmuebleId">
+                <option [value]="inmueble.idInmueble" *ngFor="let inmueble of arrInmuebles">
+                  {{inmueble.alias}} </option>
+              </select>
+            </div> -->
+            <div class="form-group campo">
+              <label class="form-label">cliente</label>
+              <select type="number" formControlName="clienteId">
+                <option [value]="cliente.idCliente" *ngFor="let cliente of arrCliente">
+                  {{cliente.nombre}} {{cliente.apellidos}} </option>
+              </select>
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Tipo de Interviniente</label>
+              <select type="number" formControlName="tipoIntervinienteId">
+                <option [value]="tipo.idTipoInterviniente" *ngFor="let tipo of arrTipoInterviniente">
+                  {{tipo.tipoInterviniente}}</option>
+              </select>
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Eliminar Cliente</label>
+              <input type="checkbox" formControlName="borrado">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
+          <button data-dismiss="modal" (click)="enviar()">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>

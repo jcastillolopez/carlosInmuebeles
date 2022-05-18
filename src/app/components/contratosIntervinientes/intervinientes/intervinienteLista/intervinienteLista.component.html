@@ -1,3 +1,37 @@
-<p>
-  intervinientesLista works!
-</p>
+<div class="listado">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Tipo Interviniente</th>
+      </tr>
+    </thead>
+    <tbody routerLinkActive="activo activoBoton"
+      *ngFor="let interviniente of arrListaIntervinientes; let i = index">
+      <tr (click)="navegar(interviniente.contratoId! ,interviniente.idInterviniente!)"
+      [routerLink]="['/contratos/detalle/' + interviniente.contratoId + '/interviniente/' + interviniente.idInterviniente]">
+        <td>{{interviniente.nombreCliente}}</td>
+        <td>{{interviniente.apellidosCliente}}</td>
+        <td>{{interviniente.tipoInterviniente}}</td>
+        <td>
+          <button type="button" class="buttonLista" data-toggle="modal" data-target="#interviniente">
+            Modificar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="nuevoInterviniente">
+  <button type="button" class="buttonLista" data-toggle="modal" data-target="#interviniente">
+    Nuevo Interviniente
+  </button>
+</div>
+
+<div class="router">
+  <router-outlet></router-outlet>
+</div>
+
+<intervinienteRegistro></intervinienteRegistro>

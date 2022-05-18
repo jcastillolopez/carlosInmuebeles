@@ -5,7 +5,7 @@ import { Globales } from 'src/app/services/Globales.service';
 
 
 @Component({
-  selector: 'clientesRegistro',
+  selector: 'clienteRegistro',
   templateUrl: './clienteRegistro.component.html',
   styleUrls: ['./clienteRegistro.component.css'],
 })
@@ -37,11 +37,11 @@ export class ClienteRegistroComponent implements OnInit {
       localidad: new FormControl(),
       direccion: new FormControl(),
       codigoPostal: new FormControl(), 
-      administradorId: new FormControl(),
+      administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!)),
+      usuarioId: new FormControl(parseInt(sessionStorage.getItem('idUsuario')!)),
       borrado: new FormControl(),
       createTime: new FormControl(),
       updateTime: new FormControl(),
-      usuarioId: new FormControl(),
     })
    }
 
@@ -57,8 +57,11 @@ export class ClienteRegistroComponent implements OnInit {
   }
   async enviar() {
     if (this.registroForm.value.idInmueble !== null) {
+      this.registroForm.value.updateTime = new Date();
       await this.metodosGlobales.update(this.registroForm.value, this.path_create_update);
     } else {
+      this.registroForm.value.createTime = new Date();
+      this.registroForm.value.updateTime = new Date();
       await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);
     }
     window.location.href = 'http://localhost:4200/clientes'

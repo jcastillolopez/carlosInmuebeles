@@ -11,34 +11,30 @@ import { tiposService } from 'src/app/services/tipos.service';
 })
 export class RolListaComponent implements OnInit {
   seleccionadoId: string;
-  path_tipos: string;
- 
-  arrSelectTipos: any[];
+  path_usuarios: string;
+  administradorId: number;
 
   //Tabla para la lista
   arrListaTipoRol: any[];
+
   constructor(
-    private metodosGlobales: Globales,
     private tiposService: tiposService,
     private activateRouter: ActivatedRoute,
     private router: Router
-  ) { 
-    this.path_tipos = 'tipos/rol/';    
+  ) {
+    this.path_usuarios = 'rol/';
     this.seleccionadoId = "";
+    this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     //Tabla para la lista
     this.arrListaTipoRol = [];
-    this.arrSelectTipos = [];
   }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.tiposService.getAllTipos(this.path_tipos);
-    this.arrListaTipoRol = await this.metodosGlobales.getById(this.path_tipos, 1);
+    this.arrListaTipoRol = await this.tiposService.getAllTipos(this.path_usuarios + this.administradorId);
 
-    this.activateRouter.params.subscribe(params => {
-      this.seleccionadoId = params['id']
-    })
-   }
-   navegar(idUsuario: number) {
-    this.router.navigate(["/tipos/rol/" + idUsuario])
   }
+  navegar(idUsuario: number) {
+    this.router.navigate(["/tipos/rol/modificacion/" + idUsuario])
+  }
+
 }

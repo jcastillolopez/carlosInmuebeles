@@ -1,8 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
-
-import { Globales } from 'src/app/services/Globales.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { tiposService } from 'src/app/services/tipos.service';
 
 @Component({
@@ -13,35 +11,32 @@ import { tiposService } from 'src/app/services/tipos.service';
 export class TipoContratoListaComponent implements OnInit {
   seleccionadoId: string;
   path_usuarios: string;
- 
-  arrSelectTipos: any[];
+  administradorId: number;
 
   //Tabla para la lista
   arrListaTipoContrato: any[];
 
   constructor(
-    private metodosGlobales: Globales,
     private tiposService: tiposService,
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.path_usuarios = 'tipos/contrato/';    
+    this.path_usuarios = 'contratos/';
     this.seleccionadoId = "";
+    this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     //Tabla para la lista
     this.arrListaTipoContrato = [];
-    this.arrSelectTipos = [];
-   }
+  }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.tiposService.getAllTipos(this.path_usuarios);
-    this.arrListaTipoContrato = await this.metodosGlobales.getById(this.path_usuarios, 1);
+    this.arrListaTipoContrato = await this.tiposService.getAllTipos(this.path_usuarios + this.administradorId);
 
     this.activateRouter.params.subscribe(params => {
       this.seleccionadoId = params['id']
     })
   }
-     navegar(idUsuario: number) {
-       this.router.navigate(["/tipos/contrato/" + idUsuario])
-     }
-    
+  navegar(idUsuario: number) {
+    this.router.navigate(["/tipos/contrato/modificacion/" + idUsuario])
+  }
+
 }

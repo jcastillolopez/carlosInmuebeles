@@ -46,6 +46,14 @@ import { BalanceNavComponent } from './components/balances/balanceNav/balanceNav
 import { LoginComponent } from './components/publiRegistros/login/login.component';
 import { TipoContratoListaComponent } from './components/tipos/contratos/tipoContratoLista/tipoContratoLista.component';
 import { AdministradorRegistroComponent } from './components/usuarios/administradorRegistro/administradorRegistro.component';
+import { ModificacionTiposComponent } from './components/tipos/modificacionTipos/modificacionTipos.component';
+import { IntervinienteDetalleComponent } from './components/contratosIntervinientes/intervinientes/intervinienteDetalle/intervinienteDetalle.component';
+import { IngaNavComponent } from './components/ingresosGastos/ingaNav/ingaNav.component';
+import { IngaRegistroDetalleComponent } from './components/ingresosGastos/ingaRegistroDetalle/ingaRegistroDetalle.component';
+import { IngaRegistroGeneralComponent } from './components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component';
+import { TipoCoceptoListaComponent } from './components/tipos/conceptos/tipoCoceptoLista/tipoCoceptoLista.component';
+import { TipoConceptoRegistroComponent } from './components/tipos/conceptos/tipoConceptoRegistro/tipoConceptoRegistro.component';
+import { InGaInicioComponent } from './components/ingresosGastos/inGaInicio/inGaInicio.component';
 
 
 
@@ -59,6 +67,11 @@ import { AdministradorRegistroComponent } from './components/usuarios/administra
     // Balance ingreso gasto
     BalanceListaComponent,
     BalanceNavComponent,
+    IngaNavComponent,
+    IngaRegistroDetalleComponent,
+    IngaRegistroGeneralComponent,
+    InGaInicioComponent,
+    
     //Clientes
     ClienteDetalleComponent,
     ClienteListaComponent,
@@ -74,6 +87,7 @@ import { AdministradorRegistroComponent } from './components/usuarios/administra
     //Intervinientes
     IntervinienteListaComponent,
     IntervinienteRegistroComponent,
+    IntervinienteDetalleComponent,
 
     //Inicio
     NavAppComponent,
@@ -90,8 +104,8 @@ import { AdministradorRegistroComponent } from './components/usuarios/administra
     PubliInicioComponent,
     PubliNavComponent,
     LoginNavComponent,
-   LoginComponent,
-  
+    LoginComponent,
+
 
 
     //Tipos  
@@ -105,8 +119,11 @@ import { AdministradorRegistroComponent } from './components/usuarios/administra
     TipoIntervinienteRegistroComponent,
     TipoInmuebleListaComponent,
     TipoInmuebleRegistroComponent,
-    TipoContratoListaComponent,  
+    TipoContratoListaComponent,
     TipoContratoRegistroComponent,
+    ModificacionTiposComponent,
+    TipoCoceptoListaComponent,
+    TipoConceptoRegistroComponent,
 
 
     //Usuarios
@@ -116,7 +133,7 @@ import { AdministradorRegistroComponent } from './components/usuarios/administra
     UsuarioRegistroComponent,
     LoginNavComponent,
     AdministradorRegistroComponent,
- 
+
 
 
   ],

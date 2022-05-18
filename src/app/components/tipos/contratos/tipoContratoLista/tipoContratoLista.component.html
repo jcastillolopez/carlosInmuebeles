@@ -1,28 +1,34 @@
-
-<div class="listado">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Nombre</th>      
-        <th></th>
-      </tr>
-    </thead>
-    <tbody routerLinkActive="activo activoBoton"
-      *ngFor="let tipo of arrListaTipoContrato; let i = index">
-      <tr (click)="navegar(tipo.idTipocontrato)"
-        [routerLink]="['/usuarios/detalle/'+tipo.idtipoContratoDetalle]">
-        <td>{{tipo.nombre}}</td>
-        
-        <td>
-          <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#prueba">
-            Modificar
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="router">
-    <router-outlet></router-outlet>
+<div class="fondo">
+  <div class="botonNuevosRegistros">
+    <button type="button" [routerLink]="['/tipos/contrato']" class="button" data-toggle="modal" data-target="#registroTiposContrato">
+      Nuevo Tipo de Contrato
+    </button>
   </div>
+  <div class="listado">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+        </tr>
+      </thead>
+      <tbody routerLinkActive="activo activoBoton" *ngFor="let tipo of arrListaTipoContrato; let i = index">
+        <tr (click)="navegar(tipo.idTipoContrato)"
+        [routerLink]="['/contrato/modificacion/'+tipo.idTipoContrato]">
+          <td>{{tipo.tipoContrato}}</td>
+          <td>
+            <button type="button" class="buttonLista" data-toggle="modal" data-target="#registroTiposContrato">
+              Modificar
+            </button>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+
 </div>
-<tipoContratoLista></tipoContratoLista>
+<tipoContratoRegistro></tipoContratoRegistro>

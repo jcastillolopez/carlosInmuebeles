@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, } from '@angular/router';
 import { Globales } from 'src/app/services/Globales.service';
+import { tiposService } from 'src/app/services/tipos.service';
 
 @Component({
   selector: 'usuarioRegistro',
@@ -14,16 +15,19 @@ export class UsuarioRegistroComponent implements OnInit {
   result: any;
   path_lista: string;
   path_create_update: string;
+  arrSelectTipos: any[];
 
   constructor(
     
     private metodosGlobales:Globales,   
+    private metodosTipos:tiposService,
     private activateRouter: ActivatedRoute,
     private router: Router,
   ) {
     this.path_lista = 'usuario/detalle/'
     this.path_create_update = 'usuario'
     this.result = "";
+    this.arrSelectTipos = [];
     this.registroForm = new FormGroup({
       idUsuario: new FormControl(),
 
@@ -37,19 +41,17 @@ export class UsuarioRegistroComponent implements OnInit {
         Validators.required,
         Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/)
       ]),
-      nie: new FormControl('', [
-        Validators.required,
-        this.dniValidators
-      ]),      
+      password: new FormControl(),
       borrado: new FormControl(),
-      create_time: new FormControl(),
-      update_time: new FormControl(),
-      idRol: new FormControl(1),
-      idAdministrador: new FormControl(0)
+      createTime: new FormControl(),
+      updateTime: new FormControl(),
+      idRol: new FormControl(),
+      administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!))
     })
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.arrSelectTipos = await this.metodosTipos.getAllTipos('rol/1');
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
         let response = await this.metodosGlobales.getById(this.path_lista,params['id'])
@@ -59,9 +61,13 @@ export class UsuarioRegistroComponent implements OnInit {
   }
   async enviar() {
     if (this.registroForm.value.idUsuario !== null) {
+      this.registroForm.value.updateTime = new Date();
       await this.metodosGlobales.update(this.registroForm.value, this.path_create_update);
     } else {
       if (this.registroForm.valid) {
+      this.registroForm.value.createTime = new Date();
+      this.registroForm.value.updateTime = new Date();
+        
         const temp = await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);
       } else { let result = 'hay datos no validos en el formulario' };
     }

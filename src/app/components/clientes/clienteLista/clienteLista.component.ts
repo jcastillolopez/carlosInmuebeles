@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
@@ -10,7 +10,8 @@ import { tiposService } from 'src/app/services/tipos.service';
   styleUrls: ['./clienteLista.component.css']
 })
 export class ClienteListaComponent implements OnInit {
-  clienteSeleccionadoId: string;
+
+  clienteSeleccionadoId: number;
   path: string;
   //Formulario Modal
   arrSelectTipos: any[];
@@ -24,31 +25,28 @@ export class ClienteListaComponent implements OnInit {
     private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
     private router: Router
-  ) { 
-    
+  ) {
+
     this.path = 'clientes/';
-    this.clienteSeleccionadoId = "";
+    this.clienteSeleccionadoId = 1;
+
     //Tabla para la lista
     this.arrListaClientes = [];
     this.arrSelectTipos = [];
   }
 
   async ngOnInit() {
-    // this.arrSelectTipos = await this.metodosTipos.getAllTipos('clientes');
     this.arrListaClientes = await this.metodosGlobales.getById(this.path, parseInt(sessionStorage.getItem('administradorId')!));
 
     this.activateRouter.params.subscribe(params => {
       this.clienteSeleccionadoId = params['id']
     })
-
-   
-        
-      
-    
   }
-  navegar(idInmueble: number) {
-    this.router.navigate(["/clientes/detalle/" + idInmueble])
-    
+
+
+  navegar(idCliente: number) {
+    this.router.navigate(["/clientes/detalle/" + idCliente])
+
   }
 
 }
