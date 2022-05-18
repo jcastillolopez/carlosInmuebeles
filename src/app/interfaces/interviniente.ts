@@ -14,5 +14,5 @@ export interface intervinienteInterface {
     apellidosCliente?: string,
     tipoIntervinienteid?: number,
     tipoInterviniente: string,
-    contratoId?: number,
+    contratosId?: number,
 }

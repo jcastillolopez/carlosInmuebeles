@@ -78,7 +78,7 @@ const routes: Routes = [
   //  contratos
   {
     path: 'contratos', component: ContratoListaComponent, children: [
-      { path: 'detalle/:id/:hasIntervinientes', component: ContratoDetalleComponent , children: [
+      { path: 'detalle/:id', component: ContratoDetalleComponent , children: [
         { path: 'interviniente/:idInterviniete', component: IntervinienteDetalleComponent}
       ]},
     ]

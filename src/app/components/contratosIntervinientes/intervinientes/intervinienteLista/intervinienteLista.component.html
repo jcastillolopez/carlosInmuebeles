@@ -9,8 +9,8 @@
     </thead>
     <tbody routerLinkActive="activo activoBoton"
       *ngFor="let interviniente of arrListaIntervinientes; let i = index">
-      <tr (click)="navegar(interviniente.contratoId! ,interviniente.idInterviniente!)"
-      [routerLink]="['/contratos/detalle/' + interviniente.contratoId + '/interviniente/' + interviniente.idInterviniente]">
+      <tr (click)="navegar(interviniente.contratosId! ,interviniente.idInterviniente!)"
+      [routerLink]="['/contratos/detalle/' + interviniente.contratosId + '/interviniente/' + interviniente.idInterviniente]">
         <td>{{interviniente.nombreCliente}}</td>
         <td>{{interviniente.apellidosCliente}}</td>
         <td>{{interviniente.tipoInterviniente}}</td>
