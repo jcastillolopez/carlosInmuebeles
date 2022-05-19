@@ -37,6 +37,12 @@ import { BalanceListaComponent } from './components/balances/balanceLista/balanc
 import { ModificacionTiposComponent } from './components/tipos/modificacionTipos/modificacionTipos.component';
 import { IntervinienteDetalleComponent } from './components/contratosIntervinientes/intervinientes/intervinienteDetalle/intervinienteDetalle.component';
 
+import { IngaRegistroGeneralComponent } from './components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component';
+import { IngaRegistroDetalleComponent } from './components/ingresosGastos/ingaRegistroDetalle/ingaRegistroDetalle.component';
+import { TipoCoceptoListaComponent } from './components/tipos/conceptos/tipoCoceptoLista/tipoCoceptoLista.component';
+import { TipoConceptoRegistroComponent } from './components/tipos/conceptos/tipoConceptoRegistro/tipoConceptoRegistro.component';
+import { InGaInicioComponent } from './components/ingresosGastos/inGaInicio/inGaInicio.component';
+
 
 
 
@@ -60,6 +66,11 @@ const routes: Routes = [
 
   // balance
   { path: 'balances', component: BalanceListaComponent },
+  {
+    path: 'inga', component: InGaInicioComponent, children: [
+      { path: 'general', component: IngaRegistroGeneralComponent },
+      { path: 'detalle', component: IngaRegistroDetalleComponent},
+  ]},
 
   // inmuebles
   {
@@ -79,7 +90,7 @@ const routes: Routes = [
   {
     path: 'contratos', component: ContratoListaComponent, children: [
       { path: 'detalle/:id', component: ContratoDetalleComponent , children: [
-        { path: 'interviniente/:idInterviniete', component: IntervinienteDetalleComponent}
+        { path: 'interviniente/:idInterviniente', component: IntervinienteDetalleComponent}
       ]},
     ]
   },
@@ -101,10 +112,15 @@ const routes: Routes = [
       ]},
       { path: 'rol', component: RolListaComponent , children: [
         { path: 'modificacion/:id', component: ModificacionTiposComponent}
-      ]},
+      ]
+      },
+      {
+        path: 'concepto', component: TipoCoceptoListaComponent, children: [
+         { path: ' modificacion/:id', component: TipoConceptoRegistroComponent},
+       ]},
     ]
   },
-
+  
   { path: '**', pathMatch: 'full', redirectTo: '/publi' },
 
 

@@ -1,65 +1,64 @@
-<div class="modal ventana" id="clienteModificacion" tabindex="1" rol="dialog" aria-labelledby="clienteModificacion"
-  aria-hidden="false">
+<div class="modal ventana" id="clienteRegistro" tabindex="1" rol="dialog"
+  aria-labelledby="clienteRegistro" aria-hidden="false">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h3>Datos de la Entidad</h3>
       </div>
-      <form class="registro"
-      [formGroup]="registroForm">
+      <form class="registro" [formGroup]="registroForm">
 
-    <div class="modal-body">
-      <div class="form">
-    <div class="form-group campo">
-      <label class="form-label">Nombre</label>
-      <input type="text"  class="form-control" formControlName="nombre">
-    </div>
-    <div class="form-group campo">
-      <label class="form-label">Apellidos</label>
-      <input type="text" class="form-control" formControlName="apellidos">
-    </div>
-    <div class="form-group campo">
-      <label class="form-label">Nie</label>
-      <input type="text" class="form-control" formControlName="nie">
-    </div>
-    <div class="form-group campo">
-      <label class="form-label">Fecha Nacimiento</label>
-      <input type="date" class="form-control" formControlName="fechaNacimiento">
-    </div>
-    <div class="form-group campo">
-      <label class="form-label">Email</label>
-      <input type="text" class="form-control" formControlName="email">
-    </div>
-    <div class="mform-group campo">
-      <label class="form-label">Tlf</label>
-      <input type="text" class="form-control" formControlName="tlf">
-    </div>
-    <div class="form-group campo">
-      <label class="form-label">Tlf. Movil</label>
-      <input type="text" class="form-control" formControlName="tlfMovil">
-    </div>
-    <div class="form-group campo">
-      <label class="form-label">Localidad</label>
-      <input type="text" class="form-control" formControlName="localidad">
-    </div>
-    <div class="form-group campo">
-      <label class="form-label">Direccion</label>
-      <input type="text" class="form-control" formControlName="direccion">
-    </div>
-    <div class="form-group campo">
-      <label class="form-label">Codigo Postal</label>
-      <input type="text" class="form-control" formControlName="codigoPostal">
-    </div>
-    <div class="form-group campo">
-      <label class="form-label">Eliminar Cliente</label>
-      <input type="checkbox" formControlName="borrado" >
+        <div class="modal-body">
+          <div class="form">
+            <div class="form-group campo">
+              <label class="form-label">Nombre</label>
+              <input type="text" class="form-control" formControlName="nombre">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Apellidos</label>
+              <input type="text" class="form-control" formControlName="apellidos">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Nie</label>
+              <input type="text" class="form-control" formControlName="nie">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Fecha Nacimiento</label>
+              <input type="date" class="form-control" formControlName="fechaNacimiento">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Email</label>
+              <input type="text" class="form-control" formControlName="email">
+            </div>
+            <div class="mform-group campo">
+              <label class="form-label">Tlf</label>
+              <input type="text" class="form-control" formControlName="tlf">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Tlf. Movil</label>
+              <input type="text" class="form-control" formControlName="tlfMovil">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Localidad</label>
+              <input type="text" class="form-control" formControlName="localidad">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Direccion</label>
+              <input type="text" class="form-control" formControlName="direccion">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Codigo Postal</label>
+              <input type="text" class="form-control" formControlName="codigoPostal">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Eliminar Cliente</label>
+              <input type="checkbox" formControlName="borrado">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
+          <button data-dismiss="modal" (click)="enviar()">Save changes</button>
+        </div>
+      </form>
     </div>
   </div>
-    </div>  
-    <div class="modal-footer">
-      <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
-      <button data-dismiss="modal" (click)="enviar()">Save changes</button>
-    </div>
-  </form>
-</div>
-</div>

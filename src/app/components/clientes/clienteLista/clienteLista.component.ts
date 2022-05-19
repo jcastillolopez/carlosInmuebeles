@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
@@ -25,11 +25,11 @@ export class ClienteListaComponent implements OnInit {
     private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
     private router: Router
-  ) { 
-    
+  ) {
+
     this.path = 'clientes/';
     this.clienteSeleccionadoId = 1;
-    
+
     //Tabla para la lista
     this.arrListaClientes = [];
     this.arrSelectTipos = [];
@@ -46,7 +46,7 @@ export class ClienteListaComponent implements OnInit {
 
   navegar(idCliente: number) {
     this.router.navigate(["/clientes/detalle/" + idCliente])
-    
+
   }
 
 }

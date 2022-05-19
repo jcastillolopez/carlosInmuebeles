@@ -1,0 +1,98 @@
+<div class="modal ventana" id="ingaGeneral" tabindex="1" rol="dialog"
+  aria-labelledby="ingaGeneral" aria-hidden="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Datos de Ingresos / Gastos</h3>
+      </div>
+      <form class="registro" [formGroup]="registroForm">
+        <div class="modal-body">
+          <div class="form">
+            <div class="form-group campo">
+              <label class="form-label">Inmueble</label>
+              <select type="text" formControlName="inmuebleId">
+                <option [value]="inmueble.id" *ngFor="let inmueble of selectInmueble">
+                  {{inmueble.refcatastral}} {{inmueble.alias}}</option>
+              </select>
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Tipo Concepto</label>
+              <select type="text" formControlName="tipoConceptoId">
+                <option [value]="tipo.id" *ngFor="let tipo of selectTipoConcepto">
+                  {{tipo.tipo_concepto}} </option>
+              </select>
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Concepto </label>
+              <input type="text" class="form-control" formControlName="concepto">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Fecha Concepto </label>
+              <input type="date" class="form-control" formControlName="fechaConcepto">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Ingreso </label>
+              <input type="number" class="form-control" formControlName="ingreso">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Gasto </label>
+              <input type="number" class="form-control" formControlName="gasto">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Porcentaje de IVA </label>
+              <input type="number" class="form-control" formControlName="ivaPorcentaje">
+            </div>
+            <div class="campo">
+              <label for="form-label"> Base Imponible : </label>
+              <p>{{(registroForm.get('ingreso').value +
+                (registroForm.get('gasto').value))/(1+(registroForm.get('ivaPorcentaje').value/100))
+                +'€'}}</p>
+            </div>
+            <div class="campo">
+              <label for="form-label"> Imp IVA :</label>
+              <p>
+                {{
+                (registroForm.get('ingreso').value + (registroForm.get('gasto').value))
+                -((registroForm.get('ingreso').value +
+                (registroForm.get('gasto').value))/(1+(registroForm.get('ivaPorcentaje').value/100)))
+                +'
+                €'
+                }}
+              </p>
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Proveedor</label>
+              <select type="text" formControlName="proveedoreId">
+                <option [value]="proveedor.id" *ngFor="let proveedor of selectProveedor">
+                  {{proveedor.nie}} {{proveedor.nombre}} {{proveedor.apellidos}} </option>
+              </select>
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Fecha Factura </label>
+              <input type="date" class="form-control" formControlName="fechaFactura">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Numero Factura </label>
+              <input type="text" class="form-control" formControlName="numeroFactura">
+            </div>
+            <div class="form-group campoE">
+              <label class="form-label">Eliminar Ingreso / Gastos</label>
+              <input type="checkbox" formControlName="borrado">
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
+              <button data-dismiss="modal" (click)="enviar()">Save changes</button>
+            </div>
+            </div>
+            </div>
+      </form>
+      <div class="router">
+        <button routerLinkActive="activo"  type="button" data-toggle="modal" data-target="#ingaDetalle">
+          Detalle del Ingreso / Gasto
+        </button>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+  <ingaRegistroDetalle></ingaRegistroDetalle>

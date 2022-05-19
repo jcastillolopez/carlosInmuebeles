@@ -48,6 +48,12 @@ import { TipoContratoListaComponent } from './components/tipos/contratos/tipoCon
 import { AdministradorRegistroComponent } from './components/usuarios/administradorRegistro/administradorRegistro.component';
 import { ModificacionTiposComponent } from './components/tipos/modificacionTipos/modificacionTipos.component';
 import { IntervinienteDetalleComponent } from './components/contratosIntervinientes/intervinientes/intervinienteDetalle/intervinienteDetalle.component';
+import { IngaNavComponent } from './components/ingresosGastos/ingaNav/ingaNav.component';
+import { IngaRegistroDetalleComponent } from './components/ingresosGastos/ingaRegistroDetalle/ingaRegistroDetalle.component';
+import { IngaRegistroGeneralComponent } from './components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component';
+import { TipoCoceptoListaComponent } from './components/tipos/conceptos/tipoCoceptoLista/tipoCoceptoLista.component';
+import { TipoConceptoRegistroComponent } from './components/tipos/conceptos/tipoConceptoRegistro/tipoConceptoRegistro.component';
+import { InGaInicioComponent } from './components/ingresosGastos/inGaInicio/inGaInicio.component';
 
 
 
@@ -61,6 +67,11 @@ import { IntervinienteDetalleComponent } from './components/contratosIntervinien
     // Balance ingreso gasto
     BalanceListaComponent,
     BalanceNavComponent,
+    IngaNavComponent,
+    IngaRegistroDetalleComponent,
+    IngaRegistroGeneralComponent,
+    InGaInicioComponent,
+    
     //Clientes
     ClienteDetalleComponent,
     ClienteListaComponent,
@@ -111,6 +122,8 @@ import { IntervinienteDetalleComponent } from './components/contratosIntervinien
     TipoContratoListaComponent,
     TipoContratoRegistroComponent,
     ModificacionTiposComponent,
+    TipoCoceptoListaComponent,
+    TipoConceptoRegistroComponent,
 
 
     //Usuarios
