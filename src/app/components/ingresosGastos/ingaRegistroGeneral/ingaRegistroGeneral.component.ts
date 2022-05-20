@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
 import { ActivatedRoute,Router } from '@angular/router';
 
 import { firstValueFrom } from 'rxjs';
@@ -30,7 +30,9 @@ export class IngaRegistroGeneralComponent implements OnInit {
     private metodosGlobales: Globales,
     private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
-    private router: Router
+    private router: Router, 
+    private builder: FormBuilder,
+
   ) { 
     this.path_inga = 'inga/';
     this.path_Inmueble = 'inmuebles/';
@@ -43,8 +45,37 @@ export class IngaRegistroGeneralComponent implements OnInit {
     this.selectInmueble = [];
     this.selectTipoConcepto = [];
     this.resultado = 0;
+  }
 
-    this.registroForm = new FormGroup({
+  async ngOnInit() {
+    this.nuevoRegistro();
+   
+    this.selectInmueble = await this.metodosTipos.getAllTipos('inmuebles/1');
+    this.selectProveedor = await this.metodosTipos.getAllTipos('proveedores/1');
+    this.selectTipoConcepto = await this.metodosTipos.getAllTipos('concepto/1');
+
+    this.activateRouter.params.subscribe(async params => {
+      if (params['idInGa']) {
+        let response = await this.metodosGlobales.getById( this.path_inga = 'inga/', params['id'])
+        let ingreso = response[0]
+        ingreso.fecha_concepto = dayjs(ingreso.fecha_contrato).format('YYYY-MM-DD')
+        ingreso.fecha_factura = dayjs(ingreso.fecha_inicio).format('YYYY-MM-DD')
+        this.registroForm.setValue(ingreso)
+
+      }
+    })
+  }
+  async enviar() {
+    if (this.activateRouter.snapshot.params['idingreso']) {
+      await this.metodosGlobales.update(this.path_inga ,this.registroForm.value);
+    } else {
+      const newIngreso = await this.metodosGlobales.create( this.path_inga ,this.registroForm.value);
+
+    }
+  }
+
+  nuevoRegistro(){
+    this.registroForm = this.builder.group({
       idInGa: new FormControl(),
       fechaConcepto: new FormControl(new Date),
       concepto: new FormControl(),
@@ -60,38 +91,30 @@ export class IngaRegistroGeneralComponent implements OnInit {
       createTime: new FormControl(),
       updateTime: new FormControl(),
       borrado: new FormControl(),
-      administradorId : new FormControl(),
-    })
-
+      administradorId: new FormControl(),
+      arrRegistroDetalle: this.builder.array([])
+    });
   }
 
-  async ngOnInit() {
-   
-    this.selectInmueble = await this.metodosTipos.getAllTipos('inmuebles/1');
-
-    this.selectProveedor = await this.metodosTipos.getAllTipos('proveedores/1');
-
-    this.selectTipoConcepto = await this.metodosTipos.getAllTipos('concepto/1');
-
-
-    this.activateRouter.params.subscribe(async params => {
-      if (params['idInGa']) {
-        let response = await this.metodosGlobales.getById( this.path_inga = 'inga/', params['id'])
-        let ingreso = response[0]
-        ingreso.fecha_concepto = dayjs(ingreso.fecha_contrato).format('YYYY-MM-DD')
-        ingreso.fecha_factura = dayjs(ingreso.fecha_inicio).format('YYYY-MM-DD')
-        this.registroForm.setValue(ingreso)
-
-      }
-    })
-
+  get obtenerDetalle(): FormArray{
+    return this.registroForm.get('arrRegistroDetalle') as FormArray;
   }
-  async enviar() {
-    if (this.activateRouter.snapshot.params['idingreso']) {
-      await this.metodosGlobales.update(this.path_inga ,this.registroForm.value);
-    } else {
-      const newIngreso = await this.metodosGlobales.create( this.path_inga ,this.registroForm.value);
 
-    }
+  anadirDetalle(){
+    const detalle = this.builder.group({
+      idInGaDetalle: new FormControl(),      
+      concepto: new FormControl(),
+      tipoConceptoId: new FormControl(),
+      cantidad: new FormControl(1),
+      ingreso: new FormControl(0),
+      ivaPorcentaje: new FormControl(21),
+      gasto: new FormControl(0),     
+      usuario_id: new FormControl(),
+      create_time: new FormControl(),
+      update_time: new FormControl(),
+      borrado: new FormControl()
+    });
+
+    this.obtenerDetalle.push(detalle);
   }
 }

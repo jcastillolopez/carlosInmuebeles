@@ -11,7 +11,7 @@ export class Globales {
   
 
   constructor(private httpClient: HttpClient) {
-    this.url = `http://192.168.1.12:8081/api/v1/`;
+    this.url = `http://localhost:8081/api/v1/`;
   }
   login(paramurl: string, email: string, password: string) {
     return firstValueFrom(this.httpClient.get<any>(this.url + paramurl + email + '/' + password))

@@ -30,6 +30,60 @@
               <label class="form-label">Fecha Concepto </label>
               <input type="date" class="form-control" formControlName="fechaConcepto">
             </div>
+
+            <button (click)="anadirDetalle()">Añadir Detalles</button>
+
+            <!--Subformulario detalle dinamico-->
+
+              <div formArrayName="registroDetalle">
+                <div *ngFor="let detalle of obtenerDetalle.controls">
+                  <div class="form-group campo">
+                    <label class="form-label">Concepto detalle</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="form-group campo">
+                    <label class="form-label">Cantidad </label>
+                    <input type="number" class="form-control">
+                  </div>
+                  <div class="form-group campo">
+                    <label class="form-label">Ingreso </label>
+                    <input type="number" class="form-control">
+                  </div>
+                  <div class="form-group campo">
+                    <label class="form-label">Gasto </label>
+                    <input type="number" class="form-control">
+                  </div>
+                  <div class="form-group campo">
+                    <label class="form-label">Porcentaje de IVA </label>
+                    <input type="number" class="form-control">
+                  </div>
+                  <div class="campo">
+                    <label for="form-label"> Base Imponible : </label>
+                    <p>{{(registroForm.get('ingreso').value +
+                      (registroForm.get('gasto').value))/(1+(registroForm.get('ivaPorcentaje').value/100))
+                      +'€'}}</p>
+                  </div>
+                  <div class="campo">
+                    <label for="form-label"> Imp IVA :</label>
+                    <p>
+                      {{
+                      (registroForm.get('ingreso').value + (registroForm.get('gasto').value))
+                      -((registroForm.get('ingreso').value +
+                      (registroForm.get('gasto').value))/(1+(registroForm.get('ivaPorcentaje').value/100)))
+                      +'
+                      €'
+                      }}
+                    </p>
+                  </div>
+                  <div class="form-group campo">
+                    <label class="form-label">Eliminar Ingreso / Gastos</label>
+                    <input type="checkbox" formControlName="borrado">
+                  </div>
+                </div>
+              </div>
+
+            <!--Fin Subformulario detalle dinamico-->
+
             <div class="form-group campo">
               <label class="form-label">Ingreso </label>
               <input type="number" class="form-control" formControlName="ingreso">
@@ -87,12 +141,10 @@
             </div>
       </form>
       <div class="router">
-        <button routerLinkActive="activo"  type="button" data-toggle="modal" data-target="#ingaDetalle">
+        <!-- <button routerLinkActive="activo"  type="button" data-toggle="modal" data-target="#ingaDetalle">
           Detalle del Ingreso / Gasto
-        </button>
+        </button> -->
         <router-outlet></router-outlet>
       </div>
     </div>
   </div>
-
-  <ingaRegistroDetalle></ingaRegistroDetalle>
