@@ -77,8 +77,7 @@ export class IngaRegistroGeneralComponent implements OnInit {
   nuevoRegistro(){
     this.registroForm = this.builder.group({
       idInGa: new FormControl(),
-      fechaConcepto: new FormControl(new Date),
-      concepto: new FormControl(),
+            concepto: new FormControl(),
       tipoConceptoId: new FormControl(),
       ingreso: new FormControl(0),
       ivaPorcentaje: new FormControl(21),

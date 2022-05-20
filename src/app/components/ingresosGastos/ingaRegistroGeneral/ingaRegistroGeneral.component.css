@@ -1,0 +1,29 @@
+
+
+.modal-content{
+    justify-content: start;
+   min-width: 1000px;
+}
+.modal-header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.form{
+    width: 950px;
+    
+}
+.general{
+display: flex;
+flex-direction: row;
+}
+.campo{   
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+.regiDetalle{
+    background-color: green;
+    display: flex;    
+    flex-direction: row;
+}
