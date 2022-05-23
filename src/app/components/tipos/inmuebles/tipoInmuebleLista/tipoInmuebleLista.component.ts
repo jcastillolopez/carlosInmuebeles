@@ -29,7 +29,7 @@ export class TipoInmuebleListaComponent implements OnInit {
 
    async ngOnInit() {
     this.arrListaTipoInmueble = await this.tiposService.getAllTipos(this.path_tipos + this.administradorId);
-
+    console.log(this.arrListaTipoInmueble)
     this.activateRouter.params.subscribe(params => {
       this.seleccionadoId = params['id']
     })

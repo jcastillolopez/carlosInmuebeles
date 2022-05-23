@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 
-const process = require('process');
-require('dotenv').config(".env");
-console.log(process.env.ADMINISTRADORID)
+// const process = require('process');
+// require('dotenv').config(".env");
+// console.log(process.env.ADMINISTRADORID)
 
 @Component({
   selector: 'app-root',
