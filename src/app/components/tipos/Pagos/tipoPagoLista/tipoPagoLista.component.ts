@@ -27,7 +27,7 @@ export class TipoPagoListaComponent implements OnInit {
    }
 
    async ngOnInit() {
-    this.arrListaTipoPago = await this.tiposService.getAllTipos(this.path_tipos + 0);
+    this.arrListaTipoPago = await this.tiposService.getAllTipos(this.path_tipos + this.administradorId);
 
     this.activateRouter.params.subscribe(params => {
       this.seleccionadoId = params['id']
