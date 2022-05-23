@@ -54,6 +54,8 @@ import { TipoCoceptoListaComponent } from './components/tipos/conceptos/tipoCoce
 import { TipoConceptoRegistroComponent } from './components/tipos/conceptos/tipoConceptoRegistro/tipoConceptoRegistro.component';
 import { InGaInicioComponent } from './components/ingresosGastos/inGaInicio/inGaInicio.component';
 import { IngaDetalleComponent } from './components/ingresosGastos/ingaDetalle/ingaDetalle.component';
+import { TipoPagoListaComponent } from './components/tipos/Pagos/tipoPagoLista/tipoPagoLista.component';
+import { TipoPagoRegistroComponent } from './components/tipos/Pagos/tipoPagoRegistro/tipoPagoRegistro.component';
 
 
 
@@ -124,6 +126,8 @@ import { IngaDetalleComponent } from './components/ingresosGastos/ingaDetalle/in
     ModificacionTiposComponent,
     TipoCoceptoListaComponent,
     TipoConceptoRegistroComponent,
+    TipoPagoListaComponent,
+    TipoPagoRegistroComponent,
 
 
     //Usuarios
