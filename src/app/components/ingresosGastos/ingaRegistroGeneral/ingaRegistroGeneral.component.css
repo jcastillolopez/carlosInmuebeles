@@ -1,29 +1,45 @@
-
-
-.modal-content{
+.modal-content {
     justify-content: start;
-   min-width: 1000px;
+    min-width: 1000px;
 }
-.modal-header{
+
+.modal-header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.form{
+
+.form {
     width: 950px;
-    
 }
-.general{
-display: flex;
-flex-direction: row;
+
+.general {
+    display: flex;
+    flex-direction: row;
 }
-.campo{   
+.generalCampoSelecion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.selecionables {
+    min-width: 30%;
+}
+
+.campos {
+    min-width: 50%;
+}
+
+.campo {
     display: flex;
     flex-direction: column;
     margin: 0 20px;
 }
-.regiDetalle{
+
+.regiDetalle {
     background-color: green;
-    display: flex;    
+    display: flex;
     flex-direction: row;
 }

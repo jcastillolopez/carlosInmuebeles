@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('administradorId', usuario.administradorId);
       sessionStorage.setItem('nombreUsuario', usuario.nombre);
       sessionStorage.setItem('idUsuario', usuario.idUsuario);
-      console.log(JSON.stringify(usuario))
       if (usuario.idUsuario !== null) {
         this.router.navigate(['/inicio']);     
       }    this.noLogin = 'El login no es correcto'   

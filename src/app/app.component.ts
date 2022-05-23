@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+
+const process = require('process');
+require('dotenv').config(".env");
+console.log(process.env.ADMINISTRADORID)
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,5 +15,7 @@ export class AppComponent {
   fechasistema: any;
   constructor(
    
-  ) { this.fechasistema = new Date }
+  ) {
+     this.fechasistema = new Date;
+  }
 }
