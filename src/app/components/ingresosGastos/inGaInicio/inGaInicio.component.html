@@ -6,5 +6,62 @@
     <ingaNav></ingaNav>
   </div>
 
+  <div class="listado">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Numero de Factura</th>
+          <th>Total Base Imponible</th>
+          <th>Total Impuesto Iva</th>
+          <th>Total Gasto</th>
+          <th>Total Ingreso</th>
+          <th>Alias del Inmueble</th>
+        </tr>
+      </thead>
+      <tbody routerLinkActive="activo activoBoton" *ngFor="let inGa of arrIngresosGastos; let i = index">
+        <tr (click)="navegar(inGa.idInGa)" [routerLink]="['/inga/detalle/'+inGa.idInGa]">
+          <td>{{inGa.numeroFactura}}</td>
+          <td>{{inGa.totalBaseImponible}}</td>
+          <td>{{inGa.totalImpuestoIva}}</td>
+          <td>{{inGa.totalGasto}}</td>
+          <td>{{inGa.totalIngreso}}</td>
+          <td>{{inGa.aliasInmueble}}</td>
+          <td>
+            <button type="button" class="botonOculto buttonLista" data-toggle="modal"
+              data-target="#ingaGeneral">
+              Modificar
+            </button>
+          </td>
+        </tr>
+        <div>
+          <div class="campo">
+            <table>
+              <tbody *ngFor="let inGaDetalle of arrInGaDetalle, let i = index">
+                <tr class="thead" *ngIf="i<1 && detalle(inGaDetalle.inGaId, inGa.idInGa)">
+                  <th>Concepto Detalle</th>
+                  <th>Precio Venta</th>
+                  <th>Porcentaje Iva</th>
+                  <th>Cantidad</th>
+                  <th>Descuento</th>
+                </tr>
+                <tr *ngIf="detalle(inGaDetalle.inGaId, inGa.idInGa)">
+                  <td>{{inGaDetalle.conceptoDetalle}}</td>
+                  <td>{{inGaDetalle.pv}}</td>
+                  <td>{{inGaDetalle.ivaPorcentaje}}</td>
+                  <td>{{inGaDetalle.cantidad}}</td>
+                  <td>{{inGaDetalle.descuento}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="router">
+    <router-outlet></router-outlet>
+  </div>
+
 </div>
 <ingaRegistroGeneral></ingaRegistroGeneral>

@@ -30,7 +30,6 @@ import { RolListaComponent } from './components/tipos/roles/rolLista/rolLista.co
 //Contratos Intervininetes
 import { ContratoListaComponent } from './components/contratosIntervinientes/contratos/contratoLista/contratoLista.component';
 import { ContratoDetalleComponent } from './components/contratosIntervinientes/contratos/contratoDetalle/contratoDetalle.component';
-import { IntervinienteListaComponent } from './components/contratosIntervinientes/intervinientes/intervinienteLista/intervinienteLista.component';
 
 //Balance
 import { BalanceListaComponent } from './components/balances/balanceLista/balanceLista.component';
@@ -38,10 +37,12 @@ import { ModificacionTiposComponent } from './components/tipos/modificacionTipos
 import { IntervinienteDetalleComponent } from './components/contratosIntervinientes/intervinientes/intervinienteDetalle/intervinienteDetalle.component';
 
 import { IngaRegistroGeneralComponent } from './components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component';
-import { IngaRegistroDetalleComponent } from './components/ingresosGastos/ingaRegistroDetalle/ingaRegistroDetalle.component';
 import { TipoCoceptoListaComponent } from './components/tipos/conceptos/tipoCoceptoLista/tipoCoceptoLista.component';
 import { TipoConceptoRegistroComponent } from './components/tipos/conceptos/tipoConceptoRegistro/tipoConceptoRegistro.component';
 import { InGaInicioComponent } from './components/ingresosGastos/inGaInicio/inGaInicio.component';
+import { IngaDetalleComponent } from './components/ingresosGastos/ingaDetalle/ingaDetalle.component';
+import { TipoPagoListaComponent } from './components/tipos/Pagos/tipoPagoLista/tipoPagoLista.component';
+import { TipoPagoRegistroComponent } from './components/tipos/Pagos/tipoPagoRegistro/tipoPagoRegistro.component';
 
 
 
@@ -69,7 +70,7 @@ const routes: Routes = [
   {
     path: 'inga', component: InGaInicioComponent, children: [
       { path: 'general', component: IngaRegistroGeneralComponent },
-      { path: 'detalle', component: IngaRegistroDetalleComponent},
+      { path: 'detalle/:id', component: IngaDetalleComponent},
   ]},
 
   // inmuebles
@@ -117,7 +118,12 @@ const routes: Routes = [
       {
         path: 'concepto', component: TipoCoceptoListaComponent, children: [
          { path: ' modificacion/:id', component: TipoConceptoRegistroComponent},
-       ]},
+        ]
+      },
+      {
+        path: 'pago', component: TipoPagoListaComponent, children: [
+          { path: ' modificacion/:id', component: TipoPagoRegistroComponent },
+      ]},
     ]
   },
   

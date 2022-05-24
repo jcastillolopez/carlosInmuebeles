@@ -28,6 +28,7 @@
  }
  
  .activoBoton .botonOculto {
+    
     visibility: visible;
  }
  tbody {
@@ -48,11 +49,11 @@
     text-align: left;
  }
  
- thead, .thead {
+ thead {
     color: gold;
  }
  
- thead tr th{
+ thead tr th {
     border-top: 0;
  }
  th{
@@ -94,11 +95,6 @@
     margin-top: 20px;
  }
  
- .campo{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
- }
+ 
  
  

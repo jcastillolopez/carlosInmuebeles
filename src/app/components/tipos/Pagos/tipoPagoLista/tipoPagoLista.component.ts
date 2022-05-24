@@ -3,39 +3,37 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { tiposService } from 'src/app/services/tipos.service';
 
 @Component({
-  selector: 'tipoInmuebleLista',
-  templateUrl: './tipoInmuebleLista.component.html',
-  styleUrls: ['./tipoInmuebleLista.component.css']
+  selector: 'tipoPagoLista',
+  templateUrl: './tipoPagoLista.component.html',
+  styleUrls: ['./tipoPagoLista.component.css']
 })
-export class TipoInmuebleListaComponent implements OnInit {
+export class TipoPagoListaComponent implements OnInit {
   seleccionadoId: string;
   path_tipos: string;
 
   //Tabla para la lista
-  arrListaTipoInmueble: any[];
+  arrListaTipoPago: any[];
   administradorId: number;
-
   constructor(
     private tiposService: tiposService,
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.path_tipos = 'inmuebles/';    
+    this.path_tipos = 'pago/';    
     this.seleccionadoId = "";
     //Tabla para la lista
-    this.arrListaTipoInmueble = [];
+    this.arrListaTipoPago = [];
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!)
-   }   
+   }
 
    async ngOnInit() {
-    this.arrListaTipoInmueble = await this.tiposService.getAllTipos(this.path_tipos + this.administradorId);
-    console.log(this.arrListaTipoInmueble)
+    this.arrListaTipoPago = await this.tiposService.getAllTipos(this.path_tipos + this.administradorId);
+
     this.activateRouter.params.subscribe(params => {
       this.seleccionadoId = params['id']
     })
    }
    navegar(idUsuario: number) {
-    this.router.navigate(["/tipos/inmueble/modificacion/" + idUsuario])
+    this.router.navigate(["/tipos/pago/modificacion/" + idUsuario])
   }
- 
 }

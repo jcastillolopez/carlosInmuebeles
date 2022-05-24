@@ -10,5 +10,7 @@ export class AppComponent {
   fechasistema: any;
   constructor(
    
-  ) { this.fechasistema = new Date }
+  ) {
+     this.fechasistema = new Date;
+  }
 }
