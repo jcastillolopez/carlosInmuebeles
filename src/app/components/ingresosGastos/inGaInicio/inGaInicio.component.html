@@ -7,6 +7,19 @@
   </div>
 
   <div class="listado">
+    <div class="filtro">
+      <label class="form-label">Inmueble</label>
+      <select type="text" formControlName="inmuebleId" *ngFor="let inmueble of selectInmuebles" (change)="inmuebles(inmueble.idInmueble)">
+        <option [value]="inmueble.idInmueble">
+          {{inmueble.refcatastral}} {{inmueble.alias}}</option>
+      </select>
+      <label class="form-label">Año</label>
+      <select type="text" formControlName="inmuebleId" *ngFor="let anio of selectAnio" (change)="anios(anio)">
+        <option [value]="anio">
+          {{anio}}
+        </option>
+      </select>
+    </div>
     <table class="table">
       <thead>
         <tr>
@@ -27,34 +40,41 @@
           <td>{{inGa.totalIngreso}}</td>
           <td>{{inGa.aliasInmueble}}</td>
           <td>
-            <button type="button" class="botonOculto buttonLista" data-toggle="modal"
-              data-target="#ingaGeneral">
+            <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#ingaGeneral">
               Modificar
             </button>
           </td>
         </tr>
-        <div>
-          <div class="campo">
-            <table>
-              <tbody *ngFor="let inGaDetalle of arrInGaDetalle, let i = index">
-                <tr class="thead" *ngIf="i<1 && detalle(inGaDetalle.inGaId, inGa.idInGa)">
-                  <th>Concepto Detalle</th>
-                  <th>Precio Venta</th>
-                  <th>Porcentaje Iva</th>
-                  <th>Cantidad</th>
-                  <th>Descuento</th>
-                </tr>
-                <tr *ngIf="detalle(inGaDetalle.inGaId, inGa.idInGa)">
-                  <td>{{inGaDetalle.conceptoDetalle}}</td>
-                  <td>{{inGaDetalle.pv}}</td>
-                  <td>{{inGaDetalle.ivaPorcentaje}}</td>
-                  <td>{{inGaDetalle.cantidad}}</td>
-                  <td>{{inGaDetalle.descuento}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <tr>
+          <td colspan="8">
+            <div class="campo">
+              <table>
+                <tbody *ngFor="let inGaDetalle of arrInGaDetalle, let i = index">
+                  <tr class="thead" *ngIf="i<1 && detalle(inGaDetalle.inGaId, inGa.idInGa)">
+                    <th>Concepto Detalle</th>
+                    <th>Precio Venta</th>
+                    <th>Porcentaje Iva</th>
+                    <th>Cantidad</th>
+                    <th>Descuento</th>
+                    <th>Importe</th>
+                    <th>Base Imponible</th>
+                    <th>Valor Venta</th>
+                  </tr>
+                  <tr *ngIf="detalle(inGaDetalle.inGaId, inGa.idInGa)">
+                    <td>{{inGaDetalle.conceptoDetalle}}</td>
+                    <td>{{inGaDetalle.pv}}</td>
+                    <td>{{inGaDetalle.ivaPorcentaje}}</td>
+                    <td>{{inGaDetalle.cantidad}}</td>
+                    <td>{{inGaDetalle.descuento}}</td>
+                    <td>{{inGaDetalle.importe}}</td>
+                    <td>{{inGaDetalle.importeTotal}}</td>
+                    <td>{{inGaDetalle.valorTotal}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>

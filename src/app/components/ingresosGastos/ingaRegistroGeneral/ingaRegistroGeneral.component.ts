@@ -51,6 +51,7 @@ export class IngaRegistroGeneralComponent implements OnInit {
 
   async ngOnInit() {
     this.nuevoRegistro();
+    this.anadirDetalle();
     this.selectInmueble = await this.metodosGlobales.getAll('inmuebles/' + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectProveedor = await this.metodosGlobales.getAll('clientes/' + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectTipoConcepto = await this.metodosTipos.getAllTipos('concepto/' + parseInt(sessionStorage.getItem('administradorId')!));

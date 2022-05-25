@@ -16,10 +16,13 @@ export class InGaInicioComponent implements OnInit {
   arrIngresosGastos: ingresogastointerface[];
   arrInGaDetalle: ingresogastodetalleinterface[];
   arrListaInmuebles: any[];
+  selectInmuebles: any[];
+  selectAnio: any[];
 
   pathIngresoGasto: string;
   pathIngresoGastoDetalle: string;
   pathInmuebles: string;
+  pathFacturasAnio: string;
   pathClientes: string;
 
   constructor(
@@ -30,16 +33,21 @@ export class InGaInicioComponent implements OnInit {
   ) {
     this.arrIngresosGastos = [];
     this.arrListaInmuebles = [];
+    this.selectInmuebles = [];
+    this.selectAnio = [];
 
     this.pathIngresoGasto = 'ingresogasto/';
     this.pathIngresoGastoDetalle = 'ingresogastodetalle/';
     this.pathInmuebles = 'inmuebles/';
+    this.pathFacturasAnio = 'ingresogasto/anio/';
     this.pathClientes = 'clientes/';
   }
 
   async ngOnInit() {
     this.arrIngresosGastos = await this.metodosGlobales.getAll(this.pathIngresoGasto + parseInt(sessionStorage.getItem('administradorId')!));
     this.arrListaInmuebles = await this.metodosGlobales.getAll(this.pathInmuebles + parseInt(sessionStorage.getItem('administradorId')!));
+    this.selectInmuebles = await this.metodosGlobales.getAll(this.pathInmuebles + parseInt(sessionStorage.getItem('administradorId')!));
+    this.selectAnio = await this.metodosGlobales.getAll(this.pathFacturasAnio + parseInt(sessionStorage.getItem('administradorId')!));
 
     for (const ingresoGasto of this.arrIngresosGastos) {
 
@@ -64,6 +72,13 @@ export class InGaInicioComponent implements OnInit {
     }else{
       return false;
     }
+  }
+
+  inmuebles(idInmueble?: number){
+    console.log(idInmueble);
+  }
+  anios(anio?: string){
+    console.log(anio)
   }
 
 }
