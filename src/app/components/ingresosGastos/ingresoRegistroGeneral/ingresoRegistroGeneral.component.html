@@ -87,19 +87,19 @@
                   </div>
                   <div class="form-group campo">
                     <label class="form-label">Cantidad </label>
-                    <input type="number" class="form-control" formControlName="cantidad">
+                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="cantidad">
                   </div>
                   <div class="form-group campo">
                     <label class="form-label">PVP </label>
-                    <input type="number" class="form-control" formControlName="pv">
+                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="pv">
                   </div>
                   <div class="form-group campo">
                     <label class="form-label">descuento </label>
-                    <input type="number" class="form-control" formControlName="descuento">
+                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="descuento">
                   </div>
                   <div class="form-group campo">
                     <label class="form-label">% de IVA </label>
-                    <input type="number" class="form-control" formControlName="ivaPorcentaje">
+                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="ivaPorcentaje">
                   </div>
                
                   <div class="form-group campo">

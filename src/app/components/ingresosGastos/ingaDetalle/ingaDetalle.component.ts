@@ -35,11 +35,11 @@ export class IngaDetalleComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.path_inGa = 'ingresogasto/detalles/';
+    this.path_inGa = 'ingresogasto/detalle/';
     this.path_inGaDetalle = 'ingresogastodetalle/';
-    this.path_Inmueble = 'inmuebles/';
-    this.path_Tipo_Periodo = 'periodos/';
-    this.path_Tipo_Contrato = 'contratos/';
+    this.path_Inmueble = 'inmueble/';
+    this.path_Tipo_Periodo = 'periodo/';
+    this.path_Tipo_Contrato = 'contrato/';
     this.path_Tipo_Pago = 'pago/';
     this.inga = {
       idInGa: 0,

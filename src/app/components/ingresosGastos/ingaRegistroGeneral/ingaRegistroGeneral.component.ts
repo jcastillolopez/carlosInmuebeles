@@ -146,4 +146,25 @@ export class IngaRegistroGeneralComponent implements OnInit {
 
     this.obtenerDetalle.push(detalle);
   }
+
+  calcularTotales(){
+    var totalBaseImponible = 0;
+    var totalImpuestoIva = 0;
+    var totalGasto = 0;
+    var baseImponibleXdetalle = 0;
+    var impuestoIva = 0;
+
+    for (const detalles of this.obtenerDetalle.controls) {
+      baseImponibleXdetalle = (detalles.value.pv * detalles.value.cantidad) - (((detalles.value.pv * detalles.value.cantidad) * detalles.value.descuento) / 100);
+      totalBaseImponible = totalBaseImponible + baseImponibleXdetalle;
+
+      impuestoIva = ((baseImponibleXdetalle * detalles.value.ivaPorcentaje) / 100);
+      totalImpuestoIva = totalImpuestoIva + impuestoIva;
+    }
+    totalGasto = totalBaseImponible + totalImpuestoIva;
+    
+    this.registroForm.get('totalBaseImponible').patchValue(totalBaseImponible);
+    this.registroForm.get('totalImpuestoIva').patchValue(totalImpuestoIva);
+    this.registroForm.get('totalGasto').patchValue(totalGasto);
+  }
 }

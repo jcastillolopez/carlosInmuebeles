@@ -33,6 +33,7 @@
           <th>Base Imponible</th>
           <th>Impuesto Iva</th>
           <th>Total Gasto</th>
+          <th>Total Ingreso</th>
           <th>Forma Pago</th>
           <th>Fecha Pago</th>
           <th>CC Proveedor</th>
@@ -50,6 +51,7 @@
           <td>{{inGa.totalBaseImponible}}</td>
           <td>{{inGa.totalImpuestoIva}}</td>
           <td>{{inGa.totalGasto}}</td>
+          <td>{{inGa.totalIngreso}}</td>
           <td>{{inGa.formaPago}}</td>
           <td>{{inGa.fechaPago}}</td>
           <td>{{inGa.cuentaCorrienteProveedor}}</td>
@@ -70,20 +72,20 @@
                     <th>Concepto Detalle</th>
                     <th>Precio Venta</th>
                     <th>Cantidad</th>
-                    <th>Descuento</th>
                     <th>Importe</th>
-                    <th>Porcentaje Iva</th>
+                    <th>Descuento</th>
                     <th>Base Imponible</th>
+                    <th>Porcentaje Iva</th>
                     <th>Valor Venta</th>
                   </tr>
                   <tr *ngIf="detalle(inGaDetalle.inGaId, inGa.idInGa)">
                     <td>{{inGaDetalle.conceptoDetalle}}</td>
                     <td>{{inGaDetalle.pv}}</td>
                     <td>{{inGaDetalle.cantidad}}</td>
-                    <td>{{inGaDetalle.descuento}}</td>
                     <td>{{inGaDetalle.importe}}</td>
-                    <td>{{inGaDetalle.ivaPorcentaje}}</td>
+                    <td>{{inGaDetalle.descuento}}</td>
                     <td>{{inGaDetalle.importeTotal}}</td>
+                    <td>{{inGaDetalle.ivaPorcentaje}}</td>
                     <td>{{inGaDetalle.valorTotal}}</td>
                   </tr>
                 </tbody>

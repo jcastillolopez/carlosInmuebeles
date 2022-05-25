@@ -6,28 +6,28 @@
         <div class="modal-header">
           <h3>Datos de Gastos</h3>
 
-        
-        <div class="modal-body">
-          <div class="form">
-            <div class="general">
 
-              <div class="generalCampoSelecion">
-                <div class="seleccion">
-                  <div class="form-group campo">
-                    <label class="form-label">Inmueble</label>
-                    <select type="text" formControlName="inmuebleId">
-                      <option [value]="inmueble.idInmueble" *ngFor="let inmueble of selectInmueble">
-                        {{inmueble.refcatastral}} {{inmueble.alias}}</option>
-                    </select>
+          <div class="modal-body">
+            <div class="form">
+              <div class="general">
+
+                <div class="generalCampoSelecion">
+                  <div class="seleccion">
+                    <div class="form-group campo">
+                      <label class="form-label">Inmueble</label>
+                      <select type="text" formControlName="inmuebleId">
+                        <option [value]="inmueble.idInmueble" *ngFor="let inmueble of selectInmueble">
+                          {{inmueble.refcatastral}} {{inmueble.alias}}</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
                   <div class="form-group campo">
                     <label class="form-label">Proveedor</label>
                     <select type="text" formControlName="clienteId">
                       <option [value]="proveedor.idCliente" *ngFor="let proveedor of selectProveedor">
                         {{proveedor.nie}} {{proveedor.nombre}} {{proveedor.apellidos}} </option>
                     </select>
-                  </div>  
+                  </div>
                   <div class="form-group campo">
                     <label class="form-label">Tipo Concepto</label>
                     <select type="text" formControlName="tipoConceptoId">
@@ -42,14 +42,14 @@
                         {{tipo.tipoPagos}}</option>
                     </select>
                   </div>
-  
+
                 </div>
-  
+
                 <div class="campos">
                   <div class="form-group campo">
                     <label class="form-label">Concepto </label>
                     <input type="text" class="form-control" formControlName="concepto">
-                  </div>  
+                  </div>
                   <div class="form-group campo">
                     <label class="form-label">Fecha Gasto </label>
                     <input type="date" class="form-control" formControlName="fechaFactura">
@@ -58,7 +58,7 @@
                     <label class="form-label">Numero Factura </label>
                     <input type="text" class="form-control" formControlName="numeroFactura">
                   </div>
-                  
+
                   <div class="form-group campo">
                     <label class="form-label">Cuenta Corriente Proveedor </label>
                     <input type="text" class="form-control" formControlName="cuentaCorrienteProveedor">
@@ -80,43 +80,45 @@
             <!--Subformulario detalle dinamico-->
             <div class="regiDetalle">
               <div formArrayName="arrRegistroDetalle">
-                <div class="regiDetalle" *ngFor="let detalle of obtenerDetalle.controls, let i = index" [formGroupName]="i">
+                <div class="regiDetalle" *ngFor="let detalle of obtenerDetalle.controls, let i = index"
+                  [formGroupName]="i">
                   <div class="form-group campo">
                     <label class="form-label">Concepto detalle</label>
                     <input type="text" class="form-control" formControlName="conceptoDetalle">
                   </div>
                   <div class="form-group campo">
                     <label class="form-label">Cantidad </label>
-                    <input type="number" class="form-control" formControlName="cantidad">
+                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="cantidad">
                   </div>
                   <div class="form-group campo">
                     <label class="form-label">PVP </label>
-                    <input type="number" class="form-control" formControlName="pv">
+                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="pv">
                   </div>
                   <div class="form-group campo">
                     <label class="form-label">descuento </label>
-                    <input type="number" class="form-control" formControlName="descuento">
+                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="descuento">
                   </div>
                   <div class="form-group campo">
                     <label class="form-label">% de IVA </label>
-                    <input type="number" class="form-control" formControlName="ivaPorcentaje">
+                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="ivaPorcentaje">
                   </div>
-               
+
                   <div class="form-group campo">
-                    <label class="form-label">Eliminar  Detalle Gasto</label>
+                    <label class="form-label">Eliminar Detalle Gasto</label>
                     <input type="checkbox">
                   </div>
                 </div>
               </div>
             </div>
-            <!--Fin Subformulario detalle dinamico--> 
+            <!--Fin Subformulario detalle dinamico-->
 
-           
+
             <div class="modal-footer">
               <div class="form-group campo">
-                <label class="form-label">Eliminar  Gasto</label>
+                <label class="form-label">Eliminar Gasto</label>
                 <input type="checkbox" formControlName="borrado">
-              </div>   <div class="form-group campo">
+              </div>
+              <div class="form-group campo">
                 <label class="form-label">Total Base Imponible </label>
                 <input type="number" class="form-control" formControlName="totalBaseImponible">
               </div>
