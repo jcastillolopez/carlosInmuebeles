@@ -30,11 +30,11 @@ export class ContratoRegistroComponent implements OnInit {
     private router: Router
   ) {
     this.idContrato = ""
-    this.path_lista = 'contratos/detalles/'
-    this.path_lista_inmuebles = 'inmuebles/'
-    this.path_lista_tipo_contrato = 'contratos/'
-    this.path_lista_tipo_periodo = 'periodos/'
-    this.path_create_update = 'contratos/'
+    this.path_lista = 'contrato/detalle/'
+    this.path_lista_inmuebles = 'inmueble/'
+    this.path_lista_tipo_contrato = 'contrato/'
+    this.path_lista_tipo_periodo = 'periodo/'
+    this.path_create_update = 'contrato/'
     this.arrSelectTipoContrato = [];
     this.arrInmuebles = [];
     this.arrTipoPeriodo = [];

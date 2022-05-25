@@ -21,7 +21,7 @@ export class TipoContratoListaComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.path_usuarios = 'contratos/';
+    this.path_usuarios = 'contrato/';
     this.seleccionadoId = "";
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     //Tabla para la lista

@@ -25,7 +25,7 @@ export class AdministradorRegistroComponent implements OnInit {
     this.administradorId = 0;
     this.idUsuario = 0;
     this.nombreUsuario = '';
-    this.path_create_update = 'personaspagadoras'
+    this.path_create_update = 'personaspagadora'
     this.registroForm = new FormGroup({
       idPersonasPagadora: new FormControl(),
       nombre: new FormControl('', [

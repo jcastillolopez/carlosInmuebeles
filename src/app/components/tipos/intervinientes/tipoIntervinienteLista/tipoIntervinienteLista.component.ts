@@ -21,7 +21,7 @@ export class TipoIntervinienteListaComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.path_usuarios = 'intervinientes/';
+    this.path_usuarios = 'interviniente/';
     this.seleccionadoId = "";
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     //Tabla para la lista

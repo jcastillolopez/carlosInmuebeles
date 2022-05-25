@@ -22,8 +22,8 @@ export class ClienteRegistroComponent implements OnInit {
   ) {
     this.idCliente = ""
     
-    this.path_lista = 'clientes/detalle/'
-    this.path_create_update = 'clientes/'
+    this.path_lista = 'cliente/detalle/'
+    this.path_create_update = 'cliente/'
 
     this.registroForm = new FormGroup({
       idCliente: new FormControl(),

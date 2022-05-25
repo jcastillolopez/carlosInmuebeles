@@ -32,18 +32,15 @@ export class IntervinienteListaComponent implements OnInit {
     this.arrListaIntervinientes = [];
     this.arrTipoInterviniente = [];
     this.arrClientes = [];
-    this.pathIntervinientes = 'intervinientes/'
-    this.pathTiposIntervinientes = 'intervinientes/'
-    this.pathClientes = 'clientes/'
+    this.pathIntervinientes = 'interviniente/'
+    this.pathTiposIntervinientes = 'interviniente/'
+    this.pathClientes = 'cliente/'
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
   }
 
   async ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
       this.arrListaIntervinientes = await this.metodosGlobales.getById(this.pathIntervinientes, params['id']);
-
-      console.log(this.arrListaIntervinientes);
-
       for (const interviniente of this.arrListaIntervinientes) {
         if (interviniente.contratosId === this.activateRouter.snapshot.params['id']) {
           this.arrTipoInterviniente = await this.metodoTipos.getAllTipos(this.pathTiposIntervinientes + this.administradorId);

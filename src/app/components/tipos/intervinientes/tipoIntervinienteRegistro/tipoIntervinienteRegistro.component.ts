@@ -22,8 +22,8 @@ export class TipoIntervinienteRegistroComponent implements OnInit {
     private router: Router,
 
   ) {
-    this.path_lista = 'intervinientes/detalle/'
-    this.path_create_update = 'intervinientes'
+    this.path_lista = 'interviniente/detalle/'
+    this.path_create_update = 'interviniente'
     this.result = "";
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     this.idUsuario = parseInt(sessionStorage.getItem('idUsuario')!);

@@ -20,7 +20,9 @@ export class IngresoRegistroGeneralComponent implements OnInit {
   pathInGaDetalle: string;
   pathTipoPeriodo: string;
   pathInmueble: string;
-  pathTipoContrato: string;
+  pathCliente: string;
+  pathTipoConcepto: string;
+  pathTipoPago: string;
 
   registroForm: FormGroup;
   selectInmueble: any;
@@ -38,9 +40,11 @@ export class IngresoRegistroGeneralComponent implements OnInit {
   ) {
     this.pathInGa = 'ingresogasto/';
     this.pathInGaDetalle = 'ingresogastodetalle/';
-    this.pathInmueble = 'inmuebles/';
-    this.pathTipoPeriodo = 'periodos/';
-    this.pathTipoContrato = 'contratos/';
+    this.pathInmueble = 'inmueble/';
+    this.pathCliente = 'cliente/';
+    this.pathTipoPeriodo = 'periodo/';
+    this.pathTipoConcepto = 'concepto/';
+    this.pathTipoPago = 'pago/';
     this.contratoSeleccionadoId = "";
 
     this.selectInmueble = [];
@@ -54,11 +58,10 @@ export class IngresoRegistroGeneralComponent implements OnInit {
   async ngOnInit() {
     this.nuevoRegistro();
     this.anadirDetalle();
-    this.selectInmueble = await this.metodosGlobales.getAll('inmuebles/' + parseInt(sessionStorage.getItem('administradorId')!));
-    this.selectProveedor = await this.metodosGlobales.getAll('clientes/' + parseInt(sessionStorage.getItem('administradorId')!));
-    this.selectTipoConcepto = await this.metodosTipos.getAllTipos('concepto/' + parseInt(sessionStorage.getItem('administradorId')!));
-    this.selectTipoPago = await this.metodosTipos.
-    getAllTipos('pagos/' + parseInt(sessionStorage.getItem('administradorId')!));
+    this.selectInmueble = await this.metodosGlobales.getAll(this.pathInmueble + parseInt(sessionStorage.getItem('administradorId')!));
+    this.selectProveedor = await this.metodosGlobales.getAll(this.pathCliente + parseInt(sessionStorage.getItem('administradorId')!));
+    this.selectTipoConcepto = await this.metodosTipos.getAllTipos(this.pathTipoConcepto + parseInt(sessionStorage.getItem('administradorId')!));
+    this.selectTipoPago = await this.metodosTipos.getAllTipos(this.pathTipoPago + parseInt(sessionStorage.getItem('administradorId')!));
 
     this.activateRouter.params.subscribe(async params => {
       if (params['idInGa']) {
@@ -95,6 +98,7 @@ export class IngresoRegistroGeneralComponent implements OnInit {
       idInGa: new FormControl(),
       concepto: new FormControl(),
       fechaFactura: new FormControl(new Date),
+      fechaPago: new FormControl(new Date),
       numeroFactura: new FormControl(),
       totalBaseImponible: new FormControl(),
       totalImpuestoIva: new FormControl(),

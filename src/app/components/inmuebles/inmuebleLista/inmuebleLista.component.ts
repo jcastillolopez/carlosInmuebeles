@@ -26,7 +26,7 @@ export class InmuebleListaComponent implements OnInit {
     private router: Router
   ) {
 
-    this.path = 'inmuebles/';
+    this.path = 'inmueble/';
     this.inmuebleSeleccionadoId = 1;
 
     //Tabla para la lista
@@ -36,8 +36,8 @@ export class InmuebleListaComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmuebles/' + parseInt(sessionStorage.getItem('administradorId')!));
-    this.arrSelectTipos.push(await this.metodosTipos.getAllTipos('inmuebles/' + 1))
+    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmueble/' + parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrSelectTipos.push(await this.metodosTipos.getAllTipos('inmueble/' + 1))
     console.log(this.arrSelectTipos.values.toString)
     this.arrListaInmuebles = await this.metodosGlobales.getById(this.path, parseInt(sessionStorage.getItem('administradorId')!));
 

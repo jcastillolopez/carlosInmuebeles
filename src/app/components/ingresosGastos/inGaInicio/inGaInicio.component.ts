@@ -46,9 +46,9 @@ export class InGaInicioComponent implements OnInit {
 
     this.pathIngresoGasto = 'ingresogasto/';
     this.pathIngresoGastoDetalle = 'ingresogastodetalle/';
-    this.pathInmuebles = 'inmuebles/';
+    this.pathInmuebles = 'inmueble/';
     this.pathFacturasAnio = 'ingresogasto/anio/';
-    this.pathClientes = 'clientes/';
+    this.pathClientes = 'cliente/';
   }
 
   async ngOnInit() {

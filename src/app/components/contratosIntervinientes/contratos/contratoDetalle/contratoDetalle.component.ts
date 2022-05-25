@@ -52,9 +52,9 @@ export class ContratoDetalleComponent implements OnInit {
       inmuebleId: 0,
       aliasInmueble: '',
     }
-    this.path_Inmueble = 'inmuebles/';
-    this.path_Tipo_Periodo = 'periodos/';
-    this.path_Tipo_Contrato = 'contratos/';
+    this.path_Inmueble = 'inmueble/';
+    this.path_Tipo_Periodo = 'periodo/';
+    this.path_Tipo_Contrato = 'contrato/';
 
     //Tabla para la lista
     this.arrListaInmuebles = [];

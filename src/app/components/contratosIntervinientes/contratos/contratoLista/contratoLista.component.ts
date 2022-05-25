@@ -30,10 +30,10 @@ export class ContratoListaComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.contrato = 'contratos/';
-    this.path_Inmueble = 'inmuebles/';
-    this.path_Tipo_Periodo = 'periodos/';
-    this.path_Tipo_Contrato = 'contratos/';
+    this.contrato = 'contrato/';
+    this.path_Inmueble = 'inmueble/';
+    this.path_Tipo_Periodo = 'periodo/';
+    this.path_Tipo_Contrato = 'contrato/';
     this.contratoSeleccionadoId = "";
     //Tabla para la lista
     this.arrListaContratos = [];
