@@ -1,6 +1,9 @@
 .nav{
     margin: 10px auto;
-    min-height: 70vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+   
    
    
 }

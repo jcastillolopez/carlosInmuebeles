@@ -52,6 +52,8 @@ export class IngaDetalleComponent implements OnInit {
       totalIngreso: 0,
       cuentaCorrienteProveedor: '',
       cuentaCorrienteCliente: '',
+      formaPago: "",
+      fechaPago: new Date,
 
       tipoConceptoId: 0,
       tipoConcepto: '',
