@@ -4,7 +4,10 @@ export interface ingresogastodetalleinterface {
     pv: number,
     descuento: number, 
     ivaPorcentaje: number,
-    cantidad: number
+    cantidad: number,
+    importe: number,
+    importeTotal: number,
+    valorTotal: number,
 
     inGaId: number,
     numeroFactura: string,
