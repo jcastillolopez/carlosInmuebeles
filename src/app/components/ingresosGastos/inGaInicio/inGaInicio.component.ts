@@ -13,11 +13,15 @@ import { tiposService } from 'src/app/services/tipos.service';
 })
 export class InGaInicioComponent implements OnInit {
 
-  arrIngresosGastos: ingresogastointerface[];
+  arrIngresosGastosMostrar: ingresogastointerface[];
+  arrIngresosGastosFiltrados: ingresogastointerface[];
+  arrIngresosGastosTodos: ingresogastointerface[];
+  arrIngresosGastosInmuebles: ingresogastointerface[];
   arrInGaDetalle: ingresogastodetalleinterface[];
   arrListaInmuebles: any[];
   selectInmuebles: any[];
   selectAnio: any[];
+  inmuebleFiltrado: number; 
 
   pathIngresoGasto: string;
   pathIngresoGastoDetalle: string;
@@ -31,10 +35,14 @@ export class InGaInicioComponent implements OnInit {
     private router: Router,
     private activateRouter: ActivatedRoute,
   ) {
-    this.arrIngresosGastos = [];
+    this.arrIngresosGastosMostrar = [];
+    this.arrIngresosGastosFiltrados = [];
+    this.arrIngresosGastosTodos = [];
+    this.arrIngresosGastosInmuebles = [];
     this.arrListaInmuebles = [];
     this.selectInmuebles = [];
     this.selectAnio = [];
+    this.inmuebleFiltrado = 0;
 
     this.pathIngresoGasto = 'ingresogasto/';
     this.pathIngresoGastoDetalle = 'ingresogastodetalle/';
@@ -44,19 +52,19 @@ export class InGaInicioComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrIngresosGastos = await this.metodosGlobales.getAll(this.pathIngresoGasto + parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrIngresosGastosTodos = await this.metodosGlobales.getAll(this.pathIngresoGasto + parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrIngresosGastosMostrar = this.arrIngresosGastosTodos;
     this.arrListaInmuebles = await this.metodosGlobales.getAll(this.pathInmuebles + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectInmuebles = await this.metodosGlobales.getAll(this.pathInmuebles + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectAnio = await this.metodosGlobales.getAll(this.pathFacturasAnio + parseInt(sessionStorage.getItem('administradorId')!));
 
-    for (const ingresoGasto of this.arrIngresosGastos) {
-
+    for (const ingresoGasto of this.arrIngresosGastosMostrar) {
       if (ingresoGasto.inmuebleId != null) {
-
         for (const inmueble of this.arrListaInmuebles) {
-          ingresoGasto.aliasInmueble = inmueble.alias;
+          if (ingresoGasto.inmuebleId === inmueble.idInmueble) {
+            ingresoGasto.aliasInmueble = inmueble.alias;
+          }
         }
-
       }
     }
   }
@@ -66,19 +74,41 @@ export class InGaInicioComponent implements OnInit {
     this.arrInGaDetalle = await this.metodosGlobales.getById(this.pathIngresoGastoDetalle, idIngresoGasto);
   }
 
-  detalle(inGaId: number, idInGa: number): boolean{
-    if(inGaId === idInGa){
+  detalle(inGaId: number, idInGa: number): boolean {
+    if (inGaId === idInGa) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
 
-  inmuebles(idInmueble?: number){
-    console.log(idInmueble);
+  inmuebles($event) {
+    this.arrIngresosGastosFiltrados = [];
+    if ($event.target.value != 0) {
+      for (const inmuebles of this.arrIngresosGastosTodos) {
+        if (inmuebles.inmuebleId == $event.target.value) {
+          this.arrIngresosGastosFiltrados.push(inmuebles);
+        }
+      }
+      this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
+    }else{
+      this.arrIngresosGastosMostrar = this.arrIngresosGastosTodos;
+    }
+    this.arrIngresosGastosInmuebles = this.arrIngresosGastosFiltrados;
   }
-  anios(anio?: string){
-    console.log(anio)
+
+  anios($event) {
+    this.arrIngresosGastosFiltrados = []
+    if($event.target.value != 0){
+      for (const fechas of this.arrIngresosGastosInmuebles) {
+        if(fechas.fechaFactura.toString().substring(0, 4) === $event.target.value){
+          this.arrIngresosGastosFiltrados.push(fechas);
+        }
+      }
+      this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
+    }else{
+      this.arrIngresosGastosMostrar = this.arrIngresosGastosInmuebles;
+    }
   }
 
 }
