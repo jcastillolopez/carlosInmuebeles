@@ -21,8 +21,8 @@ export class TipoInmuebleRegistroComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router,
   ) {
-    this.path_lista = 'inmuebles/detalle/'
-    this.path_create_update = 'inmuebles'
+    this.path_lista = 'inmueble/detalle/'
+    this.path_create_update = 'inmueble'
     this.result = "";
     
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
