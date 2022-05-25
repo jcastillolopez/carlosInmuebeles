@@ -22,8 +22,8 @@ export class TipoContratoRegistroComponent implements OnInit {
     private router: Router,
 
   ) {
-    this.path_lista = 'contratos/detalle/'
-    this.path_create_update = 'contratos'
+    this.path_lista = 'contrato/detalle/'
+    this.path_create_update = 'contrato'
     this.result = "";
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     this.idUsuario = parseInt(sessionStorage.getItem('idUsuario')!);

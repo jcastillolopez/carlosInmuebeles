@@ -20,7 +20,7 @@ export class TipoInmuebleListaComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.path_tipos = 'inmuebles/';    
+    this.path_tipos = 'inmueble/';    
     this.seleccionadoId = "";
     //Tabla para la lista
     this.arrListaTipoInmueble = [];

@@ -20,8 +20,8 @@ export class TipoPagoRegistroComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router,
   ) { 
-    this.path_lista = 'pagos/detalle/'
-    this.path_create_update = 'pagos'
+    this.path_lista = 'pago/detalle/'
+    this.path_create_update = 'pago'
     this.result = "";
     
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);

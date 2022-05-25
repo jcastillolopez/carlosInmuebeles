@@ -33,8 +33,8 @@ export class InmueblesRegistroComponent implements OnInit {
     this.tipoSeleccionado = 0;
 
     //Paths APIS CARLOS
-    this.path_lista = 'inmuebles/detalle/'
-    this.path_create_update = 'inmuebles/'
+    this.path_lista = 'inmueble/detalle/'
+    this.path_create_update = 'inmueble/'
 
     this.arrSelectTipos = [];
     this.registroForm = new FormGroup({
@@ -59,7 +59,7 @@ export class InmueblesRegistroComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmuebles/1');
+    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmueble/1');
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
         let response = await this.metodosGlobales.getById(this.path_lista, params['id']);

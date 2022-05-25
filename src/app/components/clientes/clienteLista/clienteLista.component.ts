@@ -27,7 +27,7 @@ export class ClienteListaComponent implements OnInit {
     private router: Router
   ) {
 
-    this.path = 'clientes/';
+    this.path = 'cliente/';
     this.clienteSeleccionadoId = 1;
 
     //Tabla para la lista

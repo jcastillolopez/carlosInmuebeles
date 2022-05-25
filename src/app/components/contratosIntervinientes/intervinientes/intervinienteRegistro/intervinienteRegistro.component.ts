@@ -33,11 +33,11 @@ export class IntervinienteRegistroComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.pathInmuebles = 'inmuebles/'
-    this.pathTiposIntervinientes = 'intervinientes/'
-    this.pathIntervinientes = 'intervinientes/'
-    this.pathClientes = 'clientes/'
-    this.pathCreateUpdate = 'intervinientes/'
+    this.pathInmuebles = 'inmueble/'
+    this.pathTiposIntervinientes = 'interviniente/'
+    this.pathIntervinientes = 'interviniente/'
+    this.pathClientes = 'cliente/'
+    this.pathCreateUpdate = 'interviniente/'
 
     this.arrInmuebles = [];
     this.arrTipoInterviniente = [];

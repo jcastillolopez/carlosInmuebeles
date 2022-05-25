@@ -16,7 +16,7 @@ export class InmuebleDetalleComponent implements OnInit {
 
   inmuebleDetalle: any;
   arrSelectTipos: any[];
-  path: string = 'inmuebles/detalle/'
+  path: string = 'inmueble/detalle/'
   constructor(
     private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
@@ -36,7 +36,7 @@ export class InmuebleDetalleComponent implements OnInit {
    }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmuebles/' + parseInt(sessionStorage.getItem('administradorId')!))
+    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmueble/' + parseInt(sessionStorage.getItem('administradorId')!))
     this.activateRouter.params.subscribe(async params => {
       let response = await this.metodosGlobales.getById(this.path, params['id']);
       this.inmuebleDetalle = response[0];

@@ -23,8 +23,8 @@ export class PeriodoRegistroComponent implements OnInit {
     private router: Router,
 
   ) {
-    this.path_lista = 'periodos/detalle/'
-    this.path_create_update = 'periodos'
+    this.path_lista = 'periodo/detalle/'
+    this.path_create_update = 'periodo'
     this.result = "";
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     this.idUsuario = parseInt(sessionStorage.getItem('idUsuario')!);

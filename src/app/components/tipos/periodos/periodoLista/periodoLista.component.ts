@@ -22,7 +22,7 @@ export class PeriodoListaComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.path_usuarios = 'periodos/';
+    this.path_usuarios = 'periodo/';
     this.seleccionadoId = "";
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     //Tabla para la lista
