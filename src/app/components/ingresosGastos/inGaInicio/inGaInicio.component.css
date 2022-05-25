@@ -81,6 +81,10 @@
     background-color: transparent;
  }
  
+ .thead_hover :hover{
+   background-color: rgb(58, 58, 208);
+ }
+ 
  h2,
  h3,
  p {
@@ -95,6 +99,7 @@
  }
  
  .campo{
+    background-color: rgb(58, 58, 208);
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;

@@ -25,52 +25,64 @@
     <table class="table">
       <thead>
         <tr>
+          <th></th>
+          <th>concepto</th>
+          <th>Proveedor</th>
+          <th>Fecha Gasto</th>
           <th>Numero de Factura</th>
-          <th>Total Base Imponible</th>
-          <th>Total Impuesto Iva</th>
+          <th>Base Imponible</th>
+          <th>Impuesto Iva</th>
           <th>Total Gasto</th>
-          <th>Total Ingreso</th>
-          <th>Alias del Inmueble</th>
+          <th>Forma Pago</th>
+          <th>Fecha Pago</th>
+          <th>CC Proveedor</th>
+          <th>CC Pago</th>
+
         </tr>
       </thead>
       <tbody routerLinkActive="activo activoBoton" *ngFor="let inGa of arrIngresosGastosMostrar; let i = index">
         <tr (click)="navegar(inGa.idInGa)" [routerLink]="['/inga/detalle/'+inGa.idInGa]">
-          <td>{{inGa.numeroFactura}}</td>
+          <td>ver detalle</td>
+          <td>{{inGa.concepto}}</td>
+          <td>{{inGa.nombreCliente}} {{inGa.apellidosCliente}}</td>
           <td>{{inGa.fechaFactura}}</td>
+          <td>{{inGa.numeroFactura}}</td>
           <td>{{inGa.totalBaseImponible}}</td>
           <td>{{inGa.totalImpuestoIva}}</td>
           <td>{{inGa.totalGasto}}</td>
-          <td>{{inGa.totalIngreso}}</td>
-          <td>{{inGa.aliasInmueble}}</td>
-          <td>{{inGa.concepto}}</td>
-          <td>
-            <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#ingaGeneral">
+          <td>{{inGa.formaPago}}</td>
+          <td>{{inGa.fechaPago}}</td>
+          <td>{{inGa.cuentaCorrienteProveedor}}</td>
+          <td>{{inGa.cuentaCorrienteCliente}}</td>
+        
+            <button type="button" class="botonOculto buttonLista" data-toggle="modal"
+              data-target="#ingaGeneral">
               Modificar
             </button>
-          </td>
+          
         </tr>
         <tr>
-          <td colspan="8">
+          <td colspan="12">
             <div class="campo">
               <table>
                 <tbody *ngFor="let inGaDetalle of arrInGaDetalle, let i = index">
                   <tr class="thead" *ngIf="i<1 && detalle(inGaDetalle.inGaId, inGa.idInGa)">
                     <th>Concepto Detalle</th>
                     <th>Precio Venta</th>
-                    <th>Porcentaje Iva</th>
                     <th>Cantidad</th>
                     <th>Descuento</th>
                     <th>Importe</th>
+                    <th>Porcentaje Iva</th>
                     <th>Base Imponible</th>
                     <th>Valor Venta</th>
                   </tr>
                   <tr *ngIf="detalle(inGaDetalle.inGaId, inGa.idInGa)">
                     <td>{{inGaDetalle.conceptoDetalle}}</td>
                     <td>{{inGaDetalle.pv}}</td>
-                    <td>{{inGaDetalle.ivaPorcentaje}}</td>
                     <td>{{inGaDetalle.cantidad}}</td>
                     <td>{{inGaDetalle.descuento}}</td>
                     <td>{{inGaDetalle.importe}}</td>
+                    <td>{{inGaDetalle.ivaPorcentaje}}</td>
                     <td>{{inGaDetalle.importeTotal}}</td>
                     <td>{{inGaDetalle.valorTotal}}</td>
                   </tr>
@@ -89,3 +101,4 @@
 
 </div>
 <ingaRegistroGeneral></ingaRegistroGeneral>
+<ingresoRegistroGeneral></ingresoRegistroGeneral>

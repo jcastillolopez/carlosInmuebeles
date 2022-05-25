@@ -1,10 +1,10 @@
-<div class="modal ventana" id="ingaGeneral" tabindex="1" rol="dialog" aria-labelledby="ingaGeneral" aria-hidden="false">
+<div class="modal ventana" id="ingresoGeneral" tabindex="1" rol="dialog" aria-labelledby="ingresoGeneral" aria-hidden="false">
   <div class="modal-dialog">
     <div class="modal-content">
 
       <form class="registro" [formGroup]="registroForm">
         <div class="modal-header">
-          <h3>Datos de Gastos</h3>
+          <h3>Datos de Ingresos</h3>
 
         
         <div class="modal-body">
@@ -22,7 +22,7 @@
                   </div>
                 </div>
                   <div class="form-group campo">
-                    <label class="form-label">Proveedor</label>
+                    <label class="form-label">Cliente</label>
                     <select type="text" formControlName="clienteId">
                       <option [value]="proveedor.idCliente" *ngFor="let proveedor of selectProveedor">
                         {{proveedor.nie}} {{proveedor.nombre}} {{proveedor.apellidos}} </option>
@@ -36,7 +36,7 @@
                     </select>
                   </div>
                   <div class="form-group campo">
-                    <label class="form-label">Tipo Pago</label>
+                    <label class="form-label">Tipo Ingreso</label>
                     <select type="text" formControlName="tipoPagoId">
                       <option [value]="tipo.idTipoPago" *ngFor="let tipo of selectTipoPago">
                         {{tipo.tipoEspecifico}}</option>
@@ -51,7 +51,7 @@
                     <input type="text" class="form-control" formControlName="concepto">
                   </div>  
                   <div class="form-group campo">
-                    <label class="form-label">Fecha Gasto </label>
+                    <label class="form-label">Fecha Ingreso </label>
                     <input type="date" class="form-control" formControlName="fechaFactura">
                   </div>
                   <div class="form-group campo">
@@ -60,7 +60,7 @@
                   </div>
                   
                   <div class="form-group campo">
-                    <label class="form-label">Cuenta Corriente Proveedor </label>
+                    <label class="form-label">Cuenta Corriente Ingreso </label>
                     <input type="text" class="form-control" formControlName="cuentaCorrienteProveedor">
                   </div>
                   <div class="form-group campo">
@@ -103,7 +103,7 @@
                   </div>
                
                   <div class="form-group campo">
-                    <label class="form-label">Eliminar  Detalle Gasto</label>
+                    <label class="form-label">Eliminar Detalle Ingreso</label>
                     <input type="checkbox">
                   </div>
                 </div>
@@ -114,7 +114,7 @@
            
             <div class="modal-footer">
               <div class="form-group campo">
-                <label class="form-label">Eliminar  Gasto</label>
+                <label class="form-label">Eliminar  Ingreso</label>
                 <input type="checkbox" formControlName="borrado">
               </div>   <div class="form-group campo">
                 <label class="form-label">Total Base Imponible </label>
@@ -125,8 +125,8 @@
                 <input type="number" class="form-control" formControlName="totalImpuestoIva">
               </div>
               <div class="form-group campo">
-                <label class="form-label">Total Gasto / Factura </label>
-                <input type="number" class="form-control" formControlName="totalGasto">
+                <label class="form-label">Total Ingreso </label>
+                <input type="number" class="form-control" formControlName="totalIngreso">
               </div>
               <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
               <button data-dismiss="modal" (click)="enviar()">Save changes</button>

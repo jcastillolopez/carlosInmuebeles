@@ -9,11 +9,11 @@ import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
 
 @Component({
-  selector: 'ingaRegistroGeneral',
-  templateUrl: './ingaRegistroGeneral.component.html',
-  styleUrls: ['./ingaRegistroGeneral.component.css']
+  selector: 'ingresoRegistroGeneral',
+  templateUrl: './ingresoRegistroGeneral.component.html',
+  styleUrls: ['./ingresoRegistroGeneral.component.css']
 })
-export class IngaRegistroGeneralComponent implements OnInit {
+export class IngresoRegistroGeneralComponent implements OnInit {
 
   contratoSeleccionadoId = "";
   pathInGa: string;

@@ -99,6 +99,9 @@ export class InGaInicioComponent implements OnInit {
 
   anios($event) {
     this.arrIngresosGastosFiltrados = []
+    if(this.arrIngresosGastosInmuebles.length == 0){
+      this.arrIngresosGastosInmuebles = this.arrIngresosGastosTodos
+    }
     if($event.target.value != 0){
       for (const fechas of this.arrIngresosGastosInmuebles) {
         if(fechas.fechaFactura.toString().substring(0, 4) === $event.target.value){

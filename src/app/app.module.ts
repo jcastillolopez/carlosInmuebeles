@@ -56,6 +56,7 @@ import { InGaInicioComponent } from './components/ingresosGastos/inGaInicio/inGa
 import { IngaDetalleComponent } from './components/ingresosGastos/ingaDetalle/ingaDetalle.component';
 import { TipoPagoListaComponent } from './components/tipos/Pagos/tipoPagoLista/tipoPagoLista.component';
 import { TipoPagoRegistroComponent } from './components/tipos/Pagos/tipoPagoRegistro/tipoPagoRegistro.component';
+import { IngresoRegistroGeneralComponent } from './components/ingresosGastos/ingresoRegistroGeneral/ingresoRegistroGeneral.component';
 
 
 
@@ -71,6 +72,7 @@ import { TipoPagoRegistroComponent } from './components/tipos/Pagos/tipoPagoRegi
     BalanceNavComponent,
     IngaNavComponent,
     IngaRegistroGeneralComponent,
+    IngresoRegistroGeneralComponent,
     IngaDetalleComponent,
     InGaInicioComponent,
     
