@@ -8,26 +8,42 @@
  .activo{
     font-size: 80%;
  }
- .filtro{
+ .inga{
+    margin: 10px;   
+    max-height: 5vh;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    font-size: 125%;
+    justify-content: space-around;    
+ }
+ 
+ .filtro{
+    min-width: 60%;
+    max-height: 5vh;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;    
+    justify-content: space-around;  
     background-color: darkblue;
  }
  select{
     background-color: lightseagreen;
     font-style: oblique;
+   
  }
  
- .listado {   
-    max-width: 50%;
-    min-width: 30%;
+ .listado { 
+    min-width: 80%;           
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    text-align: center;
-    margin: 0.4em;
+    justify-content: space-around;
+    text-align: center; 
+   
+ }
+ .lista{      
+    min-width: 45%;    
+ }
+ .table{
+    margin: 20px;
  }
  
  .router {
