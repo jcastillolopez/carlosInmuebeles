@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ignoreElements } from 'rxjs';
+
 import { ingresogastointerface } from 'src/app/interfaces/ingresoGasto';
 import { ingresogastodetalleinterface } from 'src/app/interfaces/ingresoGastoDetalle';
 import { Globales } from 'src/app/services/Globales.service';
