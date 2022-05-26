@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
@@ -38,8 +38,8 @@ export class InmuebleListaComponent implements OnInit {
   async ngOnInit() {
     this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmueble/' + parseInt(sessionStorage.getItem('administradorId')!));
     this.arrSelectTipos.push(await this.metodosTipos.getAllTipos('inmueble/' + 1))
-    console.log(this.arrSelectTipos.values.toString)
     this.arrListaInmuebles = await this.metodosGlobales.getById(this.path, parseInt(sessionStorage.getItem('administradorId')!));
+    console.log()
 
     this.activateRouter.params.subscribe(params => {
       this.inmuebleSeleccionadoId = params['id']
@@ -48,7 +48,7 @@ export class InmuebleListaComponent implements OnInit {
     for (const inmueble of this.arrListaInmuebles) {
       for (const tipos of this.arrSelectTipos) {
         if (tipos.idTipoInmueble == inmueble.tipoInmueblesId) {
-          inmueble.tipoInmueble = tipos.tipoInmueble;
+          inmueble.tipoEspecifico = tipos.tipoEspecifico;
         }
       }
     }
@@ -57,7 +57,7 @@ export class InmuebleListaComponent implements OnInit {
 
   navegar(idInmueble: number) {
     this.router.navigate(["/inmuebles/detalle/" + idInmueble])
-    
+
   }
 
 }

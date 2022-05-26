@@ -50,6 +50,7 @@ export class IngaDetalleComponent implements OnInit {
       totalImpuestoIva: 0,
       totalGasto: 0,
       totalIngreso: 0,
+      totalImporte: 0,
       cuentaCorrienteProveedor: '',
       cuentaCorrienteCliente: '',
       formaPago: "",

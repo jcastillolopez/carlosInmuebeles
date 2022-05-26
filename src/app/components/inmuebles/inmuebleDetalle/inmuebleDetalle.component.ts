@@ -26,6 +26,7 @@ export class InmuebleDetalleComponent implements OnInit {
     this.inmuebleDetalle = {
       idInmueble: 0,
       tipoInmueblesId: '',
+      tipoEspecifico: '',
       alias: '',
       refCatastral: '',
       localidad: '',
@@ -42,7 +43,8 @@ export class InmuebleDetalleComponent implements OnInit {
       this.inmuebleDetalle = response[0];
       for (const tipo of this.arrSelectTipos) {
         if (response.tipoInmueblesId == tipo.idTipoInmueble) {
-          this.inmuebleDetalle.tipoInmueblesId = tipo.tipoInmueble;
+          console.log(tipo.tipoEspecifico)
+          this.inmuebleDetalle.tipoEspecifico = tipo.tipoEspecifico;
         }
       }
     })

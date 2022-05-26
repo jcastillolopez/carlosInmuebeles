@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 
 
 export class ClienteDetalleComponent implements OnInit {
-  path: string = 'clientes/detalle/'
+  path: string = 'cliente/detalle/'
   cliente: clienteInterface
 
   constructor(

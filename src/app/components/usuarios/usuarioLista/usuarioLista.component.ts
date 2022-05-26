@@ -28,7 +28,7 @@ export class UsuarioListaComponent implements OnInit {
   ) {
     this.path_usuarios = 'usuario/';
     this.path_roles = 'rol/1';
-    this.path_usuarios_detalle = 'usuario/detalle/'
+    this.path_usuarios_detalle = 'usuarios/detalle/'
     this.usuarioSeleccionadoId = "";
     //Tabla para la lista
     this.arrListaUsuarios = [];

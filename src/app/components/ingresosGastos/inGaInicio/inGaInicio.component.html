@@ -21,42 +21,32 @@
           {{anio}}
         </option>
       </select>
+      <label class="form-label">Mes</label>
+      <select type="text" (change)="mes($event)">
+        <option [value]="0">Seleccione el Mes</option>
+        <option [value]="mes.numero" *ngFor="let mes of selectMes">
+          {{mes.mes}}
+        </option>
+      </select>
     </div>
     <table class="table">
       <thead>
         <tr>
           <th></th>
-          <th>concepto</th>
+          <th>Categoria</th>
           <th>Proveedor</th>
           <th>Fecha Gasto</th>
-          <th>Numero de Factura</th>
-          <th>Base Imponible</th>
-          <th>Impuesto Iva</th>
-          <th>Total Gasto</th>
-          <th>Total Ingreso</th>
-          <th>Forma Pago</th>
-          <th>Fecha Pago</th>
-          <th>CC Proveedor</th>
-          <th>CC Pago</th>
+          <th>Total Importe</th>
 
         </tr>
       </thead>
       <tbody routerLinkActive="activo activoBoton" *ngFor="let inGa of arrIngresosGastosMostrar; let i = index">
         <tr (click)="navegar(inGa.idInGa)" [routerLink]="['/inga/detalle/'+inGa.idInGa]">
           <td>ver detalle</td>
-          <td>{{inGa.concepto}}</td>
+          <td>{{inGa.tipoConcepto}}</td>
           <td>{{inGa.nombreCliente}} {{inGa.apellidosCliente}}</td>
           <td>{{inGa.fechaFactura}}</td>
-          <td>{{inGa.numeroFactura}}</td>
-          <td>{{inGa.totalBaseImponible}}</td>
-          <td>{{inGa.totalImpuestoIva}}</td>
-          <td>{{inGa.totalGasto}}</td>
-          <td>{{inGa.totalIngreso}}</td>
-          <td>{{inGa.formaPago}}</td>
-          <td>{{inGa.fechaPago}}</td>
-          <td>{{inGa.cuentaCorrienteProveedor}}</td>
-          <td>{{inGa.cuentaCorrienteCliente}}</td>
-        
+          <td>{{inGa.totalImporte}}</td>
             <button type="button" class="botonOculto buttonLista" data-toggle="modal"
               data-target="#ingaGeneral">
               Modificar

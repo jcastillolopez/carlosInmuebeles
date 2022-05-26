@@ -58,6 +58,7 @@ export class IngresoRegistroGeneralComponent implements OnInit {
   async ngOnInit() {
     this.nuevoRegistro();
     this.anadirDetalle();
+    this.anadirDetalle();
     this.selectInmueble = await this.metodosGlobales.getAll(this.pathInmueble + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectProveedor = await this.metodosGlobales.getAll(this.pathCliente + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectTipoConcepto = await this.metodosTipos.getAllTipos(this.pathTipoConcepto + parseInt(sessionStorage.getItem('administradorId')!));
@@ -83,11 +84,11 @@ export class IngresoRegistroGeneralComponent implements OnInit {
       this.registroForm.value.updateTime = new Date();
       const newIngreso = await this.metodosGlobales.create(this.registroForm.value, this.pathInGa);
       if (this.obtenerDetalle.length > 0) {
-        for (const detalles of this.obtenerDetalle.controls) {
-          detalles.value.createTime = new Date();
-          detalles.value.updateTime = new Date();
-          detalles.value.inGaId = newIngreso.idInGa;
-          const newIngresoDetalle = await this.metodosGlobales.create(detalles.value, this.pathInGaDetalle);
+        for (const detalle of this.obtenerDetalle.controls) {
+          detalle.value.createTime = new Date();
+          detalle.value.updateTime = new Date();
+          detalle.value.inGaId = newIngreso.idInGa;
+          const newIngresoDetalle = await this.metodosGlobales.create(detalle.value, this.pathInGaDetalle);
         }
       }
     }
@@ -154,11 +155,11 @@ export class IngresoRegistroGeneralComponent implements OnInit {
     var baseImponibleXdetalle = 0;
     var impuestoIva = 0;
 
-    for (const detalles of this.obtenerDetalle.controls) {
-      baseImponibleXdetalle = (detalles.value.pv * detalles.value.cantidad) - (((detalles.value.pv * detalles.value.cantidad) * detalles.value.descuento) / 100);
+    for (const detalleFormulario of this.obtenerDetalle.controls) {
+      baseImponibleXdetalle = (detalleFormulario.value.pv * detalleFormulario.value.cantidad) - (((detalleFormulario.value.pv * detalleFormulario.value.cantidad) * detalleFormulario.value.descuento) / 100);
       totalBaseImponible = totalBaseImponible + baseImponibleXdetalle;
 
-      impuestoIva = ((baseImponibleXdetalle * detalles.value.ivaPorcentaje) / 100);
+      impuestoIva = ((baseImponibleXdetalle * detalleFormulario.value.ivaPorcentaje) / 100);
       totalImpuestoIva = totalImpuestoIva + impuestoIva;
     }
     totalGasto = totalBaseImponible + totalImpuestoIva;
