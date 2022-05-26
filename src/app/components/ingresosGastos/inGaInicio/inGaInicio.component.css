@@ -8,6 +8,17 @@
  .activo{
     font-size: 80%;
  }
+ .filtro{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-size: 125%;
+    background-color: darkblue;
+ }
+ select{
+    background-color: lightseagreen;
+    font-style: oblique;
+ }
  
  .listado {   
     max-width: 50%;
