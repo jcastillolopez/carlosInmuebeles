@@ -3,9 +3,9 @@
 </header>
 
 <div class="fondo">
-  <div class="nav">
-    <ul class="general">
-
+  <div class="especifico">
+    <div class="navEspecifico">
+<h3>Clasificacion de :</h3>
       <li [routerLink]="['/tipos/inmueble']" routerLinkActive="activo">
         Inmuebles
       </li>
@@ -27,7 +27,7 @@
     <li [routerLink]="['/tipos/pago']" routerLinkActive="activo">
       Pagos
     </li>
-    </ul> 
+    </div> 
   </div>
   <div class="router">
     <router-outlet></router-outlet>

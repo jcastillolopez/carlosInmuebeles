@@ -8,19 +8,50 @@
 .wrapper {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    color: gold;
-    text-shadow: 2px 2px 2px black;
-    font-style: oblique;
+    flex-direction: column;   
     background-color: lightblue;
 
 }
+.container {
+    color: gold;
+    text-shadow: 2px 2px 2px black;
+    font-style: oblique;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: none;
+    max-height: 80vh;
+    background-color: rgb(58, 58, 208);
+}
+.fondo {
 
+    background-color: rgb(100, 115, 122);
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 60vh;
+    font-style: oblique;
+}
+.general{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;    
+
+}
 .nav {
     min-width: 10%;
     background-color: rgb(58, 58, 208);
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.navEspecifico {
+  min-height: 100%;
+    background-color: rgb(96, 91, 91);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-around;
 }
 
@@ -70,20 +101,13 @@ footer p {
     margin-top: 10px;
 }
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    max-width: none;
-    max-height: 80vh;
-    background-color: rgb(58, 58, 208);
-}
+
 
 button {
   
     min-width: 150px;
-    height: 20px;
-    padding: 10px;
+    height: 40px;
+    padding: 5px;
     border-radius: 10px;
     background-color: transparent;
     color: white;
@@ -98,31 +122,34 @@ button:hover {
     background-color: lightblue;
 }
 
-
-.fondo {
-
-    background-color: rgb(100, 115, 122);
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 70vh;
-    font-style: oblique;
+.modal-dialog{
+    min-width: 40%;  
 }
-
-.modal-dialog {
-    height: 50%;
-    min-width: 35%;
-}
-
 .modal-content {
     background-color: rgb(58, 58, 208);
-    border-radius: 15px;
+    border-radius: 25px;  
+    text-align: center;    
 }
-
+.general{
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;    
+}
 .campo {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: 0.5em;
+}
+.regiDetalle{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: green;
+}
+.campoTabla{   
+    margin-right: 5px;
+
 }
 
  label {
@@ -138,9 +165,14 @@ button:hover {
 }
 
 select {
-    background-color: rgb(155, 155, 155);
-    font-style: oblique;
-    text-shadow: 2px 2px 2px rgb(196, 196, 196);
+    min-height: 18px;
+    color: white;
+    background-color: rgb(96, 91, 91);
+    font-style: oblique; 
+
+}
+option{
+    background-color:black ;
 }
 
  h4{
@@ -202,9 +234,7 @@ select {
     width: 50px;
  }
  
- button:hover{
-    background-color: transparent;
- }
+ 
  
  h2,
  h3,
