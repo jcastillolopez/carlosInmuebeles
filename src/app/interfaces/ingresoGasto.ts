@@ -15,10 +15,10 @@ export interface ingresogastointerface {
 
     tipoConceptoId: number,
     tipoConcepto: string,
-    
+
     tipoPagoId: number,
     tipoPago: string,
-    
+
     clienteId: number,
     nombreCliente: string,
     apellidosCliente: string,

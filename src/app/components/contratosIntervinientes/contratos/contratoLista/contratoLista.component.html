@@ -2,9 +2,19 @@
   <navApp></navApp>
 </header>
 
-<div class="fondo"> 
+<div class="fondo">
   <div class="nav">
-    <contratoNav></contratoNav>
+    <button [routerLink]="['/contratos/']" type="button" data-toggle="modal"
+    data-target="#contrato">
+    Nuevo Contrato
+  </button>
+  <button type="button" data-toggle="modal" data-target="#clienteRegistro">
+    Nueva Entidad
+  </button>
+  <button [routerLink]="['/inmuebles/']" type="button" data-toggle="modal"
+    data-target="#inmuebleRegistro">
+    Nuevo Inmueble
+  </button>
   </div>
 
   <div class="listado">
@@ -25,7 +35,8 @@
           <td>{{contrato.aliasInmueble}}</td>
           <td>{{contrato.fechaContrato}}</td>
           <td>
-            <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#contrato">
+            <button type="button" class="botonOculto buttonLista" data-toggle="modal"
+              data-target="#contrato">
               Modificar
             </button>
           </td>
@@ -38,3 +49,4 @@
   </div>
 </div>
 <contratoRegistro></contratoRegistro>
+<clienteRegistro></clienteRegistro>

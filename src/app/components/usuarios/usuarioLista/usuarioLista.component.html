@@ -4,7 +4,9 @@
 
 <div class="fondo"> 
   <div class="nav">
-  <usuarioNav></usuarioNav>
+    <button [routerLink]="['/usuarios/']" type="button" data-toggle="modal" data-target="#registro">
+      Nuevo Usuario
+    </button>   
   </div>
   <div class="listado">
     <table class="table">
@@ -31,6 +33,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
   <div class="router">
     <router-outlet></router-outlet>
   </div>
