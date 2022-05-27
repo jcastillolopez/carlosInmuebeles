@@ -17,7 +17,7 @@ export class IngaDetalleComponent implements OnInit {
 
   inga: ingresogastointerface;
   ingaDetalle: ingresogastodetalleinterface[];
-  
+
   path_inGa: string;
   path_inGaDetalle: string;
   path_Tipo_Periodo: string;
@@ -50,6 +50,7 @@ export class IngaDetalleComponent implements OnInit {
       totalImpuestoIva: 0,
       totalGasto: 0,
       totalIngreso: 0,
+      totalImporte: 0,
       cuentaCorrienteProveedor: '',
       cuentaCorrienteCliente: '',
       formaPago: "",
@@ -109,7 +110,7 @@ export class IngaDetalleComponent implements OnInit {
         this.inga = response[0];
         this.ingaDetalle = await this.metodosGlobales.getById(this.path_inGaDetalle, params['id'])
         this.selectTipoConcepto = await this.metodosTipos.getAllTipos(this.path_Tipo_Pago + parseInt(sessionStorage.getItem('administradorId')!));
-        
+
       }
     })
   }

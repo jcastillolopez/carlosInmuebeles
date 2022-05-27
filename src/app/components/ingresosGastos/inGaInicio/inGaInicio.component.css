@@ -1,139 +1,155 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border: 0;
- }
- 
- .activo{
-    font-size: 80%;
- }
- .inga{
-    margin: 10px;   
-    max-height: 5vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;    
- }
- 
- .filtro{
-    min-width: 60%;
-    max-height: 5vh;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;    
-    justify-content: space-around;  
-    background-color: darkblue;
- }
- select{
-    background-color: lightseagreen;
-    font-style: oblique;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   border: 0;
+}
+
+.fondo {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+}
+
+.activo {
+   font-size: 80%;
+}
+
+.inga {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+   min-width: 100%;
+}
+
+.filtro {
+   max-width: 30%;
+   color: white;
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   background-color: rgb(89, 89, 99);
+}
+
+select {
+   background-color: lightseagreen;
+   font-style: oblique;
+   margin-top: 20px;
+}
+
+button {
+   margin-top: 20px;
+}
+
+label {
+   width: 100%;
+   padding-top: 20px;
+   border-top: 1px solid gold;
+   margin-top: 30px;
+   text-align: center;
+}
+
+.listado {
+   min-width: 70%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   text-align: center;
+}
+
+.lista {
+   min-width: 45%;
+}
+
+.table { 
    
- }
- 
- .listado { 
-    min-width: 80%;           
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    text-align: center; 
-   
- }
- .lista{      
-    min-width: 45%;    
- }
- .table{
-    margin: 20px;
- }
- 
- .router {
-    margin: 0 auto;
- }
- 
- .botonOculto {
-    visibility: hidden;
- }
- 
- .activoBoton .botonOculto {
-    visibility: visible;
- }
- tbody {
-    color: white;
-    border: 0 !important;
-    font-size: 80%;
- }
- 
- tbody tr:hover {
-    background-color: rgb(81, 181, 85);
- }
- 
- tbody tr td {
-    border: 0 !important;
- }
- td{
-    padding: 5px;
-    text-align: left;
- }
- 
- thead, .thead {
-    color: gold;
- }
- 
- thead tr th{
-    border-top: 0;
- }
- th{
-    padding: 5px;
-    width: 100px;
- }
- 
- td:nth-child(2){
-    width: 150px;
- }
- 
- td:nth-child(3){
-    width: 220px;
- }
- 
- td:last-child{
- width: 50px;
- }
- 
- .buttonLista{
-    min-width: 0;
-    width: 50px;
- }
- 
- button:hover{
-    background-color: transparent;
- }
- 
- .thead_hover :hover{
+   margin: 20px;
+  
+}
+
+.botonOculto {
+   visibility: hidden;
+}
+
+.activoBoton .botonOculto {
+   visibility: visible;
+}
+
+tbody {
+   color: white;
+   border: 0 !important;
+   font-size: 80%;
+}
+
+tbody tr:hover {
+   background-color: rgb(81, 181, 85);
+}
+
+tbody tr td {
+   border: 0 !important;
+}
+
+td {
+   padding: 5px;
+   text-align: left;
+}
+
+thead,
+.thead {
+   color: gold;
+}
+
+thead tr th {
+   border-top: 0;
+}
+
+th {
+   padding: 5px;
+   width: 100px;
+}
+
+td:nth-child(2) {
+   width: 150px;
+}
+
+td:nth-child(3) {
+   width: 220px;
+}
+
+td:last-child {
+   width: 50px;
+}
+
+.buttonLista {
+   min-width: 0;
+   width: 50px;
+
+}
+
+button:hover {
+   background-color: transparent;
+}
+
+.thead_hover :hover {
    background-color: rgb(58, 58, 208);
- }
- 
- h2,
- h3,
- p {
-    text-shadow: 2px 2px 2px rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    font-size: 125%;
- }
- 
- .lista {
-    color: gold;
-    margin-top: 20px;
- }
- 
- .campo{
-    background-color: rgb(58, 58, 208);
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
- }
- 
- tr{
-    width: 100%;
- }
- 
+}
+
+h2,
+h3,
+p {
+   text-shadow: 2px 2px 2px rgb(0, 0, 0);
+   color: rgb(255, 255, 255);
+   font-size: 125%;
+}
+
+.campo {
+   background-color: rgb(58, 58, 208);
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+   justify-content: space-around;
+}
+
+tr {
+   width: 100%;
+}

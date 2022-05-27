@@ -19,26 +19,7 @@
     text-shadow: 1px 1px 1px black
  }
  
- .campo {
-    display: flex;
-    flex-direction: row;
-    font-size: 18px;
-    margin-left: 10px;
- }
+
  
- label {
-    min-width: 150px;
-    text-align: left;
-    text-shadow: 1px 1px 1px black
- }
- h4{
-    text-shadow: 1px 1px 1px rgb(0, 0, 0);
-    color: gold;
- }
- 
- p {
-    margin-left: 5px;
-    text-shadow: 1px 1px 1px black;
-    color: white;
- }
+
  

@@ -66,6 +66,11 @@ export class InGaInicioComponent implements OnInit {
           }
         }
       }
+      if(ingresoGasto.totalGasto != 0){
+        ingresoGasto.totalImporte = ingresoGasto.totalGasto;
+      }else{
+        ingresoGasto.totalImporte = ingresoGasto.totalIngreso;
+      }
     }
   }
 

@@ -6,7 +6,7 @@ export interface ingresogastointerface {
     totalBaseImponible: number,
     totalImpuestoIva: number,
     totalGasto: number,
-    totalIngreso: number,
+    totalIngreso: number, totalImporte: number,
     cuentaCorrienteProveedor: string,
     cuentaCorrienteCliente: string,
     formaPago: string,
@@ -14,10 +14,10 @@ export interface ingresogastointerface {
 
     tipoConceptoId: number,
     tipoConcepto: string,
-    
+
     tipoPagoId: number,
     tipoPago: string,
-    
+
     clienteId: number,
     nombreCliente: string,
     apellidosCliente: string,
