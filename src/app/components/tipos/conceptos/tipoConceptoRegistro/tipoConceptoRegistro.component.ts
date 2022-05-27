@@ -17,14 +17,14 @@ export class TipoConceptoRegistroComponent implements OnInit {
   result: any;
   administradorId: number;
   idUsuario: number;
- 
+
   constructor(
     private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
     private router: Router,
-  ) { 
+  ) {
     this.result = "";
-    
+
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     this.idUsuario = parseInt(sessionStorage.getItem('idUsuario')!);
     this.registroForm = new FormGroup({
@@ -52,10 +52,10 @@ export class TipoConceptoRegistroComponent implements OnInit {
   }
   async enviar() {
     if (this.registroForm.value.idUsuario !== null) {
-      
+
       this.registroForm.value.updateTime = new Date();
       await this.metodosTipos.update(this.registroForm.value, environment.APIPATH_TIPOCONCEPTO);
-      
+
     } else {
       if (this.registroForm.valid) {
 
@@ -65,6 +65,7 @@ export class TipoConceptoRegistroComponent implements OnInit {
 
       } else { let result = 'hay datos no validos en el formulario' };
     }
+    window.location.reload();
   }
   checkError(fieldName: string, errorType: string) {
     return this.registroForm.get(fieldName)!.hasError(errorType) && this.registroForm.get(fieldName)!.touched

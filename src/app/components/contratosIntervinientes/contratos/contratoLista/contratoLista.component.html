@@ -5,19 +5,17 @@
 <div class="fondo">
   <div class="especifico">
     <div class="navEspecifico">
-    <button [routerLink]="['/contratos/']" type="button" data-toggle="modal"
-    data-target="#contrato">
-    Nuevo Contrato
-  </button>
-  <button type="button" data-toggle="modal" data-target="#clienteRegistro">
-    Nueva Entidad
-  </button>
-  <button [routerLink]="['/inmuebles/']" type="button" data-toggle="modal"
-    data-target="#inmuebleRegistro">
-    Nuevo Inmueble
-  </button>
+      <button [routerLink]="['/contratos/']" type="button" data-toggle="modal" data-target="#contrato">
+        Nuevo Contrato
+      </button>
+      <button type="button" data-toggle="modal" data-target="#clienteRegistro">
+        Nueva Entidad
+      </button>
+      <button type="button" data-toggle="modal" data-target="#inmuebleRegistro">
+        Nuevo Inmueble
+      </button>
+    </div>
   </div>
-</div>
   <div class="listado">
     <table class="table">
       <thead>
@@ -28,16 +26,13 @@
           <th></th>
         </tr>
       </thead>
-      <tbody routerLinkActive="activo activoBoton"
-        *ngFor="let contrato of arrListaContratos; let i = index">
-        <tr (click)="navegar(contrato.idContratos!)"
-          [routerLink]="['/contratos/detalle/' + contrato.idContratos ]">
+      <tbody routerLinkActive="activo activoBoton" *ngFor="let contrato of arrListaContratos; let i = index">
+        <tr (click)="navegar(contrato.idContratos!)" [routerLink]="['/contratos/detalle/' + contrato.idContratos ]">
           <td>{{contrato.tipoContrato}}</td>
           <td>{{contrato.aliasInmueble}}</td>
           <td>{{contrato.fechaContrato}}</td>
           <td>
-            <button type="button" class="botonOculto buttonLista" data-toggle="modal"
-              data-target="#contrato">
+            <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#contrato">
               Modificar
             </button>
           </td>
@@ -51,3 +46,4 @@
 </div>
 <contratoRegistro></contratoRegistro>
 <clienteRegistro></clienteRegistro>
+<inmueblesRegistro></inmueblesRegistro>

@@ -18,6 +18,7 @@ export class IntervinienteListaComponent implements OnInit {
 
   //variables Globales
   administradorId: number;
+  idContrato: number;
 
   constructor(
     private metodosGlobales: Globales,
@@ -33,33 +34,18 @@ export class IntervinienteListaComponent implements OnInit {
 
   async ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
+      this.idContrato = params['id']
       this.arrListaIntervinientes = await this.metodosGlobales.getById(environment.APIPATH_INTERVINIENTE, params['id']);
-      for (const interviniente of this.arrListaIntervinientes) {
-        if (interviniente.contratosId === this.activateRouter.snapshot.params['id']) {
-          this.arrTipoInterviniente = await this.metodoTipos.getAllTipos(environment.APIPATH_TIPOINTERVINIENTE + this.administradorId);
-          this.arrClientes = await this.metodosGlobales.getAll(environment.APIPATH_CLIENTE + this.administradorId);
-
-          for (const tipoInterviniente of this.arrTipoInterviniente) {
-            if (tipoInterviniente.idTipoInterviniente == interviniente.tipoIntervinienteid) {
-              interviniente.tipoInterviniente = tipoInterviniente.tipoInterviniente;
-            }
-          }
-
-          for (const clientes of this.arrClientes) {
-            if (clientes.idCliente == interviniente.clienteId) {
-              interviniente.nombreCliente = clientes.nombre;
-              interviniente.apellidosCliente = clientes.apellidos;
-            }
-          }
-        }
-
-      }
     })
   }
 
   navegar(idContrato: number, idInterviniente: number) {
     this.router.navigate(["/contratos/detalle/" + idContrato + '/interviniente/' + idInterviniente])
 
+  }
+
+  navegarNuevo() {
+    this.router.navigate(["/contratos/detalle/" + this.idContrato])
   }
 
 }

@@ -24,6 +24,7 @@ export class InGaInicioComponent implements OnInit {
   selectAnio: any[];
   selectMes: any[];
   inmuebleFiltrado: number;
+  importeTotal: number;
 
 
   constructor(
@@ -42,6 +43,7 @@ export class InGaInicioComponent implements OnInit {
     this.selectAnio = [];
     this.selectMes = [];
     this.inmuebleFiltrado = 0;
+    this.importeTotal = 0;
   }
 
   async ngOnInit() {
@@ -99,21 +101,15 @@ export class InGaInicioComponent implements OnInit {
         "mes": "Dicienmbre",
         "numero": "12"
       }
-]
+    ]
     for (const ingresoGasto of this.arrIngresosGastosMostrar) {
-      if (ingresoGasto.inmuebleId != null) {
-        for (const inmueble of this.arrListaInmuebles) {
-          if (ingresoGasto.inmuebleId === inmueble.idInmueble) {
-            ingresoGasto.aliasInmueble = inmueble.alias;
-          }
-        }
-      }
-      if(ingresoGasto.totalGasto != 0){
+      if (ingresoGasto.totalGasto != 0) {
         ingresoGasto.totalImporte = ingresoGasto.totalGasto;
-      }else{
+      } else {
         ingresoGasto.totalImporte = ingresoGasto.totalIngreso;
       }
     }
+    this.calculoTotal();
   }
 
   async navegar(idIngresoGasto: number) {
@@ -142,6 +138,7 @@ export class InGaInicioComponent implements OnInit {
       this.arrIngresosGastosMostrar = this.arrIngresosGastosTodos;
     }
     this.arrIngresosGastosInmuebles = this.arrIngresosGastosFiltrados;
+    this.calculoTotal();
   }
 
   anios($event) {
@@ -160,17 +157,20 @@ export class InGaInicioComponent implements OnInit {
       this.arrIngresosGastosMostrar = this.arrIngresosGastosInmuebles;
     }
     this.arrIngresosGastosAnios = this.arrIngresosGastosFiltrados;
+    this.calculoTotal();
   }
 
   mes($event) {
     this.arrIngresosGastosFiltrados = []
     if (this.arrIngresosGastosAnios.length == 0) {
-      this.arrIngresosGastosAnios = this.arrIngresosGastosTodos
+      this.arrIngresosGastosAnios = this.arrIngresosGastosInmuebles;
+    }
+    if (this.arrIngresosGastosInmuebles.length == 0) {
+      this.arrIngresosGastosAnios = this.arrIngresosGastosTodos;
     }
     if ($event.target.value != 0) {
       for (const fechas of this.arrIngresosGastosAnios) {
-        console.log(fechas.fechaFactura.toString().substring(5, 7))
-        if (fechas.fechaFactura.toString().substring(5, 7) === $event.target.value) {
+        if (fechas.fechaFactura.toString().substring(6, 7) === $event.target.value) {
           this.arrIngresosGastosFiltrados.push(fechas);
         }
       }
@@ -178,7 +178,16 @@ export class InGaInicioComponent implements OnInit {
     } else {
       this.arrIngresosGastosMostrar = this.arrIngresosGastosAnios;
     }
-    this.arrIngresosGastosAnios = this.arrIngresosGastosFiltrados;
+    this.calculoTotal();
+  }
+
+  calculoTotal(): number {
+    let calculando = 0;
+    for (const inga of this.arrIngresosGastosMostrar) {
+      calculando = calculando + inga.totalImporte
+    }
+    this.importeTotal = calculando;
+    return this.importeTotal;
   }
 
 }

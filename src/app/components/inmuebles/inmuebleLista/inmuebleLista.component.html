@@ -4,43 +4,40 @@
 
 <div class="fondo">
   <div class="especifico">
-  <div class="navEspecifico">
-    <button [routerLink]="['/inmuebles/']" type="button" data-toggle="modal" data-target="#inmuebleRegistro">
-      Nuevo Inmueble
-    </button>   
+    <div class="navEspecifico">
+      <button [routerLink]="['/inmuebles/']" type="button" data-toggle="modal" data-target="#inmuebleRegistro">
+        Nuevo Inmueble
+      </button>
+    </div>
+  </div>
+  <div class="listado">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Tipo Inmueble</th>
+          <th>Alias</th>
+          <th>Ref Catastral</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody routerLinkActive="activo activoBoton" *ngFor="let inmueble of arrListaInmuebles; let i = index">
+        <tr (click)="navegar(inmueble.idInmueble)" [routerLink]="['/inmuebles/detalle/'+inmueble.idInmueble]">
+          <td>{{inmueble.tipoInmueble}}</td>
+          <td>{{inmueble.alias}}</td>
+          <td>{{inmueble.refCatastral}}</td>
+          <td>
+            <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#inmuebleRegistro">
+              Modificar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="router">
+    <router-outlet></router-outlet>
   </div>
 </div>
-    <div class="listado">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Tipo Inmueble</th>
-            <th>Alias</th>
-            <th>Ref Catastral</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody routerLinkActive="activo activoBoton"
-          *ngFor="let inmueble of arrListaInmuebles; let i = index">
-          <tr (click)="navegar(inmueble.idInmueble)"
-            [routerLink]="['/inmuebles/detalle/'+inmueble.idInmueble]">
-            <td>{{inmueble.tipoEspecifico}}</td>
-            <td>{{inmueble.alias}}</td>
-            <td>{{inmueble.refCatastral}}</td>
-            <td>
-              <button type="button" class="botonOculto buttonLista" data-toggle="modal"
-                data-target="#inmuebleRegistro">
-                Modificar
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 
-    <div class="router">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-
-  <inmueblesRegistro></inmueblesRegistro>
+<inmueblesRegistro></inmueblesRegistro>

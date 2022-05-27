@@ -42,13 +42,13 @@ export class InmueblesRegistroComponent implements OnInit {
       administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!)),
       usuarioId: new FormControl(parseInt(sessionStorage.getItem('idUsuario')!)),
       borrado: new FormControl(),
-      createTime: new FormControl(), 
+      createTime: new FormControl(),
       updateTime: new FormControl(),
       planta: new FormControl(),
-      nhabitaciones:new FormControl(),
+      nhabitaciones: new FormControl(),
       mcuadrados: new FormControl(),
-      nbanos:new FormControl(),
-  
+      nbanos: new FormControl(),
+
     })
   }
 
@@ -62,13 +62,13 @@ export class InmueblesRegistroComponent implements OnInit {
     })
   }
 
-  async enviar() {   
+  async enviar() {
     if (this.registroForm.value.idInmueble !== null) {
 
       this.registroForm.value.idTipoInmueble = parseInt(this.registroForm.value.idTipoInmueble);
       this.registroForm.value.updateTime = new Date();
       this.registroForm.value.usuarioId = parseInt(sessionStorage.getItem('idUsuario')!);
-      await this.metodosGlobales.update(this.registroForm.value,environment.APIPATH_INMUEBLE);    
+      await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_INMUEBLE);
 
     } else {
 
@@ -78,6 +78,6 @@ export class InmueblesRegistroComponent implements OnInit {
       await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_INMUEBLE);
 
     }
-    window.location.href = 'http://localhost:4200/inmuebles'
+    window.location.reload();
   }
 }

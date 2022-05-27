@@ -2,17 +2,14 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Nombre</th>
-        <th>Apellidos</th>
+        <th>Nombre y Apellidos</th>
         <th>Tipo Interviniente</th>
       </tr>
     </thead>
-    <tbody routerLinkActive="activo activoBoton"
-      *ngFor="let interviniente of arrListaIntervinientes; let i = index">
+    <tbody routerLinkActive="activo activoBoton" *ngFor="let interviniente of arrListaIntervinientes; let i = index">
       <tr (click)="navegar(interviniente.contratosId! ,interviniente.idInterviniente!)"
-      [routerLink]="['/contratos/detalle/' + interviniente.contratosId + '/interviniente/' + interviniente.idInterviniente]">
-        <td>{{interviniente.nombreCliente}}</td>
-        <td>{{interviniente.apellidosCliente}}</td>
+        [routerLink]="['/contratos/detalle/' + interviniente.contratosId + '/interviniente/' + interviniente.idInterviniente]">
+        <td>{{interviniente.apellidosNombreCliente}}</td>
         <td>{{interviniente.tipoInterviniente}}</td>
         <td>
           <button type="button" class="buttonLista" data-toggle="modal" data-target="#interviniente">
@@ -25,7 +22,7 @@
 </div>
 
 <div class="nuevoInterviniente">
-  <button type="button" class="buttonLista" data-toggle="modal" data-target="#interviniente">
+  <button (click)="navegarNuevo()" type="button" class="buttonLista" data-toggle="modal" data-target="#interviniente">
     Nuevo Interviniente
   </button>
 </div>

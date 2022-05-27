@@ -35,13 +35,13 @@ export class IntervinienteRegistroComponent implements OnInit {
     this.sesionStorageAdministradorId = parseInt(sessionStorage.getItem('administradorId')!)
 
     this.registroForm = new FormGroup({
-      
+
       idInterviniente: new FormControl(),
       porcentajePropiedad: new FormControl(),
 
       clienteId: new FormControl(),
       tipoIntervinienteId: new FormControl(),
-      contratoId: new FormControl(),
+      contratosId: new FormControl(),
       // inmuebleId: new FormControl(),
 
       administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!)),
@@ -53,12 +53,12 @@ export class IntervinienteRegistroComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrCliente = await this.metodosGlobales.getAll(environment.APIPATH_CLIENTE+ this.sesionStorageAdministradorId);
+    this.arrCliente = await this.metodosGlobales.getAll(environment.APIPATH_CLIENTE + this.sesionStorageAdministradorId);
     this.arrInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + this.sesionStorageAdministradorId);
     this.arrTipoInterviniente = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINTERVINIENTE + this.sesionStorageAdministradorId);
     this.activateRouter.params.subscribe(async params => {
-      if (params['id']) {
-        let response = await this.metodosGlobales.getById(environment.APIPATH_INTERVINIENTE, params['id'])
+      if (params['idInterviniente']) {
+        let response = await this.metodosGlobales.getById(environment.APIPATH_INTERVINIENTEDETALLE, params['idInterviniente'])
         this.registroForm.patchValue(response[0])
       }
     })
@@ -71,12 +71,12 @@ export class IntervinienteRegistroComponent implements OnInit {
       } else {
         this.registroForm.value.createTime = new Date();
         this.registroForm.value.updateTime = new Date();
-        this.registroForm.value.contratoId = parseInt(this.activateRouter.snapshot.params['id'])
+        this.registroForm.value.contratosId = this.activateRouter.snapshot.params['id'];
         console.log(this.registroForm.value);
         await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_INTERVINIENTE);
       }
-      window.location.href = 'http://localhost:4200/contratos/detalle/' + this.activateRouter.snapshot.params['id'];
-  })
+      window.location.reload();
+    })
 
   }
 }

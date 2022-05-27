@@ -20,7 +20,7 @@ export class InmuebleDetalleComponent implements OnInit {
   constructor(
     private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
-    private metodosGlobales:Globales,
+    private metodosGlobales: Globales,
   ) {
     this.arrSelectTipos = [];
     this.inmuebleDetalle = {
@@ -33,20 +33,13 @@ export class InmuebleDetalleComponent implements OnInit {
       direccion: '',
       cp: '',
       borrado: false,
-      }
-   }
+    }
+  }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINMUEBLE + parseInt(sessionStorage.getItem('administradorId')!))
     this.activateRouter.params.subscribe(async params => {
-      let response = await this.metodosGlobales.getById(environment.APIPATH_INMUEBLE, params['id']);
+      let response = await this.metodosGlobales.getById(environment.APIPATH_INMUEBLEDETALLE, params['id']);
       this.inmuebleDetalle = response[0];
-      for (const tipo of this.arrSelectTipos) {
-        if (response.tipoInmueblesId == tipo.idTipoInmueble) {
-          console.log(tipo.tipoEspecifico)
-          this.inmuebleDetalle.tipoEspecifico = tipo.tipoEspecifico;
-        }
-      }
     })
   }
 }

@@ -17,9 +17,9 @@ export class UsuarioRegistroComponent implements OnInit {
   arrSelectTipos: any[];
 
   constructor(
-    
-    private metodosGlobales:Globales,   
-    private metodosTipos:tiposService,
+
+    private metodosGlobales: Globales,
+    private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
     private router: Router,
   ) {
@@ -33,7 +33,7 @@ export class UsuarioRegistroComponent implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(60),
       ]),
-      
+
       email: new FormControl('', [
         Validators.required,
         Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/)
@@ -42,7 +42,7 @@ export class UsuarioRegistroComponent implements OnInit {
       borrado: new FormControl(),
       createTime: new FormControl(),
       updateTime: new FormControl(),
-      idRol: new FormControl(),
+      rolId: new FormControl(),
       administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!))
     })
   }
@@ -51,7 +51,7 @@ export class UsuarioRegistroComponent implements OnInit {
     this.arrSelectTipos = await this.metodosTipos.getAllTipos('rol/1');
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
-        let response = await this.metodosGlobales.getById(environment.APIPATH_USUARIODETALLE,params['id'])
+        let response = await this.metodosGlobales.getById(environment.APIPATH_USUARIODETALLE, params['id'])
         this.registroForm.patchValue(response[0])
       }
     })
@@ -59,19 +59,18 @@ export class UsuarioRegistroComponent implements OnInit {
   async enviar() {
     if (this.registroForm.value.idUsuario !== null) {
       this.registroForm.value.updateTime = new Date();
-      await this.metodosGlobales.update(this.registroForm.value,environment.APIPATH_USUARIO);
+      await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_USUARIO);
     } else {
       if (this.registroForm.valid) {
-      this.registroForm.value.createTime = new Date();
-      this.registroForm.value.updateTime = new Date();
-        
+        this.registroForm.value.createTime = new Date();
+        this.registroForm.value.updateTime = new Date();
+
         const temp = await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_USUARIO);
       } else { let result = 'hay datos no validos en el formulario' };
     }
+    window.location.reload();
   }
-  // navegar(idUsuario: number) {
-  //   this.router.navigate([this.path_usuarios_detalle + idUsuario])
-  // }
+
   dniValidators(pControl: FormControl) {
     const value = pControl.value;
     const grupoLetras = 'TRWAGMYFPDXBNJZSQVHLCKET';

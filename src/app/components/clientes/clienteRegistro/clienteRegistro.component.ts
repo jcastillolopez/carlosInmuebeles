@@ -15,7 +15,7 @@ export class ClienteRegistroComponent implements OnInit {
   registroForm: FormGroup;
 
   constructor(
-    private metodosGlobales: Globales,  
+    private metodosGlobales: Globales,
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
@@ -31,23 +31,23 @@ export class ClienteRegistroComponent implements OnInit {
       tlfMovil: new FormControl(),
       localidad: new FormControl(),
       direccion: new FormControl(),
-      codigoPostal: new FormControl(), 
+      codigoPostal: new FormControl(),
       administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!)),
       usuarioId: new FormControl(parseInt(sessionStorage.getItem('idUsuario')!)),
       borrado: new FormControl(),
       createTime: new FormControl(),
       updateTime: new FormControl(),
     })
-   }
+  }
 
   async ngOnInit() {
-   
+
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
         let response = await this.metodosGlobales.getById(environment.APIPATH_CLIENTEDETALLE, params['id'])
         this.registroForm.patchValue(response[0])
       }
-    
+
     })
   }
   async enviar() {
@@ -59,6 +59,6 @@ export class ClienteRegistroComponent implements OnInit {
       this.registroForm.value.updateTime = new Date();
       await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_CLIENTE);
     }
-    window.location.href = 'http://localhost:4200/clientes'
+    window.location.reload();
   }
 }
