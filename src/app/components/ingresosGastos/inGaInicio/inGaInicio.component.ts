@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { ingresogastointerface } from 'src/app/interfaces/ingresoGasto';
 import { ingresogastodetalleinterface } from 'src/app/interfaces/ingresoGastoDetalle';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'inGaInicio',
@@ -17,11 +17,13 @@ export class InGaInicioComponent implements OnInit {
   arrIngresosGastosFiltrados: ingresogastointerface[];
   arrIngresosGastosTodos: ingresogastointerface[];
   arrIngresosGastosInmuebles: ingresogastointerface[];
+  arrIngresosGastosAnios: ingresogastointerface[];
   arrInGaDetalle: ingresogastodetalleinterface[];
   arrListaInmuebles: any[];
   selectInmuebles: any[];
   selectAnio: any[];
-  inmuebleFiltrado: number; 
+  selectMes: any[];
+  inmuebleFiltrado: number;
 
   pathIngresoGasto: string;
   pathIngresoGastoDetalle: string;
@@ -39,9 +41,11 @@ export class InGaInicioComponent implements OnInit {
     this.arrIngresosGastosFiltrados = [];
     this.arrIngresosGastosTodos = [];
     this.arrIngresosGastosInmuebles = [];
+    this.arrIngresosGastosAnios = [];
     this.arrListaInmuebles = [];
     this.selectInmuebles = [];
     this.selectAnio = [];
+    this.selectMes = [];
     this.inmuebleFiltrado = 0;
 
     this.pathIngresoGasto = 'ingresogasto/';
@@ -57,7 +61,56 @@ export class InGaInicioComponent implements OnInit {
     this.arrListaInmuebles = await this.metodosGlobales.getAll(this.pathInmuebles + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectInmuebles = await this.metodosGlobales.getAll(this.pathInmuebles + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectAnio = await this.metodosGlobales.getAll(this.pathFacturasAnio + parseInt(sessionStorage.getItem('administradorId')!));
-
+    this.selectMes = [
+      {
+        "mes": "Enero",
+        "numero": "1"
+      },
+      {
+        "mes": "Febrero",
+        "numero": "2"
+      },
+      {
+        "mes": "Marzo",
+        "numero": "3"
+      },
+      {
+        "mes": "Abril",
+        "numero": "4"
+      },
+      {
+        "mes": "Mayo",
+        "numero": "5"
+      },
+      {
+        "mes": "Junio",
+        "numero": "6"
+      },
+      {
+        "mes": "Julio",
+        "numero": "7"
+      },
+      {
+        "mes": "Agosto",
+        "numero": "8"
+      },
+      {
+        "mes": "Septiembre",
+        "numero": "9"
+      },
+      {
+        "mes": "Octubre",
+        "numero": "10"
+      },
+      {
+        "mes": "Noviembre",
+        "numero": "11"
+      },
+      {
+        "mes": "Dicienmbre",
+        "numero": "12"
+      }
+]
     for (const ingresoGasto of this.arrIngresosGastosMostrar) {
       if (ingresoGasto.inmuebleId != null) {
         for (const inmueble of this.arrListaInmuebles) {
@@ -96,7 +149,7 @@ export class InGaInicioComponent implements OnInit {
         }
       }
       this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
-    }else{
+    } else {
       this.arrIngresosGastosMostrar = this.arrIngresosGastosTodos;
     }
     this.arrIngresosGastosInmuebles = this.arrIngresosGastosFiltrados;
@@ -104,19 +157,39 @@ export class InGaInicioComponent implements OnInit {
 
   anios($event) {
     this.arrIngresosGastosFiltrados = []
-    if(this.arrIngresosGastosInmuebles.length == 0){
+    if (this.arrIngresosGastosInmuebles.length == 0) {
       this.arrIngresosGastosInmuebles = this.arrIngresosGastosTodos
     }
-    if($event.target.value != 0){
+    if ($event.target.value != 0) {
       for (const fechas of this.arrIngresosGastosInmuebles) {
-        if(fechas.fechaFactura.toString().substring(0, 4) === $event.target.value){
+        if (fechas.fechaFactura.toString().substring(0, 4) === $event.target.value) {
           this.arrIngresosGastosFiltrados.push(fechas);
         }
       }
       this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
-    }else{
+    } else {
       this.arrIngresosGastosMostrar = this.arrIngresosGastosInmuebles;
     }
+    this.arrIngresosGastosAnios = this.arrIngresosGastosFiltrados;
+  }
+
+  mes($event) {
+    this.arrIngresosGastosFiltrados = []
+    if (this.arrIngresosGastosAnios.length == 0) {
+      this.arrIngresosGastosAnios = this.arrIngresosGastosTodos
+    }
+    if ($event.target.value != 0) {
+      for (const fechas of this.arrIngresosGastosAnios) {
+        console.log(fechas.fechaFactura.toString().substring(5, 7))
+        if (fechas.fechaFactura.toString().substring(5, 7) === $event.target.value) {
+          this.arrIngresosGastosFiltrados.push(fechas);
+        }
+      }
+      this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
+    } else {
+      this.arrIngresosGastosMostrar = this.arrIngresosGastosAnios;
+    }
+    this.arrIngresosGastosAnios = this.arrIngresosGastosFiltrados;
   }
 
 }

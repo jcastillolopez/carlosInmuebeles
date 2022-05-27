@@ -22,12 +22,12 @@
           *ngFor="let inmueble of arrListaInmuebles; let i = index">
           <tr (click)="navegar(inmueble.idInmueble)"
             [routerLink]="['/inmuebles/detalle/'+inmueble.idInmueble]">
-            <td>{{inmueble.tipoInmueble}}</td>
+            <td>{{inmueble.tipoEspecifico}}</td>
             <td>{{inmueble.alias}}</td>
             <td>{{inmueble.refCatastral}}</td>
             <td>
               <button type="button" class="botonOculto buttonLista" data-toggle="modal"
-                data-target="#prueba">
+                data-target="#inmuebleRegistro">
                 Modificar
               </button>
             </td>
