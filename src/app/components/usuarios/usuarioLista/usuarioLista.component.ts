@@ -31,7 +31,7 @@ export class UsuarioListaComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.tiposService.getAllTipos(environment.APIPATH_TIPOROL + parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrSelectTipos = await this.tiposService.getAllTipos(environment.APIPATH_TIPOROL);
     this.arrListaUsuarios = await this.metodosGlobales.getById(environment.APIPATH_USUARIO, parseInt(sessionStorage.getItem('administradorId')!));
 
     this.activateRouter.params.subscribe(params => {
