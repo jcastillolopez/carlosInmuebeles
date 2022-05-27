@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'contratoRegistro',
@@ -12,10 +13,6 @@ import { tiposService } from 'src/app/services/tipos.service';
 export class ContratoRegistroComponent implements OnInit {
 
   idContrato: string;
-  path_lista: string;
-  path_lista_inmuebles: string;
-  path_lista_tipo_contrato: string;
-  path_lista_tipo_periodo: string;
   path_create_update: string;
   registroForm: FormGroup;
   arrSelectTipoContrato: any[];
@@ -30,11 +27,6 @@ export class ContratoRegistroComponent implements OnInit {
     private router: Router
   ) {
     this.idContrato = ""
-    this.path_lista = 'contrato/detalle/'
-    this.path_lista_inmuebles = 'inmueble/'
-    this.path_lista_tipo_contrato = 'contrato/'
-    this.path_lista_tipo_periodo = 'periodo/'
-    this.path_create_update = 'contrato/'
     this.arrSelectTipoContrato = [];
     this.arrInmuebles = [];
     this.arrTipoPeriodo = [];
@@ -63,12 +55,12 @@ export class ContratoRegistroComponent implements OnInit {
    }
 
    async ngOnInit() {
-   this.arrInmuebles = await this.metodosGlobales.getAll(this.path_lista_inmuebles + this.sesionStorageAdministradorId);
-   this.arrSelectTipoContrato = await this.metodosTipos.getAllTipos(this.path_lista_tipo_contrato + this.sesionStorageAdministradorId);
-   this.arrTipoPeriodo = await this.metodosTipos.getAllTipos(this.path_lista_tipo_periodo + this.sesionStorageAdministradorId)
+   this.arrInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + this.sesionStorageAdministradorId);
+   this.arrSelectTipoContrato = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONTRATO + this.sesionStorageAdministradorId);
+   this.arrTipoPeriodo = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOPERIODO + this.sesionStorageAdministradorId)
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
-        let response = await this.metodosGlobales.getById(this.path_lista, params['id'])
+        let response = await this.metodosGlobales.getById(environment.APIPATH_CONTRATODETALLE, params['id'])
         this.registroForm.patchValue(response[0])
       }
     
@@ -78,11 +70,11 @@ export class ContratoRegistroComponent implements OnInit {
     if (this.registroForm.value.idContratos !== null) {
       this.registroForm.value.updateTime = new Date();
       console.log(this.registroForm.value.idContratos)
-      await this.metodosGlobales.update(this.registroForm.value, this.path_create_update);
+      await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_CONTRATO);
     } else {
       this.registroForm.value.createTime = new Date();
       this.registroForm.value.updateTime = new Date();
-      await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);
+      await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_CONTRATO);
     }
     // window.location.href = 'http://localhost:4200/contratos'
   }

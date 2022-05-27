@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { inmuebleInterface } from 'src/app/interfaces/inmuebles';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -16,7 +17,6 @@ export class InmuebleDetalleComponent implements OnInit {
 
   inmuebleDetalle: any;
   arrSelectTipos: any[];
-  path: string = 'inmueble/detalle/'
   constructor(
     private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
@@ -37,9 +37,9 @@ export class InmuebleDetalleComponent implements OnInit {
    }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmueble/' + parseInt(sessionStorage.getItem('administradorId')!))
+    this.arrSelectTipos = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINMUEBLE + parseInt(sessionStorage.getItem('administradorId')!))
     this.activateRouter.params.subscribe(async params => {
-      let response = await this.metodosGlobales.getById(this.path, params['id']);
+      let response = await this.metodosGlobales.getById(environment.APIPATH_INMUEBLE, params['id']);
       this.inmuebleDetalle = response[0];
       for (const tipo of this.arrSelectTipos) {
         if (response.tipoInmueblesId == tipo.idTipoInmueble) {

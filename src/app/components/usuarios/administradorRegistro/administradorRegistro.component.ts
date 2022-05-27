@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, } from '@angular/router';
 import { Globales } from 'src/app/services/Globales.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'administradorRegistro',
@@ -25,7 +26,6 @@ export class AdministradorRegistroComponent implements OnInit {
     this.administradorId = 0;
     this.idUsuario = 0;
     this.nombreUsuario = '';
-    this.path_create_update = 'personaspagadora'
     this.registroForm = new FormGroup({
       idPersonasPagadora: new FormControl(),
       nombre: new FormControl('', [
@@ -65,13 +65,13 @@ export class AdministradorRegistroComponent implements OnInit {
   async enviar() {
     if (this.registroForm.value.idPersonasPagadora !== null) {
       this.registroForm.value.updateTime = new Date();
-      await this.metodosGlobales.update(this.registroForm.value, this.path_create_update);
+      await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_PERSONASPAGADORA);
     } else {
       if (this.registroForm.valid) {
         this.registroForm.value.createTime = new Date();
         this.registroForm.value.updateTime = new Date();
-        const administrador = await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);
-        const usuario = await this.metodosGlobales.getAll('usuario/'+administrador.idPersonasPagadora);
+        const administrador = await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_PERSONASPAGADORA);
+        const usuario = await this.metodosGlobales.getAll(environment.APIPATH_USUARIO+administrador.idPersonasPagadora);
 
         sessionStorage.setItem('administradorId', usuario[0].administradorId);
         sessionStorage.setItem('nombreUsuario', usuario[0].nombre);

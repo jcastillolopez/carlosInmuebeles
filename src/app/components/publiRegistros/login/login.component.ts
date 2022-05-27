@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute,Router } from '@angular/router';
 
 import { Globales } from 'src/app/services/Globales.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'login',
@@ -10,7 +11,6 @@ import { Globales } from 'src/app/services/Globales.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  path_lista: any;
   registroForm: FormGroup;
   usuarioLogin: any;
   idUsuario: any;
@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
     private metodoGlobal:Globales,
     private router: Router,
   ) {
-    this.path_lista = 'usuario/loggin/'
     this.nombre = "";
     this.idUsuario = 0;
     this.usuarioLogin = {};
@@ -44,7 +43,7 @@ export class LoginComponent implements OnInit {
 
    async loguearse() {
      if (this.registroForm.valid) {
-      const usuario = await this.metodoGlobal.login(this.path_lista, this.registroForm.value.email, this.registroForm.value.password);
+      const usuario = await this.metodoGlobal.login(environment.APIPATH_LOGGIN, this.registroForm.value.email, this.registroForm.value.password);
       sessionStorage.setItem('administradorId', usuario.administradorId);
       sessionStorage.setItem('nombreUsuario', usuario.nombre);
       sessionStorage.setItem('idUsuario', usuario.idUsuario);

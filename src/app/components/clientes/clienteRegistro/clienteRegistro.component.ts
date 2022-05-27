@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Globales } from 'src/app/services/Globales.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -11,8 +12,6 @@ import { Globales } from 'src/app/services/Globales.service';
 })
 export class ClienteRegistroComponent implements OnInit {
   idCliente: string;
-  path_lista: string;
-  path_create_update: string;
   registroForm: FormGroup;
 
   constructor(
@@ -21,10 +20,6 @@ export class ClienteRegistroComponent implements OnInit {
     private router: Router
   ) {
     this.idCliente = ""
-    
-    this.path_lista = 'cliente/detalle/'
-    this.path_create_update = 'cliente/'
-
     this.registroForm = new FormGroup({
       idCliente: new FormControl(),
       nombre: new FormControl(),
@@ -49,7 +44,7 @@ export class ClienteRegistroComponent implements OnInit {
    
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
-        let response = await this.metodosGlobales.getById(this.path_lista, params['id'])
+        let response = await this.metodosGlobales.getById(environment.APIPATH_CLIENTEDETALLE, params['id'])
         this.registroForm.patchValue(response[0])
       }
     
@@ -58,11 +53,11 @@ export class ClienteRegistroComponent implements OnInit {
   async enviar() {
     if (this.registroForm.value.idInmueble !== null) {
       this.registroForm.value.updateTime = new Date();
-      await this.metodosGlobales.update(this.registroForm.value, this.path_create_update);
+      await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_CLIENTE);
     } else {
       this.registroForm.value.createTime = new Date();
       this.registroForm.value.updateTime = new Date();
-      await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);
+      await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_CLIENTE);
     }
     window.location.href = 'http://localhost:4200/clientes'
   }

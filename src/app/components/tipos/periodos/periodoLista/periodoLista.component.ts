@@ -3,6 +3,7 @@ import { ActivatedRoute,Router } from '@angular/router';
 
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'periodoLista',
@@ -11,7 +12,6 @@ import { tiposService } from 'src/app/services/tipos.service';
 })
 export class PeriodoListaComponent implements OnInit {
   seleccionadoId: string;
-  path_usuarios: string;
   administradorId: number;
 
   //Tabla para la lista
@@ -22,7 +22,6 @@ export class PeriodoListaComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.path_usuarios = 'periodo/';
     this.seleccionadoId = "";
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     //Tabla para la lista
@@ -30,7 +29,7 @@ export class PeriodoListaComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrListaTipoPeriodo = await this.tiposService.getAllTipos(this.path_usuarios + this.administradorId);
+    this.arrListaTipoPeriodo = await this.tiposService.getAllTipos(environment.APIPATH_TIPOPERIODO + this.administradorId);
 
   }
   navegar(idUsuario: number) {

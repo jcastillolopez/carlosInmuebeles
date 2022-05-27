@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'tipoContratoLista',
@@ -10,7 +11,6 @@ import { tiposService } from 'src/app/services/tipos.service';
 })
 export class TipoContratoListaComponent implements OnInit {
   seleccionadoId: string;
-  path_usuarios: string;
   administradorId: number;
 
   //Tabla para la lista
@@ -21,7 +21,6 @@ export class TipoContratoListaComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.path_usuarios = 'contrato/';
     this.seleccionadoId = "";
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     //Tabla para la lista
@@ -29,7 +28,7 @@ export class TipoContratoListaComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrListaTipoContrato = await this.tiposService.getAllTipos(this.path_usuarios + this.administradorId);
+    this.arrListaTipoContrato = await this.tiposService.getAllTipos(environment.APIPATH_TIPOCONTRATO + this.administradorId);
 
     this.activateRouter.params.subscribe(params => {
       this.seleccionadoId = params['id']

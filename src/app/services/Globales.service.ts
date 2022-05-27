@@ -1,20 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class Globales {
-  url: string;
-  
-
+  url: string = environment.APIPATH_GENERAL;
   constructor(private httpClient: HttpClient) {
-    // this.url = `http://localhost:8081/api/v1/`;
-    
-    
-    
   }
   login(paramurl: string, email: string, password: string) {
     return firstValueFrom(this.httpClient.get<any>(this.url + paramurl + email + '/' + password))

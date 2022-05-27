@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, } from '@angular/router';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'tipoContratoRegistro',
@@ -11,8 +12,6 @@ import { tiposService } from 'src/app/services/tipos.service';
 export class TipoContratoRegistroComponent implements OnInit {
   registroForm: FormGroup;
   result: any;
-  path_lista: string;
-  path_create_update: string;
   administradorId: number;
   idUsuario: number;
 
@@ -22,8 +21,6 @@ export class TipoContratoRegistroComponent implements OnInit {
     private router: Router,
 
   ) {
-    this.path_lista = 'contrato/detalle/'
-    this.path_create_update = 'contrato'
     this.result = "";
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     this.idUsuario = parseInt(sessionStorage.getItem('idUsuario')!);
@@ -46,7 +43,7 @@ export class TipoContratoRegistroComponent implements OnInit {
   ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
-        let response = await this.metodosTipos.getAllTipos(this.path_lista + params['id'])
+        let response = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONTRATODETALLE + params['id'])
         this.registroForm.patchValue(response[0])
       }
     })
@@ -56,14 +53,14 @@ export class TipoContratoRegistroComponent implements OnInit {
 
       this.registroForm.value.updateTime = new Date();
       this.registroForm.value.usuarioId = this.idUsuario;
-      await this.metodosTipos.update(this.registroForm.value, this.path_create_update);
+      await this.metodosTipos.update(this.registroForm.value, environment.APIPATH_CONTRATO);
 
     } else {
       if (this.registroForm.valid) {
 
         this.registroForm.value.createTime = new Date();
         this.registroForm.value.updateTime = new Date();
-        await this.metodosTipos.create(this.registroForm.value, this.path_create_update);
+        await this.metodosTipos.create(this.registroForm.value, environment.APIPATH_CONTRATO);
 
       } else { let result = 'hay datos no validos en el formulario' };
     }

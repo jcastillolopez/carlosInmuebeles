@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { intervinienteInterface } from 'src/app/interfaces/interviniente';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'intervinienteLista',
   templateUrl: './intervinienteLista.component.html',
@@ -14,11 +15,6 @@ export class IntervinienteListaComponent implements OnInit {
   arrListaIntervinientes: intervinienteInterface[];
   arrTipoInterviniente: any[];
   arrClientes: any[];
-
-  //paths
-  pathIntervinientes: string;
-  pathTiposIntervinientes: string;
-  pathClientes: string;
 
   //variables Globales
   administradorId: number;
@@ -32,19 +28,16 @@ export class IntervinienteListaComponent implements OnInit {
     this.arrListaIntervinientes = [];
     this.arrTipoInterviniente = [];
     this.arrClientes = [];
-    this.pathIntervinientes = 'interviniente/'
-    this.pathTiposIntervinientes = 'interviniente/'
-    this.pathClientes = 'cliente/'
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
   }
 
   async ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
-      this.arrListaIntervinientes = await this.metodosGlobales.getById(this.pathIntervinientes, params['id']);
+      this.arrListaIntervinientes = await this.metodosGlobales.getById(environment.APIPATH_INTERVINIENTE, params['id']);
       for (const interviniente of this.arrListaIntervinientes) {
         if (interviniente.contratosId === this.activateRouter.snapshot.params['id']) {
-          this.arrTipoInterviniente = await this.metodoTipos.getAllTipos(this.pathTiposIntervinientes + this.administradorId);
-          this.arrClientes = await this.metodosGlobales.getAll(this.pathClientes + this.administradorId);
+          this.arrTipoInterviniente = await this.metodoTipos.getAllTipos(environment.APIPATH_TIPOINTERVINIENTE + this.administradorId);
+          this.arrClientes = await this.metodosGlobales.getAll(environment.APIPATH_CLIENTE + this.administradorId);
 
           for (const tipoInterviniente of this.arrTipoInterviniente) {
             if (tipoInterviniente.idTipoInterviniente == interviniente.tipoIntervinienteid) {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'tipoCoceptoLista',
   templateUrl: './tipoCoceptoLista.component.html',
@@ -8,7 +9,6 @@ import { tiposService } from 'src/app/services/tipos.service';
 })
 export class TipoCoceptoListaComponent implements OnInit {
   seleccionadoId: string;
-  path_tipos: string;
 
   //Tabla para la lista
   arrListaTipoConcepto: any[];
@@ -18,7 +18,6 @@ export class TipoCoceptoListaComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) { 
-    this.path_tipos = 'concepto/';    
     this.seleccionadoId = "";
     //Tabla para la lista
     this.arrListaTipoConcepto = [];
@@ -26,7 +25,7 @@ export class TipoCoceptoListaComponent implements OnInit {
    }    
   
   async ngOnInit() {
-    this.arrListaTipoConcepto = await this.tiposService.getAllTipos(this.path_tipos + this.administradorId);   
+    this.arrListaTipoConcepto = await this.tiposService.getAllTipos(environment.APIPATH_TIPOCONCEPTO + this.administradorId);   
     this.activateRouter.params.subscribe(params => {
       this.seleccionadoId = params['id']
     })

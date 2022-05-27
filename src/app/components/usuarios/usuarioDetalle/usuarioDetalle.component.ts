@@ -3,6 +3,7 @@ import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
 import { usuarioInterface } from 'src/app/interfaces/usuario';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'usuarioDetalle',
@@ -10,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./usuarioDetalle.component.css']
 })
 export class UsuarioDetalleComponent implements OnInit {
-  path: string = 'usuario/detalle/'
   arrSelectTipos: any[];
   usuario: usuarioInterface
   constructor(
@@ -31,9 +31,9 @@ export class UsuarioDetalleComponent implements OnInit {
    }
 
    async ngOnInit() {
-    this.arrSelectTipos = await this.metodosTipos.getAllTipos('rol/1')
+    this.arrSelectTipos = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOROL + parseInt(sessionStorage.getItem('administradorId')!))
     this.activateRouter.params.subscribe(async params => {
-      let response = await this.metodoGlobales.getById(this.path,params['id'])
+      let response = await this.metodoGlobales.getById(environment.APIPATH_USUARIODETALLE,params['id'])
       this.usuario = response[0]
       for (const tipo of this.arrSelectTipos) {
         if (response.idRol == tipo.idRol) {

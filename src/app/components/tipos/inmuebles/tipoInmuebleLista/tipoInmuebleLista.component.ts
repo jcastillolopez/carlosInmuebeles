@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'tipoInmuebleLista',
@@ -9,7 +10,6 @@ import { tiposService } from 'src/app/services/tipos.service';
 })
 export class TipoInmuebleListaComponent implements OnInit {
   seleccionadoId: string;
-  path_tipos: string;
 
   //Tabla para la lista
   arrListaTipoInmueble: any[];
@@ -20,7 +20,6 @@ export class TipoInmuebleListaComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.path_tipos = 'inmueble/';    
     this.seleccionadoId = "";
     //Tabla para la lista
     this.arrListaTipoInmueble = [];
@@ -28,7 +27,7 @@ export class TipoInmuebleListaComponent implements OnInit {
    }   
 
    async ngOnInit() {
-    this.arrListaTipoInmueble = await this.tiposService.getAllTipos(this.path_tipos + this.administradorId);
+    this.arrListaTipoInmueble = await this.tiposService.getAllTipos(environment.APIPATH_TIPOINMUEBLE + this.administradorId);
   
     this.activateRouter.params.subscribe(params => {
       this.seleccionadoId = params['id']

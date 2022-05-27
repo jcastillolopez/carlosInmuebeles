@@ -8,6 +8,7 @@ import { ingresogastodetalleinterface } from 'src/app/interfaces/ingresoGastoDet
 
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'ingaDetalle',
   templateUrl: './ingaDetalle.component.html',
@@ -17,13 +18,6 @@ export class IngaDetalleComponent implements OnInit {
 
   inga: ingresogastointerface;
   ingaDetalle: ingresogastodetalleinterface[];
-  
-  path_inGa: string;
-  path_inGaDetalle: string;
-  path_Tipo_Periodo: string;
-  path_Inmueble: string;
-  path_Tipo_Contrato: string;
-  path_Tipo_Pago: string;
 
   selectInmueble: any;
   selectProveedor: any;
@@ -35,12 +29,6 @@ export class IngaDetalleComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.path_inGa = 'ingresogasto/detalle/';
-    this.path_inGaDetalle = 'ingresogastodetalle/';
-    this.path_Inmueble = 'inmueble/';
-    this.path_Tipo_Periodo = 'periodo/';
-    this.path_Tipo_Contrato = 'contrato/';
-    this.path_Tipo_Pago = 'pago/';
     this.inga = {
       idInGa: 0,
       concepto: '',
@@ -106,10 +94,10 @@ export class IngaDetalleComponent implements OnInit {
   async ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
-        let response = await this.metodosGlobales.getById(this.path_inGa, params['id'])
+        let response = await this.metodosGlobales.getById(environment.APIPATH_INGRESOGASTOGENERAL, params['id'])
         this.inga = response[0];
-        this.ingaDetalle = await this.metodosGlobales.getById(this.path_inGaDetalle, params['id'])
-        this.selectTipoConcepto = await this.metodosTipos.getAllTipos(this.path_Tipo_Pago + parseInt(sessionStorage.getItem('administradorId')!));
+        this.ingaDetalle = await this.metodosGlobales.getById(environment.APIPATH_INGRESOGASTOGENERALDETALLE, params['id'])
+        this.selectTipoConcepto = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOPAGO + parseInt(sessionStorage.getItem('administradorId')!));
         
       }
     })

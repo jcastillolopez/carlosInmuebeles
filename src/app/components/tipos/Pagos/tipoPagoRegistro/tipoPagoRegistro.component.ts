@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, } from '@angular/router';
 
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'tipoPagoRegistro',
   templateUrl: './tipoPagoRegistro.component.html',
@@ -11,8 +12,6 @@ import { tiposService } from 'src/app/services/tipos.service';
 export class TipoPagoRegistroComponent implements OnInit {
   registroForm: FormGroup;
   result: any;
-  path_lista: string;
-  path_create_update: string;
   administradorId: number;
   idUsuario: number;
   constructor(
@@ -20,8 +19,6 @@ export class TipoPagoRegistroComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router,
   ) { 
-    this.path_lista = 'pago/detalle/'
-    this.path_create_update = 'pago'
     this.result = "";
     
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
@@ -44,7 +41,7 @@ export class TipoPagoRegistroComponent implements OnInit {
   ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
-        let response = await this.metodosTipos.getAllTipos(this.path_lista + params['id'])
+        let response = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOPAGODETALLE + params['id'])
         this.registroForm.patchValue(response[0])
       }
     })
@@ -53,14 +50,14 @@ export class TipoPagoRegistroComponent implements OnInit {
     if (this.registroForm.value.idUsuario !== null) {
       
       this.registroForm.value.updateTime = new Date();
-      await this.metodosTipos.update(this.registroForm.value, this.path_create_update);
+      await this.metodosTipos.update(this.registroForm.value, environment.APIPATH_TIPOPAGO);
       
     } else {
       if (this.registroForm.valid) {
 
         this.registroForm.value.createTime = new Date();
         this.registroForm.value.updateTime = new Date();
-        await this.metodosTipos.create(this.registroForm.value, this.path_create_update);
+        await this.metodosTipos.create(this.registroForm.value, environment.APIPATH_TIPOPAGO);
 
       } else { let result = 'hay datos no validos en el formulario' };
     }

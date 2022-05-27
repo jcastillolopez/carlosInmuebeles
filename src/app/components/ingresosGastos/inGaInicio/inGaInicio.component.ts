@@ -25,11 +25,6 @@ export class InGaInicioComponent implements OnInit {
   selectMes: any[];
   inmuebleFiltrado: number;
 
-  pathIngresoGasto: string;
-  pathIngresoGastoDetalle: string;
-  pathInmuebles: string;
-  pathFacturasAnio: string;
-  pathClientes: string;
 
   constructor(
     private metodosGlobales: Globales,
@@ -47,20 +42,14 @@ export class InGaInicioComponent implements OnInit {
     this.selectAnio = [];
     this.selectMes = [];
     this.inmuebleFiltrado = 0;
-
-    this.pathIngresoGasto = 'ingresogasto/';
-    this.pathIngresoGastoDetalle = 'ingresogastodetalle/';
-    this.pathInmuebles = 'inmueble/';
-    this.pathFacturasAnio = 'ingresogasto/anio/';
-    this.pathClientes = 'cliente/';
   }
 
   async ngOnInit() {
-    this.arrIngresosGastosTodos = await this.metodosGlobales.getAll(this.pathIngresoGasto + parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrIngresosGastosTodos = await this.metodosGlobales.getAll(environment.APIPATH_INGRESOGASTOGENERAL + parseInt(sessionStorage.getItem('administradorId')!));
     this.arrIngresosGastosMostrar = this.arrIngresosGastosTodos;
-    this.arrListaInmuebles = await this.metodosGlobales.getAll(this.pathInmuebles + parseInt(sessionStorage.getItem('administradorId')!));
-    this.selectInmuebles = await this.metodosGlobales.getAll(this.pathInmuebles + parseInt(sessionStorage.getItem('administradorId')!));
-    this.selectAnio = await this.metodosGlobales.getAll(this.pathFacturasAnio + parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrListaInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
+    this.selectInmuebles = this.arrListaInmuebles;
+    this.selectAnio = await this.metodosGlobales.getAll(environment.APIPATH_FACTURASANIO + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectMes = [
       {
         "mes": "Enero",
@@ -129,7 +118,7 @@ export class InGaInicioComponent implements OnInit {
 
   async navegar(idIngresoGasto: number) {
     this.router.navigate(["/inga/detalle/" + idIngresoGasto])
-    this.arrInGaDetalle = await this.metodosGlobales.getById(this.pathIngresoGastoDetalle, idIngresoGasto);
+    this.arrInGaDetalle = await this.metodosGlobales.getById(environment.APIPATH_INGRESOGASTOESPECIFICO, idIngresoGasto);
   }
 
   detalle(inGaId: number, idInGa: number): boolean {

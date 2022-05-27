@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { contratoInterface } from 'src/app/interfaces/contrato';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'contratoLista',
@@ -13,10 +14,6 @@ import { tiposService } from 'src/app/services/tipos.service';
 })
 export class ContratoListaComponent implements OnInit {
   contratoSeleccionadoId = "";
-  contrato: string;
-  path_Tipo_Periodo: string;
-  path_Inmueble: string;
-  path_Tipo_Contrato: string;
 
   //Formulario Modal
   arrListaContratos: contratoInterface[];
@@ -30,10 +27,6 @@ export class ContratoListaComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.contrato = 'contrato/';
-    this.path_Inmueble = 'inmueble/';
-    this.path_Tipo_Periodo = 'periodo/';
-    this.path_Tipo_Contrato = 'contrato/';
     this.contratoSeleccionadoId = "";
     //Tabla para la lista
     this.arrListaContratos = [];
@@ -44,15 +37,15 @@ export class ContratoListaComponent implements OnInit {
 
   async ngOnInit() {
 
-    this.arrListaContratos = await this.metodosGlobales.getById(this.contrato, parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrListaContratos = await this.metodosGlobales.getById(environment.APIPATH_CONTRATODETALLE, parseInt(sessionStorage.getItem('administradorId')!));
 
     for (const contrato of this.arrListaContratos) {
 
       if (contrato.inmuebleId !== null && contrato.tipoContratoId !== null && contrato.tipoPeriodoId !== null) {
 
-        this.arrListaInmuebles = await this.metodosGlobales.getById(this.path_Inmueble, parseInt(sessionStorage.getItem('administradorId')!));
-        this.arrTipoPeriodo = await this.metodosTipos.getAllTipos(this.path_Tipo_Periodo + parseInt(sessionStorage.getItem('administradorId')!));
-        this.arrTipoContrato = await this.metodosTipos.getAllTipos(this.path_Tipo_Contrato + parseInt(sessionStorage.getItem('administradorId')!));
+        this.arrListaInmuebles = await this.metodosGlobales.getById(environment.APIPATH_INMUEBLEDETALLE, parseInt(sessionStorage.getItem('administradorId')!));
+        this.arrTipoPeriodo = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOPERIODO + parseInt(sessionStorage.getItem('administradorId')!));
+        this.arrTipoContrato = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONTRATO + parseInt(sessionStorage.getItem('administradorId')!));
 
 
         for (const tipoPeriodos of this.arrTipoPeriodo) {

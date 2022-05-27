@@ -7,6 +7,7 @@ import * as dayjs from 'dayjs';
 
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'ingaRegistroGeneral',
@@ -16,13 +17,6 @@ import { tiposService } from 'src/app/services/tipos.service';
 export class IngaRegistroGeneralComponent implements OnInit {
 
   contratoSeleccionadoId = "";
-  pathInGa: string;
-  pathInGaDetalle: string;
-  pathTipoPeriodo: string;
-  pathInmueble: string;
-  pathCliente: string;
-  pathTipoConcepto: string;
-  pathTipoPago: string;
 
   registroForm: FormGroup;
   selectInmueble: any;
@@ -38,13 +32,6 @@ export class IngaRegistroGeneralComponent implements OnInit {
     private builder: FormBuilder,
 
   ) {
-    this.pathInGa = 'ingresogasto/';
-    this.pathInGaDetalle = 'ingresogastodetalle/';
-    this.pathInmueble = 'inmueble/';
-    this.pathCliente = 'cliente/';
-    this.pathTipoPeriodo = 'periodo/';
-    this.pathTipoConcepto = 'concepto/';
-    this.pathTipoPago = 'pago/';
     this.contratoSeleccionadoId = "";
 
     this.selectInmueble = [];
@@ -58,14 +45,14 @@ export class IngaRegistroGeneralComponent implements OnInit {
   async ngOnInit() {
     this.nuevoRegistro();
     this.anadirDetalle();
-    this.selectInmueble = await this.metodosGlobales.getAll(this.pathInmueble + parseInt(sessionStorage.getItem('administradorId')!));
-    this.selectProveedor = await this.metodosGlobales.getAll(this.pathCliente + parseInt(sessionStorage.getItem('administradorId')!));
-    this.selectTipoConcepto = await this.metodosTipos.getAllTipos(this.pathTipoConcepto + parseInt(sessionStorage.getItem('administradorId')!));
-    this.selectTipoPago = await this.metodosTipos.getAllTipos(this.pathTipoPago + parseInt(sessionStorage.getItem('administradorId')!));
+    this.selectInmueble = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
+    this.selectProveedor = await this.metodosGlobales.getAll(environment.APIPATH_CLIENTE + parseInt(sessionStorage.getItem('administradorId')!));
+    this.selectTipoConcepto = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONCEPTO + parseInt(sessionStorage.getItem('administradorId')!));
+    this.selectTipoPago = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOPAGO + parseInt(sessionStorage.getItem('administradorId')!));
 
     this.activateRouter.params.subscribe(async params => {
       if (params['idInGa']) {
-        let response = await this.metodosGlobales.getById(this.pathInGa = 'inga/', params['id'])
+        let response = await this.metodosGlobales.getById(environment.APIPATH_INGRESOGASTOGENERAL = 'inga/', params['id'])
         let ingreso = response[0]
         ingreso.fecha_concepto = dayjs(ingreso.fecha_contrato).format('YYYY-MM-DD')
         ingreso.fecha_factura = dayjs(ingreso.fecha_inicio).format('YYYY-MM-DD')
@@ -77,17 +64,17 @@ export class IngaRegistroGeneralComponent implements OnInit {
   async enviar() {
     if (this.registroForm.value.idInGa != null) {
       this.registroForm.value.updateTime = new Date();
-      await this.metodosGlobales.update(this.registroForm.value, this.pathInGa);
+      await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_INGRESOGASTOGENERAL);
     } else {
       this.registroForm.value.createTime = new Date();
       this.registroForm.value.updateTime = new Date();
-      const newIngreso = await this.metodosGlobales.create(this.registroForm.value, this.pathInGa);
+      const newIngreso = await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_INGRESOGASTOGENERAL);
       if (this.obtenerDetalle.length > 0) {
         for (const detalles of this.obtenerDetalle.controls) {
           detalles.value.createTime = new Date();
           detalles.value.updateTime = new Date();
           detalles.value.inGaId = newIngreso.idInGa;
-          const newIngresoDetalle = await this.metodosGlobales.create(detalles.value, this.pathInGaDetalle);
+          const newIngresoDetalle = await this.metodosGlobales.create(detalles.value, environment.APIPATH_INGRESOGASTOESPECIFICO);
         }
       }
     }
