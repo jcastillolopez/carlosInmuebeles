@@ -3,8 +3,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-
-import { AppComponent } from './app.component';
 import { ClienteDetalleComponent } from './components/clientes/clienteDetalle/clienteDetalle.component';
 import { ClienteListaComponent } from './components/clientes/clienteLista/clienteLista.component';
 
@@ -56,6 +54,7 @@ import { TipoPagoListaComponent } from './components/tipos/Pagos/tipoPagoLista/t
 import { TipoPagoRegistroComponent } from './components/tipos/Pagos/tipoPagoRegistro/tipoPagoRegistro.component';
 import { IngresoRegistroGeneralComponent } from './components/ingresosGastos/ingresoRegistroGeneral/ingresoRegistroGeneral.component';
 import { NavAppComponent } from './components/generalNav/navApp.component';
+import { AppComponent } from './app.component';
 
 
 
@@ -71,12 +70,12 @@ import { NavAppComponent } from './components/generalNav/navApp.component';
     // Balance ingreso gasto
     BalanceListaComponent,
 
-    
+
     IngaRegistroGeneralComponent,
     IngresoRegistroGeneralComponent,
     IngaDetalleComponent,
     InGaInicioComponent,
-    
+
     //Clientes
     ClienteDetalleComponent,
     ClienteListaComponent,
@@ -110,7 +109,7 @@ import { NavAppComponent } from './components/generalNav/navApp.component';
 
     //Tipos  
     TiposComponent,
-    
+
     RolListaComponent,
     RolRegistroComponent,
     PeriodoListaComponent,
