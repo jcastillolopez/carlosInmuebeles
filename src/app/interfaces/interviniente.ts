@@ -10,8 +10,7 @@ export interface intervinienteInterface {
     usuarioId?: number,
 
     clienteId?: number,
-    nombreCliente?: string,
-    apellidosCliente?: string,
+    apellidosNombreCliente?: string,
     tipoIntervinienteid?: number,
     tipoInterviniente: string,
     contratosId?: number,

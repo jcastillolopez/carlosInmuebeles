@@ -5,6 +5,7 @@ export interface usuarioInterface {
     password: "",
     borrado: false,
     idUsuario: 0,
-    idRol: '',
+    rolId: 0,
+    nombreRol: '',
     administradorId: 0
 }

@@ -51,7 +51,7 @@ export class IngaDetalleComponent implements OnInit {
       tipoPago: '',
 
       clienteId: 0,
-      nombreApellidos: '',
+      nombreApellidosCliente: '',
       nieCliente: '',
 
       inmuebleId: 0,

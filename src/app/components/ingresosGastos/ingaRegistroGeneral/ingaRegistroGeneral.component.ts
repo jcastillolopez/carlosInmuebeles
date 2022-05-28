@@ -44,7 +44,6 @@ export class IngaRegistroGeneralComponent implements OnInit {
 
   async ngOnInit() {
     this.nuevoRegistro();
-    this.anadirDetalle();
     this.selectInmueble = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectProveedor = await this.metodosGlobales.getAll(environment.APIPATH_CLIENTE + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectTipoConcepto = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONCEPTO + parseInt(sessionStorage.getItem('administradorId')!));
@@ -78,6 +77,7 @@ export class IngaRegistroGeneralComponent implements OnInit {
         }
       }
     }
+    window.location.reload();
   }
 
   nuevoRegistro() {
@@ -134,7 +134,7 @@ export class IngaRegistroGeneralComponent implements OnInit {
     this.obtenerDetalle.push(detalle);
   }
 
-  calcularTotales(){
+  calcularTotales() {
     var totalBaseImponible = 0;
     var totalImpuestoIva = 0;
     var totalGasto = 0;
@@ -149,7 +149,7 @@ export class IngaRegistroGeneralComponent implements OnInit {
       totalImpuestoIva = totalImpuestoIva + impuestoIva;
     }
     totalGasto = totalBaseImponible + totalImpuestoIva;
-    
+
     this.registroForm.get('totalBaseImponible').patchValue(totalBaseImponible);
     this.registroForm.get('totalImpuestoIva').patchValue(totalImpuestoIva);
     this.registroForm.get('totalGasto').patchValue(totalGasto);

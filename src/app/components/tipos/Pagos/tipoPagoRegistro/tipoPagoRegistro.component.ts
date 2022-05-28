@@ -18,9 +18,9 @@ export class TipoPagoRegistroComponent implements OnInit {
     private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
     private router: Router,
-  ) { 
+  ) {
     this.result = "";
-    
+
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     this.idUsuario = parseInt(sessionStorage.getItem('idUsuario')!);
     this.registroForm = new FormGroup({
@@ -48,10 +48,10 @@ export class TipoPagoRegistroComponent implements OnInit {
   }
   async enviar() {
     if (this.registroForm.value.idUsuario !== null) {
-      
+
       this.registroForm.value.updateTime = new Date();
       await this.metodosTipos.update(this.registroForm.value, environment.APIPATH_TIPOPAGO);
-      
+
     } else {
       if (this.registroForm.valid) {
 
@@ -61,6 +61,7 @@ export class TipoPagoRegistroComponent implements OnInit {
 
       } else { let result = 'hay datos no validos en el formulario' };
     }
+    window.location.reload();
   }
   checkError(fieldName: string, errorType: string) {
     return this.registroForm.get(fieldName)!.hasError(errorType) && this.registroForm.get(fieldName)!.touched

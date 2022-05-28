@@ -37,19 +37,9 @@ export class InmuebleListaComponent implements OnInit {
     this.arrSelectTipos = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
     this.arrSelectTipos.push(await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINMUEBLE + 1))
     this.arrListaInmuebles = await this.metodosGlobales.getById(environment.APIPATH_INMUEBLE, parseInt(sessionStorage.getItem('administradorId')!));
-    console.log()
-
     this.activateRouter.params.subscribe(params => {
       this.inmuebleSeleccionadoId = params['id']
     })
-
-    for (const inmueble of this.arrListaInmuebles) {
-      for (const tipos of this.arrSelectTipos) {
-        if (tipos.idTipoInmueble == inmueble.tipoInmueblesId) {
-          inmueble.tipoEspecifico = tipos.tipoEspecifico;
-        }
-      }
-    }
   }
 
 

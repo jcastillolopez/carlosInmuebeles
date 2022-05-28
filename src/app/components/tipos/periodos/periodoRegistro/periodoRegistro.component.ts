@@ -64,6 +64,7 @@ export class PeriodoRegistroComponent implements OnInit {
 
       } else { let result = 'hay datos no validos en el formulario' };
     }
+    window.location.reload();
   }
   checkError(fieldName: string, errorType: string) {
     return this.registroForm.get(fieldName)!.hasError(errorType) && this.registroForm.get(fieldName)!.touched

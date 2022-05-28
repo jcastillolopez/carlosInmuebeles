@@ -43,7 +43,7 @@ export class TipoIntervinienteRegistroComponent implements OnInit {
   ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
-        let response = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINTERVINIENTEDETALLE+ this.administradorId)
+        let response = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINTERVINIENTEDETALLE + this.administradorId)
         this.registroForm.patchValue(response[0])
       }
     })
@@ -64,6 +64,7 @@ export class TipoIntervinienteRegistroComponent implements OnInit {
 
       } else { let result = 'hay datos no validos en el formulario' };
     }
+    window.location.reload();
   }
   checkError(fieldName: string, errorType: string) {
     return this.registroForm.get(fieldName)!.hasError(errorType) && this.registroForm.get(fieldName)!.touched

@@ -21,7 +21,7 @@ export class TipoInmuebleRegistroComponent implements OnInit {
     private router: Router,
   ) {
     this.result = "";
-    
+
     this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     this.idUsuario = parseInt(sessionStorage.getItem('idUsuario')!);
 
@@ -39,25 +39,25 @@ export class TipoInmuebleRegistroComponent implements OnInit {
       usuarioId: new FormControl(this.idUsuario),
       administradorId: new FormControl(this.administradorId),
     })
-   }
+  }
 
-   ngOnInit() {
+  ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
-        let response = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINMUEBLEDETALLE+ params['id'])
+        let response = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINMUEBLEDETALLE + params['id'])
         this.registroForm.patchValue(response[0])
       }
     })
   }
 
 
-  
+
   async enviar() {
     if (this.registroForm.value.idUsuario !== null) {
-      
+
       this.registroForm.value.updateTime = new Date();
       await this.metodosTipos.update(this.registroForm.value, environment.APIPATH_TIPOINMUEBLE);
-      
+
     } else {
       if (this.registroForm.valid) {
 
@@ -67,6 +67,7 @@ export class TipoInmuebleRegistroComponent implements OnInit {
 
       } else { let result = 'hay datos no validos en el formulario' };
     }
+    window.location.reload();
   }
   checkError(fieldName: string, errorType: string) {
     return this.registroForm.get(fieldName)!.hasError(errorType) && this.registroForm.get(fieldName)!.touched

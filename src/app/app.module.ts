@@ -71,12 +71,12 @@ import { NavAppComponent } from './components/generalNav/navApp.component';
     // Balance ingreso gasto
     BalanceListaComponent,
 
-    
+
     IngaRegistroGeneralComponent,
     IngresoRegistroGeneralComponent,
     IngaDetalleComponent,
     InGaInicioComponent,
-    
+
     //Clientes
     ClienteDetalleComponent,
     ClienteListaComponent,
@@ -110,7 +110,7 @@ import { NavAppComponent } from './components/generalNav/navApp.component';
 
     //Tipos  
     TiposComponent,
-    
+
     RolListaComponent,
     RolRegistroComponent,
     PeriodoListaComponent,

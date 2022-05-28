@@ -45,7 +45,6 @@ export class IngresoRegistroGeneralComponent implements OnInit {
 
   async ngOnInit() {
     this.nuevoRegistro();
-    this.anadirDetalle();
     this.selectInmueble = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectProveedor = await this.metodosGlobales.getAll(environment.APIPATH_CLIENTE + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectTipoConcepto = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONCEPTO + parseInt(sessionStorage.getItem('administradorId')!));
@@ -79,6 +78,7 @@ export class IngresoRegistroGeneralComponent implements OnInit {
         }
       }
     }
+    window.location.reload();
   }
 
   nuevoRegistro() {
@@ -133,6 +133,10 @@ export class IngresoRegistroGeneralComponent implements OnInit {
     });
 
     this.obtenerDetalle.push(detalle);
+  }
+
+  borrarDetalle(index: number) {
+    this.obtenerDetalle.removeAt(index);
   }
 
   calcularTotales() {

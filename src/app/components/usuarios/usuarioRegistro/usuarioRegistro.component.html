@@ -1,5 +1,4 @@
-<div class="modal ventana" id="registro" tabindex="1" rol="dialog" aria-labelledby="registro"
-  aria-hidden="false">
+<div class="modal ventana" id="registro" tabindex="1" rol="dialog" aria-labelledby="registro" aria-hidden="false">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -38,7 +37,7 @@
             <div class="usermod">
               <div class="form-group campo">
                 <label class="form-label">Rol del Usuario</label>
-                <select type="text" formControlName="idRol">
+                <select type="text" formControlName="rolId">
                   <option [value]="rol.idRol" *ngFor="let rol of arrSelectTipos">
                     {{rol.nombreRol}} </option>
                 </select>
