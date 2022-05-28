@@ -20,8 +20,7 @@ export interface ingresogastointerface {
     tipoPago: string,
 
     clienteId: number,
-    nombreCliente: string,
-    apellidosCliente: string,
+    nombreApellidos: string,
     nieCliente: string,
 
     inmuebleId: number,

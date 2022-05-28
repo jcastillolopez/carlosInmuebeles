@@ -50,7 +50,7 @@
         <tr (click)="navegar(inGa.idInGa)" [routerLink]="['/inga/detalle/'+inGa.idInGa]">
           <td>ver detalle</td>
           <td>{{inGa.tipoConcepto}}</td>
-          <td>{{inGa.nombreCliente}} {{inGa.apellidosCliente}}</td>
+          <td>{{inGa.nombreApellidos}}</td>
           <td>{{inGa.fechaFactura}}</td>
           <td>{{inGa.totalImporte}}</td>
           <button type="button" class="botonOculto buttonLista" data-toggle="modal"

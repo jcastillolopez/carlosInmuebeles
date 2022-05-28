@@ -51,8 +51,7 @@ export class IngaDetalleComponent implements OnInit {
       tipoPago: '',
 
       clienteId: 0,
-      nombreCliente: '',
-      apellidosCliente: '',
+      nombreApellidos: '',
       nieCliente: '',
 
       inmuebleId: 0,
@@ -98,7 +97,7 @@ export class IngaDetalleComponent implements OnInit {
         this.inga = response[0];
         this.ingaDetalle = await this.metodosGlobales.getById(environment.APIPATH_INGRESOGASTOGENERALDETALLE, params['id'])
         this.selectTipoConcepto = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOPAGO + parseInt(sessionStorage.getItem('administradorId')!));
-        
+
       }
     })
   }

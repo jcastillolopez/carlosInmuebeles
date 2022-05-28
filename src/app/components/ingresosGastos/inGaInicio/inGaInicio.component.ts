@@ -99,7 +99,7 @@ export class InGaInicioComponent implements OnInit {
         "mes": "Dicienmbre",
         "numero": "12"
       }
-]
+    ]
     for (const ingresoGasto of this.arrIngresosGastosMostrar) {
       if (ingresoGasto.inmuebleId != null) {
         for (const inmueble of this.arrListaInmuebles) {
@@ -108,9 +108,9 @@ export class InGaInicioComponent implements OnInit {
           }
         }
       }
-      if(ingresoGasto.totalGasto != 0){
+      if (ingresoGasto.totalGasto != 0) {
         ingresoGasto.totalImporte = ingresoGasto.totalGasto;
-      }else{
+      } else {
         ingresoGasto.totalImporte = ingresoGasto.totalIngreso;
       }
     }
