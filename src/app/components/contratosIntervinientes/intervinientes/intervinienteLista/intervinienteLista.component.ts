@@ -29,7 +29,6 @@ export class IntervinienteListaComponent implements OnInit {
     this.arrListaIntervinientes = [];
     this.arrTipoInterviniente = [];
     this.arrClientes = [];
-    this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
   }
 
   async ngOnInit() {

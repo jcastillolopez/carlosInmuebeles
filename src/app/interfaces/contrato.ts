@@ -1,19 +1,19 @@
 export interface contratoInterface {
-    idContratos?: number,   
+    idContratos?: number,
     valorContrato: number,
     fechaContrato: Date,
     fechaInicio?: Date,
     fechaFin?: Date,
     cantidadPeriodo?: number,
     hasIntervinientes?: boolean,
-    
+
     createTime?: Date,
-    updateTime?:Date,
+    updateTime?: Date,
     administradorId?: number,
     usuarioId?: number,
     borrado?: boolean,
 
-    tipoPeriodoId?:number,
+    tipoPeriodoId?: number,
     tipoPeriodo?: string,
     tipoContratoId?: number,
     tipoContrato?: string,

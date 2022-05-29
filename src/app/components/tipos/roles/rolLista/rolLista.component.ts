@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
@@ -23,13 +23,12 @@ export class RolListaComponent implements OnInit {
     private router: Router
   ) {
     this.seleccionadoId = "";
-    this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     //Tabla para la lista
     this.arrListaTipoRol = [];
   }
 
   async ngOnInit() {
-    this.arrListaTipoRol = await this.tiposService.getAllTipos(environment.APIPATH_TIPOROL + this.administradorId);
+    this.arrListaTipoRol = await this.tiposService.getAllTipos(environment.APIPATH_TIPOROL + parseInt(sessionStorage.getItem('administradorId')!));
 
   }
   navegar(idUsuario: number) {

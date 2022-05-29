@@ -10,7 +10,6 @@
 }
 
 .listado {
-   max-width: 50%;
    min-width: 30%;
    display: flex;
    flex-wrap: wrap;
@@ -21,4 +20,10 @@
 
 .router {
    margin: 0 auto;
+}
+
+.balances {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
 }

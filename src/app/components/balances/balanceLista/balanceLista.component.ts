@@ -162,9 +162,6 @@ export class BalanceListaComponent implements OnInit {
       }
     ]
   }
-  async balanceTotal() {
-
-  }
 
   async desgloseXInmueble() {
     this.informesBalancesXInmuebles = await this.metodosGlobales.getAll('informe/inmueble/' + parseInt(sessionStorage.getItem('administradorId')!))

@@ -11,7 +11,6 @@ import { environment } from 'src/environments/environment';
 })
 export class TipoIntervinienteListaComponent implements OnInit {
   seleccionadoId: string;
-  administradorId: number;
 
   //Tabla para la lista
   arrListaTipoInterviniente: any[];
@@ -22,13 +21,12 @@ export class TipoIntervinienteListaComponent implements OnInit {
     private router: Router
   ) {
     this.seleccionadoId = "";
-    this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     //Tabla para la lista
     this.arrListaTipoInterviniente = [];
   }
 
   async ngOnInit() {
-    this.arrListaTipoInterviniente = await this.tiposService.getAllTipos(environment.APIPATH_TIPOINTERVINIENTE + this.administradorId);
+    this.arrListaTipoInterviniente = await this.tiposService.getAllTipos(environment.APIPATH_TIPOINTERVINIENTE + parseInt(sessionStorage.getItem('administradorId')!));
 
     this.activateRouter.params.subscribe(params => {
       this.seleccionadoId = params['id']

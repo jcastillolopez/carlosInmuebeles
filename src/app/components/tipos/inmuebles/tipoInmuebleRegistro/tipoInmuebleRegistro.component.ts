@@ -13,18 +13,12 @@ import { environment } from 'src/environments/environment';
 export class TipoInmuebleRegistroComponent implements OnInit {
   registroForm: FormGroup;
   result: any;
-  administradorId: number;
-  idUsuario: number;
   constructor(
     private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
     private router: Router,
   ) {
     this.result = "";
-
-    this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
-    this.idUsuario = parseInt(sessionStorage.getItem('idUsuario')!);
-
 
     this.registroForm = new FormGroup({
       idTipoInmueble: new FormControl(),
@@ -36,8 +30,8 @@ export class TipoInmuebleRegistroComponent implements OnInit {
       borrado: new FormControl(false),
       createTime: new FormControl(),
       updateTime: new FormControl(),
-      usuarioId: new FormControl(this.idUsuario),
-      administradorId: new FormControl(this.administradorId),
+      usuarioId: new FormControl(parseInt(sessionStorage.getItem('idUsuario')!)),
+      administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!)),
     })
   }
 

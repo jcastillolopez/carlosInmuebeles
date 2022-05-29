@@ -32,8 +32,6 @@ export class IntervinienteRegistroComponent implements OnInit {
     this.arrTipoInterviniente = [];
     this.arrCliente = [];
 
-    this.sesionStorageAdministradorId = parseInt(sessionStorage.getItem('administradorId')!)
-
     this.registroForm = new FormGroup({
 
       idInterviniente: new FormControl(),
@@ -53,9 +51,9 @@ export class IntervinienteRegistroComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrCliente = await this.metodosGlobales.getAll(environment.APIPATH_CLIENTE + this.sesionStorageAdministradorId);
-    this.arrInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + this.sesionStorageAdministradorId);
-    this.arrTipoInterviniente = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINTERVINIENTE + this.sesionStorageAdministradorId);
+    this.arrCliente = await this.metodosGlobales.getAll(environment.APIPATH_CLIENTE + parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrTipoInterviniente = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINTERVINIENTE + parseInt(sessionStorage.getItem('administradorId')!));
     this.activateRouter.params.subscribe(async params => {
       if (params['idInterviniente']) {
         let response = await this.metodosGlobales.getById(environment.APIPATH_INTERVINIENTEDETALLE, params['idInterviniente'])

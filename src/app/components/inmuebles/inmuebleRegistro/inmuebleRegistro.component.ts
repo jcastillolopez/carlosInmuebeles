@@ -53,7 +53,7 @@ export class InmueblesRegistroComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmueble/1');
+    this.arrSelectTipos = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINMUEBLE + 0);
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
         let response = await this.metodosGlobales.getById(environment.APIPATH_INMUEBLEDETALLE, params['id']);

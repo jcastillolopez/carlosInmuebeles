@@ -17,7 +17,6 @@ import { environment } from 'src/environments/environment';
 export class IngaRegistroGeneralComponent implements OnInit {
 
   contratoSeleccionadoId = "";
-
   registroForm: FormGroup;
   selectInmueble: any;
   selectProveedor: any;
@@ -85,7 +84,7 @@ export class IngaRegistroGeneralComponent implements OnInit {
       idInGa: new FormControl(),
       concepto: new FormControl(),
       fechaFactura: new FormControl(new Date),
-      fechaPago: new FormControl(new Date),
+      fechaPago: new FormControl(),
       numeroFactura: new FormControl(),
       totalBaseImponible: new FormControl(),
       totalImpuestoIva: new FormControl(),
