@@ -12,13 +12,16 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./balanceLista.component.css']
 })
 export class BalanceListaComponent implements OnInit {
-  arrIngresosGastosMostrar: ingresogastointerface[];
-  arrIngresosGastosFiltrados: ingresogastointerface[];
-  arrIngresosGastosTodos: ingresogastointerface[];
-  arrIngresosGastosInmuebles: ingresogastointerface[];
-  arrIngresosGastosAnios: ingresogastointerface[];
-  arrInGaDetalle: ingresogastodetalleinterface[];
-  arrListaInmuebles: any[];
+
+  informesBalancesTotales: any;
+  informesBalancesXInmuebles: any;
+  informesBalancesByInmuebleXAnios: any;
+  informesBalancesByInmuebleAnioXMeses: any;
+
+  informesBalancesXAnios: any;
+  informesBalancesByAniosXMeses: any;
+  informesBalancesByAniosMesesXInmueble: any;
+
   selectInmuebles: any[];
   selectAnio: any[];
   selectMes: any[];
@@ -29,24 +32,84 @@ export class BalanceListaComponent implements OnInit {
     private metodosTipos: tiposService,
     private router: Router,
     private activateRouter: ActivatedRoute,
-  ) { 
-    this.arrIngresosGastosMostrar = [];
-    this.arrIngresosGastosFiltrados = [];
-    this.arrIngresosGastosTodos = [];
-    this.arrIngresosGastosInmuebles = [];
-    this.arrIngresosGastosAnios = [];
-    this.arrListaInmuebles = [];
+  ) {
+
     this.selectInmuebles = [];
     this.selectAnio = [];
     this.selectMes = [];
     this.inmuebleFiltrado = 0;
+    this.informesBalancesTotales = {
+      totalBalance: 0,
+      totalIngresos: 0,
+      totalGastos: 0
+    }
+
+    this.informesBalancesXInmuebles = [{
+      totalBalance: 0,
+      totalIngresos: 0,
+      totalGastos: 0,
+      inmuebleAlias: '',
+      idInmueble: 0,
+      anio: '',
+      nombreMes: '',
+      numeroMes: 0,
+    }]
+    this.informesBalancesByInmuebleXAnios = [{
+      totalBalance: 0,
+      totalIngresos: 0,
+      totalGastos: 0,
+      inmuebleAlias: '',
+      idInmueble: 0,
+      anio: '',
+      nombreMes: '',
+      numeroMes: 0,
+    }]
+    this.informesBalancesByInmuebleAnioXMeses = [{
+      totalBalance: 0,
+      totalIngresos: 0,
+      totalGastos: 0,
+      inmuebleAlias: '',
+      idInmueble: 0,
+      anio: '',
+      nombreMes: '',
+      numeroMes: 0,
+    }]
+
+    this.informesBalancesXAnios = [{
+      totalBalance: 0,
+      totalIngresos: 0,
+      totalGastos: 0,
+      inmuebleAlias: '',
+      idInmueble: 0,
+      anio: '',
+      nombreMes: '',
+      numeroMes: 0,
+    }]
+    this.informesBalancesByAniosXMeses = [{
+      totalBalance: 0,
+      totalIngresos: 0,
+      totalGastos: 0,
+      inmuebleAlias: '',
+      idInmueble: 0,
+      anio: '',
+      nombreMes: '',
+      numeroMes: 0,
+    }]
+    this.informesBalancesByAniosMesesXInmueble = [{
+      totalBalance: 0,
+      totalIngresos: 0,
+      totalGastos: 0,
+      inmuebleAlias: '',
+      idInmueble: 0,
+      anio: '',
+      nombreMes: '',
+      numeroMes: 0,
+    }]
   }
 
   async ngOnInit() {
-    this.arrIngresosGastosTodos = await this.metodosGlobales.getAll(environment.APIPATH_INGRESOGASTOGENERAL + parseInt(sessionStorage.getItem('administradorId')!));
-    this.arrIngresosGastosMostrar = this.arrIngresosGastosTodos;
-    this.arrListaInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
-    this.selectInmuebles = this.arrListaInmuebles;
+    this.informesBalancesTotales = await this.metodosGlobales.getAll('informe/' + parseInt(sessionStorage.getItem('administradorId')!))
+    this.selectInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectAnio = await this.metodosGlobales.getAll(environment.APIPATH_FACTURASANIO + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectMes = [
       {
@@ -97,81 +160,29 @@ export class BalanceListaComponent implements OnInit {
         "mes": "Dicienmbre",
         "numero": "12"
       }
-]
-    for (const ingresoGasto of this.arrIngresosGastosMostrar) {
-      if (ingresoGasto.inmuebleId != null) {
-        for (const inmueble of this.arrListaInmuebles) {
-          if (ingresoGasto.inmuebleId === inmueble.idInmueble) {
-            ingresoGasto.aliasInmueble = inmueble.alias;
-          }
-        }
-      }
-      if(ingresoGasto.totalGasto != 0){
-        ingresoGasto.totalImporte = ingresoGasto.totalGasto;
-      }else{
-        ingresoGasto.totalImporte = ingresoGasto.totalIngreso;
-      }
-    }
+    ]
   }
-  async navegar(idIngresoGasto: number) {
-    this.router.navigate(["/inga/detalle/" + idIngresoGasto])
-    this.arrInGaDetalle = await this.metodosGlobales.getById(environment.APIPATH_INGRESOGASTOESPECIFICO, idIngresoGasto);
-  }
-  detalle(inGaId: number, idInGa: number): boolean {
-    if (inGaId === idInGa) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  inmuebles($event) {
-    this.arrIngresosGastosFiltrados = [];
-    if ($event.target.value != 0) {
-      for (const inmuebles of this.arrIngresosGastosTodos) {
-        if (inmuebles.inmuebleId == $event.target.value) {
-          this.arrIngresosGastosFiltrados.push(inmuebles);
-        }
-      }
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
-    } else {
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosTodos;
-    }
-    this.arrIngresosGastosInmuebles = this.arrIngresosGastosFiltrados;
-  }
-  anios($event) {
-    this.arrIngresosGastosFiltrados = []
-    if (this.arrIngresosGastosInmuebles.length == 0) {
-      this.arrIngresosGastosInmuebles = this.arrIngresosGastosTodos
-    }
-    if ($event.target.value != 0) {
-      for (const fechas of this.arrIngresosGastosInmuebles) {
-        if (fechas.fechaFactura.toString().substring(0, 4) === $event.target.value) {
-          this.arrIngresosGastosFiltrados.push(fechas);
-        }
-      }
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
-    } else {
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosInmuebles;
-    }
-    this.arrIngresosGastosAnios = this.arrIngresosGastosFiltrados;
-  }
-  mes($event) {
-    this.arrIngresosGastosFiltrados = []
-    if (this.arrIngresosGastosAnios.length == 0) {
-      this.arrIngresosGastosAnios = this.arrIngresosGastosTodos
-    }
-    if ($event.target.value != 0) {
-      for (const fechas of this.arrIngresosGastosAnios) {
-        console.log(fechas.fechaFactura.toString().substring(5, 7))
-        if (fechas.fechaFactura.toString().substring(5, 7) === $event.target.value) {
-          this.arrIngresosGastosFiltrados.push(fechas);
-        }
-      }
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
-    } else {
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosAnios;
-    }
-    this.arrIngresosGastosAnios = this.arrIngresosGastosFiltrados;
+  async balanceTotal() {
+
   }
 
+  async desgloseXInmueble() {
+    this.informesBalancesXInmuebles = await this.metodosGlobales.getAll('informe/inmueble/' + parseInt(sessionStorage.getItem('administradorId')!))
+  }
+  async degloseByInmuebleXAnios(idInmueble: number) {
+    this.informesBalancesByInmuebleXAnios = await this.metodosGlobales.getAll('informe/inmueble/anio/' + idInmueble + "/" + parseInt(sessionStorage.getItem('administradorId')!));
+  }
+  async desgloseByInmuebleAnioXMes(idInmueble: number, anio: number) {
+    this.informesBalancesByInmuebleAnioXMeses = await this.metodosGlobales.getAll('informe/inmueble/mes/' + idInmueble + "/" + anio + "/" + parseInt(sessionStorage.getItem('administradorId')!))
+  }
+
+  async desgloseXAnios() {
+    this.informesBalancesXAnios = await this.metodosGlobales.getAll('informe/anio/' + parseInt(sessionStorage.getItem('administradorId')!));
+  }
+  async desgloseByAnioXMeses(anio: number) {
+    this.informesBalancesByAniosXMeses = await this.metodosGlobales.getAll('informe/anio/mes/' + parseInt(sessionStorage.getItem('administradorId')!) + "/" + anio);
+  }
+  async desgloseByAnioMesesXInmueble(anio: number, mes: number) {
+    this.informesBalancesByAniosMesesXInmueble = await this.metodosGlobales.getAll('informe/anio/inmueble/' + parseInt(sessionStorage.getItem('administradorId')!) + "/" + anio + "/" + mes);
+  }
 }

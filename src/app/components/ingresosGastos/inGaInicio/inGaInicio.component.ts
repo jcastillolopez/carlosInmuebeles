@@ -17,6 +17,7 @@ export class InGaInicioComponent implements OnInit {
   arrIngresosGastosFiltrados: ingresogastointerface[];
   arrIngresosGastosTodos: ingresogastointerface[];
   arrIngresosGastosInmuebles: ingresogastointerface[];
+  arrIngresosGastosFacturas: ingresogastointerface[];
   arrIngresosGastosAnios: ingresogastointerface[];
   arrInGaDetalle: ingresogastodetalleinterface[];
   arrListaInmuebles: any[];
@@ -25,6 +26,7 @@ export class InGaInicioComponent implements OnInit {
   selectMes: any[];
   inmuebleFiltrado: number;
   importeTotal: number;
+  labelTotalImporte: string;
 
 
   constructor(
@@ -37,6 +39,7 @@ export class InGaInicioComponent implements OnInit {
     this.arrIngresosGastosFiltrados = [];
     this.arrIngresosGastosTodos = [];
     this.arrIngresosGastosInmuebles = [];
+    this.arrIngresosGastosFacturas = [];
     this.arrIngresosGastosAnios = [];
     this.arrListaInmuebles = [];
     this.selectInmuebles = [];
@@ -44,6 +47,7 @@ export class InGaInicioComponent implements OnInit {
     this.selectMes = [];
     this.inmuebleFiltrado = 0;
     this.importeTotal = 0;
+    this.labelTotalImporte = '';
   }
 
   async ngOnInit() {
@@ -109,7 +113,6 @@ export class InGaInicioComponent implements OnInit {
         ingresoGasto.totalImporte = ingresoGasto.totalIngreso;
       }
     }
-    this.calculoTotal();
   }
 
   async navegar(idIngresoGasto: number) {
@@ -125,17 +128,46 @@ export class InGaInicioComponent implements OnInit {
     }
   }
 
+  ingresoGasto($event) {
+    this.arrIngresosGastosFiltrados = []
+    if (this.arrIngresosGastosFacturas.length == 0) {
+      this.arrIngresosGastosFacturas = this.arrIngresosGastosTodos;
+    }
+    if ($event.target.value != 0) {
+      for (const factura of this.arrIngresosGastosTodos) {
+        if ($event.target.value != 1) {
+          if (factura.totalGasto != 0) {
+            this.arrIngresosGastosFiltrados.push(factura);
+            this.labelTotalImporte = 'Total Gasto';
+          }
+        } else {
+          if (factura.totalIngreso != 0) {
+            this.arrIngresosGastosFiltrados.push(factura);
+            this.labelTotalImporte = 'Total Ingreso';
+          }
+        }
+      }
+      this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
+      this.calculoTotal();
+    } else {
+      this.arrIngresosGastosMostrar = this.arrIngresosGastosTodos;
+      this.importeTotal = 0;
+      this.labelTotalImporte = ''
+    }
+    this.arrIngresosGastosFacturas = this.arrIngresosGastosFiltrados;
+  }
+
   inmuebles($event) {
     this.arrIngresosGastosFiltrados = [];
     if ($event.target.value != 0) {
-      for (const inmuebles of this.arrIngresosGastosTodos) {
+      for (const inmuebles of this.arrIngresosGastosFacturas) {
         if (inmuebles.inmuebleId == $event.target.value) {
           this.arrIngresosGastosFiltrados.push(inmuebles);
         }
       }
       this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
     } else {
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosTodos;
+      this.arrIngresosGastosMostrar = this.arrIngresosGastosFacturas;
     }
     this.arrIngresosGastosInmuebles = this.arrIngresosGastosFiltrados;
     this.calculoTotal();
@@ -144,7 +176,7 @@ export class InGaInicioComponent implements OnInit {
   anios($event) {
     this.arrIngresosGastosFiltrados = []
     if (this.arrIngresosGastosInmuebles.length == 0) {
-      this.arrIngresosGastosInmuebles = this.arrIngresosGastosTodos
+      this.arrIngresosGastosInmuebles = this.arrIngresosGastosFacturas
     }
     if ($event.target.value != 0) {
       for (const fechas of this.arrIngresosGastosInmuebles) {
@@ -166,7 +198,7 @@ export class InGaInicioComponent implements OnInit {
       this.arrIngresosGastosAnios = this.arrIngresosGastosInmuebles;
     }
     if (this.arrIngresosGastosInmuebles.length == 0) {
-      this.arrIngresosGastosAnios = this.arrIngresosGastosTodos;
+      this.arrIngresosGastosAnios = this.arrIngresosGastosFacturas;
     }
     if ($event.target.value != 0) {
       for (const fechas of this.arrIngresosGastosAnios) {
