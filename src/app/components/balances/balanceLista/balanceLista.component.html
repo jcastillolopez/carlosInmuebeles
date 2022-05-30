@@ -1,10 +1,159 @@
 <header>
   <navApp></navApp>
 </header>
-
 <div class="fondo">
-  <div class="nav">
-    <balanceNav></balanceNav>
+  <div class="listado">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Total Ingreso</th>
+          <th>Total Gasto</th>
+          <th>Total Balance</th>
+        </tr>
+      </thead>
+      <tbody routerLinkActive="activo activoBoton">
+        <tr>
+          <td>{{informesBalancesTotales.totalIngresos}} €</td>
+          <td>{{informesBalancesTotales.totalGastos}} €</td>
+          <td>{{informesBalancesTotales.totalBalance}} €</td>
+          <td><button (click)="desgloseXInmueble()">Desglosar por inmueble</button></td>
+          <td><button (click)="desgloseXAnios()">Desglosar por Años</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="balances">
+      <div class="inmueble">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Alias</th>
+              <th>Total Ingreso</th>
+              <th>Total Gasto</th>
+              <th>Total Balance</th>
+            </tr>
+          </thead>
+          <tbody routerLinkActive="activo activoBoton" *ngFor="let inmueble of informesBalancesXInmuebles">
+            <tr>
+              <td>{{inmueble.inmuebleAlias}}</td>
+              <td>{{inmueble.totalIngresos}} €</td>
+              <td>{{inmueble.totalGastos}} €</td>
+              <td>{{inmueble.totalBalance}} €</td>
+              <td><button (click)="degloseByInmuebleXAnios(inmueble.idInmueble)">Desglosar por años</button></td>
+            </tr>
+            <tr>
+              <td colspan="5">
+                <table>
+                  <tbody *ngFor="let anio of informesBalancesByInmuebleXAnios, let i = index">
+                    <tr *ngIf="i<1">
+                      <th>Alias</th>
+                      <th>Año</th>
+                      <th>Total Ingreso</th>
+                      <th>Total Gasto</th>
+                      <th>Total Balance</th>
+                    </tr>
+                    <tr>
+                      <td>{{anio.inmuebleAlias}}</td>
+                      <td>{{anio.anio}}</td>
+                      <td>{{anio.totalIngresos}} €</td>
+                      <td>{{anio.totalGastos}} €</td>
+                      <td>{{anio.totalBalance}} €</td>
+                      <td><button (click)="desgloseByInmuebleAnioXMes(anio.idInmueble, anio.anio)">Desglosar por
+                          Meses</button></td>
+                    </tr>
+                    <tr>
+                      <td colspan="5">
+                        <table>
+                          <tbody *ngFor="let mes of informesBalancesByInmuebleAnioXMeses, let i = index">
+                            <tr *ngIf="i<1">
+                              <th>Alias</th>
+                              <th>Año</th>
+                              <th>Mes</th>
+                              <th>Total Ingreso</th>
+                              <th>Total Gasto</th>
+                              <th>Total Balance</th>
+                            </tr>
+                            <tr>
+                              <td>{{mes.inmuebleAlias}}</td>
+                              <td>{{mes.anio}}</td>
+                              <td>{{mes.mes}}</td>
+                              <td>{{mes.totalIngresos}} €</td>
+                              <td>{{mes.totalGastos}} €</td>
+                              <td>{{mes.totalBalance}} €</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="anio">
+        <table>
+          <thead>
+            <tr>
+              <th>Año</th>
+              <th>Total Ingreso</th>
+              <th>Total Gasto</th>
+              <th>Total Balance</th>
+            </tr>
+          </thead>
+          <tbody routerLinkActive="activo activoBoton" *ngFor="let anio of informesBalancesXAnios">
+            <tr>
+              <td>{{anio.anio}}</td>
+              <td>{{anio.totalIngresos}} €</td>
+              <td>{{anio.totalGastos}} €</td>
+              <td>{{anio.totalBalance}} €</td>
+              <td><button (click)="desgloseByAnioXMeses(anio.anio)">Desglosar por Meses</button></td>
+            </tr>
+            <tr>
+              <td colspan="5">
+                <table>
+                  <tbody *ngFor="let mes of informesBalancesByAniosXMeses, let i = index">
+                    <tr *ngIf="i<1">
+                      <th>Mes</th>
+                      <th>Total Ingreso</th>
+                      <th>Total Gasto</th>
+                      <th>Total Balance</th>
+                    </tr>
+                    <tr>
+                      <td>{{mes.nombreMes}}</td>
+                      <td>{{mes.totalIngresos}} €</td>
+                      <td>{{mes.totalGastos}} €</td>
+                      <td>{{mes.totalBalance}} €</td>
+                      <td><button (click)="desgloseByAnioMesesXInmueble(mes.anio, mes.numeroMes)">Desglosar por
+                          Inmueble</button></td>
+                    </tr>
+                    <tr>
+                      <td colspan="5">
+                        <table>
+                          <tbody *ngFor="let inmueble of informesBalancesByAniosMesesXInmueble, let i = index">
+                            <tr *ngIf="i<1">
+                              <th>Alias</th>
+                              <th>Total Ingreso</th>
+                              <th>Total Gasto</th>
+                              <th>Total Balance</th>
+                            </tr>
+                            <tr>
+                              <td>{{inmueble.inmuebleAlias}}</td>
+                              <td>{{inmueble.totalIngresos}} €</td>
+                              <td>{{inmueble.totalGastos}} €</td>
+                              <td>{{inmueble.totalBalance}} €</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
-

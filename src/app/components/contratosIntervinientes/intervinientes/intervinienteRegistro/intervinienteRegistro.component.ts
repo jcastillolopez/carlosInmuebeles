@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'intervinienteRegistro',
@@ -10,13 +11,6 @@ import { tiposService } from 'src/app/services/tipos.service';
   styleUrls: ['./intervinienteRegistro.component.css']
 })
 export class IntervinienteRegistroComponent implements OnInit {
-
-  //paths
-  pathInmuebles: string;
-  pathTiposIntervinientes: string;
-  pathIntervinientes: string;
-  pathClientes: string;
-  pathCreateUpdate: string;
 
   //Variables Generales
   registroForm: FormGroup;
@@ -33,26 +27,19 @@ export class IntervinienteRegistroComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.pathInmuebles = 'inmuebles/'
-    this.pathTiposIntervinientes = 'intervinientes/'
-    this.pathIntervinientes = 'intervinientes/'
-    this.pathClientes = 'clientes/'
-    this.pathCreateUpdate = 'intervinientes/'
 
     this.arrInmuebles = [];
     this.arrTipoInterviniente = [];
     this.arrCliente = [];
 
-    this.sesionStorageAdministradorId = parseInt(sessionStorage.getItem('administradorId')!)
-
     this.registroForm = new FormGroup({
-      
+
       idInterviniente: new FormControl(),
       porcentajePropiedad: new FormControl(),
 
       clienteId: new FormControl(),
       tipoIntervinienteId: new FormControl(),
-      contratoId: new FormControl(),
+      contratosId: new FormControl(),
       // inmuebleId: new FormControl(),
 
       administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!)),
@@ -64,12 +51,12 @@ export class IntervinienteRegistroComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrCliente = await this.metodosGlobales.getAll(this.pathClientes+ this.sesionStorageAdministradorId);
-    this.arrInmuebles = await this.metodosGlobales.getAll(this.pathInmuebles + this.sesionStorageAdministradorId);
-    this.arrTipoInterviniente = await this.metodosTipos.getAllTipos(this.pathTiposIntervinientes + this.sesionStorageAdministradorId);
+    this.arrCliente = await this.metodosGlobales.getAll(environment.APIPATH_CLIENTE + parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrTipoInterviniente = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINTERVINIENTE + parseInt(sessionStorage.getItem('administradorId')!));
     this.activateRouter.params.subscribe(async params => {
-      if (params['id']) {
-        let response = await this.metodosGlobales.getById(this.pathIntervinientes, params['id'])
+      if (params['idInterviniente']) {
+        let response = await this.metodosGlobales.getById(environment.APIPATH_INTERVINIENTEDETALLE, params['idInterviniente'])
         this.registroForm.patchValue(response[0])
       }
     })
@@ -78,16 +65,16 @@ export class IntervinienteRegistroComponent implements OnInit {
     this.activateRouter.params.subscribe(async params => {
       if (this.registroForm.value.idInterviniente !== null) {
         this.registroForm.value.updateTime = new Date();
-        await this.metodosGlobales.update(this.registroForm.value, this.pathCreateUpdate);
+        await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_INTERVINIENTE);
       } else {
         this.registroForm.value.createTime = new Date();
         this.registroForm.value.updateTime = new Date();
-        this.registroForm.value.contratoId = parseInt(this.activateRouter.snapshot.params['id'])
+        this.registroForm.value.contratosId = this.activateRouter.snapshot.params['id'];
         console.log(this.registroForm.value);
-        await this.metodosGlobales.create(this.registroForm.value, this.pathCreateUpdate);
+        await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_INTERVINIENTE);
       }
-      window.location.href = 'http://localhost:4200/contratos/detalle/' + this.activateRouter.snapshot.params['id'];
-  })
+      window.location.reload();
+    })
 
   }
 }

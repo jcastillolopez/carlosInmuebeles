@@ -5,8 +5,7 @@
     flex-direction: row;
     justify-content: space-between;
 }
-
-.nav{   
+.nav .general{   
     position: relative;
     top: -20px;    
     font-size: 125%;
@@ -18,7 +17,7 @@
     justify-content: space-around;
 } 
 
-.bienvenida{
+.bienvenida{    
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -26,4 +25,8 @@
     position: relative;
     top: -75px;
     left: -100px;
+}
+.bienvenida p {
+    color: gold;
+    text-shadow: 1px,1px,1px,black;
 }

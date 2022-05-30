@@ -8,15 +8,17 @@ import * as dayjs from 'dayjs';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
 import { environment } from 'src/environments/environment';
+import { env } from 'process';
 
 @Component({
-  selector: 'ingaRegistroGeneral',
-  templateUrl: './ingaRegistroGeneral.component.html',
-  styleUrls: ['./ingaRegistroGeneral.component.css']
+  selector: 'ingresoRegistroGeneral',
+  templateUrl: './ingresoRegistroGeneral.component.html',
+  styleUrls: ['./ingresoRegistroGeneral.component.css']
 })
-export class IngaRegistroGeneralComponent implements OnInit {
+export class IngresoRegistroGeneralComponent implements OnInit {
 
   contratoSeleccionadoId = "";
+
   registroForm: FormGroup;
   selectInmueble: any;
   selectProveedor: any;
@@ -68,11 +70,11 @@ export class IngaRegistroGeneralComponent implements OnInit {
       this.registroForm.value.updateTime = new Date();
       const newIngreso = await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_INGRESOGASTOGENERAL);
       if (this.obtenerDetalle.length > 0) {
-        for (const detalles of this.obtenerDetalle.controls) {
-          detalles.value.createTime = new Date();
-          detalles.value.updateTime = new Date();
-          detalles.value.inGaId = newIngreso.idInGa;
-          const newIngresoDetalle = await this.metodosGlobales.create(detalles.value, environment.APIPATH_INGRESOGASTOESPECIFICO);
+        for (const detalle of this.obtenerDetalle.controls) {
+          detalle.value.createTime = new Date();
+          detalle.value.updateTime = new Date();
+          detalle.value.inGaId = newIngreso.idInGa;
+          const newIngresoDetalle = await this.metodosGlobales.create(detalle.value, environment.APIPATH_INGRESOGASTOESPECIFICO);
         }
       }
     }
@@ -84,7 +86,7 @@ export class IngaRegistroGeneralComponent implements OnInit {
       idInGa: new FormControl(),
       concepto: new FormControl(),
       fechaFactura: new FormControl(new Date),
-      fechaPago: new FormControl(),
+      fechaPago: new FormControl(new Date),
       numeroFactura: new FormControl(),
       totalBaseImponible: new FormControl(),
       totalImpuestoIva: new FormControl(),
@@ -133,6 +135,10 @@ export class IngaRegistroGeneralComponent implements OnInit {
     this.obtenerDetalle.push(detalle);
   }
 
+  borrarDetalle(index: number) {
+    this.obtenerDetalle.removeAt(index);
+  }
+
   calcularTotales() {
     var totalBaseImponible = 0;
     var totalImpuestoIva = 0;
@@ -140,17 +146,17 @@ export class IngaRegistroGeneralComponent implements OnInit {
     var baseImponibleXdetalle = 0;
     var impuestoIva = 0;
 
-    for (const detalles of this.obtenerDetalle.controls) {
-      baseImponibleXdetalle = (detalles.value.pv * detalles.value.cantidad) - (((detalles.value.pv * detalles.value.cantidad) * detalles.value.descuento) / 100);
+    for (const detalleFormulario of this.obtenerDetalle.controls) {
+      baseImponibleXdetalle = (detalleFormulario.value.pv * detalleFormulario.value.cantidad) - (((detalleFormulario.value.pv * detalleFormulario.value.cantidad) * detalleFormulario.value.descuento) / 100);
       totalBaseImponible = totalBaseImponible + baseImponibleXdetalle;
 
-      impuestoIva = ((baseImponibleXdetalle * detalles.value.ivaPorcentaje) / 100);
+      impuestoIva = ((baseImponibleXdetalle * detalleFormulario.value.ivaPorcentaje) / 100);
       totalImpuestoIva = totalImpuestoIva + impuestoIva;
     }
     totalGasto = totalBaseImponible + totalImpuestoIva;
 
     this.registroForm.get('totalBaseImponible').patchValue(totalBaseImponible);
     this.registroForm.get('totalImpuestoIva').patchValue(totalImpuestoIva);
-    this.registroForm.get('totalGasto').patchValue(totalGasto);
+    this.registroForm.get('totalIngreso').patchValue(totalGasto);
   }
 }

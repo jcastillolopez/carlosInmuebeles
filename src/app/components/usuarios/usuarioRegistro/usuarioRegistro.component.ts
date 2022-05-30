@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, } from '@angular/router';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'usuarioRegistro',
@@ -13,19 +14,15 @@ export class UsuarioRegistroComponent implements OnInit {
 
   registroForm: FormGroup;
   result: any;
-  path_lista: string;
-  path_create_update: string;
   arrSelectTipos: any[];
 
   constructor(
-    
-    private metodosGlobales:Globales,   
-    private metodosTipos:tiposService,
+
+    private metodosGlobales: Globales,
+    private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
     private router: Router,
   ) {
-    this.path_lista = 'usuario/detalle/'
-    this.path_create_update = 'usuario'
     this.result = "";
     this.arrSelectTipos = [];
     this.registroForm = new FormGroup({
@@ -36,7 +33,7 @@ export class UsuarioRegistroComponent implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(60),
       ]),
-      
+
       email: new FormControl('', [
         Validators.required,
         Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/)
@@ -45,7 +42,7 @@ export class UsuarioRegistroComponent implements OnInit {
       borrado: new FormControl(),
       createTime: new FormControl(),
       updateTime: new FormControl(),
-      idRol: new FormControl(),
+      rolId: new FormControl(),
       administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!))
     })
   }
@@ -54,7 +51,7 @@ export class UsuarioRegistroComponent implements OnInit {
     this.arrSelectTipos = await this.metodosTipos.getAllTipos('rol/1');
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
-        let response = await this.metodosGlobales.getById(this.path_lista,params['id'])
+        let response = await this.metodosGlobales.getById(environment.APIPATH_USUARIODETALLE, params['id'])
         this.registroForm.patchValue(response[0])
       }
     })
@@ -62,19 +59,18 @@ export class UsuarioRegistroComponent implements OnInit {
   async enviar() {
     if (this.registroForm.value.idUsuario !== null) {
       this.registroForm.value.updateTime = new Date();
-      await this.metodosGlobales.update(this.registroForm.value, this.path_create_update);
+      await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_USUARIO);
     } else {
       if (this.registroForm.valid) {
-      this.registroForm.value.createTime = new Date();
-      this.registroForm.value.updateTime = new Date();
-        
-        const temp = await this.metodosGlobales.create(this.registroForm.value, this.path_create_update);
+        this.registroForm.value.createTime = new Date();
+        this.registroForm.value.updateTime = new Date();
+
+        const temp = await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_USUARIO);
       } else { let result = 'hay datos no validos en el formulario' };
     }
+    window.location.reload();
   }
-  // navegar(idUsuario: number) {
-  //   this.router.navigate([this.path_usuarios_detalle + idUsuario])
-  // }
+
   dniValidators(pControl: FormControl) {
     const value = pControl.value;
     const grupoLetras = 'TRWAGMYFPDXBNJZSQVHLCKET';

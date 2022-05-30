@@ -9,8 +9,8 @@ export class AppComponent {
   title = 'Carlos_Inmuebles';
   fechasistema: any;
   constructor(
-   
+
   ) {
-     this.fechasistema = new Date;
+    this.fechasistema = new Date;
   }
 }

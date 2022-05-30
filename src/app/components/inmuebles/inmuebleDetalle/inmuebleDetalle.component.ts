@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { inmuebleInterface } from 'src/app/interfaces/inmuebles';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -16,35 +17,29 @@ export class InmuebleDetalleComponent implements OnInit {
 
   inmuebleDetalle: any;
   arrSelectTipos: any[];
-  path: string = 'inmuebles/detalle/'
   constructor(
     private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
-    private metodosGlobales:Globales,
+    private metodosGlobales: Globales,
   ) {
     this.arrSelectTipos = [];
     this.inmuebleDetalle = {
       idInmueble: 0,
       tipoInmueblesId: '',
+      tipoEspecifico: '',
       alias: '',
       refCatastral: '',
       localidad: '',
       direccion: '',
       cp: '',
       borrado: false,
-      }
-   }
+    }
+  }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.metodosTipos.getAllTipos('inmuebles/' + parseInt(sessionStorage.getItem('administradorId')!))
     this.activateRouter.params.subscribe(async params => {
-      let response = await this.metodosGlobales.getById(this.path, params['id']);
+      let response = await this.metodosGlobales.getById(environment.APIPATH_INMUEBLEDETALLE, params['id']);
       this.inmuebleDetalle = response[0];
-      for (const tipo of this.arrSelectTipos) {
-        if (response.tipoInmueblesId == tipo.idTipoInmueble) {
-          this.inmuebleDetalle.tipoInmueblesId = tipo.tipoInmueble;
-        }
-      }
     })
   }
 }

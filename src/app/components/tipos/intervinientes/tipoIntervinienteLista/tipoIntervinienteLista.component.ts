@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'tipoIntervinienteLista',
@@ -10,8 +11,6 @@ import { tiposService } from 'src/app/services/tipos.service';
 })
 export class TipoIntervinienteListaComponent implements OnInit {
   seleccionadoId: string;
-  path_usuarios: string;
-  administradorId: number;
 
   //Tabla para la lista
   arrListaTipoInterviniente: any[];
@@ -21,15 +20,13 @@ export class TipoIntervinienteListaComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.path_usuarios = 'intervinientes/';
     this.seleccionadoId = "";
-    this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     //Tabla para la lista
     this.arrListaTipoInterviniente = [];
   }
 
   async ngOnInit() {
-    this.arrListaTipoInterviniente = await this.tiposService.getAllTipos(this.path_usuarios + this.administradorId);
+    this.arrListaTipoInterviniente = await this.tiposService.getAllTipos(environment.APIPATH_TIPOINTERVINIENTE + parseInt(sessionStorage.getItem('administradorId')!));
 
     this.activateRouter.params.subscribe(params => {
       this.seleccionadoId = params['id']

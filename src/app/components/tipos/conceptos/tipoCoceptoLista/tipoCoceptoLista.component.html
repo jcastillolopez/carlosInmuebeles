@@ -1,3 +1,34 @@
-<p>
-  tipoCoceptoLista works!
-</p>
+
+<div class="fondo">
+  <div class="botonNuevosRegistros">
+    <button type="button" class="button" [routerLink]="['/tipos/concepto/']" data-toggle="modal" data-target="#registroTiposConceptos">
+      Nuevo Tipo de Concepto
+    </button>
+  </div>
+  <div class="listado">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody routerLinkActive="activo activoBoton" *ngFor="let tipo of arrListaTipoConcepto; let i = index">
+        <tr (click)="navegar(tipo.idTipoConcepto)"
+        [routerLink]="['/concepto/modificacion/'+tipo.idTipoConcepto]">
+        <td>{{tipo.tipoConcepto}}</td>
+          <td>{{tipo.tipoEspecifico}}</td>
+          <td>
+            <button type="button" class="buttonLista" data-toggle="modal" data-target="#registroTipoConcepto">
+              Modificar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<tipoConceptoRegistro></tipoConceptoRegistro>

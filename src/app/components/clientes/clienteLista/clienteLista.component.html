@@ -4,8 +4,12 @@
 </header>
 
 <div class="fondo"> 
-  <div class="nav">
-    <clienteNav></clienteNav>
+  <div class="especifico">
+  <div class="navEspecifico">
+    <button [routerLink]="['/clientes/']" type="button" data-toggle="modal" data-target="#clienteRegistro">
+      Nueva Entidad
+    </button>   
+  </div>
   </div>
   <div class="listado">
     <table class="table">
@@ -26,7 +30,7 @@
           <td>{{cliente.nie}}</td>
           <td>
             <button type="button" class="botonOculto buttonLista" data-toggle="modal"
-             data-target="#clienteModificacion">
+             data-target="#clienteRegistro">
               Modificar
             </button>
           </td>

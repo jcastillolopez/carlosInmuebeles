@@ -1,0 +1,29 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   border: 0;
+}
+
+.activo {
+   font-size: 80%;
+}
+
+.listado {
+   min-width: 30%;
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   text-align: center;
+   margin: 0 auto;
+}
+
+.router {
+   margin: 0 auto;
+}
+
+.balances {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+}

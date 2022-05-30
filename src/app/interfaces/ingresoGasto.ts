@@ -7,18 +7,20 @@ export interface ingresogastointerface {
     totalImpuestoIva: number,
     totalGasto: number,
     totalIngreso: number,
+    totalImporte: number,
     cuentaCorrienteProveedor: string,
     cuentaCorrienteCliente: string,
+    formaPago: string,
+    fechaPago: Date,
 
     tipoConceptoId: number,
     tipoConcepto: string,
-    
+
     tipoPagoId: number,
     tipoPago: string,
-    
+
     clienteId: number,
-    nombreCliente: string,
-    apellidosCliente: string,
+    nombreApellidosCliente: string,
     nieCliente: string,
 
     inmuebleId: number,

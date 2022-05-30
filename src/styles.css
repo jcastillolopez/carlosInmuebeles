@@ -8,19 +8,50 @@
 .wrapper {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    color: gold;
-    text-shadow: 2px 2px 2px black;
-    font-style: oblique;
+    flex-direction: column;   
     background-color: lightblue;
 
 }
+.container {
+    color: gold;
+    text-shadow: 2px 2px 2px black;
+    font-style: oblique;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: none;
+    max-height: 80vh;
+    background-color: rgb(58, 58, 208);
+}
+.fondo {
 
+    background-color: rgb(100, 115, 122);
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 60vh;
+    font-style: oblique;
+}
+.general{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;    
+
+}
 .nav {
     min-width: 10%;
     background-color: rgb(58, 58, 208);
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.navEspecifico {
+  min-height: 100%;
+    background-color: rgb(96, 91, 91);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-around;
 }
 
@@ -29,7 +60,7 @@ ul {
 }
 
 li {
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 li:hover {
@@ -70,20 +101,13 @@ footer p {
     margin-top: 10px;
 }
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    max-width: none;
-    max-height: 80vh;
-    background-color: rgb(58, 58, 208);
-}
+
 
 button {
-    margin: 10px;
+  
     min-width: 150px;
-    height: 30px;
-    padding: 10px;
+    height: 40px;
+    padding: 5px;
     border-radius: 10px;
     background-color: transparent;
     color: white;
@@ -98,47 +122,124 @@ button:hover {
     background-color: lightblue;
 }
 
-
-.fondo {
-
-    background-color: rgb(100, 115, 122);
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 70vh;
-    font-style: oblique;
+.modal-dialog{
+    min-width: 40%;  
 }
-
-.modal-dialog {
-    height: 50%;
-    min-width: 35%;
-}
-
 .modal-content {
     background-color: rgb(58, 58, 208);
-    border-radius: 15px;
+    border-radius: 25px;  
+    text-align: center;    
 }
-
+.general{
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;    
+}
 .campo {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: 0.5em;
 }
+.regiDetalle{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: green;
+}
+.campoTabla{   
+    margin-right: 5px;
 
-.campo label {
+}
+
+ label {
     grid-column: 1;
     text-align: left;
     margin-right: 5px;
 }
 
-.campo input {
+ input {
     background-color: rgba(255, 255, 255, 0.827);
     grid-column: 2/3;
     font-style: oblique;
 }
 
-.campo select {
-    background-color: rgb(155, 155, 155);
-    font-style: oblique;
-    text-shadow: 2px 2px 2px rgb(196, 196, 196);
+select {
+    min-height: 18px;
+    color: white;
+    background-color: rgb(96, 91, 91);
+    font-style: oblique; 
+
 }
+option{
+    background-color:black ;
+}
+
+ h4{
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    color: gold;
+ }
+ .botonOculto {
+    visibility: hidden;
+ }
+ 
+ .activoBoton .botonOculto {
+    
+    visibility: visible;
+ }
+ tbody {
+    color: white;
+    border: 0 !important;
+    
+ }
+ 
+ tbody tr:hover {
+    background-color: rgb(81, 181, 85);
+ }
+ 
+ tbody tr td {
+    border: 0 !important;
+ }
+ td{
+    padding: 5px;
+    text-align: left;
+ }
+ 
+ thead {
+    color: gold;
+ }
+ 
+ thead tr th {
+    border-top: 0;
+ }
+ th{
+    padding: 5px;
+    width: 100px;
+ }
+ 
+ td:nth-child(2){
+    width: 150px;
+ }
+ 
+ td:nth-child(3){
+    width: 220px;
+ }
+ 
+ td:last-child{
+ width: 50px;
+ }
+ 
+ .buttonLista{
+    min-width: 0;
+    width: 50px;
+ }
+ 
+ 
+ 
+ h2,
+ h3,
+ p {
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 125%;
+ }

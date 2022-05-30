@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'clienteLista',
@@ -12,7 +13,6 @@ import { tiposService } from 'src/app/services/tipos.service';
 export class ClienteListaComponent implements OnInit {
 
   clienteSeleccionadoId: number;
-  path: string;
   //Formulario Modal
   arrSelectTipos: any[];
 
@@ -26,8 +26,6 @@ export class ClienteListaComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-
-    this.path = 'clientes/';
     this.clienteSeleccionadoId = 1;
 
     //Tabla para la lista
@@ -36,7 +34,7 @@ export class ClienteListaComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrListaClientes = await this.metodosGlobales.getById(this.path, parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrListaClientes = await this.metodosGlobales.getById(environment.APIPATH_CLIENTE, parseInt(sessionStorage.getItem('administradorId')!));
 
     this.activateRouter.params.subscribe(params => {
       this.clienteSeleccionadoId = params['id']

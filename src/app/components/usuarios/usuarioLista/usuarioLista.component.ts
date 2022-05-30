@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'usuarioLista',
@@ -11,9 +12,6 @@ import { tiposService } from 'src/app/services/tipos.service';
 })
 export class UsuarioListaComponent implements OnInit {
   usuarioSeleccionadoId: string;
-  path_usuarios: string;
-  path_roles: string;
-  path_usuarios_detalle: string;
   //Formulario Modal
   arrSelectTipos: any[];
 
@@ -26,9 +24,6 @@ export class UsuarioListaComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.path_usuarios = 'usuario/';
-    this.path_roles = 'rol/1';
-    this.path_usuarios_detalle = 'usuarios/detalle/'
     this.usuarioSeleccionadoId = "";
     //Tabla para la lista
     this.arrListaUsuarios = [];
@@ -36,14 +31,14 @@ export class UsuarioListaComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrSelectTipos = await this.tiposService.getAllTipos(this.path_roles);
-    this.arrListaUsuarios = await this.metodosGlobales.getById(this.path_usuarios, parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrSelectTipos = await this.tiposService.getAllTipos(environment.APIPATH_TIPOROL + parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrListaUsuarios = await this.metodosGlobales.getById(environment.APIPATH_USUARIO, parseInt(sessionStorage.getItem('administradorId')!));
 
     this.activateRouter.params.subscribe(params => {
       this.usuarioSeleccionadoId = params['id']
     })
   }
   navegar(idUsuario: number) {
-    this.router.navigate([this.path_usuarios_detalle + idUsuario])
+    this.router.navigate(['usuarios/detalle/' + idUsuario])
   }
 }

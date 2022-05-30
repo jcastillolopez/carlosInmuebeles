@@ -2,7 +2,7 @@ header{
     justify-content: space-between;
 }
 
-.wrapper{
+.wrapper{  
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -14,8 +14,13 @@ header{
     position: relative;   
 }
 
-h1 {
+h2 {
+    font-size: 200%;
+    color: gold;
+    text-shadow: 10px,10px,10px,black;
+    font-style: oblique;
     margin-top: 10px;
+   
 }
 
 .logo {

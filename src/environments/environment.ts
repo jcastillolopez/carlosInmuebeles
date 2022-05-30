@@ -1,16 +1,38 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+   production: false,
+   APIPATH_GENERAL:"https://gestioninmuebles-spring.herokuapp.com/api/v1/",
+   APIPATH_INMUEBLE:"inmueble/",
+   APIPATH_INMUEBLEDETALLE:"inmueble/detalle/",
+   APIPATH_CLIENTE:"cliente/",
+   APIPATH_CLIENTEDETALLE:"cliente/detalle/",
+   APIPATH_CONTRATO:"contrato/",
+   APIPATH_CONTRATODETALLE:"contrato/detalle/",
+   APIPATH_INGRESOGASTOGENERAL:"ingresogasto/",
+   APIPATH_FACTURASANIO:"ingresogasto/anio/",
+   APIPATH_INGRESOGASTOGENERALDETALLE:"ingresogasto/detalle/",
+   APIPATH_INGRESOGASTOESPECIFICO:"ingresogastodetalle/",
+   APIPATH_INGRESOGASTOESPECIFICODETALLE:"ingresogastodetalle/detalle/",
+   APIPATH_AVISOSFACTURAS:"ingresogasto/avisos/facturasinpagadas/",
+   APIPATH_INTERVINIENTE:"interviniente/",
+   APIPATH_INTERVINIENTEDETALLE:"interviniente/detalle/",
+   APIPATH_PERSONASPAGADORA:"personaspagadora/",
+   APIPATH_USUARIO:"usuario/",
+   APIPATH_USUARIODETALLE:"usuario/detalle/",
+   APIPATH_LOGGIN:"usuario/loggin/",
+   APIPATH_TIPOS:"tipos/",
+   APIPATH_TIPOINMUEBLE:"inmueble/",
+   APIPATH_TIPOINMUEBLEDETALLE:"inmueble/detalle/",
+   APIPATH_TIPOCONTRATO:"contrato/",
+   APIPATH_TIPOCONTRATODETALLE:"contrato/detalle/",
+   APIPATH_TIPOCONCEPTO:"concepto/",
+   APIPATH_TIPOCONCEPTODETALLE:"concepto/detalle/",
+   APIPATH_TIPOINTERVINIENTE:"interviniente/",
+   APIPATH_TIPOINTERVINIENTEDETALLE:"interviniente/detalle/",
+   APIPATH_TIPOPAGO:"pago/",
+   APIPATH_TIPOPAGODETALLE:"pago/detalle/",
+   APIPATH_TIPOROL:"rol/",
+   APIPATH_TIPOROLDETALLE:"rol/detalle/",
+   APIPATH_TIPOPERIODO:"periodo/",
+   APIPATH_TIPOPERIODODETALLE:"periodo/detalle/"
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, } from '@angular/router';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'tipoContratoRegistro',
@@ -11,10 +12,6 @@ import { tiposService } from 'src/app/services/tipos.service';
 export class TipoContratoRegistroComponent implements OnInit {
   registroForm: FormGroup;
   result: any;
-  path_lista: string;
-  path_create_update: string;
-  administradorId: number;
-  idUsuario: number;
 
   constructor(
     private metodosTipos: tiposService,
@@ -22,11 +19,7 @@ export class TipoContratoRegistroComponent implements OnInit {
     private router: Router,
 
   ) {
-    this.path_lista = 'contratos/detalle/'
-    this.path_create_update = 'contratos'
     this.result = "";
-    this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
-    this.idUsuario = parseInt(sessionStorage.getItem('idUsuario')!);
 
     this.registroForm = new FormGroup({
       idTipoContrato: new FormControl(),
@@ -38,15 +31,15 @@ export class TipoContratoRegistroComponent implements OnInit {
       borrado: new FormControl(false),
       createTime: new FormControl(),
       updateTime: new FormControl(),
-      usuarioId: new FormControl(this.idUsuario),
-      administradorId: new FormControl(this.administradorId),
+      usuarioId: new FormControl(parseInt(sessionStorage.getItem('idUsuario')!)),
+      administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!)),
     })
   }
 
   ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
-        let response = await this.metodosTipos.getAllTipos(this.path_lista + params['id'])
+        let response = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONTRATODETALLE + params['id'])
         this.registroForm.patchValue(response[0])
       }
     })
@@ -55,18 +48,19 @@ export class TipoContratoRegistroComponent implements OnInit {
     if (this.registroForm.value.idTipoContrato !== null) {
 
       this.registroForm.value.updateTime = new Date();
-      this.registroForm.value.usuarioId = this.idUsuario;
-      await this.metodosTipos.update(this.registroForm.value, this.path_create_update);
+      this.registroForm.value.usuarioId = parseInt(sessionStorage.getItem('idUsuario')!);
+      await this.metodosTipos.update(this.registroForm.value, environment.APIPATH_CONTRATO);
 
     } else {
       if (this.registroForm.valid) {
 
         this.registroForm.value.createTime = new Date();
         this.registroForm.value.updateTime = new Date();
-        await this.metodosTipos.create(this.registroForm.value, this.path_create_update);
+        await this.metodosTipos.create(this.registroForm.value, environment.APIPATH_CONTRATO);
 
       } else { let result = 'hay datos no validos en el formulario' };
     }
+    window.location.reload();
   }
   checkError(fieldName: string, errorType: string) {
     return this.registroForm.get(fieldName)!.hasError(errorType) && this.registroForm.get(fieldName)!.touched

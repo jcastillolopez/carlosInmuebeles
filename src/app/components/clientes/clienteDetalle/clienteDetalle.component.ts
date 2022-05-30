@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Globales } from 'src/app/services/Globales.service';
 import { clienteInterface } from 'src/app/interfaces/clientes'
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'clienteDetalle',
@@ -11,7 +12,6 @@ import { ActivatedRoute } from '@angular/router';
 
 
 export class ClienteDetalleComponent implements OnInit {
-  path: string = 'clientes/detalle/'
   cliente: clienteInterface
 
   constructor(
@@ -37,7 +37,7 @@ export class ClienteDetalleComponent implements OnInit {
 
   ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
-      let response = await this.metodoGlobales.getById(this.path,params['id'])
+      let response = await this.metodoGlobales.getById(environment.APIPATH_CLIENTEDETALLE,params['id'])
       this.cliente = response[0]
     })
   }

@@ -1,33 +1,38 @@
-<div class="fondo">
-  <div class="botonNuevosRegistros">
-    <button type="button" class="button" [routerLink]="['/tipos/concepto/']" data-toggle="modal" data-target="#registroTiposConceptos">
-      Nuevo Tipo de Concepto
-    </button>
-  </div>
-  <div class="listado">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody routerLinkActive="activo activoBoton" *ngFor="let tipo of arrListaTipoConcepto; let i = index">
-        <tr (click)="navegar(tipo.idTipoInmueble)"
-        [routerLink]="['/concepto/modificacion/'+tipo.idTipoConcepto]">
-          <td>{{tipo.tipoConcepto}}</td>
+<div class="modal ventana" id="registroTiposConceptos" tabindex="1" rol="dialog" aria-labelledby="registroTiposConceptos"
+  aria-hidden="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Datos del Tipo Concepto</h3>
+      </div>
+      <form class="registro" [formGroup]="registroForm" (ngSubmit)="enviar()">
+        <div class="modal-body">
+          <div class="form">
+            <div class="form-group campo">
+              <label class="form-label">Nombre</label>
+              <input type="text" class="form-control" formControlName="tipoConcepto">
+              <p class="error" *ngIf="checkError('tipoConcepto', 'required')">requerido</p>
+              <p class="error" *ngIf="checkError('tipoConcepto', 'minlength')">
+                debe tener más de 3 caracteres
+              </p>
+              <p class="error" *ngIf="checkError('tipoConcepto', 'maxlength')">
+                debe tener menos de 45 caracteres
+              </p>
+            </div>         
 
-          <td>
-            <button type="button" class="buttonLista" data-toggle="modal" data-target="#registroTiposConceptos">
-              Modificar
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="router">
-      <router-outlet></router-outlet>
+            <div class="form-group campo">
+              <label class="form-label">Borrado</label>
+              <input type="checkbox" class="form-control" formControlName="borrado">
+            </div>
+          </div>
+        </div>
+      
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
+              <button data-dismiss="modal" (click)="enviar()">Save changes</button>
+            </div>
+      </form>
     </div>
   </div>
-</div>
-<tipoConceptoRegistro></tipoConceptoRegistro>
+
+

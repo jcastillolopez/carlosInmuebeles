@@ -1,10 +1,11 @@
 import { prepareEventListenerParameters } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { contratoInterface } from 'src/app/interfaces/contrato';
+
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'contratoLista',
@@ -13,10 +14,6 @@ import { tiposService } from 'src/app/services/tipos.service';
 })
 export class ContratoListaComponent implements OnInit {
   contratoSeleccionadoId = "";
-  contrato: string;
-  path_Tipo_Periodo: string;
-  path_Inmueble: string;
-  path_Tipo_Contrato: string;
 
   //Formulario Modal
   arrListaContratos: contratoInterface[];
@@ -30,10 +27,6 @@ export class ContratoListaComponent implements OnInit {
     private activateRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.contrato = 'contratos/';
-    this.path_Inmueble = 'inmuebles/';
-    this.path_Tipo_Periodo = 'periodos/';
-    this.path_Tipo_Contrato = 'contratos/';
     this.contratoSeleccionadoId = "";
     //Tabla para la lista
     this.arrListaContratos = [];
@@ -44,37 +37,7 @@ export class ContratoListaComponent implements OnInit {
 
   async ngOnInit() {
 
-    this.arrListaContratos = await this.metodosGlobales.getById(this.contrato, parseInt(sessionStorage.getItem('administradorId')!));
-
-    for (const contrato of this.arrListaContratos) {
-
-      if (contrato.inmuebleId !== null && contrato.tipoContratoId !== null && contrato.tipoPeriodoId !== null) {
-
-        this.arrListaInmuebles = await this.metodosGlobales.getById(this.path_Inmueble, parseInt(sessionStorage.getItem('administradorId')!));
-        this.arrTipoPeriodo = await this.metodosTipos.getAllTipos(this.path_Tipo_Periodo + parseInt(sessionStorage.getItem('administradorId')!));
-        this.arrTipoContrato = await this.metodosTipos.getAllTipos(this.path_Tipo_Contrato + parseInt(sessionStorage.getItem('administradorId')!));
-
-
-        for (const tipoPeriodos of this.arrTipoPeriodo) {
-          if (tipoPeriodos.idTipoPeriodo == contrato.tipoPeriodoId) {
-            contrato.tipoPeriodo = tipoPeriodos.tipoPeriodo;
-          }
-        }
-
-        for (const Inmuebles of this.arrListaInmuebles) {
-          if (Inmuebles.idInmueble == contrato.inmuebleId) {
-            contrato.aliasInmueble = Inmuebles.alias;
-          }
-        }
-
-        for (const tipoContratos of this.arrTipoContrato) {
-          if (tipoContratos.idTipoContrato == contrato.tipoContratoId) {
-            contrato.tipoContrato = tipoContratos.tipoContrato;
-          }
-        }
-      }
-
-    }
+    this.arrListaContratos = await this.metodosGlobales.getById(environment.APIPATH_CONTRATO, parseInt(sessionStorage.getItem('administradorId')!));
 
     this.activateRouter.params.subscribe(params => {
       this.contratoSeleccionadoId = params['id']
