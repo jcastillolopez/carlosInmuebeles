@@ -16,13 +16,13 @@ export class AdministradorRegistroComponent implements OnInit {
   administradorId: any;
   idUsuario: any;
   nombreUsuario: any;
-  
+
   path_create_update: string;
   constructor(
-    private metodosGlobales:Globales,   
+    private metodosGlobales: Globales,
     private activateRouter: ActivatedRoute,
     private router: Router,
-  ) { 
+  ) {
     this.administradorId = 0;
     this.idUsuario = 0;
     this.nombreUsuario = '';
@@ -41,25 +41,25 @@ export class AdministradorRegistroComponent implements OnInit {
       email: new FormControl('', [
         Validators.required,
         Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/)
-      ]),      
+      ]),
       nie: new FormControl('', [
         Validators.required,
         this.dniValidators
-      ]),  
+      ]),
       fechaNacimiento: new FormControl(),
       tlf: new FormControl(),
       tlfMovil: new FormControl(),
       localidad: new FormControl(),
       direccion: new FormControl(),
-      codigoPostal: new FormControl(), 
+      codigoPostal: new FormControl(),
       borrado: new FormControl(false),
       createTime: new FormControl(),
       updateTime: new FormControl()
-      
+
     })
   }
 
-  ngOnInit() {   
+  ngOnInit() {
   }
 
   async enviar() {
@@ -71,15 +71,15 @@ export class AdministradorRegistroComponent implements OnInit {
         this.registroForm.value.createTime = new Date();
         this.registroForm.value.updateTime = new Date();
         const administrador = await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_PERSONASPAGADORA);
-        const usuario = await this.metodosGlobales.getAll(environment.APIPATH_USUARIO+administrador.idPersonasPagadora);
+        const usuario = await this.metodosGlobales.getAll(environment.APIPATH_USUARIO + administrador.idPersonasPagadora);
 
         sessionStorage.setItem('administradorId', usuario[0].administradorId);
         sessionStorage.setItem('nombreUsuario', usuario[0].nombre);
         sessionStorage.setItem('idUsuario', usuario[0].idUsuario);
 
         if (administrador.idPersonasPagadora !== null) {
-          this.router.navigate(['/inicio']);     
-        }  
+          this.router.navigate(['/inicio']);
+        }
       } else { let result = 'hay datos no validos en el formulario' };
     }
   }
@@ -106,4 +106,4 @@ export class AdministradorRegistroComponent implements OnInit {
   checkError(fieldName: string, errorType: string) {
     return this.registroForm.get(fieldName)!.hasError(errorType) && this.registroForm.get(fieldName)!.touched
   }
-  }
+}

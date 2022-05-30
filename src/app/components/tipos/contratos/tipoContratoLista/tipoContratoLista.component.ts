@@ -11,7 +11,6 @@ import { environment } from 'src/environments/environment';
 })
 export class TipoContratoListaComponent implements OnInit {
   seleccionadoId: string;
-  administradorId: number;
 
   //Tabla para la lista
   arrListaTipoContrato: any[];
@@ -22,13 +21,12 @@ export class TipoContratoListaComponent implements OnInit {
     private router: Router
   ) {
     this.seleccionadoId = "";
-    this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
     //Tabla para la lista
     this.arrListaTipoContrato = [];
   }
 
   async ngOnInit() {
-    this.arrListaTipoContrato = await this.tiposService.getAllTipos(environment.APIPATH_TIPOCONTRATO + this.administradorId);
+    this.arrListaTipoContrato = await this.tiposService.getAllTipos(environment.APIPATH_TIPOCONTRATO + parseInt(sessionStorage.getItem('administradorId')!));
 
     this.activateRouter.params.subscribe(params => {
       this.seleccionadoId = params['id']

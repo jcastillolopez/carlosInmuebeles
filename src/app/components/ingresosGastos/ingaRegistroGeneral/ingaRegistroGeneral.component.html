@@ -4,23 +4,23 @@
       <h3>Datos de Gastos</h3>
       <form class="registro" [formGroup]="registroForm">
         <div class="modal-header">
-        
+
 
 
           <div class="modal-body">
-          
+
             <div class="form">
-             
+
               <div class="general">
-                
-                <div class="Selecion">                 
-                    <div class="form-group campo">
-                      <label class="form-label">Inmueble</label>
-                      <select type="text" formControlName="inmuebleId">
-                        <option [value]="inmueble.idInmueble" *ngFor="let inmueble of selectInmueble">
-                          {{inmueble.refcatastral}} {{inmueble.alias}}</option>
-                      </select>
-                    </div>                
+
+                <div class="Selecion">
+                  <div class="form-group campo">
+                    <label class="form-label">Inmueble</label>
+                    <select type="text" formControlName="inmuebleId">
+                      <option [value]="inmueble.idInmueble" *ngFor="let inmueble of selectInmueble">
+                        {{inmueble.refcatastral}} {{inmueble.alias}}</option>
+                    </select>
+                  </div>
                   <div class="form-group campo">
                     <label class="form-label">Proveedor</label>
                     <select type="text" formControlName="clienteId">
@@ -39,7 +39,7 @@
                     <label class="form-label">Categoria</label>
                     <select type="text" formControlName="tipoConceptoId">
                       <option [value]="tipo.idTipoConcepto" *ngFor="let tipo of selectTipoConcepto">
-                        {{tipo.tipoEspecifico}}</option>
+                        {{tipo.tipoConcepto}}</option>
                     </select>
                   </div>
                   <div class="form-group campo">
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="campos">
-                 
+
                   <div class="form-group campo">
                     <label class="form-label">Fecha Gasto </label>
                     <input type="date" class="form-control" formControlName="fechaFactura">
@@ -101,7 +101,8 @@
                   </div>
                   <div class="form-group campoTabla">
                     <label class="form-label">% de IVA </label>
-                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="ivaPorcentaje">
+                    <input (change)="calcularTotales()" type="number" class="form-control"
+                      formControlName="ivaPorcentaje">
                   </div>
 
                   <div class="form-group campoTabla">

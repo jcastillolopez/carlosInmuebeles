@@ -1,8 +1,8 @@
 import { prepareEventListenerParameters } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { contratoInterface } from 'src/app/interfaces/contrato';
+
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
 import { environment } from 'src/environments/environment';

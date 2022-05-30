@@ -1,45 +1,70 @@
+<div class="container">
+  <h4>Detalles </h4>
+  <div class="detalles">
+    <div class="caracteristicas">
+      <div class="lista">
+        <h4> Datos Personales</h4>
+        <div class="campo">
+          <label> Nombre:</label>
+          <p>{{cliente.nombre}}</p>
+        </div>
+        <div class="campo">
+          <label> Apellidos:</label>
+          <p>{{cliente.apellidos}}</p>
+        </div>
+        <div class="campo">
+          <label>DNI/NIF:</label>
+          <p>{{cliente.nie}}</p>
+        </div>
+        <div class="campo">
+          <label> Fecha Nacimiento:</label>
+          <p>{{cliente.fechaNacimiento|date}}</p>
+        </div>
+        <div class="campo">
+          <label> Email:</label>
+          <p>{{cliente.email}}</p>
+        </div>
+        <div class="campo">
+          <label> Tlf:</label>
+          <p>{{cliente.tlf}}</p>
+        </div>
+        <div class="campo">
+          <label> Tlf Movil:</label>
+          <p>{{cliente.tlfMovil}}</p>
+        </div>
+        <div class="campo">
+          <label> Localidad:</label>
+          <p>{{cliente.localidad}}</p>
+        </div>
+        <div class="campo">
+          <label> Direccion:</label>
+          <p>{{cliente.direccion}}</p>
+        </div>
+        <div class="campo">
+          <label> Codigo Postal:</label>
+          <p> {{cliente.codigoPostal}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="caracteristicas">
+      <h4>Propiedades</h4>
 
-<div class="container">   
-  <div class="lista">
-      <h4>Detalle del Cliente</h4>
-  <div class="campo">
-      <label> Nombre:</label>
-      <p>{{cliente.nombre}}</p>
-  </div>
-  <div class="campo">
-      <label> Apellidos:</label>
-     <p>{{cliente.apellidos}}</p>
-  </div>
-  <div class="campo">
-      <label>DNI/NIF:</label>
-     <p>{{cliente.nie}}</p>
-  </div>
-  <div class="campo">
-      <label> Fecha Nacimiento:</label>
-     <p>{{cliente.fechaNacimiento|date}}</p>
-  </div>
-  <div class="campo">
-      <label> Email:</label>
-     <p>{{cliente.email}}</p>
-  </div><div class="campo">
-      <label> Tlf:</label>
-     <p>{{cliente.tlf}}</p>
-  </div>
-  <div class="campo">
-      <label> Tlf Movil:</label>
-      <p>{{cliente.tlfMovil}}</p>
-  </div>
-  <div class="campo">
-      <label> Localidad:</label>
-     <p>{{cliente.localidad}}</p>
-  </div>
-  <div class="campo">
-      <label> Direccion:</label>
-     <p>{{cliente.direccion}}</p>
-  </div><div class="campo">
-      <label> Codigo Postal:</label>
-      <p> {{cliente.codigoPostal}}</p>
-  </div>
-  
+      <div class="lista">
+        <label> Inmueble </label>
+        <label> % Propiedad </label>
+      </div>
+      <h4> Inversiones</h4>
+      <div class="lista">
+        <label> Compra </label>
+        <label> Inversiones </label>
+        <label> Total </label>
+      </div>
+      <h4> Rendimiento </h4>
+      <div class="lista">
+        <label> Ingresos </label>
+        <label> Periodo </label>
+        <label> Rendimiento </label>
+      </div>
+    </div>
   </div>
   <clienteRegistro></clienteRegistro>

@@ -30,7 +30,6 @@ export class ContratoRegistroComponent implements OnInit {
     this.arrSelectTipoContrato = [];
     this.arrInmuebles = [];
     this.arrTipoPeriodo = [];
-    this.sesionStorageAdministradorId = parseInt(sessionStorage.getItem('administradorId')!)
     this.registroForm = new FormGroup({
       idContratos: new FormControl(),
       fechaContrato: new FormControl(),
@@ -55,9 +54,9 @@ export class ContratoRegistroComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + this.sesionStorageAdministradorId);
-    this.arrSelectTipoContrato = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONTRATO + this.sesionStorageAdministradorId);
-    this.arrTipoPeriodo = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOPERIODO + this.sesionStorageAdministradorId)
+    this.arrInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrSelectTipoContrato = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONTRATO + parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrTipoPeriodo = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOPERIODO + parseInt(sessionStorage.getItem('administradorId')!))
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
         let response = await this.metodosGlobales.getById(environment.APIPATH_CONTRATODETALLE, params['id'])

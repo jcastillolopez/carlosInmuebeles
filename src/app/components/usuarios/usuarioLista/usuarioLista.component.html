@@ -3,30 +3,25 @@
 </header>
 
 <div class="fondo"> 
+    <div class="navEspecifico">
+      <button [routerLink]="['/usuarios/']" type="button" data-toggle="modal" data-target="#registro">
+        Nuevo Usuario
+      </button>
+    </div>
   <div class="especifico">
-  <div class="navEspecifico">
-    <button [routerLink]="['/usuarios/']" type="button" data-toggle="modal" data-target="#registro">
-      Nuevo Usuario
-    </button>   
-  </div>
-</div>
   <div class="listado">
-    <table class="table">
+    <table class="lista">
       <thead>
         <tr>
           <th>Nombre</th>
           <th>Email</th>
-          <th>password</th>
           <th></th>
         </tr>
       </thead>
-      <tbody routerLinkActive="activo activoBoton"
-        *ngFor="let usuario of arrListaUsuarios; let i = index">
-        <tr (click)="navegar(usuario.idUsuario)"
-          [routerLink]="['/usuarios/detalle/'+usuario.idUsuario]">
+      <tbody routerLinkActive="activo activoBoton" *ngFor="let usuario of arrListaUsuarios; let i = index">
+        <tr (click)="navegar(usuario.idUsuario)" [routerLink]="['/usuarios/detalle/'+usuario.idUsuario]">
           <td>{{usuario.nombre}}</td>
           <td>{{usuario.email}}</td>
-          <td>{{usuario.password}}</td>
           <td>
             <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#registro">
               Modificar
@@ -35,11 +30,10 @@
         </tr>
       </tbody>
     </table>
-    </div>
+  </div>
   <div class="router">
     <router-outlet></router-outlet>
   </div>
 </div>
-
+</div>
 <usuarioRegistro></usuarioRegistro>
-

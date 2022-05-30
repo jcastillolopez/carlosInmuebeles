@@ -12,8 +12,6 @@ import { environment } from 'src/environments/environment';
 export class TipoContratoRegistroComponent implements OnInit {
   registroForm: FormGroup;
   result: any;
-  administradorId: number;
-  idUsuario: number;
 
   constructor(
     private metodosTipos: tiposService,
@@ -22,8 +20,6 @@ export class TipoContratoRegistroComponent implements OnInit {
 
   ) {
     this.result = "";
-    this.administradorId = parseInt(sessionStorage.getItem('administradorId')!);
-    this.idUsuario = parseInt(sessionStorage.getItem('idUsuario')!);
 
     this.registroForm = new FormGroup({
       idTipoContrato: new FormControl(),
@@ -35,8 +31,8 @@ export class TipoContratoRegistroComponent implements OnInit {
       borrado: new FormControl(false),
       createTime: new FormControl(),
       updateTime: new FormControl(),
-      usuarioId: new FormControl(this.idUsuario),
-      administradorId: new FormControl(this.administradorId),
+      usuarioId: new FormControl(parseInt(sessionStorage.getItem('idUsuario')!)),
+      administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!)),
     })
   }
 
@@ -52,7 +48,7 @@ export class TipoContratoRegistroComponent implements OnInit {
     if (this.registroForm.value.idTipoContrato !== null) {
 
       this.registroForm.value.updateTime = new Date();
-      this.registroForm.value.usuarioId = this.idUsuario;
+      this.registroForm.value.usuarioId = parseInt(sessionStorage.getItem('idUsuario')!);
       await this.metodosTipos.update(this.registroForm.value, environment.APIPATH_CONTRATO);
 
     } else {

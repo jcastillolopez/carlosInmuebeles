@@ -1,16 +1,21 @@
-<div class="listado">
-  <table class="table">
+
+<div class="container">
+<div class="detalles">
+<div class="caracteristicas">
+
+    <table class="lista">
     <thead>
       <tr>
-        <th>Nombre y Apellidos</th>
         <th>Tipo Interviniente</th>
+        <th>Nombre y Apellidos</th>      
       </tr>
     </thead>
     <tbody routerLinkActive="activo activoBoton" *ngFor="let interviniente of arrListaIntervinientes; let i = index">
       <tr (click)="navegar(interviniente.contratosId! ,interviniente.idInterviniente!)"
         [routerLink]="['/contratos/detalle/' + interviniente.contratosId + '/interviniente/' + interviniente.idInterviniente]">
-        <td>{{interviniente.apellidosNombreCliente}}</td>
         <td>{{interviniente.tipoInterviniente}}</td>
+        <td>{{interviniente.apellidosNombreCliente}}</td>
+      
         <td>
           <button type="button" class="buttonLista" data-toggle="modal" data-target="#interviniente">
             Modificar
@@ -19,7 +24,6 @@
       </tr>
     </tbody>
   </table>
-</div>
 
 <div class="nuevoInterviniente">
   <button (click)="navegarNuevo()" type="button" class="buttonLista" data-toggle="modal" data-target="#interviniente">
@@ -27,8 +31,10 @@
   </button>
 </div>
 
+</div>
 <div class="router">
   <router-outlet></router-outlet>
 </div>
-
+</div>
+</div>
 <intervinienteRegistro></intervinienteRegistro>

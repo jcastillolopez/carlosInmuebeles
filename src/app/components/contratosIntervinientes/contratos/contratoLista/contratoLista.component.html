@@ -3,47 +3,53 @@
 </header>
 
 <div class="fondo">
+
+  <div class="navEspecifico">
+    <button [routerLink]="['/contratos/']" type="button" data-toggle="modal"
+      data-target="#contrato">
+      Nuevo Contrato
+    </button>
+    <button type="button" data-toggle="modal" data-target="#clienteRegistro">
+      Nueva Entidad
+    </button>
+    <button type="button" data-toggle="modal" data-target="#inmuebleRegistro">
+      Nuevo Inmueble
+    </button>
+  </div>
   <div class="especifico">
-    <div class="navEspecifico">
-      <button [routerLink]="['/contratos/']" type="button" data-toggle="modal" data-target="#contrato">
-        Nuevo Contrato
-      </button>
-      <button type="button" data-toggle="modal" data-target="#clienteRegistro">
-        Nueva Entidad
-      </button>
-      <button type="button" data-toggle="modal" data-target="#inmuebleRegistro">
-        Nuevo Inmueble
-      </button>
+    <div class="listado">
+      <table class="lista">
+        <thead>
+          <tr>
+            <th>Tipo Contrato</th>
+            <th>Inmueble</th>
+            <th>Fecha Contrato</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody routerLinkActive="activo activoBoton"
+          *ngFor="let contrato of arrListaContratos; let i = index">
+          <tr (click)="navegar(contrato.idContratos!)"
+            [routerLink]="['/contratos/detalle/' + contrato.idContratos ]">
+            <td>{{contrato.tipoContrato}}</td>
+            <td>{{contrato.aliasInmueble}}</td>
+            <td>{{contrato.fechaContrato}}</td>
+            <td>
+              <button type="button" class="botonOculto buttonLista" data-toggle="modal"
+                data-target="#contrato">
+                Modificar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="router">
+      <router-outlet></router-outlet>
     </div>
   </div>
-  <div class="listado">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Tipo Contrato</th>
-          <th>Inmueble</th>
-          <th>Fecha Contrato</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody routerLinkActive="activo activoBoton" *ngFor="let contrato of arrListaContratos; let i = index">
-        <tr (click)="navegar(contrato.idContratos!)" [routerLink]="['/contratos/detalle/' + contrato.idContratos ]">
-          <td>{{contrato.tipoContrato}}</td>
-          <td>{{contrato.aliasInmueble}}</td>
-          <td>{{contrato.fechaContrato}}</td>
-          <td>
-            <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#contrato">
-              Modificar
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="router">
-    <router-outlet></router-outlet>
-  </div>
 </div>
+
 <contratoRegistro></contratoRegistro>
 <clienteRegistro></clienteRegistro>
 <inmueblesRegistro></inmueblesRegistro>

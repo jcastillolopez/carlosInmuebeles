@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'navApp',
@@ -6,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navApp.component.css']
 })
 export class NavAppComponent implements OnInit {
-  nombreUsuario:any
-  constructor() { 
+  nombreUsuario: any
+  constructor() {
     this.nombreUsuario = ''
   }
 
