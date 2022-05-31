@@ -4,75 +4,81 @@
     box-sizing: border-box;
     border: 0;
 }
+
 /*Contenedores Generales de APP*/
-.wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    background-color: lightblue;
-}
-.container {
+.app {
     color: gold;
     text-shadow: 2px 2px 2px black;
     font-style: oblique;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    max-width: none;
-    max-height: 80vh;
+    flex-direction: column;
+    min-width: 100%;
+    min-height: 100vh;
     background-color: rgb(58, 58, 208);
 }
-.router {
-    margin: 0 auto;
-    padding: 20px;
+
+.header {
+    max-height: 10vh;
     max-width: 100%;
-}
-header {
-    background-color: rgb(58, 58, 208);
-    min-width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
 }
-
 footer {
-
-    min-width: 100%;
-    background-color: rgb(58, 58, 208);
     min-height: 5vh;
+    min-width: 100%;
     text-align: center;
+    background-color: rgb(58, 58, 208);
 }
 
-footer p {
-    margin-top: 10px;
-}
 /*Contenedores de Paginas */
-.fondo {
+.pagina {
+    color: gold;
+    text-shadow: 2px 2px 2px black;
+    font-style: oblique;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row; 
+    min-width: 95%;  
+    min-height: 85vh;
+    background-color: gray;
+
+
+}
+
+.fondo {   
     background-color: rgb(100, 115, 122);
     display: flex;
-    flex-wrap: wrap;
+    margin: 0 auto;
     min-height: 60vh;
     font-style: oblique;
 }
 
- 
+.router {
+    margin: 0 auto;    
+    min-width: 95%;
+    background-color: brown;
+}
+
 /*Contenedores de Navegadores */
+
+
+.nav {
+    min-width: 100%;
+    max-height: 5vh;
+    background-color: rgb(58, 58, 208);
+    display: flex;
+    justify-content: space-around;
+
+}
+
 .general {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.nav {   
-    background-color: rgb(58, 58, 208);
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
 }
 
 .navEspecifico {
+    min-width: 10%;
     min-height: 60vh;
     background-color: rgb(96, 91, 91);
     display: flex;
@@ -80,12 +86,13 @@ footer p {
     flex-direction: column;
     justify-content: space-around;
 }
+
 ul {
     list-style: none;
 }
 
 li {
-    margin-left: 20px;
+    margin-right: 20px;
 }
 
 li:hover {
@@ -98,38 +105,67 @@ li:hover {
 
 .activo {
     color: white;
-    text-shadow: none;    
+    text-shadow: none;
     padding: 15px;
     background-color: rgb(16, 99, 19);
     border-radius: 10px;
 }
 
 /* Contenedores de Listados */
-.especifico {
-    min-width: 80%;
+.especifico { 
+   
+    min-width: 85%;
+    display: flex;
+
+}
+
+.detalles {
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.caracteristicas {
+    margin-right: 20px;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;   
- }
- /* Listados  y  listas*/
- 
- .listado {
-    max-width: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Listados  y  listas*/
+
+
+.listado {
+    max-width: 40%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     margin: 0.2em;
- }
- .lista {
-    text-align: center;  
+    
+}
+
+.lista {
+    text-align: center;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     color: lightgreen;
     font-style: oblique;
     text-shadow: 1px 1px 1px black
- }
- tbody {
+}
+
+thead {
+    color: gold;
+}
+
+thead tr th {
+    border-top: 0;
+
+}
+
+tbody {
     color: white;
     border: 0 !important;
 
@@ -145,38 +181,21 @@ tbody tr td {
 
 td {
     padding: 5px;
-    text-align: left;
-}
-
-thead {
-    color: gold;
-}
-
-thead tr th {
-    border-top: 0;
+    text-align: center;
+    min-width: 100px;
 }
 
 th {
     padding: 5px;
-    width: 100px;
-}
-
-td:nth-child(2) {
-    width: 150px;
-}
-
-td:nth-child(3) {
-    width: 220px;
-}
-
-td:last-child {
-    width: 50px;
+    min-width: 100px;
+    text-align: center;
 }
 
 .buttonLista {
     min-width: 0;
     width: 50px;
 }
+
 .botonOculto {
     visibility: hidden;
 }
@@ -194,29 +213,28 @@ td:last-child {
 .modal-content {
     background-color: rgb(58, 58, 208);
     border-radius: 25px;
-    text-align: center;    
+    text-align: center;
 }
-.general {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-}
+
 .regiDetalle {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     background-color: green;
 }
+
 .campo {
     display: grid;
     grid-template-columns: 1fr 1fr;
     flex-direction: column;
     margin-bottom: 0.5em;
 }
+
 .campoTabla {
     margin-right: 5px;
 
 }
+
 label {
     grid-column: 1;
     text-align: left;
@@ -245,8 +263,8 @@ option {
 /* ****Boton*********************/
 
 button {
-    min-width: 150px;
-    height: 40px;
+    min-width: 100px;
+    height: 30px;
     padding: 5px;
     border-radius: 10px;
     background-color: transparent;
@@ -257,15 +275,18 @@ button {
 }
 
 button:hover {
+    min-width: 100px;
     color: rgb(0, 0, 0);
-    text-shadow: 1px 1px 1px white;
+    text-shadow: 1px 1px 1px black;
     background-color: lightblue;
 }
+
 /*   titulos parrafos y otros*/
 h4 {
     text-shadow: 1px 1px 1px rgb(0, 0, 0);
     color: gold;
 }
+
 h2,
 h3,
 p {
@@ -273,4 +294,3 @@ p {
     color: rgb(255, 255, 255);
     font-size: 125%;
 }
-

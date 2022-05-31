@@ -14,17 +14,18 @@
     <table class="lista">
       <thead>
         <tr>
+         
           <th>Nombre</th>
           <th>Apellidos</th>
           <th>nie</th>
-          <th></th>
+         
         </tr>
       </thead>
       <tbody routerLinkActive="activo activoBoton"
         *ngFor="let cliente of arrListaClientes; let i = index">
         <tr (click)="navegar(cliente.idCliente)"
           [routerLink]="['/clientes/detalle/'+cliente.idCliente]">
-          <td> detalles</td>
+        
           <td>{{cliente.nombre}}</td>
           <td>{{cliente.apellidos}}</td>
           <td>{{cliente.nie}}</td>
@@ -38,7 +39,7 @@
       </tbody>
     </table>
   </div>
-  <div class="router">
+  <div class="router">    
     <router-outlet></router-outlet>
   </div>
 </div>

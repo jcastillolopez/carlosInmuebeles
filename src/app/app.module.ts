@@ -18,7 +18,7 @@ import { UsuarioListaComponent } from './components/usuarios/usuarioLista/usuari
 import { UsuarioRegistroComponent } from './components/usuarios/usuarioRegistro/usuarioRegistro.component';
 import { PubliInicioComponent } from './components/publiRegistros/publicidad/publiInicio/publiInicio.component';
 import { PubliNavComponent } from './components/publiRegistros/publicidad/publiNav/publiNav.component';
-import { LoginNavComponent } from './components/publiRegistros/loginNav/loginNav.component';
+
 import { RolListaComponent } from './components/tipos/roles/rolLista/rolLista.component';
 import { RolRegistroComponent } from './components/tipos/roles/rolRegistro/rolRegistro.component';
 import { PeriodoListaComponent } from './components/tipos/periodos/periodoLista/periodoLista.component';
@@ -55,7 +55,9 @@ import { IngaDetalleComponent } from './components/ingresosGastos/ingaDetalle/in
 import { TipoPagoListaComponent } from './components/tipos/Pagos/tipoPagoLista/tipoPagoLista.component';
 import { TipoPagoRegistroComponent } from './components/tipos/Pagos/tipoPagoRegistro/tipoPagoRegistro.component';
 import { IngresoRegistroGeneralComponent } from './components/ingresosGastos/ingresoRegistroGeneral/ingresoRegistroGeneral.component';
-import { NavAppComponent } from './components/generalNav/navApp.component';
+import { NavAppComponent } from './components/navegadores/generalNav/navApp.component';
+import { LoginNavComponent } from './components/navegadores/loginNav/loginNav.component';
+
 
 
 
@@ -66,7 +68,9 @@ import { NavAppComponent } from './components/generalNav/navApp.component';
 @NgModule({
   declarations: [
     AppComponent,
+    //Navegadores//
     NavAppComponent,
+    LoginNavComponent,
 
     // Balance ingreso gasto
     BalanceListaComponent,
@@ -103,7 +107,6 @@ import { NavAppComponent } from './components/generalNav/navApp.component';
     //PubliRegistro
     PubliInicioComponent,
     PubliNavComponent,
-    LoginNavComponent,
     LoginComponent,
 
 
@@ -132,7 +135,7 @@ import { NavAppComponent } from './components/generalNav/navApp.component';
     UsuarioDetalleComponent,
     UsuarioListaComponent,
     UsuarioRegistroComponent,
-    LoginNavComponent,
+
     AdministradorRegistroComponent,
 
 

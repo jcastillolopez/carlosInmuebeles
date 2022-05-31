@@ -22,7 +22,7 @@
       </thead>
       <tbody routerLinkActive="activo activoBoton" *ngFor="let inmueble of arrListaInmuebles; let i = index">
         <tr (click)="navegar(inmueble.idInmueble)" [routerLink]="['/inmuebles/detalle/'+inmueble.idInmueble]">
-          <td> detalles</td>
+        
           <td>{{inmueble.tipoInmueble}}</td>
           <td>{{inmueble.alias}}</td>
           <td>{{inmueble.refCatastral}}</td>
