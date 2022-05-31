@@ -30,18 +30,17 @@ footer {
 }
 
 /*Contenedores de Paginas */
-.pagina {
+.pagina { 
+    margin:  10px;  
     color: gold;
     text-shadow: 2px 2px 2px black;
     font-style: oblique;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row; 
-    min-width: 95%;  
+    display: flex;   
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;  
     min-height: 85vh;
     background-color: gray;
-
-
 }
 
 .fondo {   
@@ -54,15 +53,18 @@ footer {
 
 .router {
     margin: 0 auto;    
-    min-width: 95%;
-    background-color: brown;
+    width: 99%;
+    background-color: aquamarine;
+    
 }
 
 /*Contenedores de Navegadores */
 
 
 .nav {
-    min-width: 100%;
+    margin-bottom: 10px;
+    font-size: 125%;
+    width: 100%;
     max-height: 5vh;
     background-color: rgb(58, 58, 208);
     display: flex;
@@ -81,9 +83,8 @@ footer {
     min-width: 10%;
     min-height: 60vh;
     background-color: rgb(96, 91, 91);
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    display: flex;   
+    flex-direction: column;    
     justify-content: space-around;
 }
 
@@ -113,7 +114,7 @@ li:hover {
 
 /* Contenedores de Listados */
 .especifico { 
-   
+    padding-top: 2%;   
     min-width: 85%;
     display: flex;
 
@@ -139,15 +140,17 @@ li:hover {
 
 
 .listado {
+   
     max-width: 40%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    margin: 0.2em;
+    margin: 1em;
     
 }
 
 .lista {
+    margin: 1em;
     text-align: center;
     display: flex;
     flex-direction: column;
