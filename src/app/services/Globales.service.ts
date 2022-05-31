@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class Globales {
-  url: string = process.env.APIPATH_GENERAL;
+  url: string = environment.APIPATH_GENERAL;
   constructor(private httpClient: HttpClient) {
   }
   login(paramurl: string, email: string, password: string) {
