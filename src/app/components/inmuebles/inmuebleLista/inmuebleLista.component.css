@@ -5,26 +5,3 @@
    border: 0;
 }
 
-.activo{
-   font-size: 80%;
-}
-
-.listado {   
-   max-width: 50%;
-   min-width: 30%;
-   display: flex;
-   flex-wrap: wrap;
-   flex-direction: column;
-   text-align: center;
-   margin: 0.4em;
-}
-
-.router {
-   margin: 0 auto;
-}
-
-
-
-
-
-

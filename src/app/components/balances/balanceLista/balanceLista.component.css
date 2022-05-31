@@ -4,12 +4,13 @@
    box-sizing: border-box;
    border: 0;
 }
-
-.activo {
-   font-size: 80%;
+.fondo{
+   display: flex; 
+   flex-direction: row;
+   justify-content: center;
 }
 
-.listado {
+.lista {
    min-width: 30%;
    display: flex;
    flex-wrap: wrap;
@@ -17,13 +18,20 @@
    text-align: center;
    margin: 0 auto;
 }
-
-.router {
-   margin: 0 auto;
-}
-
 .balances {
+   margin-right: 10%;
    display: flex;
    flex-wrap: wrap;
    flex-direction: row;
 }
+
+button{
+   margin: 0 30px;
+   color: lightgreen;
+}
+.activo{
+   background-color: green;
+}
+
+
+
