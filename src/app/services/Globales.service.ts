@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 
 export class Globales {
-  url: string = environment.APIPATH_GENERAL;
+  url: string = process.env.APIPATH_GENERAL;
   constructor(private httpClient: HttpClient) {
   }
   login(paramurl: string, email: string, password: string) {
