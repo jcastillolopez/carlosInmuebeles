@@ -1,9 +1,7 @@
 
-<header>
   <navApp></navApp>
-</header>
 
-<div class="fondo"> 
+<div class="pagina"> 
   <div class="navEspecifico">
     <button [routerLink]="['/clientes/']" type="button" data-toggle="modal" data-target="#clienteRegistro">
       Nueva Entidad
@@ -13,19 +11,16 @@
   <div class="listado">
     <table class="lista">
       <thead>
-        <tr>
-         
+        <tr>         
           <th>Nombre</th>
           <th>Apellidos</th>
-          <th>nie</th>
-         
+          <th>nie</th>         
         </tr>
       </thead>
       <tbody routerLinkActive="activo activoBoton"
         *ngFor="let cliente of arrListaClientes; let i = index">
         <tr (click)="navegar(cliente.idCliente)"
-          [routerLink]="['/clientes/detalle/'+cliente.idCliente]">
-        
+          [routerLink]="['/clientes/detalle/'+cliente.idCliente]">        
           <td>{{cliente.nombre}}</td>
           <td>{{cliente.apellidos}}</td>
           <td>{{cliente.nie}}</td>
@@ -38,10 +33,8 @@
         </tr>  
       </tbody>
     </table>
-  </div>
-  <div class="router">    
-    <router-outlet></router-outlet>
-  </div>
+  </div>    
+    <router-outlet></router-outlet> 
 </div>
 </div>
 

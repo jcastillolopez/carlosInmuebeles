@@ -1,13 +1,5 @@
-.containerDetalle{    
-   display: flex;
-   flex-wrap: wrap;  
-   flex-direction: row; 
-   text-align: center;
-   padding: 10px 10px;
-   font-style: oblique;
-   text-shadow: 1px 1px 1px black;   
-   background-color: transparent;
-
+h4{
+   width: 100%;
 }
 
 

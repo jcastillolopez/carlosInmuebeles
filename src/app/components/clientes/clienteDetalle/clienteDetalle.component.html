@@ -1,13 +1,14 @@
-<div class="container"> 
+<div class="pagina">
+  <div class="titulo">
+  <h4>Detalles </h4>
+
   <div class="detalles">
-    <h4>Detalles </h4>
     <div class="caracteristicas">
       <div class="lista">
         <h4> Datos Personales</h4>
-      
         <div class="campo">
           <label> Fecha Nacimiento:</label>
-          <p>{{cliente.fechaNacimiento|date}}</p>
+          <p>{{cliente.fechaNacimiento|date:'dd-MM-YYYY'}}</p>
         </div>
         <div class="campo">
           <label> Email:</label>
@@ -35,24 +36,26 @@
         </div>
       </div>
     </div>
-    <div class="caracteristicas">
-      <h4>Propiedades</h4>
-      <div class="lista">
-        <label> Inmueble </label>
-        <label> % Propiedad </label>
-      </div>
-      <h4> Inversiones</h4>
-      <div class="lista">
-        <label> Compra </label>
-        <label> Inversiones </label>
-        <label> Total </label>
-      </div>
-      <h4> Rendimiento </h4>
-      <div class="lista">
-        <label> Ingresos </label>
-        <label> Periodo </label>
-        <label> Rendimiento </label>
+      <div class="caracteristicas">       
+        <div class="lista">
+          <h4>Propiedades</h4>
+          <label> Inmueble </label>
+          <label> % Propiedad </label>
+        </div>      
+        <div class="lista">
+          <h4> Inversiones</h4>
+          <label> Compra </label>
+          <label> Inversiones </label>
+          <label> Total </label>
+        </div>       
+        <div class="lista">
+          <h4> Rendimiento </h4>
+          <label> Ingresos </label>
+          <label> Periodo </label>
+          <label> Rendimiento </label>
+        </div>
       </div>
     </div>
   </div>
+</div>
   <clienteRegistro></clienteRegistro>

@@ -1,22 +1,26 @@
-<div class="container">
-  <h4>Intervinientes</h4>
+<div class="pagina">
+ 
   <div class="detalles">
     <div class="caracteristicas">
-
       <table class="lista">
+        <h4>Intervinientes</h4>
+        <button (click)="navegarNuevo()" type="button" class="buttonLista botonLista1" data-toggle="modal"
+        data-target="#interviniente">
+        Nuevo Interviniente
+      </button>
+   
         <thead>
           <tr>
             <th>Tipo Interviniente</th>
             <th>Nombre y Apellidos</th>
           </tr>
         </thead>
-        <tbody routerLinkActive="activo activoBoton"
+        <tbody 
           *ngFor="let interviniente of arrListaIntervinientes; let i = index">
           <tr (click)="navegar(interviniente.contratosId! ,interviniente.idInterviniente!)"
             [routerLink]="['/contratos/detalle/' + interviniente.contratosId + '/interviniente/' + interviniente.idInterviniente]">
             <td>{{interviniente.tipoInterviniente}}</td>
             <td>{{interviniente.apellidosNombreCliente}}</td>
-
             <td>
               <button type="button" class="buttonLista" data-toggle="modal"
                 data-target="#interviniente">
@@ -24,20 +28,12 @@
               </button>
             </td>
           </tr>
-        </tbody>
-      </table>
-
-      <div class="nuevoInterviniente">
-        <button (click)="navegarNuevo()" type="button" class="buttonLista" data-toggle="modal"
-          data-target="#interviniente">
-          Nuevo Interviniente
-        </button>
-      </div>
-
-    </div>
-    <div class="router">
+        </tbody>     
+      </table> 
+      
       <router-outlet></router-outlet>
-    </div>
-  </div>
+  </div> 
 </div>
+</div>
+
 <intervinienteRegistro></intervinienteRegistro>
