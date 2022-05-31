@@ -109,8 +109,6 @@ import { LoginNavComponent } from './components/navegadores/loginNav/loginNav.co
     PubliNavComponent,
     LoginComponent,
 
-
-
     //Tipos  
     TiposComponent,
 
