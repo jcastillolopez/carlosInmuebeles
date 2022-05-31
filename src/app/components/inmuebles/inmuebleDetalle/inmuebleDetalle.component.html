@@ -1,18 +1,9 @@
 <div class="container">
+  <h4>Detalles</h4> 
+  <div class="detalles"> 
+    <div class="caracteristicas"> 
   <div class="lista">
-    <h4>Detalle del Inmueble</h4>
-    <div class="campo">
-      <label> Alias:</label>
-      <p>{{inmuebleDetalle.alias}}</p>
-    </div>
-    <div class="campo">
-      <label> Tipo Inmueble:</label>
-      <p>{{inmuebleDetalle.tipoInmueble}} {{inmuebleDetalle.tipoEspecifico}}</p>
-    </div>
-    <div class="campo">
-      <label>refcatastral:</label>
-      <p>{{inmuebleDetalle.refCatastral}}</p>
-    </div>
+    <h4>Situacion</h4>   
     <div class="campo">
       <label> Localidad:</label>
       <p>{{inmuebleDetalle.localidad}}</p>
@@ -25,6 +16,9 @@
       <label> Codigo Postal:</label>
       <p> {{inmuebleDetalle.codigoPostal}}</p>
     </div>
+    </div>
+    <div class="lista">
+      <h4>Caracteristicas </h4>
     <div class="campo">
       <label>Nº Planta:</label>
       <p> {{inmuebleDetalle.planta}}</p>
@@ -41,7 +35,30 @@
       <label>Nº Baños:</label>
       <p> {{inmuebleDetalle.nbanos}}</p>
     </div>
-  </div>
+  </div>  
+  </div> 
+  <div class="caracteristicas">
+    <h4>Propiedad</h4> 
+   
+    <div class="lista">
+      <label> Propietarios </label> 
+      <label> % Propiedad </label> 
+    </div>
+   <h4> Inversiones</h4>
+    <div class="lista">
+      <label> Compra </label> 
+      <label> Inversiones </label> 
+      <label> Total </label> 
+    </div>
+   <h4> Rendimiento </h4>
+    <div class="lista"> 
+      <label> Ingresos </label> 
+      <label> Periodo </label> 
+      <label> Rendimiento </label> 
+    </div>
+    </div> 
 </div>
+</div>
+
 
 <inmueblesRegistro></inmueblesRegistro>

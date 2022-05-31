@@ -1,21 +1,7 @@
-header{
-    justify-content: space-between;
-}
 
-.wrapper{  
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-}
-
-.router {
-    min-width: 100%; 
-    position: relative;   
-}
 
 h2 {
-    font-size: 200%;
+    font-size: 175%;
     color: gold;
     text-shadow: 10px,10px,10px,black;
     font-style: oblique;
@@ -26,8 +12,8 @@ h2 {
 .logo {
     width: 10%;
     display: flex;
-    margin: 10px;
-    justify-content: lefts;
+    padding: 10px;
+    justify-content: left;
 }
 
 .titulo{
@@ -37,8 +23,8 @@ h2 {
 .icono {
     top: 5px;
     left: 5px;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
 }
 
 h4 {
@@ -47,9 +33,3 @@ h4 {
     margin-left: 15px;
 }
 
-button {
-    background-color: transparent;
-    color: gold;
-    right: 5px;
-    top: 50px;
-}

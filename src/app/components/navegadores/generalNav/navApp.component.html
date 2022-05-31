@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="nav">
-    <ul class="general">
+
+  <div class="nav">   
+    <div class="general">
       <li [routerLink]="['/inicio']" routerLinkActive="activo">
         Inicio
       </li>
@@ -24,10 +24,12 @@
       </li>
       <li [routerLink]="['/tipos']" routerLinkActive="activo">
         Tipos</li>
-    </ul>
+        <li [routerLink]="['/publi']" routerLinkActive="activo">
+          Salir</li>
+    </div>
+    <div class="bienvenida">
+      <p>Bienvenido/a:</p>
+      <p>{{nombreUsuario}}</p>   
+    </div>
   </div>
-  <div class="bienvenida">
-    <p>Bienvenido/a:</p>
-    <p>{{nombreUsuario}}</p>
-  </div>
-</div>
+ 

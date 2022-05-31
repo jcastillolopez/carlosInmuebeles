@@ -1,0 +1,10 @@
+
+.bienvenida{  
+    width: 20%;
+    display: flex;    
+    justify-content: space-around;
+}
+.bienvenida p {  
+    color: gold;
+    text-shadow: 1px,1px,1px,black;
+}

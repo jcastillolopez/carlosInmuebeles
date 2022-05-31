@@ -2,8 +2,8 @@
   <navApp></navApp>
 </header>
 <div class="fondo">
-  <div class="listado">
-    <table class="table">
+ 
+    <table class="lista">
       <thead>
         <tr>
           <th>Total Ingreso</th>
@@ -13,19 +13,20 @@
       </thead>
       <tbody routerLinkActive="activo activoBoton">
         <tr>
+          <td><button (click)="desgloseXInmueble()">Desglosar por inmueble</button></td>
           <td>{{informesBalancesTotales.totalIngresos}} €</td>
           <td>{{informesBalancesTotales.totalGastos}} €</td>
-          <td>{{informesBalancesTotales.totalBalance}} €</td>
-          <td><button (click)="desgloseXInmueble()">Desglosar por inmueble</button></td>
-          <td><button (click)="desgloseXAnios()">Desglosar por Años</button></td>
+          <td>{{informesBalancesTotales.totalBalance}} €</td>         
+          <td><button (click)="desgloseXAnios()">Desglosar por Años</button></td>          
         </tr>
       </tbody>
     </table>
     <div class="balances">
       <div class="inmueble">
-        <table class="table">
+        <table class="lista">
           <thead>
             <tr>
+              <td></td>
               <th>Alias</th>
               <th>Total Ingreso</th>
               <th>Total Gasto</th>
@@ -34,11 +35,12 @@
           </thead>
           <tbody routerLinkActive="activo activoBoton" *ngFor="let inmueble of informesBalancesXInmuebles">
             <tr>
+              <td><button (click)="degloseByInmuebleXAnios(inmueble.idInmueble)">Desglosar por años</button></td>
               <td>{{inmueble.inmuebleAlias}}</td>
               <td>{{inmueble.totalIngresos}} €</td>
               <td>{{inmueble.totalGastos}} €</td>
               <td>{{inmueble.totalBalance}} €</td>
-              <td><button (click)="degloseByInmuebleXAnios(inmueble.idInmueble)">Desglosar por años</button></td>
+             
             </tr>
             <tr>
               <td colspan="5">
@@ -91,7 +93,7 @@
           </tbody>
         </table>
       </div>
-      <div class="anio">
+      <div class="lista">
         <table>
           <thead>
             <tr>
@@ -156,4 +158,3 @@
       </div>
     </div>
   </div>
-</div>

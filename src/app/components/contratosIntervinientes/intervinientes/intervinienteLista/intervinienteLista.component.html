@@ -1,34 +1,43 @@
-<div class="listado">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Nombre y Apellidos</th>
-        <th>Tipo Interviniente</th>
-      </tr>
-    </thead>
-    <tbody routerLinkActive="activo activoBoton" *ngFor="let interviniente of arrListaIntervinientes; let i = index">
-      <tr (click)="navegar(interviniente.contratosId! ,interviniente.idInterviniente!)"
-        [routerLink]="['/contratos/detalle/' + interviniente.contratosId + '/interviniente/' + interviniente.idInterviniente]">
-        <td>{{interviniente.apellidosNombreCliente}}</td>
-        <td>{{interviniente.tipoInterviniente}}</td>
-        <td>
-          <button type="button" class="buttonLista" data-toggle="modal" data-target="#interviniente">
-            Modificar
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<div class="container">
+  <h4>Intervinientes</h4>
+  <div class="detalles">
+    <div class="caracteristicas">
 
-<div class="nuevoInterviniente">
-  <button (click)="navegarNuevo()" type="button" class="buttonLista" data-toggle="modal" data-target="#interviniente">
-    Nuevo Interviniente
-  </button>
-</div>
+      <table class="lista">
+        <thead>
+          <tr>
+            <th>Tipo Interviniente</th>
+            <th>Nombre y Apellidos</th>
+          </tr>
+        </thead>
+        <tbody routerLinkActive="activo activoBoton"
+          *ngFor="let interviniente of arrListaIntervinientes; let i = index">
+          <tr (click)="navegar(interviniente.contratosId! ,interviniente.idInterviniente!)"
+            [routerLink]="['/contratos/detalle/' + interviniente.contratosId + '/interviniente/' + interviniente.idInterviniente]">
+            <td>{{interviniente.tipoInterviniente}}</td>
+            <td>{{interviniente.apellidosNombreCliente}}</td>
 
-<div class="router">
-  <router-outlet></router-outlet>
-</div>
+            <td>
+              <button type="button" class="buttonLista" data-toggle="modal"
+                data-target="#interviniente">
+                Modificar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
+      <div class="nuevoInterviniente">
+        <button (click)="navegarNuevo()" type="button" class="buttonLista" data-toggle="modal"
+          data-target="#interviniente">
+          Nuevo Interviniente
+        </button>
+      </div>
+
+    </div>
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
 <intervinienteRegistro></intervinienteRegistro>
