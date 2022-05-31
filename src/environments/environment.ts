@@ -1,7 +1,6 @@
 
 export const environment = {
-   // production: false,
-   // APIPATH_GENERAL:"https://gestioninmuebles-spring.herokuapp.com/api/v1/",
+   production: false,
    APIPATH_INMUEBLE: "inmueble/",
    APIPATH_INMUEBLEDETALLE: "inmueble/detalle/",
    APIPATH_CLIENTE: "cliente/",
