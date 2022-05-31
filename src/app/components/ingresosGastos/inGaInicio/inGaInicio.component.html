@@ -36,67 +36,67 @@
         </option>
       </select>
     </div>
- 
-  <div class="listado">
-    <table class="table">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Categoria</th>
-          <th>Proveedor</th>
-          <th>Fecha Gasto</th>
-          <th>Total Importe</th>
 
-        </tr>
-      </thead>
-      <tbody routerLinkActive="activo activoBoton" *ngFor="let inGa of arrIngresosGastosMostrar; let i = index">
-        <tr (click)="navegar(inGa.idInGa)" [routerLink]="['/inga/detalle/'+inGa.idInGa]">
-          <td>ver detalle</td>
-          <td>{{inGa.tipoConcepto}}</td>
-          <td>{{inGa.nombreApellidosCliente}}</td>
-          <td>{{inGa.fechaFactura}}</td>
-          <td>{{inGa.totalImporte}} €</td>
-          <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#ingaGeneral">
-            Modificar
-          </button>
-        </tr>
-        <tr>
-          <td colspan="12">
-            <div class="campo">
-              <table>
-                <tbody *ngFor="let inGaDetalle of arrInGaDetalle, let i = index">
-                  <tr class="thead" *ngIf="i<1 && detalle(inGaDetalle.inGaId, inGa.idInGa)">
-                    <th>Concepto Detalle</th>
-                    <th>Precio Venta</th>
-                    <th>Cantidad</th>
-                    <th>Importe</th>
-                    <th>Descuento</th>
-                    <th>Base Imponible</th>
-                    <th>Porcentaje Iva</th>
-                    <th>Valor Venta</th>
-                  </tr>
-                  <tr *ngIf="detalle(inGaDetalle.inGaId, inGa.idInGa)">
-                    <td>{{inGaDetalle.conceptoDetalle}}</td>
-                    <td>{{inGaDetalle.pv}} €</td>
-                    <td>{{inGaDetalle.cantidad}} und</td>
-                    <td>{{inGaDetalle.importe}} €</td>
-                    <td>{{inGaDetalle.descuento}} %</td>
-                    <td>{{inGaDetalle.importeTotal}} €</td>
-                    <td>{{inGaDetalle.ivaPorcentaje}} %</td>
-                    <td>{{inGaDetalle.valorTotal}} €</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="listado">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Categoria</th>
+            <th>Proveedor</th>
+            <th>Fecha Gasto</th>
+            <th>Total Importe</th>
 
-    <div class="router">
-      <router-outlet></router-outlet>
+          </tr>
+        </thead>
+        <tbody routerLinkActive="activo activoBoton" *ngFor="let inGa of arrIngresosGastosMostrar; let i = index">
+          <tr (click)="navegar(inGa.idInGa)" [routerLink]="['/inga/detalle/'+inGa.idInGa]">
+            <td>ver detalle</td>
+            <td>{{inGa.tipoConcepto}}</td>
+            <td>{{inGa.nombreApellidosCliente}}</td>
+            <td>{{inGa.fechaFactura}}</td>
+            <td>{{inGa.totalGasto}} €</td>
+            <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#ingaGeneral">
+              Modificar
+            </button>
+          </tr>
+          <tr>
+            <td colspan="12">
+              <div class="campo">
+                <table>
+                  <tbody *ngFor="let inGaDetalle of arrInGaDetalle, let i = index">
+                    <tr class="thead" *ngIf="i<1 && detalle(inGaDetalle.inGaId, inGa.idInGa)">
+                      <th>Concepto Detalle</th>
+                      <th>Precio Venta</th>
+                      <th>Cantidad</th>
+                      <th>Importe</th>
+                      <th>Descuento</th>
+                      <th>Base Imponible</th>
+                      <th>Porcentaje Iva</th>
+                      <th>Valor Venta</th>
+                    </tr>
+                    <tr *ngIf="detalle(inGaDetalle.inGaId, inGa.idInGa)">
+                      <td>{{inGaDetalle.conceptoDetalle}}</td>
+                      <td>{{inGaDetalle.pv}} €</td>
+                      <td>{{inGaDetalle.cantidad}} und</td>
+                      <td>{{inGaDetalle.importe}} €</td>
+                      <td>{{inGaDetalle.descuento}} %</td>
+                      <td>{{inGaDetalle.importeTotal}} €</td>
+                      <td>{{inGaDetalle.ivaPorcentaje}} %</td>
+                      <td>{{inGaDetalle.valorTotal}} €</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="router">
+        <router-outlet></router-outlet>
+      </div>
     </div>
-  </div>
   </div>
   <div class="footer">
     <label>{{labelTotalImporte}}</label>

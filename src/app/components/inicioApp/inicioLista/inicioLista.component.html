@@ -1,36 +1,35 @@
-
 <navApp></navApp>
 
-<div class="pagina"> 
+<div class="pagina">
   <div class="navEspecifico">
     <button [routerLink]="['/ayuda/inicio']" type="button" data-toggle="modal" data-target="#registro">
-     Ayuda
+      Ayuda
     </button>
   </div>
-<div class="especifico">
-<div class="pagina">
-  <div class="listado">
-    <h3>Pendiente Comprobacion</h3>
-    <table class="lista">
-      <thead>
-        <tr>
-          <th>Alias</th>
-          <th>Fecha Factura</th>
-          <th>Proveedor</th>
-          <th>Total Importe</th>
-        </tr>
-      </thead>
-      <tbody routerLinkActive="activo activoBoton" *ngFor="let inGa of arrFacturasAvisos; let i = index">
-        <tr>
-          <td>{{inGa.aliasInmueble}}</td>
-          <td>{{inGa.fechaFactura}}</td>
-          <td>{{inGa.nombreApellidosCliente}}</td>
-          <td>{{inGa.totalImporte}} €</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="especifico">
+    <div class="pagina">
+      <div class="listado">
+        <h3>Pendiente Comprobacion</h3>
+        <table class="lista">
+          <thead>
+            <tr>
+              <th>Alias</th>
+              <th>Fecha Factura</th>
+              <th>Proveedor</th>
+              <th>Total Importe</th>
+            </tr>
+          </thead>
+          <tbody routerLinkActive="activo activoBoton" *ngFor="let inGa of arrFacturasAvisos; let i = index">
+            <tr>
+              <td>{{inGa.aliasInmueble}}</td>
+              <td>{{inGa.fechaFactura}}</td>
+              <td>{{inGa.nombreApellidosCliente}}</td>
+              <td>{{inGa.totalImporte}} €</td>
+            </tr>
+          </tbody>
+        </table>
 
-    
 
-  </div>
-</div>
+
+      </div>
+    </div>
