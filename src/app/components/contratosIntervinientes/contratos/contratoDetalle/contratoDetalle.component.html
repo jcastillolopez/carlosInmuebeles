@@ -1,14 +1,13 @@
-<div class="containerDetalle">
- 
+<div class="pagina">
+  <h4>Detalles </h4>
   <div class="detalles">
-    <h4>Detalles </h4>
     <div class="caracteristicas">
       <div class="lista">
         <h4> Contrato</h4>
 
         <div class="campo">
           <label> Fecha Contrato:</label>
-          <p>{{contrato.fechaContrato}}</p>
+          <p>{{contrato.fechaContrato|date:'dd-MM-YYYY'}}</p>
         </div>
         <div class="campo">
           <label> Valor Contrato:</label>
@@ -16,11 +15,11 @@
         </div>
         <div class="campo">
           <label> Fecha de Inicio:</label>
-          <p>{{contrato.fechaInicio}}</p>
+          <p>{{contrato.fechaInicio|date:'dd-MM-YYYY'}}</p>
         </div>
         <div class="campo">
           <label> Fecha de Fin:</label>
-          <p>{{contrato.fechaFin}}</p>
+          <p>{{contrato.fechaFin|date:'dd-MM-YYYY'}}</p>
         </div>
         <div class="campo">
           <label> Tipo de Periodo:</label>
@@ -31,8 +30,10 @@
           <p>{{contrato.cantidadPeriodo}}</p>
         </div>
       </div>
+    </div>
       <div class="caracteristicas">
         <intervinienteLista></intervinienteLista>
       </div>
     </div>
-    <contratoRegistro></contratoRegistro>
+  </div>
+  <contratoRegistro></contratoRegistro>

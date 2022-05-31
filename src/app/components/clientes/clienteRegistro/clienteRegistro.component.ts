@@ -1,8 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import * as dayjs from 'dayjs'
+
 import { Globales } from 'src/app/services/Globales.service';
 import { environment } from 'src/environments/environment';
+import { format } from 'path';
 
 
 @Component({
@@ -45,7 +48,10 @@ export class ClienteRegistroComponent implements OnInit {
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
         let response = await this.metodosGlobales.getById(environment.APIPATH_CLIENTEDETALLE, params['id'])
-        this.registroForm.patchValue(response[0])
+        let cliente = response[0]
+        cliente.fechaNacimiento = dayjs(cliente.fechaNacimiento).format('DD-MM-YYYY')
+        this.registroForm.patchValue(cliente)
+
       }
 
     })

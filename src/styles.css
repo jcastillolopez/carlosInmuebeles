@@ -22,6 +22,7 @@
     max-width: 100%;
     display: flex;
 }
+
 footer {
     min-height: 5vh;
     min-width: 100%;
@@ -30,36 +31,29 @@ footer {
 }
 
 /*Contenedores de Paginas */
-.pagina { 
-    margin:  10px;  
+.pagina {
+    margin: 10px;
     color: gold;
     text-shadow: 2px 2px 2px black;
     font-style: oblique;
-    display: flex;   
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
-    max-width: 100%;  
+    text-align: center;
+    max-width: 100%;
     min-height: 85vh;
     background-color: gray;
 }
 
-.fondo {   
-    background-color: rgb(100, 115, 122);
-    display: flex;
-    margin: 0 auto;
-    min-height: 60vh;
-    font-style: oblique;
-}
 
 .router {
-    margin: 0 auto;    
+    margin: 0 auto;
     width: 99%;
     background-color: aquamarine;
-    
 }
 
 /*Contenedores de Navegadores */
-
 
 .nav {
     margin-bottom: 10px;
@@ -83,8 +77,8 @@ footer {
     min-width: 10%;
     min-height: 60vh;
     background-color: rgb(96, 91, 91);
-    display: flex;   
-    flex-direction: column;    
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
 }
 
@@ -113,45 +107,36 @@ li:hover {
 }
 
 /* Contenedores de Listados */
-.especifico { 
-    padding-top: 2%;   
-    min-width: 85%;
-    display: flex;
-
-}
-
 .detalles {
-    padding-top: 150px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
+    }
 
+.especifico { 
+    padding-left: 10px;
+    margin-top:20px;  
+    min-width: 90%;
+    display: flex;
 }
 
-.caracteristicas {
-    margin-right: 20px;
-    display: flex;
-    flex-wrap: wrap;
+.caracteristicas {   
+    margin:0 10px;
+    display: flex;   
     flex-direction: column;
     justify-content: space-between;
 }
-
 /* Listados  y  listas*/
 
-
 .listado {
-   
     max-width: 40%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    margin: 1em;
-    
 }
 
 .lista {
-    margin: 1em;
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
     color: lightgreen;
@@ -160,7 +145,8 @@ li:hover {
 }
 
 thead {
-    color: gold;
+    color: gold;   
+     
 }
 
 thead tr th {
@@ -168,7 +154,7 @@ thead tr th {
 
 }
 
-tbody {
+tbody { 
     color: white;
     border: 0 !important;
 
@@ -185,13 +171,14 @@ tbody tr td {
 td {
     padding: 5px;
     text-align: center;
-    min-width: 100px;
+    min-width: 100px;  
 }
 
 th {
     padding: 5px;
     min-width: 100px;
     text-align: center;
+    color: gold;   
 }
 
 .buttonLista {
@@ -228,14 +215,15 @@ th {
 
 .campo {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     flex-direction: column;
     margin-bottom: 0.5em;
+    text-align: left;
 }
 
 .campoTabla {
     margin-right: 5px;
-
+   
 }
 
 label {
@@ -246,7 +234,7 @@ label {
 
 input {
     background-color: rgba(255, 255, 255, 0.827);
-    grid-column: 2/3;
+    grid-column: 2/4;
     font-style: oblique;
 }
 
@@ -255,7 +243,6 @@ select {
     color: white;
     background-color: rgb(96, 91, 91);
     font-style: oblique;
-
 }
 
 option {

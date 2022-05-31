@@ -1,9 +1,7 @@
-<header>
-  <navApp></navApp>
-</header>
 
-<div class="fondo">
- 
+  <navApp></navApp>
+
+<div class="pagina"> 
     <div class="navEspecifico">
       <button [routerLink]="['/inmuebles/']" type="button" data-toggle="modal" data-target="#inmuebleRegistro">
         Nuevo Inmueble
@@ -34,11 +32,8 @@
         </tr>
       </tbody>
     </table>
-  </div>
-
-  <div class="router">
-    <router-outlet></router-outlet>
-  </div>
+  </div>  
+    <router-outlet></router-outlet>  
 </div>
 </div>
 

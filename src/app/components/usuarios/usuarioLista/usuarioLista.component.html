@@ -1,39 +1,38 @@
+<navApp></navApp>
 
-  <navApp></navApp>
-  
-<div class="pagina"> 
-    <div class="navEspecifico">
-      <button [routerLink]="['/usuarios/']" type="button" data-toggle="modal" data-target="#registro">
-        Nuevo Usuario
-      </button>
-    </div>
-  <div class="especifico">
-  <div class="listado">
-   
-    <table class="lista">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Email</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody routerLinkActive="activo activoBoton" *ngFor="let usuario of arrListaUsuarios; let i = index">
-        <tr (click)="navegar(usuario.idUsuario)" [routerLink]="['/usuarios/detalle/'+usuario.idUsuario]">
-          <td>{{usuario.nombre}}</td>
-          <td>{{usuario.email}}</td>
-          <td>
-            <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#registro">
-              Modificar
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<div class="pagina">
+  <div class="navEspecifico">
+    <button [routerLink]="['/usuarios/']" type="button" data-toggle="modal" data-target="#registro">
+      Nuevo Usuario
+    </button>
   </div>
-  <div class="router">
+  <div class="especifico">
+    <div class="listado">
+      <table class="lista">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody routerLinkActive="activo activoBoton"
+          *ngFor="let usuario of arrListaUsuarios; let i = index">
+          <tr (click)="navegar(usuario.idUsuario)"
+            [routerLink]="['/usuarios/detalle/'+usuario.idUsuario]">
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.email}}</td>
+            <td>
+              <button type="button" class="botonOculto buttonLista" data-toggle="modal"
+                data-target="#registro">
+                Modificar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <router-outlet></router-outlet>
   </div>
-</div>
 </div>
 <usuarioRegistro></usuarioRegistro>

@@ -1,9 +1,6 @@
-<header>
-  <navApp></navApp>
-</header>
+<navApp></navApp>
 
-<div class="fondo">
-
+<div class="pagina">
   <div class="navEspecifico">
     <button [routerLink]="['/contratos/']" type="button" data-toggle="modal"
       data-target="#contrato">
@@ -33,7 +30,7 @@
             [routerLink]="['/contratos/detalle/' + contrato.idContratos ]">
             <td>{{contrato.tipoContrato}}</td>
             <td>{{contrato.aliasInmueble}}</td>
-            <td>{{contrato.fechaContrato}}</td>
+            <td>{{contrato.fechaContrato|date:'dd-MM-YYYY'}}</td>
             <td>
               <button type="button" class="botonOculto buttonLista" data-toggle="modal"
                 data-target="#contrato">
@@ -44,9 +41,7 @@
         </tbody>
       </table>
     </div>
-    <div class="router">    
-      <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
   </div>
 </div>
 
