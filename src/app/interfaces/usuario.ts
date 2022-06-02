@@ -3,6 +3,7 @@ export interface usuarioInterface {
     nombre: "",
     email: "",
     password: "",
+    repitePassword: '',
     borrado: false,
     idUsuario: 0,
     rolId: 0,

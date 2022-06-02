@@ -1,8 +1,12 @@
 .listado{
-  min-width: 90%;
+  min-width: 70%;
 }
 .campo{
-   min-width: 100%;
+   min-width: 70%;
+}
+.navEspecifico{
+  min-width: 20%;
+  font-size: 125%;
 }
 
 

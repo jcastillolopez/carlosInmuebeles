@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
 import { ActivatedRoute, Router, } from '@angular/router';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
@@ -38,13 +38,19 @@ export class UsuarioRegistroComponent implements OnInit {
         Validators.required,
         Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/)
       ]),
-      password: new FormControl(),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/),
+      ]),
+      repitePassword: new FormControl(''),
       borrado: new FormControl(),
       createTime: new FormControl(),
       updateTime: new FormControl(),
-      rolId: new FormControl(),
+      rolId: new FormControl([
+        Validators.required]),
       administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!))
-    })
+    },
+      { validators: [this.passwordValidation] });
   }
 
   async ngOnInit() {
@@ -71,28 +77,24 @@ export class UsuarioRegistroComponent implements OnInit {
     window.location.reload();
   }
 
-  dniValidators(pControl: FormControl) {
-    const value = pControl.value;
-    const grupoLetras = 'TRWAGMYFPDXBNJZSQVHLCKET';
-
-    if (/^\d{8}[a-zA-Z]$/.test(value)) {
-      const numero = value.substring(0, value.length - 1);
-      const letra = value.substring(value.length - 1, value.length);
-      const resto = numero % 23;
-      const letraSeleccionada = grupoLetras.substring(resto, resto + 1);
-
-      if (letraSeleccionada != letra.toUpperCase()) {
-        return { dnivalidator: true };
-      } else {
-        return null;
-      }
+  passwordValidation(formulario: FormGroup): ValidationErrors | null {
+    let password: string = formulario.get("password").value
+    let repitePassword: string = formulario.get("repitePassword").value
+    let result
+    if (repitePassword) {
+      result = (repitePassword!==password) ? { passwordValidation: true } : null
     } else {
-      return { dnivalidator: true };
+      result = null
     }
+    return result
   }
 
   checkError(fieldName: string, errorType: string) {
     return this.registroForm.get(fieldName)!.hasError(errorType) && this.registroForm.get(fieldName)!.touched
+  }
+
+  checkErrorForm(fieldName: string, errorType: string) {
+    return this.registroForm.hasError(errorType) && this.registroForm.get(fieldName).touched
   }
 }
 

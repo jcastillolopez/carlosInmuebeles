@@ -20,4 +20,12 @@ export class InicioListaComponent implements OnInit {
     this.arrFacturasAvisos = await this.metodosGlobales.getAll(environment.APIPATH_AVISOSFACTURAS + sessionStorage.getItem('administradorId'))
   }
 
+  cambioBotones(campo: ingresogastointerface): number {
+    if (campo.totalGasto != 0) {
+      return campo.totalGasto;
+    } else {
+      return campo.totalIngreso;
+    }
+  }
+
 }

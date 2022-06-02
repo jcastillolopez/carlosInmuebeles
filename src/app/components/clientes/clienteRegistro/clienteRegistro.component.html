@@ -12,22 +12,52 @@
             <div class="form-group campo">
               <label class="form-label">Nombre</label>
               <input type="text" class="form-control" formControlName="nombre">
+              <p class="error" *ngIf="checkError('nombre', 'required')">requerido</p>
+              <p class="error" *ngIf="checkError('nombre', 'minlength')">
+                debe tener más de 3 caracteres
+              </p>
+              <p class="error" *ngIf="checkError('nombre', 'maxlength')">
+                 debe tener menos de 45 caracteres
+              </p>
             </div>
             <div class="form-group campo">
               <label class="form-label">Apellidos</label>
               <input type="text" class="form-control" formControlName="apellidos">
+              <p class="error" *ngIf="checkError('apellidos', 'required')">
+                requerido
+              </p>
+              <p class="error" *ngIf="checkError('apellidos', 'minlength')">
+               más de 3 caracteres
+              </p>
+              <p class="error" *ngIf="checkError('apellidos', 'maxlength')">
+                 menos de 60 caracteres
+              </p>
             </div>
             <div class="form-group campo">
               <label class="form-label">Nie</label>
               <input type="text" class="form-control" formControlName="nie">
+              <p class="error" *ngIf="checkError('nie', 'required')">
+                requerido
+              </p>
+              <p class="error" *ngIf="checkError('nie', 'dnivalidator')">
+                El campo Nif no es valido
+              </p>
             </div>
             <div class="form-group campo">
               <label class="form-label">Fecha Nacimiento</label>
               <input type="date" class="form-control" formControlName="fechaNacimiento">
+              <p class="error" *ngIf="checkError('fechaNacimiento', 'required')">
+                requerido
+              </p>
             </div>
             <div class="form-group campo">
               <label class="form-label">Email</label>
               <input type="text" class="form-control" formControlName="email">
+              <p class="error" *ngIf="checkError('email','required')">
+                requerido</p>
+              <p class="error" *ngIf="checkError('email','pattern')">
+                El campo Email no es valido
+              </p>
             </div>
             <div class="mform-group campo">
               <label class="form-label">Tlf</label>
@@ -36,18 +66,34 @@
             <div class="form-group campo">
               <label class="form-label">Tlf. Movil</label>
               <input type="text" class="form-control" formControlName="tlfMovil">
+              <p class="error" *ngIf="checkError('tlfMovil', 'required')">requerido</p>
             </div>
             <div class="form-group campo">
               <label class="form-label">Localidad</label>
               <input type="text" class="form-control" formControlName="localidad">
+              <p class="error" *ngIf="checkError('localidad', 'required')">
+                requerido
+              </p>
             </div>
             <div class="form-group campo">
               <label class="form-label">Direccion</label>
               <input type="text" class="form-control" formControlName="direccion">
+              <p class="error" *ngIf="checkError('direccion', 'required')">
+                requerido
+              </p>
             </div>
             <div class="form-group campo">
               <label class="form-label">Codigo Postal</label>
               <input type="text" class="form-control" formControlName="codigoPostal">
+              <p class="error" *ngIf="checkError('codigoPostal', 'required')">
+                requerido
+              </p>
+              <p class="error" *ngIf="checkError('codigoPostal', 'minlength')">
+               debe tener 5 caracteres
+              </p>
+              <p class="error" *ngIf="checkError('codigoPostal', 'maxlength')">
+                debe tener 5 caracteres
+              </p>
             </div>
             <div class="form-group campo">
               <label class="form-label">Eliminar Cliente</label>
@@ -57,7 +103,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
-          <button data-dismiss="modal" (click)="enviar()">Save changes</button>
+          <button [hidden]="registroForm.errors || registroForm.invalid" data-dismiss="modal" (click)="enviar()">Save changes</button>
         </div>
       </form>
     </div>

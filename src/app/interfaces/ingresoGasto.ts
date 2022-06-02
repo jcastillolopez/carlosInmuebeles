@@ -10,6 +10,7 @@ export interface ingresogastointerface {
     totalImporte: number,
     cuentaCorrienteProveedor: string,
     cuentaCorrienteCliente: string,
+    conceptoPersonal: string,
     formaPago: string,
     fechaPago: Date,
 

@@ -23,6 +23,7 @@ export class UsuarioDetalleComponent implements OnInit {
       nombre: "",
       email: "",
       password: "",
+      repitePassword: '',
       borrado: false,
       idUsuario: 0,
       rolId: 0,

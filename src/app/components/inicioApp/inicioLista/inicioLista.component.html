@@ -21,11 +21,11 @@
         </thead>
         <tbody routerLinkActive="activo activoBoton"
           *ngFor="let inGa of arrFacturasAvisos; let i = index">
-          <tr>
+          <tr [routerLink]="['/inga/detalle/'+inGa.idInGa]">
             <td>{{inGa.aliasInmueble}}</td>
             <td>{{inGa.fechaFactura |date:'dd-MM-YYYY'}}</td>
             <td>{{inGa.nombreApellidosCliente}}</td>
-            <td>{{inGa.totalImporte}} €</td>
+            <td *ngIf="cambioBotones(inGa) as value">{{value}}</td>
           </tr>
         </tbody>
       </table>
