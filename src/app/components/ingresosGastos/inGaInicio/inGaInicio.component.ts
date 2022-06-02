@@ -222,4 +222,12 @@ export class InGaInicioComponent implements OnInit {
     return this.importeTotal;
   }
 
+  cambioBotones(campo: number): string {
+    if (campo === 0) {
+      return 'Ingreso';
+    } else {
+      return 'Gasto';
+    }
+  }
+
 }

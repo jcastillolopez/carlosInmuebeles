@@ -16,26 +16,50 @@
                 <option [value]="tipo.idTipoInmueble" *ngFor="let tipo of arrSelectTipos">
                   {{tipo.tipoInmueble}} </option>
               </select>
+              <p class="error" *ngIf="checkError('tipoInmueblesId', 'required')">
+                requerido
+              </p>
             </div>
             <div class="form-group campo">
               <label class="form-label">Alias</label>
               <input type="text" class="form-control" formControlName="alias">
+              <p class="error" *ngIf="checkError('alias', 'required')">
+                requerido
+              </p>
             </div>
             <div class="form-group campo">
               <label class="form-label">refCatastral</label>
               <input type="text" class="form-control" formControlName="refCatastral">
+              <p class="error" *ngIf="checkError('refCatastral', 'required')">
+                requerido
+              </p>
             </div>
             <div class="form-group campo">
               <label class="form-label">Localidad</label>
               <input type="text" class="form-control" formControlName="localidad">
+              <p class="error" *ngIf="checkError('localidad', 'required')">
+                requerido
+              </p>
             </div>
             <div class="form-group campo">
               <label class="form-label">Direccion</label>
               <input type="text" class="form-control" formControlName="direccion">
+              <p class="error" *ngIf="checkError('direccion', 'required')">
+                requerido
+              </p>
             </div>
             <div class="form-group campo">
               <label class="form-label">Codigo Postal</label>
               <input type="number" class="form-control" formControlName="codigoPostal">
+              <p class="error" *ngIf="checkError('codigoPostal', 'required')">
+                requerido
+              </p>
+              <p class="error" *ngIf="checkError('codigoPostal', 'minlength')">
+               debe tener 5 caracteres
+              </p>
+              <p class="error" *ngIf="checkError('codigoPostal', 'maxlength')">
+                debe tener 5 caracteres
+              </p>
             </div>            
             <div class="form-group campo">
               <label class="form-label">Nº Planta </label>

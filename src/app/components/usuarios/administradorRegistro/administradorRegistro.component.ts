@@ -31,12 +31,12 @@ export class AdministradorRegistroComponent implements OnInit {
       nombre: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(60),
+        Validators.maxLength(45),
       ]),
       apellidos: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(60),
+        Validators.maxLength(45),
       ]),
       email: new FormControl('', [
         Validators.required,

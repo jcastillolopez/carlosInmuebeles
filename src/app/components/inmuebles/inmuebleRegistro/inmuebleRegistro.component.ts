@@ -33,12 +33,21 @@ export class InmueblesRegistroComponent implements OnInit {
     this.arrSelectTipos = [];
     this.registroForm = new FormGroup({
       idInmueble: new FormControl(),
-      tipoInmueblesId: new FormControl(),
-      alias: new FormControl(),
-      refCatastral: new FormControl(),
-      localidad: new FormControl(),
-      direccion: new FormControl(),
-      codigoPostal: new FormControl(),
+      tipoInmueblesId: new FormControl('', [
+        Validators.required]),
+      alias: new FormControl('', [
+        Validators.required]),
+      refCatastral: new FormControl('', [
+        Validators.required]),
+      localidad: new FormControl('', [
+        Validators.required]),
+      direccion: new FormControl('', [
+        Validators.required]),
+      codigoPostal: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(5),
+        Validators.minLength(5),
+      ]),
       administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!)),
       usuarioId: new FormControl(parseInt(sessionStorage.getItem('idUsuario')!)),
       borrado: new FormControl(),
@@ -79,5 +88,8 @@ export class InmueblesRegistroComponent implements OnInit {
 
     }
     window.location.reload();
+  }
+  checkError(fieldName: string, errorType: string) {
+    return this.registroForm.get(fieldName).hasError(errorType) && this.registroForm.get(fieldName).touched
   }
 }
