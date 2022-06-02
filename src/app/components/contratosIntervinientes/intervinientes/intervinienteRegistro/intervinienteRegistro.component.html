@@ -12,20 +12,22 @@
             <div class="form-group campo">
               <label class="form-label">Porcentaje Propiedad</label>
               <input type="number" class="form-control" formControlName="porcentajePropiedad">
+              <p class="error" *ngIf="checkError('porcentajePropiedad', 'required')">
+                requerido
+              </p>
+              <p class="error" *ngIf="checkError('porcentajePropiedad', 'min')">
+                Minimo de porcentaje 1%
+              </p>
             </div>
-            <!-- <div class="form-group campo">
-              <label class="form-label">Inmueble</label>
-              <select type="number" formControlName="inmuebleId">
-                <option [value]="inmueble.idInmueble" *ngFor="let inmueble of arrInmuebles">
-                  {{inmueble.alias}} </option>
-              </select>
-            </div> -->
             <div class="form-group campo">
               <label class="form-label">cliente</label>
               <select type="number" formControlName="clienteId">
                 <option [value]="cliente.idCliente" *ngFor="let cliente of arrCliente">
                   {{cliente.nombre}} {{cliente.apellidos}} </option>
               </select>
+              <p class="error" *ngIf="checkError('clienteId', 'required')">
+                requerido
+              </p>
             </div>
             <div class="form-group campo">
               <label class="form-label">Tipo de Interviniente</label>
@@ -33,6 +35,9 @@
                 <option [value]="tipo.idTipoInterviniente" *ngFor="let tipo of arrTipoInterviniente">
                   {{tipo.tipoInterviniente}}</option>
               </select>
+              <p class="error" *ngIf="checkError('tipoIntervinienteId', 'required')">
+                requerido
+              </p>
             </div>
             <div class="form-group campo">
               <label class="form-label">Eliminar Cliente</label>
@@ -42,7 +47,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
-          <button data-dismiss="modal" (click)="enviar()">Save changes</button>
+          <button [hidden]="registroForm.errors || registroForm.invalid" data-dismiss="modal" (click)="enviar()">Save
+            changes</button>
         </div>
       </form>
     </div>

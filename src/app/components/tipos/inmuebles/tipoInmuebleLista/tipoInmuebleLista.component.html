@@ -1,11 +1,12 @@
-<div class="fondo">
+<div class="pagina">
   <div class="botonNuevosRegistros">
-    <button type="button" class="button" [routerLink]="['/tipos/inmueble/']" data-toggle="modal" data-target="#registroTiposInmuebles">
+    <button type="button" class="button" [routerLink]="['/tipos/inmueble/']" data-toggle="modal"
+      data-target="#registroTiposInmuebles">
       Nuevo Tipo de Inmueble
     </button>
   </div>
   <div class="listado">
-    <table class="table">
+    <table class="lista">
       <thead>
         <tr>
           <th>Nombre</th>
@@ -13,8 +14,7 @@
         </tr>
       </thead>
       <tbody routerLinkActive="activo activoBoton" *ngFor="let tipo of arrListaTipoInmueble; let i = index">
-        <tr (click)="navegar(tipo.idTipoInmueble)"
-        [routerLink]="['/inmueble/modificacion/'+tipo.idTipoInmueble]">
+        <tr (click)="navegar(tipo.idTipoInmueble)" [routerLink]="['/inmueble/modificacion/'+tipo.idTipoInmueble]">
           <td>{{tipo.tipoInmueble}} {{tipo.tipoEspecifico}}</td>
 
           <td>

@@ -5,6 +5,7 @@ export const environment = {
    APIPATH_INMUEBLEDETALLE: "inmueble/detalle/",
    APIPATH_CLIENTE: "cliente/",
    APIPATH_CLIENTEDETALLE: "cliente/detalle/",
+   APIPATH_CLIENTEXINMUEBLE: "cliente/xinmueble/",
    APIPATH_CONTRATO: "contrato/",
    APIPATH_CONTRATODETALLE: "contrato/detalle/",
    APIPATH_INGRESOGASTOGENERAL: "ingresogasto/",
@@ -33,5 +34,7 @@ export const environment = {
    APIPATH_TIPOROL: "rol/",
    APIPATH_TIPOROLDETALLE: "rol/detalle/",
    APIPATH_TIPOPERIODO: "periodo/",
-   APIPATH_TIPOPERIODODETALLE: "periodo/detalle/"
+   APIPATH_TIPOPERIODODETALLE: "periodo/detalle/",
+   APIPATH_TIPOCATEGORIA: "categoria/",
+   APIPATH_TIPOCATEGORIADETALLE: "categoria/detalle/"
 };

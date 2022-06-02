@@ -41,6 +41,7 @@ export class PeriodoRegistroComponent implements OnInit {
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
         let response = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOPERIODODETALLE + params['id'])
+        this.registroForm.patchValue(response[0])
       }
     })
   }

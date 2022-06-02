@@ -41,21 +41,25 @@
       <div class="caracteristicas">
         <h4>Propiedad</h4>
 
-        <div class="lista">
-          <label> Propietarios </label>
-          <label> % Propiedad </label>
-        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Propietario</th>
+              <th>% Propiedad</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let propiedad of arrPropiedad">
+            <tr>
+              <td>{{propiedad.apellidos}} {{propiedad.nombre}}</td>
+              <td>{{propiedad.porcentajePropiedad}}</td>
+            </tr>
+          </tbody>
+        </table>
         <h4> Inversiones</h4>
         <div class="lista">
-          <label> Compra </label>
-          <label> Inversiones </label>
-          <label> Total </label>
-        </div>
-        <h4> Rendimiento </h4>
-        <div class="lista">
-          <label> Ingresos </label>
-          <label> Periodo </label>
-          <label> Rendimiento </label>
+          <label> Compra: {{arrInversion[0].compra}}</label>
+          <label> Inversiones: {{arrInversion[0].inversiones}} </label>
+          <label> Total: {{arrInversion[0].total}}</label>
         </div>
       </div>
     </div>

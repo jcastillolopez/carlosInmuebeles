@@ -58,6 +58,7 @@ export class UsuarioRegistroComponent implements OnInit {
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
         let response = await this.metodosGlobales.getById(environment.APIPATH_USUARIODETALLE, params['id'])
+        response[0].repitePassword = response[0].password
         this.registroForm.patchValue(response[0])
       }
     })
@@ -82,7 +83,7 @@ export class UsuarioRegistroComponent implements OnInit {
     let repitePassword: string = formulario.get("repitePassword").value
     let result
     if (repitePassword) {
-      result = (repitePassword!==password) ? { passwordValidation: true } : null
+      result = (repitePassword !== password) ? { passwordValidation: true } : null
     } else {
       result = null
     }

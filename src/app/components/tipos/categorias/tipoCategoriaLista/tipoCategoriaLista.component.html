@@ -1,0 +1,32 @@
+<div class="pagina">
+  <div class="botonNuevosRegistros">
+    <button type="button" class="button" [routerLink]="['/tipos/categoria/']" data-toggle="modal"
+      data-target="#registroTiposCategoria">
+      Nuevo Tipo de Categoria
+    </button>
+  </div>
+  <div class="listado">
+    <table class="lista">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody routerLinkActive="activo activoBoton" *ngFor="let tipo of arrListaTipoCategoria; let i = index">
+        <tr (click)="navegar(tipo.idCategoria)" [routerLink]="['/categoria/modificacion/'+tipo.idCategoria]">
+          <td>{{tipo.categoria}}</td>
+          <td>
+            <button type="button" class="buttonLista" data-toggle="modal" data-target="#registroTiposCategoria">
+              Modificar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<tipoCategoriaRegistro></tipoCategoriaRegistro>

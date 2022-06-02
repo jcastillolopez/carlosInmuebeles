@@ -43,6 +43,8 @@ import { InGaInicioComponent } from './components/ingresosGastos/inGaInicio/inGa
 import { IngaDetalleComponent } from './components/ingresosGastos/ingaDetalle/ingaDetalle.component';
 import { TipoPagoListaComponent } from './components/tipos/Pagos/tipoPagoLista/tipoPagoLista.component';
 import { TipoPagoRegistroComponent } from './components/tipos/Pagos/tipoPagoRegistro/tipoPagoRegistro.component';
+import { TipoCategoriaListaComponent } from './components/tipos/categorias/tipoCategoriaLista/tipoCategoriaLista.component';
+import { TipoCategoriaRegistroComponent } from './components/tipos/categorias/tipoCategoriaRegistro/tipoCategoriaRegistro.component';
 
 
 
@@ -70,8 +72,9 @@ const routes: Routes = [
   {
     path: 'inga', component: InGaInicioComponent, children: [
       { path: 'general', component: IngaRegistroGeneralComponent },
-      { path: 'detalle/:id', component: IngaDetalleComponent},
-  ]},
+      { path: 'detalle/:id', component: IngaDetalleComponent },
+    ]
+  },
 
   // inmuebles
   {
@@ -86,47 +89,64 @@ const routes: Routes = [
       { path: 'detalle/:id', component: ClienteDetalleComponent }
     ]
   },
-   
+
   //  contratos
   {
     path: 'contratos', component: ContratoListaComponent, children: [
-      { path: 'detalle/:id', component: ContratoDetalleComponent , children: [
-        { path: 'interviniente/:idInterviniente', component: IntervinienteDetalleComponent}
-      ]},
+      {
+        path: 'detalle/:id', component: ContratoDetalleComponent, children: [
+          { path: 'interviniente/:idInterviniente', component: IntervinienteDetalleComponent }
+        ]
+      },
     ]
   },
 
   // tipos
   {
     path: 'tipos', component: TiposComponent, children: [
-      { path: 'inmueble', component: TipoInmuebleListaComponent , children: [
-        { path: 'modificacion/:id', component: ModificacionTiposComponent}
-      ]},
-      { path: 'contrato', component: TipoContratoListaComponent , children: [
-        { path: 'modificacion/:id', component: ModificacionTiposComponent}
-      ]},
-      { path: 'interviniente', component: TipoIntervinienteListaComponent , children: [
-        { path: 'modificacion/:id', component: ModificacionTiposComponent}
-      ]},
-      { path: 'periodo', component: PeriodoListaComponent , children: [
-        { path: 'modificacion/:id', component: ModificacionTiposComponent}
-      ]},
-      { path: 'rol', component: RolListaComponent , children: [
-        { path: 'modificacion/:id', component: ModificacionTiposComponent}
-      ]
+      {
+        path: 'inmueble', component: TipoInmuebleListaComponent, children: [
+          { path: 'modificacion/:id', component: ModificacionTiposComponent }
+        ]
+      },
+      {
+        path: 'contrato', component: TipoContratoListaComponent, children: [
+          { path: 'modificacion/:id', component: ModificacionTiposComponent }
+        ]
+      },
+      {
+        path: 'interviniente', component: TipoIntervinienteListaComponent, children: [
+          { path: 'modificacion/:id', component: ModificacionTiposComponent }
+        ]
+      },
+      {
+        path: 'periodo', component: PeriodoListaComponent, children: [
+          { path: 'modificacion/:id', component: ModificacionTiposComponent }
+        ]
+      },
+      {
+        path: 'rol', component: RolListaComponent, children: [
+          { path: 'modificacion/:id', component: ModificacionTiposComponent }
+        ]
       },
       {
         path: 'concepto', component: TipoCoceptoListaComponent, children: [
-         { path: ' modificacion/:id', component: TipoConceptoRegistroComponent},
+          { path: 'modificacion/:id', component: TipoConceptoRegistroComponent },
         ]
       },
       {
         path: 'pago', component: TipoPagoListaComponent, children: [
-          { path: ' modificacion/:id', component: TipoPagoRegistroComponent },
-      ]},
+          { path: 'modificacion/:id', component: TipoPagoRegistroComponent },
+        ]
+      },
+      {
+        path: 'categoria', component: TipoCategoriaListaComponent, children: [
+          { path: 'modificacion/:id', component: TipoCategoriaRegistroComponent },
+        ]
+      },
     ]
   },
-  
+
   { path: '**', pathMatch: 'full', redirectTo: '/publi' },
 
 

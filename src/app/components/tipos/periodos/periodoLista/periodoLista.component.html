@@ -1,23 +1,22 @@
-<div class="fondo">
+<div class="pagina">
   <div class="botonNuevosRegistros">
-    <button type="button" [routerLink]="['/tipos/periodo']" class="button" data-toggle="modal" data-target="#registroTiposPeriodo">
+    <button type="button" [routerLink]="['/tipos/periodo']" class="button" data-toggle="modal"
+      data-target="#registroTiposPeriodo">
       Nuevo Tipo de Periodos
     </button>
   </div>
   <div class="listado">
-    <table class="table">
+    <table class="lista">
       <thead>
         <tr>
-          <th>Nombre</th>      
+          <th>Nombre</th>
           <th></th>
         </tr>
       </thead>
-      <tbody routerLinkActive="activo activoBoton"
-        *ngFor="let tipo of arrListaTipoPeriodo; let i = index">
-        <tr (click)="navegar(tipo.idTipoPeriodo)"
-        [routerLink]="['/periodo/modificacion/'+tipo.idTipoPeriodo]">
+      <tbody routerLinkActive="activo activoBoton" *ngFor="let tipo of arrListaTipoPeriodo; let i = index">
+        <tr (click)="navegar(tipo.idTipoPeriodo)" [routerLink]="['/periodo/modificacion/'+tipo.idTipoPeriodo]">
           <td>{{tipo.tipoPeriodo}}</td>
-          
+
           <td>
             <button type="button" class="buttonLista" data-toggle="modal" data-target="#registroTiposPeriodo">
               Modificar
@@ -32,5 +31,3 @@
   </div>
 </div>
 <periodoRegistro></periodoRegistro>
-
-

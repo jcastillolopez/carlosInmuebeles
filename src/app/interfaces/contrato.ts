@@ -5,7 +5,6 @@ export interface contratoInterface {
     fechaInicio?: Date,
     fechaFin?: Date,
     cantidadPeriodo?: number,
-    hasIntervinientes?: boolean,
 
     createTime?: Date,
     updateTime?: Date,

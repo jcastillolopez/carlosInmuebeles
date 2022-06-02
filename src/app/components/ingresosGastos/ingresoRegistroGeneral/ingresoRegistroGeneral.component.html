@@ -1,5 +1,5 @@
-<div class="modal ventana" id="ingresoGeneral" tabindex="1" rol="dialog"
-  aria-labelledby="ingaGeneral" aria-hidden="false">
+<div class="modal ventana" id="ingresoGeneral" tabindex="1" rol="dialog" aria-labelledby="ingaGeneral"
+  aria-hidden="false">
   <div class="modal-dialog">
     <div class="modal-content">
       <h3>Introduccion de Datos de Ingresos</h3>
@@ -11,8 +11,7 @@
                 <div class="Selecion">
                   <div class="form-group campo">
                     <label class="form-label">Inmueble</label>
-                    <select class="form-control" required="" type="text"
-                      formControlName="inmuebleId">
+                    <select required="" type="text" formControlName="inmuebleId">
                       <option [value]="inmueble.idInmueble" *ngFor="let inmueble of selectInmueble">
                         {{inmueble.refcatastral}} {{inmueble.alias}}</option>
                     </select>
@@ -21,10 +20,8 @@
                   </div>
                   <div class="form-group campo">
                     <label class="form-label">Cliente</label>
-                    <select class="form-control" required="" type="text"
-                      formControlName="clienteId">
-                      <option [value]="proveedor.idCliente"
-                        *ngFor="let proveedor of selectProveedor">
+                    <select required="" type="text" formControlName="clienteId">
+                      <option [value]="proveedor.idCliente" *ngFor="let proveedor of selectProveedor">
                         {{proveedor.nie}} {{proveedor.nombre}} {{proveedor.apellidos}} </option>
                     </select>
                     <p class="error" *ngIf="checkError('clienteId', 'required')">requerido
@@ -32,8 +29,7 @@
                   </div>
                   <div class="form-group campo">
                     <label class="form-label">Tipo Ingreso</label>
-                    <select class="form-control" required="" type="text"
-                      formControlName="tipoPagoId">
+                    <select required="" type="text" formControlName="tipoPagoId">
                       <option [value]="tipo.idTipoPago" *ngFor="let tipo of selectTipoPago">
                         {{tipo.tipoPagos}}</option>
                     </select>
@@ -42,20 +38,18 @@
                   </div>
                   <div class="form-group campo">
                     <label class="form-label">Categoria</label>
-                    <select class="form-control" required="" (change)="filtroConcepto($event)"
-                      type="text" formControlName="tipoConceptoId">
+                    <select required="" (change)="filtroConcepto($event)" type="text" formControlName="tipoCategoriaId">
                       <option [value]="tipo.idCategoria" *ngFor="let tipo of selectTipoCategoria">
                         {{tipo.categoria}}</option>
                     </select>
-                    <p class="error" *ngIf="checkError('tipoConceptoId', 'required')">requerido
+                    <p class="error" *ngIf="checkError('tipoCategoriaId', 'required')">requerido
                     </p>
                   </div>
                   <div class="form-group campo">
                     <label class="form-label">Subcategoria </label>
-                    <select class="form-control" required="" type="text"
-                      formControlName="tipoConceptoId">
-                      <option [value]="tipo.idTipoConcepto" *ngFor="let tipo of selectTipoConcepto">
-                        {{tipo.tipoConcepto}}</option>
+                    <select required="" type="text" formControlName="tipoConceptoId">
+                      <option [value]="tipo.idTipoInmueble" *ngFor="let tipo of selectTipoConcepto">
+                        {{tipo.tipoInmueble}}</option>
                     </select>
                     <p class="error" *ngIf="checkError('tipoConceptoId', 'required')">requerido
                     </p>
@@ -84,13 +78,11 @@
 
                   <div class="form-group campo">
                     <label class="form-label">Cuenta Corriente Proveedor </label>
-                    <input type="text" class="form-control"
-                      formControlName="cuentaCorrienteProveedor">
+                    <input type="text" class="form-control" formControlName="cuentaCorrienteProveedor">
                   </div>
                   <div class="form-group campo">
                     <label class="form-label">Cuenta Corriente Cliente </label>
-                    <input type="text" class="form-control"
-                      formControlName="cuentaCorrienteCliente">
+                    <input type="text" class="form-control" formControlName="cuentaCorrienteCliente">
                   </div>
                   <div class="form-group campo">
                     <label class="form-label">Fecha Cobro</label>
@@ -108,8 +100,7 @@
             <!--Subformulario detalle dinamico-->
             <div class="regiDetalle">
               <div formArrayName="arrRegistroDetalle">
-                <div class="regiDetalle"
-                  *ngFor="let detalle of obtenerDetalle.controls, let i = index"
+                <div class="regiDetalle" *ngFor="let detalle of obtenerDetalle.controls, let i = index"
                   [formGroupName]="i">
                   <div class="form-group campoTabla">
                     <label class="form-label">Concepto detalle</label>
@@ -117,29 +108,22 @@
                   </div>
                   <div class="form-group campoTabla">
                     <label class="form-label">Cantidad </label>
-                    <input (change)="calcularTotales()" type="number" class="form-control"
-                      formControlName="cantidad">
+                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="cantidad">
                   </div>
                   <div class="form-group campoTabla">
                     <label class="form-label">PVP </label>
-                    <input (change)="calcularTotales()" type="number" class="form-control"
-                      formControlName="pv">
+                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="pv">
                   </div>
                   <div class="form-group campoTabla">
                     <label class="form-label">descuento </label>
-                    <input (change)="calcularTotales()" type="number" class="form-control"
-                      formControlName="descuento">
+                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="descuento">
                   </div>
                   <div class="form-group campoTabla">
                     <label class="form-label">% de IVA </label>
                     <input (change)="calcularTotales()" type="number" class="form-control"
                       formControlName="ivaPorcentaje">
                   </div>
-
-                  <div class="form-group campoTabla">
-                    <label class="form-label">Eliminar Detalle </label>
-                    <input type="checkbox">
-                  </div>
+                  <button (click)="borrarDetalle(i)">Borrar Detalle</button>
                 </div>
               </div>
             </div>
@@ -154,8 +138,7 @@
               </div>
               <div class="form-group campoTotal">
                 <label class="form-label">Total Impuesto Iva </label>
-                <input type="number" class="form-control" required=""
-                  formControlName="totalImpuestoIva">
+                <input type="number" class="form-control" required="" formControlName="totalImpuestoIva">
                 <p class="error" *ngIf="checkError('totalImpuestoIva', 'required')">requerido
                 </p>
                 <p class="error" *ngIf="checkError('totalImpuestoIva', 'min')">requerido

@@ -1,5 +1,5 @@
-<div class="modal ventana" id="registroTiposConceptos" tabindex="1" rol="dialog" aria-labelledby="registroTiposConceptos"
-  aria-hidden="false">
+<div class="modal ventana" id="registroTiposConceptos" tabindex="1" rol="dialog"
+  aria-labelledby="registroTiposConceptos" aria-hidden="false">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -18,7 +18,15 @@
               <p class="error" *ngIf="checkError('tipoConcepto', 'maxlength')">
                 debe tener menos de 45 caracteres
               </p>
-            </div>         
+            </div>
+
+            <div class="form-group campo">
+              <label class="form-label">Categoria</label>
+              <select type="text" formControlName="categoriaId">
+                <option [value]="tipo.idCategoria" *ngFor="let tipo of selectTipoCategoria">
+                  {{tipo.categoria}}</option>
+              </select>
+            </div>
 
             <div class="form-group campo">
               <label class="form-label">Borrado</label>
@@ -26,13 +34,11 @@
             </div>
           </div>
         </div>
-      
-            <div class="modal-footer">
-              <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
-              <button data-dismiss="modal" (click)="enviar()">Save changes</button>
-            </div>
+
+        <div class="modal-footer">
+          <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
+          <button data-dismiss="modal" (click)="enviar()">Save changes</button>
+        </div>
       </form>
     </div>
   </div>
-
-

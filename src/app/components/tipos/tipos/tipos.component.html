@@ -1,35 +1,31 @@
-<header>
-  <navApp></navApp>
-</header>
-
-<div class="fondo">
+<navApp></navApp>
+<div class="pagina">
   <div class="navEspecifico">
-    <div class="navEspecifico">
-<h3>Clasificacion de :</h3>
-      <li [routerLink]="['/tipos/inmueble']" routerLinkActive="activo">
-        Inmuebles
-      </li>
-      <li [routerLink]="['/tipos/contrato']" routerLinkActive="activo">
-        Contratos
-      </li>
-      <li [routerLink]="['/tipos/interviniente']" routerLinkActive="activo">
-        Interviniente
-      </li>
-      <li [routerLink]="['/tipos/periodo']" routerLinkActive="activo">
-        Periodos
-      </li>
-      <li [routerLink]="['/tipos/rol']" routerLinkActive="activo">
-        Roles
-      </li>
-      <li [routerLink]="['/tipos/concepto']" routerLinkActive="activo">
-        Concepto
-      </li>    
+    <h3>Clasificacion de :</h3>
+    <li [routerLink]="['/tipos/inmueble']" routerLinkActive="activo">
+      Inmuebles
+    </li>
+    <li [routerLink]="['/tipos/contrato']" routerLinkActive="activo">
+      Contratos
+    </li>
+    <li [routerLink]="['/tipos/interviniente']" routerLinkActive="activo">
+      Interviniente
+    </li>
+    <li [routerLink]="['/tipos/periodo']" routerLinkActive="activo">
+      Periodos
+    </li>
+    <li [routerLink]="['/tipos/rol']" routerLinkActive="activo">
+      Roles
+    </li>
+    <li [routerLink]="['/tipos/concepto']" routerLinkActive="activo">
+      Concepto
+    </li>
     <li [routerLink]="['/tipos/pago']" routerLinkActive="activo">
       Pagos
     </li>
-    </div> 
+    <li [routerLink]="['/tipos/categoria']" routerLinkActive="activo">
+      Categoria
+    </li>
   </div>
-  <div class="router">
-    <router-outlet></router-outlet>
-  </div>
+  <router-outlet></router-outlet>
 </div>

@@ -52,6 +52,7 @@ export class IngaRegistroGeneralComponent implements OnInit {
       if (params['id']) {
         this.nuevoRegistro();
         let response = await this.metodosGlobales.getById(environment.APIPATH_INGRESOGASTOGENERALDETALLE, params['id'])
+        this.selectTipoConcepto = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONCEPTO + "categoria/" + response[0].tipoCategoriaId + "/" + parseInt(sessionStorage.getItem('administradorId')!));
         response[0].fechaFactura = dayjs(response[0].fechaFactura).format('YYYY-MM-DD')
         response[0].fechaPago = dayjs(response[0].fechaPago).format('YYYY-MM-DD')
         this.registroForm.patchValue(response[0])
@@ -85,10 +86,8 @@ export class IngaRegistroGeneralComponent implements OnInit {
 
   nuevoRegistro() {
     this.registroForm = new FormGroup({
-      idInGa: new FormControl('', [
-        Validators.required]),
-      concepto: new FormControl('', [
-        Validators.required]),
+      idInGa: new FormControl(),
+      concepto: new FormControl(),
       fechaFactura: new FormControl(new Date(), [
         Validators.required]),
       fechaPago: new FormControl(new Date(),),
@@ -107,17 +106,15 @@ export class IngaRegistroGeneralComponent implements OnInit {
         Validators.required,
         Validators.min(1)]),
       totalIngreso: new FormControl(0),
-      cuentaCorrienteProveedor: new FormControl('', [
-        Validators.required]),
-      cuentaCorrienteCliente: new FormControl('', [
-        Validators.required]),
+      cuentaCorrienteProveedor: new FormControl(),
+      cuentaCorrienteCliente: new FormControl(),
       conceptoPersonal: new FormControl(),
 
 
       clienteId: new FormControl(),
-      tipoPagoId: new FormControl('', [
-        Validators.required]),
+      tipoPagoId: new FormControl(),
       inmuebleId: new FormControl(),
+      tipoCategoriaId: new FormControl(),
       tipoConceptoId: new FormControl(),
 
       usuarioId: new FormControl(parseInt(sessionStorage.getItem('idUsuario')!)),
@@ -133,6 +130,10 @@ export class IngaRegistroGeneralComponent implements OnInit {
 
   get obtenerDetalle(): FormArray {
     return this.registroForm.get('arrRegistroDetalle') as FormArray;
+  }
+
+  borrarDetalle(index: number) {
+    this.obtenerDetalle.removeAt(index);
   }
 
   anadirDetalle() {
@@ -192,7 +193,6 @@ export class IngaRegistroGeneralComponent implements OnInit {
     }
     return result
   }
-
 
   checkError(fieldName: string, errorType: string) {
     return this.registroForm.get(fieldName).hasError(errorType) && this.registroForm.get(fieldName).touched

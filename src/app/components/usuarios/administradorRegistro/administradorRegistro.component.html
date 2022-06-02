@@ -1,5 +1,4 @@
-<div class="modal ventana" id="registro" tabindex="1" rol="dialog" aria-labelledby="registro"
-  aria-hidden="false">
+<div class="modal ventana" id="registro" tabindex="1" rol="dialog" aria-labelledby="registro" aria-hidden="false">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -44,35 +43,36 @@
                 requerido</p>
               <p class="error" *ngIf="checkError('email','pattern')">
                 El campo Email no es valido
-              </p>        
-           </div>
-           <div class="mform-group campo">
-            <label class="form-label">Tlf</label>
-            <input type="text" class="form-control" formControlName="tlf">
-          </div>
-          <div class="form-group campo">
-            <label class="form-label">Tlf. Movil</label>
-            <input type="text" class="form-control" formControlName="tlfMovil">
-          </div>
-          <div class="form-group campo">
-            <label class="form-label">Localidad</label>
-            <input type="text" class="form-control" formControlName="localidad">
-          </div>
-          <div class="form-group campo">
-            <label class="form-label">Direccion</label>
-            <input type="text" class="form-control" formControlName="direccion">
-          </div>
-          <div class="form-group campo">
-            <label class="form-label">Codigo Postal</label>
-            <input type="text" class="form-control" formControlName="codigoPostal">
-          </div>
-            
+              </p>
             </div>
-          </div>      
+            <div class="mform-group campo">
+              <label class="form-label">Tlf</label>
+              <input type="text" class="form-control" formControlName="tlf">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Tlf. Movil</label>
+              <input type="text" class="form-control" formControlName="tlfMovil">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Localidad</label>
+              <input type="text" class="form-control" formControlName="localidad">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Direccion</label>
+              <input type="text" class="form-control" formControlName="direccion">
+            </div>
+            <div class="form-group campo">
+              <label class="form-label">Codigo Postal</label>
+              <input type="text" class="form-control" formControlName="codigoPostal">
+            </div>
+
+          </div>
+        </div>
 
         <div class="modal-footer">
           <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>
-          <button data-dismiss="modal" (click)="enviar()">Save changes</button>
+          <button [hidden]="registroForm.errors || registroForm.invalid" data-dismiss="modal" (click)="enviar()">Save
+            changes</button>
         </div>
       </form>
     </div>

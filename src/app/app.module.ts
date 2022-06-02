@@ -57,6 +57,8 @@ import { TipoPagoRegistroComponent } from './components/tipos/Pagos/tipoPagoRegi
 import { IngresoRegistroGeneralComponent } from './components/ingresosGastos/ingresoRegistroGeneral/ingresoRegistroGeneral.component';
 import { NavAppComponent } from './components/navegadores/generalNav/navApp.component';
 import { LoginNavComponent } from './components/navegadores/loginNav/loginNav.component';
+import { TipoCategoriaListaComponent } from './components/tipos/categorias/tipoCategoriaLista/tipoCategoriaLista.component';
+import { TipoCategoriaRegistroComponent } from './components/tipos/categorias/tipoCategoriaRegistro/tipoCategoriaRegistro.component';
 
 
 
@@ -129,6 +131,8 @@ import { LoginNavComponent } from './components/navegadores/loginNav/loginNav.co
     TipoConceptoRegistroComponent,
     TipoPagoListaComponent,
     TipoPagoRegistroComponent,
+    TipoCategoriaListaComponent,
+    TipoCategoriaRegistroComponent,
 
 
     //Usuarios

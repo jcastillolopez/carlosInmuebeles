@@ -87,6 +87,7 @@ ul {
 }
 
 li {
+    list-style: none;
     margin-right: 20px;
 }
 
@@ -111,21 +112,22 @@ li:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    }
+}
 
-.especifico { 
+.especifico {
     padding-left: 10px;
-    margin-top:20px;  
+    margin-top: 20px;
     min-width: 80%;
     display: flex;
 }
 
-.caracteristicas {   
-    margin:0 10px;
-    display: flex;   
+.caracteristicas {
+    margin: 0 10px;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+
 /* Listados  y  listas*/
 
 .listado {
@@ -145,8 +147,8 @@ li:hover {
 }
 
 thead {
-    color: gold;   
-     
+    color: gold;
+
 }
 
 thead tr th {
@@ -154,7 +156,7 @@ thead tr th {
 
 }
 
-tbody { 
+tbody {
     color: white;
     border: 0 !important;
 
@@ -171,14 +173,14 @@ tbody tr td {
 td {
     padding: 5px;
     text-align: center;
-    min-width: 85px; 
+    min-width: 85px;
 }
 
 th {
     padding: 5px;
     min-width: 100px;
     text-align: center;
-    color: gold;   
+    color: gold;
 }
 
 .buttonLista {
@@ -206,6 +208,10 @@ th {
     text-align: center;
 }
 
+.modal-footer {
+    border: none;
+}
+
 .regiDetalle {
     display: flex;
     flex-wrap: wrap;
@@ -214,7 +220,7 @@ th {
 }
 
 .campo {
-   
+
     display: grid;
     grid-template-columns: 1fr 2fr;
     flex-direction: column;
@@ -224,7 +230,7 @@ th {
 
 .campoTabla {
     margin-right: 5px;
-   
+
 }
 
 label {
@@ -242,7 +248,7 @@ input {
 select {
     min-height: 18px;
     color: white;
-    background-color: rgb(96, 91, 91);
+    background-color: black;
     font-style: oblique;
 }
 

@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 export class TipoConceptoRegistroComponent implements OnInit {
   registroForm: FormGroup;
   result: any;
+  selectTipoCategoria: any[]
 
   constructor(
     private metodosTipos: tiposService,
@@ -22,6 +23,7 @@ export class TipoConceptoRegistroComponent implements OnInit {
     private router: Router,
   ) {
     this.result = "";
+    this.selectTipoCategoria = []
     this.registroForm = new FormGroup({
       idTipoConcepto: new FormControl(),
       tipoConcepto: new FormControl('', [
@@ -29,6 +31,7 @@ export class TipoConceptoRegistroComponent implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(60),
       ]),
+      categoriaId: new FormControl(),
       borrado: new FormControl(false),
       createTime: new FormControl(),
       updateTime: new FormControl(),
@@ -37,7 +40,8 @@ export class TipoConceptoRegistroComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.selectTipoCategoria = await this.metodosTipos.getAllTipos('categoria/' + parseInt(sessionStorage.getItem('administradorId')!))
     this.activateRouter.params.subscribe(async params => {
       if (params['id']) {
         let response = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONCEPTODETALLE + params['id'])

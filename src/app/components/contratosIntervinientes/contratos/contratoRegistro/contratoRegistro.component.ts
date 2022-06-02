@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
 import * as dayjs from 'dayjs';
 
 import { Globales } from 'src/app/services/Globales.service';
@@ -34,15 +34,14 @@ export class ContratoRegistroComponent implements OnInit {
     this.arrTipoPeriodo = [];
     this.registroForm = new FormGroup({
       idContratos: new FormControl(),
-      fechaContrato: new FormControl('', [
+      fechaContrato: new FormControl(new Date(), [
         Validators.required]),
       valorContrato: new FormControl('', [
         Validators.required]),
-      fechaInicio: new FormControl('', [
+      fechaInicio: new FormControl(new Date(), [
         Validators.required]),
-      fechaFin: new FormControl(),
+      fechaFin: new FormControl(new Date(),),
       cantidadPeriodo: new FormControl(1),
-      hasIntervinientes: new FormControl(false),
 
 
       inmuebleId: new FormControl(),
@@ -57,7 +56,8 @@ export class ContratoRegistroComponent implements OnInit {
       borrado: new FormControl(false),
       createTime: new FormControl(),
       updateTime: new FormControl(),
-    })
+    },
+      { validators: [this.validacionFechaPago] });
   }
 
   async ngOnInit() {
@@ -86,6 +86,26 @@ export class ContratoRegistroComponent implements OnInit {
       await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_CONTRATO);
     }
     window.location.reload();
+  }
+
+  validacionFechaPago(formulario: FormGroup): ValidationErrors | null {
+    let fechaInicio = formulario.get("fechaInicio").value
+    let fechaFin = formulario.get("fechaFin").value
+    let result
+    if (fechaFin) {
+      result = (fechaInicio > fechaFin) ? { validacionFechaPago: true } : null
+    } else {
+      result = null
+    }
+    return result
+  }
+
+  checkError(fieldName: string, errorType: string) {
+    return this.registroForm.get(fieldName).hasError(errorType) && this.registroForm.get(fieldName).touched
+  }
+
+  checkErrorForm(fieldName: string, errorType: string) {
+    return this.registroForm.hasError(errorType) && this.registroForm.get(fieldName).touched
   }
 
 }

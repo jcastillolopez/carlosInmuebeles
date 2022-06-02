@@ -1,19 +1,19 @@
-<div class="fondo">
+<div class="pagina">
   <div class="botonNuevosRegistros">
-    <button type="button" [routerLink]="['/tipos/contrato']" class="button" data-toggle="modal" data-target="#registroTiposContrato">
+    <button type="button" [routerLink]="['/tipos/contrato']" class="button" data-toggle="modal"
+      data-target="#registroTiposContrato">
       Nuevo Tipo de Contrato
     </button>
   </div>
   <div class="listado">
-    <table class="table">
+    <table class="lista">
       <thead>
         <tr>
           <th>Nombre</th>
         </tr>
       </thead>
       <tbody routerLinkActive="activo activoBoton" *ngFor="let tipo of arrListaTipoContrato; let i = index">
-        <tr (click)="navegar(tipo.idTipoContrato)"
-        [routerLink]="['/contrato/modificacion/'+tipo.idTipoContrato]">
+        <tr (click)="navegar(tipo.idTipoContrato)" [routerLink]="['/contrato/modificacion/'+tipo.idTipoContrato]">
           <td>{{tipo.tipoContrato}}</td>
           <td>
             <button type="button" class="buttonLista" data-toggle="modal" data-target="#registroTiposContrato">

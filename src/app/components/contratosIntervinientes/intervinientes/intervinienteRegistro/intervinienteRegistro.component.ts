@@ -33,14 +33,19 @@ export class IntervinienteRegistroComponent implements OnInit {
     this.arrCliente = [];
 
     this.registroForm = new FormGroup({
-
       idInterviniente: new FormControl(),
-      porcentajePropiedad: new FormControl(),
+      porcentajePropiedad: new FormControl(0, [
+        Validators.required,
+        Validators.min(1)
+      ]),
 
-      clienteId: new FormControl(),
-      tipoIntervinienteId: new FormControl(),
+      clienteId: new FormControl('', [
+        Validators.required
+      ]),
+      tipoIntervinienteId: new FormControl('', [
+        Validators.required
+      ]),
       contratosId: new FormControl(),
-      // inmuebleId: new FormControl(),
 
       administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!)),
       usuarioId: new FormControl(parseInt(sessionStorage.getItem('idUsuario')!)),
@@ -76,6 +81,10 @@ export class IntervinienteRegistroComponent implements OnInit {
       window.location.reload();
     })
 
+  }
+
+  checkError(fieldName: string, errorType: string) {
+    return this.registroForm.get(fieldName).hasError(errorType) && this.registroForm.get(fieldName).touched
   }
 }
 

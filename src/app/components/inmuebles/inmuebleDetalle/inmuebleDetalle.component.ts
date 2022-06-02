@@ -17,6 +17,8 @@ export class InmuebleDetalleComponent implements OnInit {
 
   inmuebleDetalle: any;
   arrSelectTipos: any[];
+  arrPropiedad: any[];
+  arrInversion: any;
   constructor(
     private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
@@ -34,11 +36,25 @@ export class InmuebleDetalleComponent implements OnInit {
       cp: '',
       borrado: false,
     }
+
+    this.arrPropiedad = [{
+      apellidos: '',
+      nombre: '',
+      porcentajePropiedad: 0
+    }]
+
+    this.arrInversion = {
+      compra: 0,
+      inversiones: 0,
+      total: 0
+    }
   }
 
   async ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
       let response = await this.metodosGlobales.getById(environment.APIPATH_INMUEBLEDETALLE, params['id']);
+      this.arrInversion = await this.metodosGlobales.getAll('inmueble/inversiones/' + params['id'])
+      this.arrPropiedad = await this.metodosGlobales.getAll('inmueble/cliente/' + params['id'])
       this.inmuebleDetalle = response[0];
     })
   }
