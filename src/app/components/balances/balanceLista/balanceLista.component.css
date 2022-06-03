@@ -1,37 +1,6 @@
-* {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   border: 0;
+button{
+   color: green;
 }
-
-.pagina {
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-}
-
-.lista {
-   min-width: 30%;
-   display: flex;
-   flex-wrap: wrap;
-   flex-direction: column;
-   text-align: center;
-   margin: 0 auto;
-}
-
-.balances {
-   margin-right: 10%;
-   display: flex;
-   flex-wrap: wrap;
-   flex-direction: row;
-}
-
-button {
-   margin: 0 30px;
-   color: lightgreen;
-}
-
-.activo {
-   background-color: green;
+.bavEspecifico{
+   
 }

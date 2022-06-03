@@ -12,6 +12,12 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./balanceLista.component.css']
 })
 export class BalanceListaComponent implements OnInit {
+  arrListaClientes: any[];
+  clienteSeleccionadoId: number;
+
+  inmuebleSeleccionadoId: number;
+  arrListaInmuebles: any[];
+  arrSelectTipos: any[];
 
   informesBalancesTotales: any;
   informesBalancesXInmuebles: any;
@@ -33,8 +39,14 @@ export class BalanceListaComponent implements OnInit {
     private router: Router,
     private activateRouter: ActivatedRoute,
   ) {
-
+this.clienteSeleccionadoId = 1;
     this.selectInmuebles = [];
+    this.arrListaClientes = [];
+
+    this.inmuebleSeleccionadoId = 1;
+    this.arrListaInmuebles = [];
+    this.arrSelectTipos = [];
+
     this.selectAnio = [];
     this.selectMes = [];
     this.inmuebleFiltrado = 0;
@@ -108,6 +120,18 @@ export class BalanceListaComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.arrSelectTipos = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
+    this.arrSelectTipos.push(await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINMUEBLE + 1))
+    this.arrListaInmuebles = await this.metodosGlobales.getById(environment.APIPATH_INMUEBLE, parseInt(sessionStorage.getItem('administradorId')!));
+    this.activateRouter.params.subscribe(params => {
+      this.inmuebleSeleccionadoId = params['id']
+    })
+    
+    this.arrListaClientes = await this.metodosGlobales.getById(environment.APIPATH_CLIENTE, parseInt(sessionStorage.getItem('administradorId')!));
+
+    this.activateRouter.params.subscribe(params => {
+      this.clienteSeleccionadoId = params['id']
+    })
     this.informesBalancesTotales = await this.metodosGlobales.getAll('informe/' + parseInt(sessionStorage.getItem('administradorId')!))
     this.selectInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectAnio = await this.metodosGlobales.getAll(environment.APIPATH_FACTURASANIO + parseInt(sessionStorage.getItem('administradorId')!));
@@ -181,5 +205,9 @@ export class BalanceListaComponent implements OnInit {
   }
   async desgloseByAnioMesesXInmueble(anio: number, mes: number) {
     this.informesBalancesByAniosMesesXInmueble = await this.metodosGlobales.getAll('informe/anio/inmueble/' + parseInt(sessionStorage.getItem('administradorId')!) + "/" + anio + "/" + mes);
+  }
+  navegar(idCliente: number) {
+    this.router.navigate(["/clientes/detalle/" + idCliente])
+
   }
 }
