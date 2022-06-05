@@ -1,6 +1,7 @@
-button{
+button {
    color: green;
 }
-.bavEspecifico{
-   
+
+.especifico {
+   flex-direction: column;
 }

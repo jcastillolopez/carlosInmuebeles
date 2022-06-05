@@ -50,9 +50,10 @@ export class ClienteDetalleComponent implements OnInit {
 
   ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
+      this.inversion = await this.metodoGlobales.getAll('cliente/inversion/' + params['id'])
       let response = await this.metodoGlobales.getById(environment.APIPATH_CLIENTEDETALLE, params['id'])
       this.arrInmueblesXCliente = await this.metodoGlobales.getAll(environment.APIPATH_CLIENTEXINMUEBLE + params['id'])
-      this.inversion = await this.metodoGlobales.getAll('cliente/inversion/' + params['id'])
+      console.log(this.arrInmueblesXCliente)
       this.cliente = response[0]
     })
   }

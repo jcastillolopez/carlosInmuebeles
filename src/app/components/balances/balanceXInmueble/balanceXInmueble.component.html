@@ -1,0 +1,25 @@
+<div class="especifico">
+  <div class="listado">
+    <table class="lista">
+      <thead>
+        <tr>
+          <th>Alias</th>
+          <th>Total Ingreso</th>
+          <th>Total Gasto</th>
+          <th>Total Balance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr routerLinkActive="activo" *ngFor="let inmueble of informesBalancesXAnios"
+          [routerLink]="['/balances/cliente/' + selectedCliente + '/anios/' + inmueble.idInmueble]"
+          (click)="navegarInmueble(inmueble.idInmueble!)">
+          <td>{{inmueble.inmuebleAlias}}</td>
+          <td>{{inmueble.totalIngresos}} €</td>
+          <td>{{inmueble.totalGastos}} €</td>
+          <td>{{inmueble.totalBalance}} €</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,35 @@
+<div class="especifico">
+    <div class="listado">
+        <table class="lista">
+            <thead>
+                <tr>
+                    <th>Anio</th>
+                    <th>Total Ingreso</th>
+                    <th>Total Gasto</th>
+                    <th>Total Balance</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="selectedCliente !== 0; else elseBlock">
+                <tr routerLinkActive="activo" *ngFor="let anio of informesBalancesXAnios"
+                    [routerLink]="['/balances/cliente/' + selectedCliente + '/anios/' + this.selectedInmueble + '/mes/' + anio]"
+                    (click)="navegarAnios(anio.anio!)">
+                    <td>{{anio.anio}}</td>
+                    <td>{{anio.totalIngresos}} €</td>
+                    <td>{{anio.totalGastos}} €</td>
+                    <td>{{anio.totalBalance}} €</td>
+                </tr>
+            </tbody>
+            <ng-template #elseBlock>
+                <tr routerLinkActive="activo" *ngFor="let anio of informesBalancesXAnios"
+                    [routerLink]="['/balances/anios/' + this.selectedInmueble + '/mes/' + anio]"
+                    (click)="navegarAnios(anio.anio!)">
+                    <td>{{anio.anio}}</td>
+                    <td>{{anio.totalIngresos}} €</td>
+                    <td>{{anio.totalGastos}} €</td>
+                    <td>{{anio.totalBalance}} €</td>
+                </tr>
+            </ng-template>
+        </table>
+    </div>
+</div>
+<router-outlet></router-outlet>

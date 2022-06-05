@@ -40,7 +40,7 @@ export class ContratoRegistroComponent implements OnInit {
         Validators.required]),
       fechaInicio: new FormControl(new Date(), [
         Validators.required]),
-      fechaFin: new FormControl(new Date(),),
+      fechaFin: new FormControl(),
       cantidadPeriodo: new FormControl(1),
 
 

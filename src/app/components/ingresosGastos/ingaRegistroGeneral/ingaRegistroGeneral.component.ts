@@ -67,10 +67,16 @@ export class IngaRegistroGeneralComponent implements OnInit {
   async enviar() {
     if (this.registroForm.value.idInGa != null) {
       this.registroForm.value.updateTime = new Date();
+      if (this.registroForm.value.fechaPago === 'Invalid Date') {
+        this.registroForm.value.fechaPago = null
+      }
       await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_INGRESOGASTOGENERAL);
     } else {
       this.registroForm.value.createTime = new Date();
       this.registroForm.value.updateTime = new Date();
+      if (this.registroForm.value.fechaPago === 'Invalid Date') {
+        this.registroForm.value.fechaPago = null
+      }
       const newIngreso = await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_INGRESOGASTOGENERAL);
       if (this.obtenerDetalle.length > 0) {
         for (const detalles of this.obtenerDetalle.controls) {
@@ -90,7 +96,7 @@ export class IngaRegistroGeneralComponent implements OnInit {
       concepto: new FormControl(),
       fechaFactura: new FormControl(new Date(), [
         Validators.required]),
-      fechaPago: new FormControl(new Date(),),
+      fechaPago: new FormControl(),
       numeroFactura: new FormControl('', [
         Validators.required]),
       totalBaseImponible: new FormControl(0, [

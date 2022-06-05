@@ -5,19 +5,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+
+import { InicioListaComponent } from './components/inicioApp/inicioLista/inicioLista.component';
+
 import { ClienteDetalleComponent } from './components/clientes/clienteDetalle/clienteDetalle.component';
 import { ClienteListaComponent } from './components/clientes/clienteLista/clienteLista.component';
-
 import { ClienteRegistroComponent } from './components/clientes/clienteRegistro/clienteRegistro.component';
+
 import { InmuebleDetalleComponent } from './components/inmuebles/inmuebleDetalle/inmuebleDetalle.component';
 import { InmuebleListaComponent } from './components/inmuebles/inmuebleLista/inmuebleLista.component';
-
 import { InmueblesRegistroComponent } from './components/inmuebles/inmuebleRegistro/inmuebleRegistro.component';
+
 import { UsuarioDetalleComponent } from './components/usuarios/usuarioDetalle/usuarioDetalle.component';
 import { UsuarioListaComponent } from './components/usuarios/usuarioLista/usuarioLista.component';
 import { UsuarioRegistroComponent } from './components/usuarios/usuarioRegistro/usuarioRegistro.component';
+
+import { NavAppComponent } from './components/navegadores/generalNav/navApp.component';
 import { PubliInicioComponent } from './components/publiRegistros/publicidad/publiInicio/publiInicio.component';
 import { PubliNavComponent } from './components/publiRegistros/publicidad/publiNav/publiNav.component';
+import { AdministradorRegistroComponent } from './components/usuarios/administradorRegistro/administradorRegistro.component';
+import { LoginComponent } from './components/publiRegistros/login/login.component';
+import { LoginNavComponent } from './components/navegadores/loginNav/loginNav.component';
 
 import { RolListaComponent } from './components/tipos/roles/rolLista/rolLista.component';
 import { RolRegistroComponent } from './components/tipos/roles/rolRegistro/rolRegistro.component';
@@ -26,41 +34,36 @@ import { PeriodoRegistroComponent } from './components/tipos/periodos/periodoReg
 import { TipoInmuebleListaComponent } from './components/tipos/inmuebles/tipoInmuebleLista/tipoInmuebleLista.component';
 import { TipoInmuebleRegistroComponent } from './components/tipos/inmuebles/tipoInmuebleRegistro/tipoInmuebleRegistro.component';
 import { TiposComponent } from './components/tipos/tipos/tipos.component';
+
+import { ContratoListaComponent } from './components/contratosIntervinientes/contratos/contratoLista/contratoLista.component';
 import { ContratoDetalleComponent } from './components/contratosIntervinientes/contratos/contratoDetalle/contratoDetalle.component';
-
 import { ContratoRegistroComponent } from './components/contratosIntervinientes/contratos/contratoRegistro/contratoRegistro.component';
+import { IntervinienteDetalleComponent } from './components/contratosIntervinientes/intervinientes/intervinienteDetalle/intervinienteDetalle.component';
+import { IntervinienteListaComponent } from './components/contratosIntervinientes/intervinientes/intervinienteLista/intervinienteLista.component';
+import { IntervinienteRegistroComponent } from './components/contratosIntervinientes/intervinientes/intervinienteRegistro/intervinienteRegistro.component';
 
+import { BalanceListaComponent } from './components/balances/balanceLista/balanceLista.component';
+import { BalanceXAnioComponent } from './components/balances/balanceXAnio/balanceXAnio.component';
+import { BalanceXInmuebleComponent } from './components/balances/balanceXInmueble/balanceXInmueble.component';
+import { BalanceXMesComponent } from './components/balances/balanceXMes/balanceXMes.component';
+
+import { ModificacionTiposComponent } from './components/tipos/modificacionTipos/modificacionTipos.component';
 import { TipoContratoRegistroComponent } from './components/tipos/contratos/tipoContratoRegistro/tipoContratoRegistro.component';
 import { TipoIntervinienteListaComponent } from './components/tipos/intervinientes/tipoIntervinienteLista/tipoIntervinienteLista.component';
 import { TipoIntervinienteRegistroComponent } from './components/tipos/intervinientes/tipoIntervinienteRegistro/tipoIntervinienteRegistro.component';
-import { IntervinienteListaComponent } from './components/contratosIntervinientes/intervinientes/intervinienteLista/intervinienteLista.component';
-import { IntervinienteRegistroComponent } from './components/contratosIntervinientes/intervinientes/intervinienteRegistro/intervinienteRegistro.component';
-import { ContratoListaComponent } from './components/contratosIntervinientes/contratos/contratoLista/contratoLista.component';
-
-import { InicioListaComponent } from './components/inicioApp/inicioLista/inicioLista.component';
-
-import { BalanceListaComponent } from './components/balances/balanceLista/balanceLista.component';
-
-import { LoginComponent } from './components/publiRegistros/login/login.component';
-import { TipoContratoListaComponent } from './components/tipos/contratos/tipoContratoLista/tipoContratoLista.component';
-import { AdministradorRegistroComponent } from './components/usuarios/administradorRegistro/administradorRegistro.component';
-import { ModificacionTiposComponent } from './components/tipos/modificacionTipos/modificacionTipos.component';
-import { IntervinienteDetalleComponent } from './components/contratosIntervinientes/intervinientes/intervinienteDetalle/intervinienteDetalle.component';
-
-import { IngaRegistroGeneralComponent } from './components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component';
 import { TipoCoceptoListaComponent } from './components/tipos/conceptos/tipoCoceptoLista/tipoCoceptoLista.component';
+import { TipoContratoListaComponent } from './components/tipos/contratos/tipoContratoLista/tipoContratoLista.component';
 import { TipoConceptoRegistroComponent } from './components/tipos/conceptos/tipoConceptoRegistro/tipoConceptoRegistro.component';
-import { InGaInicioComponent } from './components/ingresosGastos/inGaInicio/inGaInicio.component';
-import { IngaDetalleComponent } from './components/ingresosGastos/ingaDetalle/ingaDetalle.component';
 import { TipoPagoListaComponent } from './components/tipos/Pagos/tipoPagoLista/tipoPagoLista.component';
 import { TipoPagoRegistroComponent } from './components/tipos/Pagos/tipoPagoRegistro/tipoPagoRegistro.component';
-import { IngresoRegistroGeneralComponent } from './components/ingresosGastos/ingresoRegistroGeneral/ingresoRegistroGeneral.component';
-import { NavAppComponent } from './components/navegadores/generalNav/navApp.component';
-import { LoginNavComponent } from './components/navegadores/loginNav/loginNav.component';
 import { TipoCategoriaListaComponent } from './components/tipos/categorias/tipoCategoriaLista/tipoCategoriaLista.component';
 import { TipoCategoriaRegistroComponent } from './components/tipos/categorias/tipoCategoriaRegistro/tipoCategoriaRegistro.component';
 
 
+import { InGaInicioComponent } from './components/ingresosGastos/inGaInicio/inGaInicio.component';
+import { IngaDetalleComponent } from './components/ingresosGastos/ingaDetalle/ingaDetalle.component';
+import { IngaRegistroGeneralComponent } from './components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component';
+import { IngresoRegistroGeneralComponent } from './components/ingresosGastos/ingresoRegistroGeneral/ingresoRegistroGeneral.component';
 
 
 
@@ -70,14 +73,18 @@ import { TipoCategoriaRegistroComponent } from './components/tipos/categorias/ti
 @NgModule({
   declarations: [
     AppComponent,
+
     //Navegadores//
     NavAppComponent,
     LoginNavComponent,
 
     // Balance ingreso gasto
     BalanceListaComponent,
+    BalanceXAnioComponent,
+    BalanceXInmuebleComponent,
+    BalanceXMesComponent,
 
-
+    //Ingreso Gasto
     IngaRegistroGeneralComponent,
     IngresoRegistroGeneralComponent,
     IngaDetalleComponent,
@@ -111,11 +118,8 @@ import { TipoCategoriaRegistroComponent } from './components/tipos/categorias/ti
     PubliNavComponent,
     LoginComponent,
 
-
-
     //Tipos  
     TiposComponent,
-
     RolListaComponent,
     RolRegistroComponent,
     PeriodoListaComponent,
@@ -134,14 +138,11 @@ import { TipoCategoriaRegistroComponent } from './components/tipos/categorias/ti
     TipoCategoriaListaComponent,
     TipoCategoriaRegistroComponent,
 
-
     //Usuarios
     UsuarioDetalleComponent,
     UsuarioListaComponent,
     UsuarioRegistroComponent,
-
     AdministradorRegistroComponent,
-
 
 
   ],

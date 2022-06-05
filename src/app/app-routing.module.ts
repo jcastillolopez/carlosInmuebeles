@@ -26,6 +26,12 @@ import { TipoInmuebleListaComponent } from './components/tipos/inmuebles/tipoInm
 import { TipoIntervinienteListaComponent } from './components/tipos/intervinientes/tipoIntervinienteLista/tipoIntervinienteLista.component';
 import { PeriodoListaComponent } from './components/tipos/periodos/periodoLista/periodoLista.component';
 import { RolListaComponent } from './components/tipos/roles/rolLista/rolLista.component';
+import { TipoPagoListaComponent } from './components/tipos/Pagos/tipoPagoLista/tipoPagoLista.component';
+import { TipoCoceptoListaComponent } from './components/tipos/conceptos/tipoCoceptoLista/tipoCoceptoLista.component';
+import { TipoConceptoRegistroComponent } from './components/tipos/conceptos/tipoConceptoRegistro/tipoConceptoRegistro.component';
+import { TipoPagoRegistroComponent } from './components/tipos/Pagos/tipoPagoRegistro/tipoPagoRegistro.component';
+import { TipoCategoriaListaComponent } from './components/tipos/categorias/tipoCategoriaLista/tipoCategoriaLista.component';
+import { TipoCategoriaRegistroComponent } from './components/tipos/categorias/tipoCategoriaRegistro/tipoCategoriaRegistro.component';
 
 //Contratos Intervininetes
 import { ContratoListaComponent } from './components/contratosIntervinientes/contratos/contratoLista/contratoLista.component';
@@ -35,16 +41,14 @@ import { ContratoDetalleComponent } from './components/contratosIntervinientes/c
 import { BalanceListaComponent } from './components/balances/balanceLista/balanceLista.component';
 import { ModificacionTiposComponent } from './components/tipos/modificacionTipos/modificacionTipos.component';
 import { IntervinienteDetalleComponent } from './components/contratosIntervinientes/intervinientes/intervinienteDetalle/intervinienteDetalle.component';
+import { BalanceXInmuebleComponent } from './components/balances/balanceXInmueble/balanceXInmueble.component';
+import { BalanceXAnioComponent } from './components/balances/balanceXAnio/balanceXAnio.component';
+import { BalanceXMesComponent } from './components/balances/balanceXMes/balanceXMes.component';
 
+//Ingreso Gasto
 import { IngaRegistroGeneralComponent } from './components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component';
-import { TipoCoceptoListaComponent } from './components/tipos/conceptos/tipoCoceptoLista/tipoCoceptoLista.component';
-import { TipoConceptoRegistroComponent } from './components/tipos/conceptos/tipoConceptoRegistro/tipoConceptoRegistro.component';
 import { InGaInicioComponent } from './components/ingresosGastos/inGaInicio/inGaInicio.component';
 import { IngaDetalleComponent } from './components/ingresosGastos/ingaDetalle/ingaDetalle.component';
-import { TipoPagoListaComponent } from './components/tipos/Pagos/tipoPagoLista/tipoPagoLista.component';
-import { TipoPagoRegistroComponent } from './components/tipos/Pagos/tipoPagoRegistro/tipoPagoRegistro.component';
-import { TipoCategoriaListaComponent } from './components/tipos/categorias/tipoCategoriaLista/tipoCategoriaLista.component';
-import { TipoCategoriaRegistroComponent } from './components/tipos/categorias/tipoCategoriaRegistro/tipoCategoriaRegistro.component';
 
 
 
@@ -68,7 +72,26 @@ const routes: Routes = [
   { path: 'inicio', component: InicioListaComponent },
 
   // balance
-  { path: 'balances', component: BalanceListaComponent },
+  {
+    path: 'balances', component: BalanceListaComponent, children: [
+      {
+        path: 'cliente/:idCliente', component: BalanceXInmuebleComponent, children: [
+          {
+            path: 'anios/:idInmueble', component: BalanceXAnioComponent, children: [
+              { path: 'mes/:anio', component: BalanceXMesComponent }
+            ]
+          }
+        ]
+      },
+      {
+        path: 'anio/:idInmueble', component: BalanceXAnioComponent, children: [
+          { path: 'mes/:anio', component: BalanceXMesComponent }
+        ]
+      }
+    ]
+  },
+
+  //Ingreso Gasto
   {
     path: 'inga', component: InGaInicioComponent, children: [
       { path: 'general', component: IngaRegistroGeneralComponent },
@@ -148,10 +171,6 @@ const routes: Routes = [
   },
 
   { path: '**', pathMatch: 'full', redirectTo: '/publi' },
-
-
-
-
 
 ];
 
