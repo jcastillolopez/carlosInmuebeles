@@ -22,7 +22,7 @@ import { UsuarioRegistroComponent } from './components/usuarios/usuarioRegistro/
 
 import { NavAppComponent } from './components/navegadores/generalNav/navApp.component';
 import { PubliInicioComponent } from './components/publiRegistros/publicidad/publiInicio/publiInicio.component';
-import { PubliNavComponent } from './components/publiRegistros/publicidad/publiNav/publiNav.component';
+
 import { AdministradorRegistroComponent } from './components/usuarios/administradorRegistro/administradorRegistro.component';
 import { LoginComponent } from './components/publiRegistros/login/login.component';
 import { LoginNavComponent } from './components/navegadores/loginNav/loginNav.component';
@@ -64,6 +64,15 @@ import { InGaInicioComponent } from './components/ingresosGastos/inGaInicio/inGa
 import { IngaDetalleComponent } from './components/ingresosGastos/ingaDetalle/ingaDetalle.component';
 import { IngaRegistroGeneralComponent } from './components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component';
 import { IngresoRegistroGeneralComponent } from './components/ingresosGastos/ingresoRegistroGeneral/ingresoRegistroGeneral.component';
+import { InicioAyudaComponent } from './components/Ayudas/inicioAyuda/inicioAyuda.component';
+import { UsuarioAyudaComponent } from './components/Ayudas/UsuarioAyuda/usuarioAyuda.component';
+import { EntidadesAyudaComponent } from './components/Ayudas/entidadesAyuda/entidadesAyuda.component';
+import { InmueblesAyudaComponent } from './components/Ayudas/inmueblesAyuda/inmueblesAyuda.component';
+import { ContratoAyudaComponent } from './components/Ayudas/contratoAyuda/contratoAyuda.component';
+import { BalanceAyudaComponent } from './components/Ayudas/balanceAyuda/balanceAyuda.component';
+import { TiposAyudaComponent } from './components/Ayudas/tiposAyuda/tiposAyuda.component';
+import { InGaAyudaComponent } from './components/Ayudas/inGaAyuda/inGaAyuda.component';
+
 
 
 
@@ -77,12 +86,22 @@ import { IngresoRegistroGeneralComponent } from './components/ingresosGastos/ing
     //Navegadores//
     NavAppComponent,
     LoginNavComponent,
+    //Ayudas//
+    InicioAyudaComponent,
+    UsuarioAyudaComponent,
+    EntidadesAyudaComponent,
+    InmueblesAyudaComponent,
+    ContratoAyudaComponent,
+    BalanceAyudaComponent,
+    TiposAyudaComponent,
+    InGaAyudaComponent,
 
     // Balance ingreso gasto
     BalanceListaComponent,
     BalanceXAnioComponent,
     BalanceXInmuebleComponent,
     BalanceXMesComponent,
+    
 
     //Ingreso Gasto
     IngaRegistroGeneralComponent,
@@ -115,7 +134,7 @@ import { IngresoRegistroGeneralComponent } from './components/ingresosGastos/ing
 
     //PubliRegistro
     PubliInicioComponent,
-    PubliNavComponent,
+   
     LoginComponent,
 
     //Tipos  
@@ -150,7 +169,9 @@ import { IngresoRegistroGeneralComponent } from './components/ingresosGastos/ing
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+   
     HttpClientModule,
+    
 
   ],
   providers: [],

@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
 import { environment } from 'src/environments/environment';
-import { BalanceXInmuebleComponent } from '../balanceXInmueble/balanceXInmueble.component';
 
 @Component({
   selector: 'balanceXAnio',

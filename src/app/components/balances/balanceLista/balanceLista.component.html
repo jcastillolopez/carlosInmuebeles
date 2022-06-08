@@ -2,6 +2,9 @@
 
 <div class="pagina">
   <div class="navEspecifico">
+    <button type="button" data-toggle="modal" data-target="#balanceAyuda">
+      Ayuda Balance
+    </button>
     <div class="listado">
       <h4> Selecionar Clientes </h4>
       <table class="lista">
@@ -12,8 +15,9 @@
             <th>nie</th>
           </tr>
         </thead>
-        <tbody routerLinkActive="activo activoBoton" *ngFor="let cliente of arrListaClientes;">
-          <tr (click)="navegarClientes(cliente.idCliente!)" [routerLink]="['/balances/cliente/' + cliente.idCliente]">
+        <tbody *ngFor="let cliente of arrListaClientes;">
+          <tr routerLinkActive="activo activoBoton" (click)="navegarClientes(cliente.idCliente!)"
+            [routerLink]="['/balances/cliente/' + cliente.idCliente]">
             <td>{{cliente.nombre}}</td>
             <td>{{cliente.apellidos}}</td>
             <td>{{cliente.nie}}</td>
@@ -21,8 +25,9 @@
         </tbody>
       </table>
     </div>
+
   </div>
-  <div class="especifico">
-    <router-outlet></router-outlet>
-  </div>
+
+  <router-outlet></router-outlet>
 </div>
+<balanceAyuda></balanceAyuda>

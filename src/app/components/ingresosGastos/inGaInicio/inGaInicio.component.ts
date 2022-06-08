@@ -23,6 +23,7 @@ export class InGaInicioComponent implements OnInit {
   arrInGaDetalle: ingresogastodetalleinterface[];
   arrListaInmuebles: any[];
   selectInmuebles: any[];
+
   selectAnio: any[];
   selectMes: any[];
   inmuebleFiltrado: number;
@@ -158,6 +159,7 @@ export class InGaInicioComponent implements OnInit {
     if (this.filtromes !== '0') {
       this.arrIngresosGastosFiltrados = this.filtrarByMes(this.filtromes);
     }
+    this.calculoTotal();
     this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
   }
   filtrarByInGa(valor: number): Array<ingresogastointerface> {
@@ -208,7 +210,7 @@ export class InGaInicioComponent implements OnInit {
 
   calculoTotal(): number {
     let calculando = 0;
-    for (const inga of this.arrIngresosGastosMostrar) {
+    for (const inga of this.arrIngresosGastosFiltrados) {
       calculando = calculando + inga.totalImporte
     }
     this.importeTotal = calculando;

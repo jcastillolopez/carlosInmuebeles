@@ -53,6 +53,7 @@ import { IngaDetalleComponent } from './components/ingresosGastos/ingaDetalle/in
 
 
 
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/publi' },
 
@@ -70,6 +71,8 @@ const routes: Routes = [
 
   //inicio
   { path: 'inicio', component: InicioListaComponent },
+  // Ayudas//
+  
 
   // balance
   {

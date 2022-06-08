@@ -1,0 +1,9 @@
+
+tr th{
+    min-width: 150px; 
+    text-align: left;
+ }
+ tr td{
+     min-width: 150px; 
+    text-align: left; 
+ }

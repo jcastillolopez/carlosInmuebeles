@@ -1,6 +1,10 @@
 <navApp></navApp>
 <div class="pagina">
   <div class="navEspecifico">
+  <button type="button" data-toggle="modal" data-target="#tiposAyuda">
+    Ayuda Tipos
+  </button>
+  <div class="navEspecifico">
     <h3>Clasificacion de :</h3>
     <li [routerLink]="['/tipos/inmueble']" routerLinkActive="activo">
       Inmuebles
@@ -26,6 +30,8 @@
     <li [routerLink]="['/tipos/categoria']" routerLinkActive="activo">
       Categoria
     </li>
-  </div>
-  <router-outlet></router-outlet>
+  </div>  
 </div>
+<router-outlet></router-outlet>
+</div>
+<tiposAyuda></tiposAyuda>
