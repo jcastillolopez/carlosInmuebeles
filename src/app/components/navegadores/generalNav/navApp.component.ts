@@ -16,5 +16,18 @@ export class NavAppComponent implements OnInit {
   ngOnInit() {
     this.nombreUsuario = sessionStorage.getItem('nombreUsuario');
   }
-
+  validacionAdministrador() {
+    if (sessionStorage.getItem('validacionVisualizacion') == '1') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  validacionUser() {
+    if (sessionStorage.getItem('validacionVisualizacion') == '1' || sessionStorage.getItem('validacionVisualizacion') == '2') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

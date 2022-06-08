@@ -15,6 +15,7 @@ export class UsuarioRegistroComponent implements OnInit {
   registroForm: FormGroup;
   result: any;
   arrSelectTipos: any[];
+  arrSelectEntidades: any[];
 
   constructor(
 
@@ -25,6 +26,7 @@ export class UsuarioRegistroComponent implements OnInit {
   ) {
     this.result = "";
     this.arrSelectTipos = [];
+    this.arrSelectEntidades = [];
     this.registroForm = new FormGroup({
       idUsuario: new FormControl(),
 
@@ -48,14 +50,18 @@ export class UsuarioRegistroComponent implements OnInit {
       updateTime: new FormControl(),
       rolId: new FormControl([
         Validators.required]),
-      administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!))
+      administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!)),
+      entidadId: new FormControl([
+        Validators.required])
     },
       { validators: [this.passwordValidation] });
   }
 
   async ngOnInit() {
     this.arrSelectTipos = await this.metodosTipos.getAllTipos('rol/1');
+    this.arrSelectEntidades = await this.metodosGlobales.getAll(environment.APIPATH_CLIENTE + sessionStorage.getItem('administradorId'))
     this.activateRouter.params.subscribe(async params => {
+      console.log(this.activateRouter.url)
       if (params['id']) {
         let response = await this.metodosGlobales.getById(environment.APIPATH_USUARIODETALLE, params['id'])
         response[0].repitePassword = response[0].password

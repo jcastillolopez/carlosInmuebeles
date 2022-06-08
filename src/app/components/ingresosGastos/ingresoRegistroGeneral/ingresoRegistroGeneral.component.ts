@@ -6,6 +6,7 @@ import * as dayjs from 'dayjs';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
 import { environment } from 'src/environments/environment';
+import { IngaDetalleComponent } from '../ingaDetalle/ingaDetalle.component';
 
 @Component({
   selector: 'ingresoRegistroGeneral',
@@ -46,7 +47,7 @@ export class IngresoRegistroGeneralComponent implements OnInit {
     this.nuevoRegistro();
     this.selectInmueble = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectProveedor = await this.metodosGlobales.getAll(environment.APIPATH_CLIENTE + parseInt(sessionStorage.getItem('administradorId')!));
-    this.selectTipoCategoria = await this.metodosTipos.getAllTipos('categoria/inmueble');
+    this.selectTipoCategoria = await this.metodosTipos.getAllTipos('categoria/concepto');
     this.selectTipoPago = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOPAGO + parseInt(sessionStorage.getItem('administradorId')!));
 
     this.activateRouter.params.subscribe(async params => {
@@ -87,6 +88,9 @@ export class IngresoRegistroGeneralComponent implements OnInit {
       if (this.registroForm.value.fechaPago === 'Invalid Date') {
         this.registroForm.value.fechaPago = null
       }
+
+      console.log()
+
       const newIngreso = await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_INGRESOGASTOGENERAL);
       if (this.obtenerDetalle.length > 0) {
         for (const detalle of this.obtenerDetalle.controls) {
@@ -97,7 +101,7 @@ export class IngresoRegistroGeneralComponent implements OnInit {
         }
       }
     }
-    window.location.reload();
+    // window.location.reload();
   }
 
   nuevoRegistro() {
@@ -153,11 +157,8 @@ export class IngresoRegistroGeneralComponent implements OnInit {
       idInGaDetalle: new FormControl(),
       conceptoDetalle: new FormControl(),
       pv: new FormControl(),
-      descuento: new FormControl(),
-      ivaPorcentaje: new FormControl(21, [
-        Validators.min(1),
-        Validators.max(99)
-      ]),
+      descuento: new FormControl(0),
+      ivaPorcentaje: new FormControl(21),
       cantidad: new FormControl(),
 
       inGaId: new FormControl(),
@@ -176,7 +177,7 @@ export class IngresoRegistroGeneralComponent implements OnInit {
   }
 
   async filtroConcepto($event) {
-    this.selectTipoConcepto = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINMUEBLE + "categoria/" + $event.target.value + "/" + parseInt(sessionStorage.getItem('administradorId')!));
+    this.selectTipoConcepto = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONCEPTO + "categoria/" + $event.target.value + "/" + parseInt(sessionStorage.getItem('administradorId')!));
   }
 
   calcularTotales() {

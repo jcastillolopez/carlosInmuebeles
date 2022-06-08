@@ -42,6 +42,15 @@ export class UsuarioListaComponent implements OnInit {
     this.router.navigate(['usuarios/detalle/' + idUsuario])
   }
   validacionUser(): boolean {
-    return false;
+    if (sessionStorage.getItem('validacion') === 'false') {
+      this.router.navigate(['publi'])
+      return false;
+    } else {
+      if (sessionStorage.getItem('validacionVisualizacion') == '1' || sessionStorage.getItem('validacionVisualizacion') == '2') {
+        return true;
+      } else {
+        return false;
+      }
+    }
   }
 }

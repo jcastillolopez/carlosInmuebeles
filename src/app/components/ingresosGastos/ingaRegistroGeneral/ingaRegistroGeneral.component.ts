@@ -115,7 +115,6 @@ export class IngaRegistroGeneralComponent implements OnInit {
         Validators.required,
         Validators.min(1),
       ]),
-
       totalGasto: new FormControl(0, [
         Validators.required,
         Validators.min(1)]),
@@ -155,10 +154,7 @@ export class IngaRegistroGeneralComponent implements OnInit {
       idInGaDetalle: new FormControl(),
       conceptoDetalle: new FormControl(),
       pv: new FormControl(0),
-      descuento: new FormControl(0, [
-        Validators.min(1),
-        Validators.max(99)
-      ]),
+      descuento: new FormControl(0),
       ivaPorcentaje: new FormControl(21),
       cantidad: new FormControl(0),
 
