@@ -272,6 +272,7 @@ option {
 /* ****Boton*********************/
 
 button {
+    margin-right: 10px;
     min-width: 100px;
     height: 30px;
     padding: 5px;
@@ -284,7 +285,7 @@ button {
 }
 
 button:hover {
-    min-width: 80px;
+    min-width: 100px;
     color: rgb(0, 0, 0);
     text-shadow: 1px 1px 1px black;
     background-color: lightblue;

@@ -17,9 +17,6 @@ export class InGaInicioComponent implements OnInit {
   arrIngresosGastosMostrar: ingresogastointerface[];
   arrIngresosGastosFiltrados: ingresogastointerface[];
   arrIngresosGastosTodos: ingresogastointerface[];
-  arrIngresosGastosInmuebles: ingresogastointerface[];
-  arrIngresosGastosFacturas: ingresogastointerface[];
-  arrIngresosGastosAnios: ingresogastointerface[];
   arrInGaDetalle: ingresogastodetalleinterface[];
   arrListaInmuebles: any[];
   selectInmuebles: any[];
@@ -117,6 +114,8 @@ export class InGaInicioComponent implements OnInit {
         ingresoGasto.totalImporte = ingresoGasto.totalIngreso;
       }
     }
+    this.arrIngresosGastosFiltrados = this.arrIngresosGastosTodos;
+    this.calculoTotal();
   }
 
   async navegar(idIngresoGasto: number) {
