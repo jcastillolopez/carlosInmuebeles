@@ -84,7 +84,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'anio/:idInmueble', component: BalanceXAnioComponent, children: [
+        path: 'anio', component: BalanceXAnioComponent, children: [
           { path: 'mes/:anio', component: BalanceXMesComponent }
         ]
       }

@@ -70,7 +70,15 @@ export class IngaRegistroGeneralComponent implements OnInit {
       if (this.registroForm.value.fechaPago === 'Invalid Date') {
         this.registroForm.value.fechaPago = null
       }
-      await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_INGRESOGASTOGENERAL);
+      const newIngreso = await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_INGRESOGASTOGENERAL);
+      if (this.obtenerDetalle.length > 0) {
+        for (const detalle of this.obtenerDetalle.controls) {
+          detalle.value.createTime = new Date();
+          detalle.value.updateTime = new Date();
+          detalle.value.inGaId = newIngreso.idInGa;
+          const newIngresoDetalle = await this.metodosGlobales.create(detalle.value, environment.APIPATH_INGRESOGASTOESPECIFICO);
+        }
+      }
     } else {
       this.registroForm.value.createTime = new Date();
       this.registroForm.value.updateTime = new Date();
@@ -79,11 +87,11 @@ export class IngaRegistroGeneralComponent implements OnInit {
       }
       const newIngreso = await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_INGRESOGASTOGENERAL);
       if (this.obtenerDetalle.length > 0) {
-        for (const detalles of this.obtenerDetalle.controls) {
-          detalles.value.createTime = new Date();
-          detalles.value.updateTime = new Date();
-          detalles.value.inGaId = newIngreso.idInGa;
-          const newIngresoDetalle = await this.metodosGlobales.create(detalles.value, environment.APIPATH_INGRESOGASTOESPECIFICO);
+        for (const detalle of this.obtenerDetalle.controls) {
+          detalle.value.createTime = new Date();
+          detalle.value.updateTime = new Date();
+          detalle.value.inGaId = newIngreso.idInGa;
+          const newIngresoDetalle = await this.metodosGlobales.create(detalle.value, environment.APIPATH_INGRESOGASTOESPECIFICO);
         }
       }
     }
@@ -146,10 +154,13 @@ export class IngaRegistroGeneralComponent implements OnInit {
     const detalle = this.builder.group({
       idInGaDetalle: new FormControl(),
       conceptoDetalle: new FormControl(),
-      pv: new FormControl(),
-      descuento: new FormControl(),
+      pv: new FormControl(0),
+      descuento: new FormControl(0, [
+        Validators.min(1),
+        Validators.max(99)
+      ]),
       ivaPorcentaje: new FormControl(21),
-      cantidad: new FormControl(),
+      cantidad: new FormControl(0),
 
       inGaId: new FormControl(),
 

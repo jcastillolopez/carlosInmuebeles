@@ -53,7 +53,7 @@ export class IngresoRegistroGeneralComponent implements OnInit {
       if (params['id']) {
         this.nuevoRegistro();
         let response = await this.metodosGlobales.getById(environment.APIPATH_INGRESOGASTOGENERALDETALLE, params['id'])
-        this.selectTipoConcepto = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINMUEBLE + "categoria/" + response[0].tipoCategoriaId + "/" + parseInt(sessionStorage.getItem('administradorId')!));
+        this.selectTipoConcepto = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONCEPTO + "categoria/" + response[0].tipoCategoriaId + "/" + parseInt(sessionStorage.getItem('administradorId')!));
         response[0].fechaFactura = dayjs(response[0].fechaFactura).format('YYYY-MM-DD')
         response[0].fechaPago = dayjs(response[0].fechaPago).format('YYYY-MM-DD')
         this.registroForm.patchValue(response[0])
@@ -69,10 +69,24 @@ export class IngresoRegistroGeneralComponent implements OnInit {
   async enviar() {
     if (this.registroForm.value.idInGa != null) {
       this.registroForm.value.updateTime = new Date();
-      await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_INGRESOGASTOGENERAL);
+      if (this.registroForm.value.fechaPago === 'Invalid Date') {
+        this.registroForm.value.fechaPago = null
+      }
+      const newIngreso = await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_INGRESOGASTOGENERAL);
+      if (this.obtenerDetalle.length > 0) {
+        for (const detalle of this.obtenerDetalle.controls) {
+          detalle.value.createTime = new Date();
+          detalle.value.updateTime = new Date();
+          detalle.value.inGaId = newIngreso.idInGa;
+          const newIngresoDetalle = await this.metodosGlobales.create(detalle.value, environment.APIPATH_INGRESOGASTOESPECIFICO);
+        }
+      }
     } else {
       this.registroForm.value.createTime = new Date();
       this.registroForm.value.updateTime = new Date();
+      if (this.registroForm.value.fechaPago === 'Invalid Date') {
+        this.registroForm.value.fechaPago = null
+      }
       const newIngreso = await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_INGRESOGASTOGENERAL);
       if (this.obtenerDetalle.length > 0) {
         for (const detalle of this.obtenerDetalle.controls) {
@@ -83,7 +97,7 @@ export class IngresoRegistroGeneralComponent implements OnInit {
         }
       }
     }
-    // window.location.reload();
+    window.location.reload();
   }
 
   nuevoRegistro() {
@@ -140,7 +154,10 @@ export class IngresoRegistroGeneralComponent implements OnInit {
       conceptoDetalle: new FormControl(),
       pv: new FormControl(),
       descuento: new FormControl(),
-      ivaPorcentaje: new FormControl(21),
+      ivaPorcentaje: new FormControl(21, [
+        Validators.min(1),
+        Validators.max(99)
+      ]),
       cantidad: new FormControl(),
 
       inGaId: new FormControl(),

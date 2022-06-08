@@ -147,18 +147,15 @@ li:hover {
 
 thead {
     color: gold;
-
 }
 
 thead tr th {
     border-top: 0;
-
 }
 
 tbody {
     color: white;
     border: 0 !important;
-
 }
 
 tbody tr:hover {
@@ -271,7 +268,7 @@ button {
 }
 
 button:hover {
-    min-width: 100px;
+    min-width: 80px;
     color: rgb(0, 0, 0);
     text-shadow: 1px 1px 1px black;
     background-color: lightblue;

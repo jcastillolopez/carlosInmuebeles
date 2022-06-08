@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
@@ -11,9 +11,9 @@ import { environment } from 'src/environments/environment';
 })
 export class BalanceXInmuebleComponent implements OnInit {
 
+  selectedCliente: number = 0;
   informesBalancesXAnios: any[];
   selectedInmueble: number;
-  selectedCliente: number;
 
   constructor(
     private metodosGlobales: Globales,
@@ -37,16 +37,16 @@ export class BalanceXInmuebleComponent implements OnInit {
 
   ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
-      this.selectedCliente = this.activateRouter.snapshot.params['idCliente']
       if (params['idCliente']) {
         this.selectedInmueble = params['idInmueble']
+        this.selectedCliente = params['idCliente']
         this.informesBalancesXAnios = await this.metodosGlobales.getAll('informe/inmueble/' + parseInt(sessionStorage.getItem('administradorId')!));
       }
     })
   }
 
   navegarInmueble(idInmueble: number) {
-    this.router.navigate(["/balances/cliente/" + this.selectedCliente + "/anios/" + idInmueble])
+    this.router.navigateByUrl("/balances/cliente/" + this.selectedCliente + "/anios/" + idInmueble)
   }
 
 }

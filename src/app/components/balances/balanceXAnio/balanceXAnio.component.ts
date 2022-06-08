@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
@@ -14,14 +14,13 @@ export class BalanceXAnioComponent implements OnInit {
 
   informesBalancesXAnios: any[];
   selectedInmueble: number;
-  selectedCliente: number = 0;
+  @Input() selectedCliente: number;
 
   constructor(
     private metodosGlobales: Globales,
     private metodosTipos: tiposService,
     private router: Router,
     private activateRouter: ActivatedRoute,
-    private balanceXInmueble: BalanceXInmuebleComponent,
   ) {
     this.informesBalancesXAnios = [{
       totalBalance: 0,
@@ -40,16 +39,10 @@ export class BalanceXAnioComponent implements OnInit {
       this.selectedInmueble = params['idInmueble']
       this.informesBalancesXAnios = await this.metodosGlobales.getAll('informe/inmueble/anio/' + params['idInmueble'] + "/" + parseInt(sessionStorage.getItem('administradorId')!));
     })
-
-    this.selectedCliente = this.balanceXInmueble.selectedCliente;
   }
 
   navegarAnios(anio: number) {
-    if (this.selectedCliente !== 0) {
-      this.router.navigate(["/balances/cliente/" + this.selectedCliente + "/anios/" + this.selectedInmueble + "/mes/" + anio])
-    } else {
-      this.router.navigate(["/balances/anio/" + this.selectedInmueble + "/mes/" + anio])
-    }
+    this.router.navigate(["/balances/cliente/" + this.selectedCliente + "/anios/" + this.selectedInmueble + "/mes/" + anio])
   }
 
 }

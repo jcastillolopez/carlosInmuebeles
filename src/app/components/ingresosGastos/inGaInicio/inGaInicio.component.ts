@@ -1,3 +1,4 @@
+import { ArrayType } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ingresogastointerface } from 'src/app/interfaces/ingresoGasto';
@@ -28,6 +29,11 @@ export class InGaInicioComponent implements OnInit {
   importeTotal: number;
   labelTotalImporte: string;
 
+  filtroinga: number = 0;
+  filtroinmueble: number = 0;
+  filtroyear: string = '0';
+  filtromes: string = '0';
+
 
   constructor(
     private metodosGlobales: Globales,
@@ -38,9 +44,6 @@ export class InGaInicioComponent implements OnInit {
     this.arrIngresosGastosMostrar = [];
     this.arrIngresosGastosFiltrados = [];
     this.arrIngresosGastosTodos = [];
-    this.arrIngresosGastosInmuebles = [];
-    this.arrIngresosGastosFacturas = [];
-    this.arrIngresosGastosAnios = [];
     this.arrListaInmuebles = [];
     this.selectInmuebles = [];
     this.selectAnio = [];
@@ -129,88 +132,78 @@ export class InGaInicioComponent implements OnInit {
   }
 
   ingresoGasto($event) {
-    this.arrIngresosGastosFiltrados = []
-    if (this.arrIngresosGastosFacturas.length == 0) {
-      this.arrIngresosGastosFacturas = this.arrIngresosGastosTodos;
-    }
-    if ($event.target.value != 0) {
-      for (const factura of this.arrIngresosGastosTodos) {
-        if ($event.target.value != 1) {
-          if (factura.totalGasto != 0) {
-            this.arrIngresosGastosFiltrados.push(factura);
-            this.labelTotalImporte = 'Total Gasto';
-          }
-        } else {
-          if (factura.totalIngreso != 0) {
-            this.arrIngresosGastosFiltrados.push(factura);
-            this.labelTotalImporte = 'Total Ingreso';
-          }
-        }
-      }
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
-      this.calculoTotal();
-    } else {
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosTodos;
-      this.importeTotal = 0;
-      this.labelTotalImporte = ''
-    }
-    this.arrIngresosGastosFacturas = this.arrIngresosGastosFiltrados;
+    this.filtroinga = $event.target.value
   }
-
   inmuebles($event) {
-    this.arrIngresosGastosFiltrados = [];
-    if ($event.target.value != 0) {
-      for (const inmuebles of this.arrIngresosGastosFacturas) {
-        if (inmuebles.inmuebleId == $event.target.value) {
-          this.arrIngresosGastosFiltrados.push(inmuebles);
-        }
-      }
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
-    } else {
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosFacturas;
-    }
-    this.arrIngresosGastosInmuebles = this.arrIngresosGastosFiltrados;
-    this.calculoTotal();
+    this.filtroinmueble = $event.target.value
   }
-
   anios($event) {
-    this.arrIngresosGastosFiltrados = []
-    if (this.arrIngresosGastosInmuebles.length == 0) {
-      this.arrIngresosGastosInmuebles = this.arrIngresosGastosFacturas
-    }
-    if ($event.target.value != 0) {
-      for (const fechas of this.arrIngresosGastosInmuebles) {
-        if (fechas.fechaFactura.toString().substring(0, 4) === $event.target.value) {
-          this.arrIngresosGastosFiltrados.push(fechas);
-        }
-      }
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
-    } else {
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosInmuebles;
-    }
-    this.arrIngresosGastosAnios = this.arrIngresosGastosFiltrados;
-    this.calculoTotal();
+    this.filtroyear = $event.target.value
+  }
+  mes($event) {
+    this.filtromes = $event.target.value
   }
 
-  mes($event) {
-    this.arrIngresosGastosFiltrados = []
-    if (this.arrIngresosGastosAnios.length == 0) {
-      this.arrIngresosGastosAnios = this.arrIngresosGastosInmuebles;
+  filtrar() {
+    this.arrIngresosGastosFiltrados = this.arrIngresosGastosTodos
+    if (this.filtroinga != 0) {
+      this.arrIngresosGastosFiltrados = this.filtrarByInGa(this.filtroinga)
     }
-    if (this.arrIngresosGastosInmuebles.length == 0) {
-      this.arrIngresosGastosAnios = this.arrIngresosGastosFacturas;
+    if (this.filtroinmueble != 0) {
+      this.arrIngresosGastosFiltrados = this.filtrarByInmueble(this.filtroinmueble);
     }
-    if ($event.target.value != 0) {
-      for (const fechas of this.arrIngresosGastosAnios) {
-        if (fechas.fechaFactura.toString().substring(6, 7) === $event.target.value) {
-          this.arrIngresosGastosFiltrados.push(fechas);
+    if (this.filtroyear !== '0') {
+      this.arrIngresosGastosFiltrados = this.filtrarByAnio(this.filtroyear);
+    }
+    if (this.filtromes !== '0') {
+      this.arrIngresosGastosFiltrados = this.filtrarByMes(this.filtromes);
+    }
+    this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
+  }
+  filtrarByInGa(valor: number): Array<ingresogastointerface> {
+    let arr: ingresogastointerface[] = [];
+    for (const factura of this.arrIngresosGastosFiltrados) {
+      if (valor != 1) {
+        if (factura.totalGasto != 0) {
+          arr.push(factura);
+          this.labelTotalImporte = 'Total Gasto';
+        }
+      } else {
+        if (factura.totalIngreso != 0) {
+          arr.push(factura);
+          this.labelTotalImporte = 'Total Ingreso';
         }
       }
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
-    } else {
-      this.arrIngresosGastosMostrar = this.arrIngresosGastosAnios;
     }
-    this.calculoTotal();
+    return arr;
+  }
+  filtrarByInmueble(valor: number): Array<ingresogastointerface> {
+    let arr: ingresogastointerface[] = []
+    for (const inmuebles of this.arrIngresosGastosFiltrados) {
+      if (inmuebles.inmuebleId == valor) {
+        arr.push(inmuebles);
+      }
+    }
+    return arr;
+  }
+  filtrarByAnio(valor: string): Array<ingresogastointerface> {
+    let arr: ingresogastointerface[] = []
+    for (const fechas of this.arrIngresosGastosFiltrados) {
+      if (fechas.fechaFactura.toString().substring(0, 4) === valor.substring(0, 4)) {
+        arr.push(fechas);
+      }
+    }
+    return arr;
+  }
+  filtrarByMes(valor: string): Array<ingresogastointerface> {
+    let arr: ingresogastointerface[] = []
+    console.log(valor)
+    for (const fechas of this.arrIngresosGastosFiltrados) {
+      if (fechas.fechaFactura.toString().substring(6, 7) === valor) {
+        arr.push(fechas);
+      }
+    }
+    return arr;
   }
 
   calculoTotal(): number {

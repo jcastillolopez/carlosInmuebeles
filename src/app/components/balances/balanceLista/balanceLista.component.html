@@ -21,47 +21,8 @@
         </tbody>
       </table>
     </div>
-    <div class="listado">
-      <h4>Selecionar Inmueble</h4>
-      <table class="lista">
-        <thead>
-          <tr>
-            <th>Tipo Inmueble</th>
-            <th>Alias</th>
-            <th>Ref Catastral</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr routerLinkActive="activo activoBoton" *ngFor="let inmueble of arrListaInmuebles"
-            [routerLink]="['/balances/anio/' + inmueble.idInmueble]" (click)="navegarInmuebles(inmueble.idInmueble!)">
-            <td>{{inmueble.tipoInmueble}}</td>
-            <td>{{inmueble.alias}}</td>
-            <td>{{inmueble.refCatastral}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
   <div class="especifico">
-    <div class="listado">
-      <table class="lista">
-        <thead>
-          <tr>
-            <th>Total Ingreso</th>
-            <th>Total Gasto</th>
-            <th>Total Balance</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{informesBalancesTotales.totalIngresos}} €</td>
-            <td>{{informesBalancesTotales.totalGastos}} €</td>
-            <td>{{informesBalancesTotales.totalBalance}} €</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
     <router-outlet></router-outlet>
   </div>
 </div>

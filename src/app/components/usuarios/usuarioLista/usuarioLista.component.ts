@@ -41,4 +41,7 @@ export class UsuarioListaComponent implements OnInit {
   navegar(idUsuario: number) {
     this.router.navigate(['usuarios/detalle/' + idUsuario])
   }
+  validacionUser(): boolean {
+    return false;
+  }
 }
