@@ -3,17 +3,21 @@
         <table class="lista">
             <thead>
                 <tr>
-                    <th>Anio</th>
+                    <th>Inmueble</th>
+                    <th>Año</th>
+                    <th></th>
                     <th>Total Ingreso</th>
                     <th>Total Gasto</th>
                     <th>Total Balance</th>
                 </tr>
             </thead>
             <tbody *ngIf="selectedCliente !== 0; else elseBlock">
-                <tr routerLinkActive="activo" *ngFor="let anio of informesBalancesXAnios"
+                <tr routerLinkActive="activo " *ngFor="let anio of informesBalancesXAnios"
                     [routerLink]="['/balances/cliente/' + selectedCliente + '/anios/' + this.selectedInmueble + '/mes/' + anio]"
                     (click)="navegarAnios(anio.anio!)">
+                    <td>{{anio.inmuebleAlias}}</td>
                     <td>{{anio.anio}}</td>
+                    <td></td>
                     <td>{{anio.totalIngresos}} €</td>
                     <td>{{anio.totalGastos}} €</td>
                     <td>{{anio.totalBalance}} €</td>

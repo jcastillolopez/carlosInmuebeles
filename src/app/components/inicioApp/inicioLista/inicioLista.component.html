@@ -2,8 +2,7 @@
 
 <div class="pagina">
   <div class="navEspecifico">
-    <button [routerLink]="['/ayuda/inicio']" type="button" data-toggle="modal"
-      data-target="#registro">
+    <button type="button" data-toggle="modal" data-target="#inicioAyuda">
       Ayuda
     </button>
   </div>
@@ -19,16 +18,20 @@
             <th>Total Importe</th>
           </tr>
         </thead>
-        <tbody routerLinkActive="activo activoBoton"
+        <tbody [routerLink]="['/inga/detalle/'+inGa.idInGa]" routerLinkActive="activo activoBoton"
           *ngFor="let inGa of arrFacturasAvisos; let i = index">
-          <tr [routerLink]="['/inga/detalle/'+inGa.idInGa]">
+          <tr>
             <td>{{inGa.aliasInmueble}}</td>
             <td>{{inGa.fechaFactura |date:'dd-MM-YYYY'}}</td>
             <td>{{inGa.nombreApellidosCliente}}</td>
-            <td *ngIf="cambioBotones(inGa) as value">{{value}}</td>
+            <div *ngIf="inGa.totalGasto != 0; else elseBlock">{{inGa.totalGasto}} €</div>
+            <ng-template #elseBlock>
+              <td>{{inGa.totalIngreso}} €</td>
+            </ng-template>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+<inicioAyuda></inicioAyuda>

@@ -3,6 +3,8 @@
     <table class="lista">
       <thead>
         <tr>
+          <th>Inmueble</th>
+          <th>Año</th>
           <th>Mes</th>
           <th>Total Ingreso</th>
           <th>Total Gasto</th>
@@ -11,6 +13,8 @@
       </thead>
       <tbody>
         <tr routerLinkActive="activo" *ngFor="let anio of informesBalancesXAnios">
+          <td>{{anio.inmuebleAlias}}</td>
+          <td>{{anio.anio}}</td>
           <td>{{anio.nombreMes}}</td>
           <td>{{anio.totalIngresos}} €</td>
           <td>{{anio.totalGastos}} €</td>

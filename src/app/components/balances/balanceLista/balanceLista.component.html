@@ -2,6 +2,9 @@
 
 <div class="pagina">
   <div class="navEspecifico">
+    <button type="button" data-toggle="modal" data-target="#balanceAyuda">
+      Ayuda Balance
+    </button>
     <div class="listado">
       <h4> Selecionar Clientes </h4>
       <table class="lista">
@@ -12,8 +15,9 @@
             <th>nie</th>
           </tr>
         </thead>
-        <tbody routerLinkActive="activo activoBoton" *ngFor="let cliente of arrListaClientes;">
-          <tr (click)="navegarClientes(cliente.idCliente!)" [routerLink]="['/balances/cliente/' + cliente.idCliente]">
+        <tbody *ngFor="let cliente of arrListaClientes;">
+          <tr routerLinkActive="activo activoBoton" (click)="navegarClientes(cliente.idCliente!)"
+            [routerLink]="['/balances/cliente/' + cliente.idCliente]">
             <td>{{cliente.nombre}}</td>
             <td>{{cliente.apellidos}}</td>
             <td>{{cliente.nie}}</td>
@@ -21,47 +25,9 @@
         </tbody>
       </table>
     </div>
-    <div class="listado">
-      <h4>Selecionar Inmueble</h4>
-      <table class="lista">
-        <thead>
-          <tr>
-            <th>Tipo Inmueble</th>
-            <th>Alias</th>
-            <th>Ref Catastral</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr routerLinkActive="activo activoBoton" *ngFor="let inmueble of arrListaInmuebles"
-            [routerLink]="['/balances/anio/' + inmueble.idInmueble]" (click)="navegarInmuebles(inmueble.idInmueble!)">
-            <td>{{inmueble.tipoInmueble}}</td>
-            <td>{{inmueble.alias}}</td>
-            <td>{{inmueble.refCatastral}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+
   </div>
-  <div class="especifico">
-    <div class="listado">
-      <table class="lista">
-        <thead>
-          <tr>
-            <th>Total Ingreso</th>
-            <th>Total Gasto</th>
-            <th>Total Balance</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{informesBalancesTotales.totalIngresos}} €</td>
-            <td>{{informesBalancesTotales.totalGastos}} €</td>
-            <td>{{informesBalancesTotales.totalBalance}} €</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <router-outlet></router-outlet>
-  </div>
+
+  <router-outlet></router-outlet>
 </div>
+<balanceAyuda></balanceAyuda>

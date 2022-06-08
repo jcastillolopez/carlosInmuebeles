@@ -47,6 +47,8 @@ export class IngaDetalleComponent implements OnInit {
 
       tipoConceptoId: 0,
       tipoConcepto: '',
+      tipoCategoriaId: 0,
+      tipoCategoria: '',
 
       tipoPagoId: 0,
       tipoPago: '',

@@ -17,6 +17,9 @@ export interface ingresogastointerface {
     tipoConceptoId: number,
     tipoConcepto: string,
 
+    tipoCategoriaId: number,
+    tipoCategoria: string,
+
     tipoPagoId: number,
     tipoPago: string,
 

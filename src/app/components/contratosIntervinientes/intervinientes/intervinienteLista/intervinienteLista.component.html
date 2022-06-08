@@ -13,6 +13,7 @@
           <tr>
             <th>Tipo Interviniente</th>
             <th>Nombre y Apellidos</th>
+            <th>% Propiedad</th>
           </tr>
         </thead>
         <tbody 
@@ -21,6 +22,7 @@
             [routerLink]="['/contratos/detalle/' + interviniente.contratosId + '/interviniente/' + interviniente.idInterviniente]">
             <td>{{interviniente.tipoInterviniente}}</td>
             <td>{{interviniente.apellidosNombreCliente}}</td>
+            <td>{{interviniente.porcentajePropiedad}}</td>
             <td>
               <button type="button" class="buttonLista" data-toggle="modal"
                 data-target="#interviniente">

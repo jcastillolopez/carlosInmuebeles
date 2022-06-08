@@ -1,13 +1,29 @@
+
 .listado{
-  min-width: 70%;
+  min-width: 100%;
+  justify-content: space-between;
+}
+.lista{
+  min-width: 100%;
 }
 .campo{
-   min-width: 70%;
+   min-width: 100%; 
+   
 }
 .navEspecifico{
   min-width: 20%;
   font-size: 125%;
 }
+tr th {
+  min-width: 150px;
+  text-align: left;
+}
+tr td{
+  min-width: 150px;
+  text-align: left;
+}
+
+
 
 
 

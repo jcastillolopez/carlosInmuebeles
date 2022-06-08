@@ -10,6 +10,9 @@
       <button [routerLink]="['/inga']" type="button" data-toggle="modal" data-target="#ingresoGeneral">
         Nuevo Ingreso
       </button>
+      <button [routerLink]="['/inga']" type="button" data-toggle="modal" data-target="#inGaAyuda">
+        Ayuda Ingreso / Gasto
+      </button>
       <hr>
       <label class="form-label"> Filtrar por :</label>
       <select type="text" (change)="ingresoGasto($event)">
@@ -41,6 +44,7 @@
       <table class="lista">
         <thead>
           <tr>
+            <th></th>
             <th>Inmueble</th>
             <th>Categoria</th>
             <th>Proveedor</th>
@@ -53,7 +57,7 @@
           <tr (click)="navegar(inGa.idInGa)" [routerLink]="['/inga/detalle/'+inGa.idInGa]">
             <td *ngIf="cambioBotones(inGa.totalGasto) as value">{{value}}</td>
             <td>{{inGa.aliasInmueble}}</td>
-            <td>{{inGa.tipoConcepto}}</td>
+            <td>{{inGa.tipoCategoria}}</td>
             <td>{{inGa.nombreApellidosCliente}}</td>
             <td>{{inGa.fechaFactura|date:'dd-MM-YYYY'}}</td>
             <td>{{inGa.totalImporte}} €</td>
@@ -66,7 +70,8 @@
                 Modificar
               </button>
             </ng-template>
-          </tr>
+          
+          </tr>          
           <tr>
             <td colspan="12">
               <div class="campo">
@@ -98,16 +103,19 @@
             </td>
           </tr>
         </tbody>
-      </table>
-
-
-    </div>
+      </table> 
+      <div class="totales">
+        <div class="campo">
+          <label>TotalImporte</label>
+          <p>{{importeTotal}}€</p> 
+         </div>
+       </div>
+      
   </div>
-  <div class="footer">
-    <label>{{labelTotalImporte}}</label>
-    {{importeTotal}}€
-  </div>
+ 
+   
   <router-outlet></router-outlet>
-</div>
+
 <ingaRegistroGeneral></ingaRegistroGeneral>
 <ingresoRegistroGeneral></ingresoRegistroGeneral>
+<inGaAyuda></inGaAyuda>

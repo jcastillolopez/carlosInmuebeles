@@ -22,6 +22,7 @@ export class InGaInicioComponent implements OnInit {
   arrInGaDetalle: ingresogastodetalleinterface[];
   arrListaInmuebles: any[];
   selectInmuebles: any[];
+  
   selectAnio: any[];
   selectMes: any[];
   inmuebleFiltrado: number;
@@ -108,7 +109,7 @@ export class InGaInicioComponent implements OnInit {
     ]
     for (const ingresoGasto of this.arrIngresosGastosMostrar) {
       if (ingresoGasto.totalGasto != 0) {
-        ingresoGasto.totalImporte = ingresoGasto.totalGasto;
+        ingresoGasto.totalImporte = ingresoGasto.totalGasto ;
       } else {
         ingresoGasto.totalImporte = ingresoGasto.totalIngreso;
       }
