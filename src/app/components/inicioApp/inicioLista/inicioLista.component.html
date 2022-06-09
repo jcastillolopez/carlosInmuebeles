@@ -26,7 +26,7 @@
             <td>{{inGa.nombreApellidosCliente}}</td>
             <div *ngIf="inGa.totalGasto != 0; else elseBlock">{{inGa.totalGasto}} €</div>
             <ng-template #elseBlock>
-              <td>{{inGa.totalIngreso}} €</td>
+              <td>{{inGa.totalIngreso}}€</td>
             </ng-template>
           </tr>
         </tbody>
