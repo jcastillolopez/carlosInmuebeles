@@ -49,6 +49,10 @@ import { BalanceXMesComponent } from './components/balances/balanceXMes/balanceX
 import { IngaRegistroGeneralComponent } from './components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component';
 import { InGaInicioComponent } from './components/ingresosGastos/inGaInicio/inGaInicio.component';
 import { IngaDetalleComponent } from './components/ingresosGastos/ingaDetalle/ingaDetalle.component';
+import { QuienessomosComponent } from './components/publiRegistros/publicidad/quienessomos/quienessomos.component';
+import { ComoFuncionaComponent } from './components/publiRegistros/publicidad/comoFunciona/comoFunciona.component';
+import { PreciosComponent } from './components/publiRegistros/publicidad/precios/precios.component';
+import { ContactoComponent } from './components/publiRegistros/contacto/contacto.component';
 
 
 
@@ -59,7 +63,12 @@ const routes: Routes = [
 
   // publi registro
   {
-    path: 'publi', component: PubliInicioComponent, children: []
+    path: 'publi', component: PubliInicioComponent, children: [
+      { path: 'quienes', component: QuienessomosComponent },
+      { path: 'como', component: ComoFuncionaComponent },
+      { path: 'precios', component: PreciosComponent },
+      { path: 'contacto', component: ContactoComponent},
+    ]
   },
 
   // usuarios
