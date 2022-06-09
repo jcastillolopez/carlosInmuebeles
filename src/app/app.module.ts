@@ -73,6 +73,10 @@ import { BalanceAyudaComponent } from './components/Ayudas/balanceAyuda/balanceA
 import { TiposAyudaComponent } from './components/Ayudas/tiposAyuda/tiposAyuda.component';
 import { InGaAyudaComponent } from './components/Ayudas/inGaAyuda/inGaAyuda.component';
 import { SliderComponent } from './components/publiRegistros/slider/slider.component';
+import { QuienessomosComponent } from './components/publiRegistros/publicidad/quienessomos/quienessomos.component';
+import { ComoFuncionaComponent } from './components/publiRegistros/publicidad/comoFunciona/comoFunciona.component';
+import { PreciosComponent } from './components/publiRegistros/publicidad/precios/precios.component';
+import { ContactoComponent } from './components/publiRegistros/contacto/contacto.component';
 
 
 
@@ -136,6 +140,10 @@ import { SliderComponent } from './components/publiRegistros/slider/slider.compo
     //PubliRegistro
     PubliInicioComponent,
     SliderComponent,
+    QuienessomosComponent,
+    ComoFuncionaComponent,
+    PreciosComponent,
+    ContactoComponent,
    
     LoginComponent,
 
