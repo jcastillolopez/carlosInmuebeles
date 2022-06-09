@@ -13,6 +13,8 @@ export class PubliInicioComponent implements OnInit {
     sessionStorage.setItem('administradorId', "")
     sessionStorage.setItem('idUsuario', "")
     sessionStorage.setItem('nombreUsuario', "")
+    sessionStorage.setItem('validacion', 'false')
+    sessionStorage.setItem('validacionVisualizacion', "")
   }
 
 }

@@ -28,7 +28,8 @@ export class UsuarioDetalleComponent implements OnInit {
       idUsuario: 0,
       rolId: 0,
       nombreRol: '',
-      administradorId: 0
+      administradorId: 0,
+      entidadId: 0
     }
   }
 

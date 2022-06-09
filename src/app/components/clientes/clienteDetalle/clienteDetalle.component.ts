@@ -32,7 +32,7 @@ export class ClienteDetalleComponent implements OnInit {
       direccion: "",
       codigoPostal: "",
       borrado: false,
-      id: 0,
+      idCliente: 0,
 
     }
 

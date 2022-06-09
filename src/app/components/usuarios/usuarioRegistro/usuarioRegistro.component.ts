@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
 import { ActivatedRoute, Router, } from '@angular/router';
+import { clienteInterface } from 'src/app/interfaces/clientes';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
 import { environment } from 'src/environments/environment';
@@ -15,6 +16,7 @@ export class UsuarioRegistroComponent implements OnInit {
   registroForm: FormGroup;
   result: any;
   arrSelectTipos: any[];
+  arrSelectEntidades: clienteInterface[];
 
   constructor(
 
@@ -25,6 +27,7 @@ export class UsuarioRegistroComponent implements OnInit {
   ) {
     this.result = "";
     this.arrSelectTipos = [];
+    this.arrSelectEntidades = [];
     this.registroForm = new FormGroup({
       idUsuario: new FormControl(),
 
@@ -46,16 +49,20 @@ export class UsuarioRegistroComponent implements OnInit {
       borrado: new FormControl(),
       createTime: new FormControl(),
       updateTime: new FormControl(),
-      rolId: new FormControl([
+      rolId: new FormControl(0, [
         Validators.required]),
-      administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!))
+      administradorId: new FormControl(parseInt(sessionStorage.getItem('administradorId')!)),
+      entidadId: new FormControl(0, [
+        Validators.required])
     },
       { validators: [this.passwordValidation] });
   }
 
   async ngOnInit() {
     this.arrSelectTipos = await this.metodosTipos.getAllTipos('rol/1');
+    this.arrSelectEntidades = await this.metodosGlobales.getAll(environment.APIPATH_CLIENTE + sessionStorage.getItem('administradorId'))
     this.activateRouter.params.subscribe(async params => {
+      console.log(this.activateRouter.url)
       if (params['id']) {
         let response = await this.metodosGlobales.getById(environment.APIPATH_USUARIODETALLE, params['id'])
         response[0].repitePassword = response[0].password
@@ -71,11 +78,11 @@ export class UsuarioRegistroComponent implements OnInit {
       if (this.registroForm.valid) {
         this.registroForm.value.createTime = new Date();
         this.registroForm.value.updateTime = new Date();
-
+        console.log(this.registroForm.value)
         const temp = await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_USUARIO);
       } else { let result = 'hay datos no validos en el formulario' };
     }
-    window.location.reload();
+    // window.location.reload();
   }
 
   passwordValidation(formulario: FormGroup): ValidationErrors | null {

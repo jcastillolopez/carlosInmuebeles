@@ -3,10 +3,10 @@
     <li [routerLink]="['/inicio']" routerLinkActive="activo">
       Inicio
     </li>
-    <li [routerLink]="['/usuarios']" routerLinkActive="activo">
+    <li *ngIf="validacionAdministrador()" [routerLink]="['/usuarios']" routerLinkActive="activo">
       Usuarios
     </li>
-    <li [routerLink]="['/clientes']" routerLinkActive="activo">
+    <li *ngIf="validacionUser()" [routerLink]="['/clientes']" routerLinkActive="activo">
       Entidades
     </li>
     <li [routerLink]="['/inmuebles']" routerLinkActive="activo">
@@ -21,11 +21,11 @@
     <li [routerLink]="['/balances']" routerLinkActive="activo">
       Balance
     </li>
-    <li [routerLink]="['/tipos']" routerLinkActive="activo">
+    <li *ngIf="validacionUser()" [routerLink]="['/tipos']" routerLinkActive="activo">
       Tipos</li>
-      <li></li>
+    <li></li>
     <li [routerLink]="['/publi']" routerLinkActive="activo">
-      Salir</li>   
+      Salir</li>
 
   </div>
   <div class="bienvenida">

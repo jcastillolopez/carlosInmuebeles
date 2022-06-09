@@ -115,7 +115,7 @@ export class InGaInicioComponent implements OnInit {
       }
     }
     this.arrIngresosGastosFiltrados = this.arrIngresosGastosTodos;
-    this.calculoTotal();
+    this.calculoTotal()
   }
 
   async navegar(idIngresoGasto: number) {

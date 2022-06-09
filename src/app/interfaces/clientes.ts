@@ -1,5 +1,5 @@
 export interface clienteInterface {
-    id?: number,
+    idCliente: number,
     nombre: string,
     apellidos: string,
     fechaNacimiento: Date,
@@ -13,5 +13,5 @@ export interface clienteInterface {
     usuarioId?: number,
     borrado: boolean,
     createTime?: Date,
-    updateTime?:Date,
+    updateTime?: Date,
 }
