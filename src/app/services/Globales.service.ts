@@ -8,15 +8,15 @@ import { environment } from 'src/environments/environment';
 })
 
 export class Globales {
-  url: string = process.env.APIPATH_GENERAL;
+  // url: string = process.env.APIPATH_GENERAL;
   // url: string = 'https://gestioninmuebles-spring.herokuapp.com/api/v1/'
-  // url: string = 'http://localhost:8081/api/v1/';
+  url: string = 'http://localhost:8081/api/v1/';
   constructor(private httpClient: HttpClient) {
   }
+
   login(paramurl: string, email: string, password: string) {
     return firstValueFrom(this.httpClient.get<any>(this.url + paramurl + email + '/' + password))
   }
-
   getAll(paramurl: string) {
     return firstValueFrom(
       this.httpClient.get<any>(this.url + paramurl)

@@ -40,7 +40,7 @@ export class BalanceXInmuebleComponent implements OnInit {
       if (params['idCliente']) {
         this.selectedInmueble = params['idInmueble']
         this.selectedCliente = params['idCliente']
-        this.informesBalancesXAnios = await this.metodosGlobales.getAll('informe/inmueble/' + parseInt(sessionStorage.getItem('administradorId')!));
+        this.informesBalancesXAnios = await this.metodosGlobales.getAll('informe/inmueble/' + parseInt(sessionStorage.getItem('administradorId')!) + '/' + this.selectedCliente);
       }
     })
   }

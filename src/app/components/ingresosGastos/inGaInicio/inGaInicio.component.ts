@@ -24,7 +24,8 @@ export class InGaInicioComponent implements OnInit {
   selectAnio: any[];
   selectMes: any[];
   inmuebleFiltrado: number;
-  importeTotal: number;
+  IngresoTotal: number;
+  GastoTotal: number;
   labelTotalImporte: string;
 
   filtroinga: number = 0;
@@ -47,7 +48,8 @@ export class InGaInicioComponent implements OnInit {
     this.selectAnio = [];
     this.selectMes = [];
     this.inmuebleFiltrado = 0;
-    this.importeTotal = 0;
+    this.IngresoTotal = 0;
+    this.GastoTotal = 0;
     this.labelTotalImporte = '';
   }
 
@@ -207,15 +209,16 @@ export class InGaInicioComponent implements OnInit {
     return arr;
   }
 
-  calculoTotal(): number {
-    let calculando = 0;
+  calculoTotal() {
+    let calculandoIngresos = 0;
+    let calculandoGastos = 0;
     for (const inga of this.arrIngresosGastosFiltrados) {
-      calculando = calculando + inga.totalImporte
+      calculandoIngresos = calculandoIngresos + inga.totalIngreso
+      calculandoGastos = calculandoGastos + inga.totalGasto
     }
-    this.importeTotal = calculando;
-    return this.importeTotal;
+    this.IngresoTotal = calculandoIngresos;
+    this.GastoTotal = calculandoGastos;
   }
-
   cambioBotones(campo: number): string {
     if (campo === 0) {
       return 'Ingreso';
@@ -223,5 +226,4 @@ export class InGaInicioComponent implements OnInit {
       return 'Gasto';
     }
   }
-
 }
