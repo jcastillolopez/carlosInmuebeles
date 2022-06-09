@@ -14,7 +14,7 @@
         Ayuda Ingreso / Gasto
       </button>
       <hr>
-      <label class="form-label"> Filtrar por :</label>
+      <label class="form-label"> Seleccione el filtro :</label>
       <select type="text" (change)="ingresoGasto($event)">
         <option [value]="0">Seleccione ingreso o gasto</option>
         <option [value]="1">Ingreso</option>
@@ -109,7 +109,7 @@
       </table>
       <div class="totales">
         <div class="campo">
-          <label>TotalImporte</label>
+          <label>Total Importe</label>
           <p>{{importeTotal}}€</p>
         </div>
       </div>

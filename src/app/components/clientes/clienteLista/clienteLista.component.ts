@@ -44,7 +44,14 @@ export class ClienteListaComponent implements OnInit {
 
   navegar(idCliente: number) {
     this.router.navigate(["/clientes/detalle/" + idCliente])
+  }
 
+  validaciones() {
+    if (sessionStorage.getItem('validacionVisualizacion') == '1' || sessionStorage.getItem('validacionVisualizacion') == '2') {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

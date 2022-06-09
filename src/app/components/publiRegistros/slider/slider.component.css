@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+li{
+    font-size: 200%;
+    color: greenyellow;
+    text-shadow: 1px 1px 1px black;
+}
+li:hover{
+    background-color: transparent;
+    padding: 0;
+    text-shadow: 1px 1px 1px black;
+
+}
+
+.slider-frame {
+    width: 800px;
+    height: 600px;
+    margin: 10px auto 0;
+    overflow: hidden;
+}
+
+.slider-frame ul {
+
+    display: flex;
+    padding: 0;
+    width: 800%;
+    animation: slide 24s  infinite alternate ease-in-out;
+}
+
+.slider-frame li {
+    list-style: none;
+    width: 100%;
+}
+
+.slider-frame img {
+    width: 100%;
+   
+    object-fit: contain;
+}
+
+@keyframes slide {
+    0% {margin-left: 0%;}
+    10% {margin-left: 0%;}
+
+    13% {margin-left: -100%;}
+    23% {margin-left: -100%;}
+
+    26% {margin-left: -200%;}
+    36% {margin-left: -200%;}
+
+    39% {margin-left: -300%;}
+    49% {margin-left: -300%;}
+
+    52% {margin-left: -400%;}
+    62% {margin-left: -400%;}
+
+    65% {margin-left: -500%;}
+    75% {margin-left: -500%;}
+    
+    78% {margin-left: -600%;}
+    88% {margin-left: -600%;}
+
+    90% {margin-left: -700%;}
+    100% {margin-left: -700%;}
+}

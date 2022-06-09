@@ -6,7 +6,7 @@
     <li *ngIf="validacionAdministrador()" [routerLink]="['/usuarios']" routerLinkActive="activo">
       Usuarios
     </li>
-    <li [routerLink]="['/clientes']" routerLinkActive="activo">
+    <li *ngIf="validacionUser()" [routerLink]="['/clientes']" routerLinkActive="activo">
       Entidades
     </li>
     <li [routerLink]="['/inmuebles']" routerLinkActive="activo">

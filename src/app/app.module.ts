@@ -72,6 +72,7 @@ import { ContratoAyudaComponent } from './components/Ayudas/contratoAyuda/contra
 import { BalanceAyudaComponent } from './components/Ayudas/balanceAyuda/balanceAyuda.component';
 import { TiposAyudaComponent } from './components/Ayudas/tiposAyuda/tiposAyuda.component';
 import { InGaAyudaComponent } from './components/Ayudas/inGaAyuda/inGaAyuda.component';
+import { SliderComponent } from './components/publiRegistros/slider/slider.component';
 
 
 
@@ -134,6 +135,7 @@ import { InGaAyudaComponent } from './components/Ayudas/inGaAyuda/inGaAyuda.comp
 
     //PubliRegistro
     PubliInicioComponent,
+    SliderComponent,
    
     LoginComponent,
 

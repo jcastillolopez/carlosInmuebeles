@@ -1,43 +1,43 @@
+<navApp></navApp>
 
-  <navApp></navApp>
+<div class="pagina">
+  <div class="navEspecifico">
+    <button *ngIf="validaciones()" [routerLink]="['/inmuebles/']" type="button" data-toggle="modal"
+      data-target="#inmuebleRegistro">
+      Nuevo Inmueble
+    </button>
+    <button type="button" data-toggle="modal" data-target="#inmueblesAyuda">
+      Ayuda Inmueble
+    </button>
+  </div>
+  <div class="especifico">
+    <div class="listado">
+      <table class="lista">
+        <thead>
+          <tr>
+            <th>Tipo Inmueble</th>
+            <th>Alias</th>
+            <th>Ref Catastral</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody routerLinkActive="activo activoBoton" *ngFor="let inmueble of arrListaInmuebles; let i = index">
+          <tr (click)="navegar(inmueble.idInmueble)" [routerLink]="['/inmuebles/detalle/'+inmueble.idInmueble]">
 
-<div class="pagina"> 
-    <div class="navEspecifico">
-      <button [routerLink]="['/inmuebles/']" type="button" data-toggle="modal" data-target="#inmuebleRegistro">
-        Nuevo Inmueble
-      </button>
-      <button type="button" data-toggle="modal" data-target="#inmueblesAyuda">
-        Ayuda Inmueble
-      </button>
+            <td>{{inmueble.tipoInmueble}}</td>
+            <td>{{inmueble.alias}}</td>
+            <td>{{inmueble.refCatastral}}</td>
+            <td>
+              <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#inmuebleRegistro">
+                Modificar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="especifico">
-  <div class="listado">
-    <table class="lista">
-      <thead>
-        <tr>
-          <th>Tipo Inmueble</th>
-          <th>Alias</th>
-          <th>Ref Catastral</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody routerLinkActive="activo activoBoton" *ngFor="let inmueble of arrListaInmuebles; let i = index">
-        <tr (click)="navegar(inmueble.idInmueble)" [routerLink]="['/inmuebles/detalle/'+inmueble.idInmueble]">
-        
-          <td>{{inmueble.tipoInmueble}}</td>
-          <td>{{inmueble.alias}}</td>
-          <td>{{inmueble.refCatastral}}</td>
-          <td>
-            <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#inmuebleRegistro">
-              Modificar
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>  
-    <router-outlet></router-outlet>  
-</div>
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
 <inmueblesRegistro></inmueblesRegistro>

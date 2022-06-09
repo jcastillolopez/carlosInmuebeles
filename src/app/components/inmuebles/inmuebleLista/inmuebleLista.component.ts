@@ -36,7 +36,11 @@ export class InmuebleListaComponent implements OnInit {
   async ngOnInit() {
     this.arrSelectTipos = await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
     this.arrSelectTipos.push(await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOINMUEBLE + 1))
-    this.arrListaInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + 'pruebaInmuebles/' + parseInt(sessionStorage.getItem('administradorId')!) + '/' + sessionStorage.getItem('entidad'));
+    if (sessionStorage.getItem('validacionVisualizacion') === '1') {
+      this.arrListaInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
+    } else {
+      this.arrListaInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem('administradorId')!) + '/' + sessionStorage.getItem('entidad'));
+    }
     this.activateRouter.params.subscribe(params => {
       this.inmuebleSeleccionadoId = params['id']
     })
@@ -45,7 +49,14 @@ export class InmuebleListaComponent implements OnInit {
 
   navegar(idInmueble: number) {
     this.router.navigate(["/inmuebles/detalle/" + idInmueble])
+  }
 
+  validaciones() {
+    if (sessionStorage.getItem('validacionVisualizacion') == '1' || sessionStorage.getItem('validacionVisualizacion') == '2') {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
