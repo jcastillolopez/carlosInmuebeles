@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment';
 })
 
 export class Globales {
-  // url: string = process.env.APIPATH_GENERAL;
-  url: string = 'https://gestioninmuebles-spring.herokuapp.com/api/v1/'
+  url: string = process.env.APIPATH_GENERAL;
+  // url: string = 'https://gestioninmuebles-spring.herokuapp.com/api/v1/'
   // url: string = 'http://localhost:8081/api/v1/';
   constructor(private httpClient: HttpClient) {
   }
