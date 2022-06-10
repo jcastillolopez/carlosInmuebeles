@@ -74,7 +74,8 @@ export class IngaDetalleComponent implements OnInit {
       ivaPorcentaje: 0,
       cantidad: 0,
       importe: 0,
-      importeTotal: 0,
+      importeIngreso: 0,
+      importeGasto:0,
       valorTotal: 0,
 
       inGaId: 0,

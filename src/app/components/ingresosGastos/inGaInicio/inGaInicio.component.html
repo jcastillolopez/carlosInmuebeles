@@ -7,7 +7,8 @@
       <button [routerLink]="['/inga']" type="button" data-toggle="modal" data-target="#ingaGeneral">
         Nuevo Gasto
       </button>
-      <button [routerLink]="['/inga']" type="button" data-toggle="modal" data-target="#ingresoGeneral">
+      <button [routerLink]="['/inga']" type="button" data-toggle="modal"
+        data-target="#ingresoGeneral">
         Nuevo Ingreso
       </button>
       <button [routerLink]="['/inga']" type="button" data-toggle="modal" data-target="#inGaAyuda">
@@ -47,29 +48,31 @@
       <table class="lista">
         <thead>
           <tr>
-            <th></th>
             <th>Inmueble</th>
             <th>Categoria</th>
             <th>Proveedor</th>
-            <th>Fecha Gasto</th>
-            <th>Total Importe</th>
+            <th>Fecha </th>
+            <th>Ingreso</th>
+            <th>Gasto</th>
 
           </tr>
         </thead>
-        <tbody routerLinkActive="activo activoBoton" *ngFor="let inGa of arrIngresosGastosMostrar; let i = index">
+        <tbody routerLinkActive="activo activoBoton"
+          *ngFor="let inGa of arrIngresosGastosMostrar; let i = index">
           <tr (click)="navegar(inGa.idInGa)" [routerLink]="['/inga/detalle/'+inGa.idInGa]">
-            <td *ngIf="cambioBotones(inGa.totalGasto) as value">{{value}}</td>
             <td>{{inGa.aliasInmueble}}</td>
             <td>{{inGa.tipoCategoria}}</td>
             <td>{{inGa.nombreApellidosCliente}}</td>
             <td>{{inGa.fechaFactura|date:'dd-MM-YYYY'}}</td>
-            <td>{{inGa.totalImporte}} €</td>
-            <button *ngIf="inGa.totalGasto != 0; else elseBlock" type="button" class="botonOculto buttonLista"
-              data-toggle="modal" data-target="#ingaGeneral">
+            <td>{{inGa.totalIngreso}} €</td>
+            <td>{{inGa.totalGasto}} €</td>
+            <button *ngIf="inGa.totalGasto != 0; else elseBlock" type="button"
+              class="botonOculto buttonLista" data-toggle="modal" data-target="#ingaGeneral">
               Modificar
             </button>
             <ng-template #elseBlock>
-              <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#ingresoGeneral">
+              <button type="button" class="botonOculto buttonLista" data-toggle="modal"
+                data-target="#ingresoGeneral">
                 Modificar
               </button>
             </ng-template>
@@ -96,7 +99,7 @@
                       <td>{{inGaDetalle.cantidad}} und</td>
                       <td>{{inGaDetalle.importe}} €</td>
                       <td>{{inGaDetalle.descuento}} %</td>
-                      <td>{{inGaDetalle.importeTotal}} €</td>
+
                       <td>{{inGaDetalle.ivaPorcentaje}} %</td>
                       <td>{{inGaDetalle.valorTotal}} €</td>
                     </tr>
@@ -108,17 +111,27 @@
         </tbody>
       </table>
       <div class="totales">
-        <div class="campo">
-          <label>Total Importe</label>
-          <p>{{importeTotal}}€</p>
+        <h4>TOTAL: </h4>
+        <div class="campoTotal">
+          <label> Ingreso</label>
+          <p>{{importeIngreso}}€</p>
         </div>
+        <div class="campoTotal">
+          <label> Gasto</label>
+          <p>{{importeGasto}}€</p>
+        </div>
+        <div class="campoTotal">
+          <label> Balance</label>
+          <p>{{importeIngreso - importeGasto}}€</p>
       </div>
-
+      </div>
     </div>
+  </div>
+ 
+</div>
 
+<router-outlet></router-outlet>
 
-    <router-outlet></router-outlet>
-
-    <ingaRegistroGeneral></ingaRegistroGeneral>
-    <ingresoRegistroGeneral></ingresoRegistroGeneral>
-    <inGaAyuda></inGaAyuda>
+<ingaRegistroGeneral></ingaRegistroGeneral>
+<ingresoRegistroGeneral></ingresoRegistroGeneral>
+<inGaAyuda></inGaAyuda>

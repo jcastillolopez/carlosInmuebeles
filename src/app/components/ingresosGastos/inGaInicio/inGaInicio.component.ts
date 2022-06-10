@@ -24,7 +24,8 @@ export class InGaInicioComponent implements OnInit {
   selectAnio: any[];
   selectMes: any[];
   inmuebleFiltrado: number;
-  importeTotal: number;
+  importeIngreso: number;
+  importeGasto: number;
   labelTotalImporte: string;
 
   filtroinga: number = 0;
@@ -47,7 +48,9 @@ export class InGaInicioComponent implements OnInit {
     this.selectAnio = [];
     this.selectMes = [];
     this.inmuebleFiltrado = 0;
-    this.importeTotal = 0;
+    this.importeIngreso = 0;
+    this.importeGasto = 0;
+
     this.labelTotalImporte = '';
   }
 
@@ -115,7 +118,8 @@ export class InGaInicioComponent implements OnInit {
       }
     }
     this.arrIngresosGastosFiltrados = this.arrIngresosGastosTodos;
-    this.calculoTotal()
+    this.calculoTotalIngreso()
+    this.calculoTotalGasto()
   }
 
   async navegar(idIngresoGasto: number) {
@@ -158,7 +162,9 @@ export class InGaInicioComponent implements OnInit {
     if (this.filtromes !== '0') {
       this.arrIngresosGastosFiltrados = this.filtrarByMes(this.filtromes);
     }
-    this.calculoTotal();
+    this.calculoTotalIngreso();
+    this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
+    this.calculoTotalGasto();
     this.arrIngresosGastosMostrar = this.arrIngresosGastosFiltrados;
   }
   filtrarByInGa(valor: number): Array<ingresogastointerface> {
@@ -207,21 +213,23 @@ export class InGaInicioComponent implements OnInit {
     return arr;
   }
 
-  calculoTotal(): number {
-    let calculando = 0;
+  calculoTotalIngreso(): number {
+    let calculandoIngreso = 0;
     for (const inga of this.arrIngresosGastosFiltrados) {
-      calculando = calculando + inga.totalImporte
+      calculandoIngreso = calculandoIngreso + inga.totalIngreso;
     }
-    this.importeTotal = calculando;
-    return this.importeTotal;
+    this.importeIngreso = calculandoIngreso;
+    return this.importeIngreso;
   }
-
-  cambioBotones(campo: number): string {
-    if (campo === 0) {
-      return 'Ingreso';
-    } else {
-      return 'Gasto';
+  calculoTotalGasto(): number {
+    let calculandoGasto = 0;
+    for (const inga of this.arrIngresosGastosFiltrados) {
+      calculandoGasto = calculandoGasto + inga.totalGasto;
     }
+    this.importeGasto = calculandoGasto;
+    return this.importeGasto;
+ 
   }
+ 
 
 }
