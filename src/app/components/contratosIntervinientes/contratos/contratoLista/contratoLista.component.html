@@ -2,25 +2,26 @@
 
 <div class="pagina">
   <div class="navEspecifico">
-    <button [routerLink]="['/contratos/']" type="button" data-toggle="modal" data-target="#contrato">
+    <button *ngIf="permisos.validacionUser()" [routerLink]="['/contratos/']" type="button" data-toggle="modal"
+      data-target="#contrato">
       Nuevo Contrato
     </button>
     <button type="button" data-toggle="modal" data-target="#contratoAyuda">
       Ayuda Contrato
     </button>
-    <button type="button" data-toggle="modal" data-target="#clienteRegistro">
+    <button *ngIf="permisos.validacionUser()" type="button" data-toggle="modal" data-target="#clienteRegistro">
       Nueva Entidad
     </button>
-    <button type="button" data-toggle="modal" data-target="#inmuebleRegistro">
+    <button *ngIf="permisos.validacionUser()" type="button" data-toggle="modal" data-target="#inmuebleRegistro">
       Nuevo Inmueble
     </button>
-    
+
   </div>
   <div class="especifico">
     <div class="listado">
       <table class="lista">
         <thead>
-          <tr>           
+          <tr>
             <th>Inmueble</th>
             <th>Tipo Contrato</th>
             <th>Fecha Contrato</th>
@@ -30,9 +31,9 @@
         <tbody routerLinkActive="activo activoBoton" *ngFor="let contrato of arrListaContratos; let i = index">
           <tr (click)="navegar(contrato.idContratos!)" [routerLink]="['/contratos/detalle/' + contrato.idContratos ]">
             <td>{{contrato.aliasInmueble}}</td>
-            <td>{{contrato.tipoContrato}}</td>           
+            <td>{{contrato.tipoContrato}}</td>
             <td>{{contrato.fechaContrato|date:'dd-MM-YYYY'}}</td>
-            <td>
+            <td *ngIf="permisos.validacionUser()">
               <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#contrato">
                 Modificar
               </button>

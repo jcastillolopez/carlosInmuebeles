@@ -1,42 +1,45 @@
-<navApp></navApp>
+<div class="validacion" *ngIf="permisos.validacionProp()">
+  <navApp></navApp>
 
-<div class="pagina">
-  <div class="navEspecifico">
-    <button *ngIf="validaciones()" [routerLink]="['/clientes/']" type="button" data-toggle="modal"
-      data-target="#clienteRegistro">
-      Nueva Entidad
-    </button>
-    <button type="button" data-toggle="modal" data-target="#entidadesAyuda">
-      Ayuda Entidad
-    </button>
-  </div>
-  <div class="especifico">
-    <div class="listado">
-      <table class="lista">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>nie</th>
-          </tr>
-        </thead>
-        <tbody routerLinkActive="activo activoBoton" *ngFor="let cliente of arrListaClientes; let i = index">
-          <tr (click)="navegar(cliente.idCliente)" [routerLink]="['/clientes/detalle/'+cliente.idCliente]">
-            <td>{{cliente.nombre}}</td>
-            <td>{{cliente.apellidos}}</td>
-            <td>{{cliente.nie}}</td>
-            <td>
-              <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#clienteRegistro">
-                Modificar
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="pagina">
+    <div class="navEspecifico">
+      <button *ngIf="permisos.validacionUser()" [routerLink]="['/clientes/']" type="button" data-toggle="modal"
+        data-target="#clienteRegistro">
+        Nueva Entidad
+      </button>
+      <button type="button" data-toggle="modal" data-target="#entidadesAyuda">
+        Ayuda Entidad
+      </button>
     </div>
-    <router-outlet></router-outlet>
+    <div class="especifico">
+      <div class="listado">
+        <table class="lista">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>nie</th>
+            </tr>
+          </thead>
+          <tbody routerLinkActive="activo activoBoton" *ngFor="let cliente of arrListaClientes; let i = index">
+            <tr (click)="navegar(cliente.idCliente)" [routerLink]="['/clientes/detalle/'+cliente.idCliente]">
+              <td>{{cliente.nombre}}</td>
+              <td>{{cliente.apellidos}}</td>
+              <td>{{cliente.nie}}</td>
+              <td *ngIf="permisos.validacionUser()">
+                <button type="button" class="botonOculto buttonLista" data-toggle="modal"
+                  data-target="#clienteRegistro">
+                  Modificar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</div>
 
-<clienteRegistro></clienteRegistro>
-<app-entidadesAyuda></app-entidadesAyuda>
+  <clienteRegistro></clienteRegistro>
+  <app-entidadesAyuda></app-entidadesAyuda>
+</div>

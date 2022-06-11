@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PermisosService } from 'src/app/services/Permisos.service';
 import { environment } from 'src/environments/environment';
 
 
@@ -9,25 +10,11 @@ import { environment } from 'src/environments/environment';
 })
 export class NavAppComponent implements OnInit {
   nombreUsuario: any
-  constructor() {
+  constructor(public permisos: PermisosService) {
     this.nombreUsuario = ''
   }
 
   ngOnInit() {
     this.nombreUsuario = sessionStorage.getItem('nombreUsuario');
-  }
-  validacionAdministrador() {
-    if (sessionStorage.getItem('validacionVisualizacion') == '1') {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  validacionUser() {
-    if (sessionStorage.getItem('validacionVisualizacion') == '1' || sessionStorage.getItem('validacionVisualizacion') == '2') {
-      return true;
-    } else {
-      return false;
-    }
   }
 }

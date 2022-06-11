@@ -1,14 +1,14 @@
 <div class="pagina">
- 
+
   <div class="detalles">
     <div class="caracteristicas">
       <table class="lista">
         <h4>Intervinientes</h4>
-        <button (click)="navegarNuevo()" type="button" class="buttonLista botonLista1" data-toggle="modal"
-        data-target="#interviniente">
-        Nuevo Interviniente
-      </button>
-   
+        <button *ngIf="permisos.validacionUser()" (click)="navegarNuevo()" type="button" class="buttonLista botonLista1"
+          data-toggle="modal" data-target="#interviniente">
+          Nuevo Interviniente
+        </button>
+
         <thead>
           <tr>
             <th>Tipo Interviniente</th>
@@ -16,26 +16,24 @@
             <th>% Propiedad</th>
           </tr>
         </thead>
-        <tbody 
-          *ngFor="let interviniente of arrListaIntervinientes; let i = index">
+        <tbody *ngFor="let interviniente of arrListaIntervinientes; let i = index">
           <tr (click)="navegar(interviniente.contratosId! ,interviniente.idInterviniente!)"
             [routerLink]="['/contratos/detalle/' + interviniente.contratosId + '/interviniente/' + interviniente.idInterviniente]">
             <td>{{interviniente.tipoInterviniente}}</td>
             <td>{{interviniente.apellidosNombreCliente}}</td>
             <td>{{interviniente.porcentajePropiedad}}</td>
-            <td>
-              <button type="button" class="buttonLista" data-toggle="modal"
-                data-target="#interviniente">
+            <td *ngIf="permisos.validacionUser()">
+              <button type="button" class="buttonLista" data-toggle="modal" data-target="#interviniente">
                 Modificar
               </button>
             </td>
           </tr>
-        </tbody>     
-      </table> 
-      
+        </tbody>
+      </table>
+
       <router-outlet></router-outlet>
-  </div> 
-</div>
+    </div>
+  </div>
 </div>
 
 <intervinienteRegistro></intervinienteRegistro>

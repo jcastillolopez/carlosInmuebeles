@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Globales } from 'src/app/services/Globales.service';
+import { PermisosService } from 'src/app/services/Permisos.service';
 import { tiposService } from 'src/app/services/tipos.service';
 import { environment } from 'src/environments/environment';
 
@@ -24,7 +25,8 @@ export class ClienteListaComponent implements OnInit {
     private metodosGlobales: Globales,
     private metodosTipos: tiposService,
     private activateRouter: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public permisos: PermisosService
   ) {
     this.clienteSeleccionadoId = 1;
 
@@ -44,14 +46,6 @@ export class ClienteListaComponent implements OnInit {
 
   navegar(idCliente: number) {
     this.router.navigate(["/clientes/detalle/" + idCliente])
-  }
-
-  validaciones() {
-    if (sessionStorage.getItem('validacionVisualizacion') == '1' || sessionStorage.getItem('validacionVisualizacion') == '2') {
-      return true;
-    } else {
-      return false;
-    }
   }
 
 }

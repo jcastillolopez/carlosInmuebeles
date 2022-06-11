@@ -23,7 +23,7 @@ export class RolRegistroComponent implements OnInit {
     this.result = "";
 
     this.registroForm = new FormGroup({
-      idTipoRol: new FormControl(),
+      idRol: new FormControl(),
       nombreRol: new FormControl('', [
         Validators.required,
         Validators.minLength(3),

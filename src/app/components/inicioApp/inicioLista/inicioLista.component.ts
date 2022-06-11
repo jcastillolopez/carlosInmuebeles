@@ -17,7 +17,7 @@ export class InicioListaComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.arrFacturasAvisos = await this.metodosGlobales.getAll(environment.APIPATH_AVISOSFACTURAS + sessionStorage.getItem('administradorId'))
+    this.arrFacturasAvisos = await this.metodosGlobales.getAll(environment.APIPATH_AVISOSFACTURAS + sessionStorage.getItem('administradorId') + "/" + sessionStorage.getItem('entidad'))
   }
 
   cambioBotones(campo: ingresogastointerface): number {

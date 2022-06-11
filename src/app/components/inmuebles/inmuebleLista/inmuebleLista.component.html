@@ -16,7 +16,7 @@
         <thead>
           <tr>
             <th>Inmuebles</th>
-            <th>Tipo Inmueble</th>        
+            <th>Tipo Inmueble</th>
             <th>Ref Catastral</th>
             <th></th>
           </tr>
@@ -26,7 +26,7 @@
             <td>{{inmueble.alias}}</td>
             <td>{{inmueble.tipoInmueble}}</td>
             <td>{{inmueble.refCatastral}}</td>
-            <td>
+            <td *ngIf="permisos.validacionUser()">
               <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#inmuebleRegistro">
                 Modificar
               </button>
