@@ -49,4 +49,12 @@ export class PermisosService {
     }
   }
 
+  validacionTipos(admin: number): boolean {
+    if (admin == 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 }

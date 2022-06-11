@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PermisosService } from 'src/app/services/Permisos.service';
 
 @Component({
   selector: 'tipos',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TiposComponent implements OnInit {
 
-  constructor( ) { }
+  constructor(
+    public permisos: PermisosService
+  ) { }
 
   ngOnInit() {
   }

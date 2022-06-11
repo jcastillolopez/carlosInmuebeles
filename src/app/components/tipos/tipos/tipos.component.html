@@ -1,37 +1,39 @@
-<navApp></navApp>
-<div class="pagina">
-  <div class="navEspecifico">
-  <button type="button" data-toggle="modal" data-target="#tiposAyuda">
-    Ayuda Tipos
-  </button>
-  <div class="navEspecifico">
-    <h3>Clasificacion de :</h3>
-    <li [routerLink]="['/tipos/inmueble']" routerLinkActive="activo">
-      Inmuebles
-    </li>
-    <li [routerLink]="['/tipos/contrato']" routerLinkActive="activo">
-      Contratos
-    </li>
-    <li [routerLink]="['/tipos/interviniente']" routerLinkActive="activo">
-      Interviniente
-    </li>
-    <li [routerLink]="['/tipos/periodo']" routerLinkActive="activo">
-      Periodos
-    </li>
-    <li [routerLink]="['/tipos/rol']" routerLinkActive="activo">
-      Roles
-    </li>
-    <li [routerLink]="['/tipos/concepto']" routerLinkActive="activo">
-      Concepto
-    </li>
-    <li [routerLink]="['/tipos/pago']" routerLinkActive="activo">
-      Pagos
-    </li>
-    <li [routerLink]="['/tipos/categoria']" routerLinkActive="activo">
-      Categoria
-    </li>
-  </div>  
+<div class="validacion" *ngIf="permisos.validacionProp()">
+  <navApp></navApp>
+  <div class="pagina">
+    <div class="navEspecifico">
+      <button type="button" data-toggle="modal" data-target="#tiposAyuda">
+        Ayuda Tipos
+      </button>
+      <div class="navEspecifico">
+        <h3>Clasificacion de :</h3>
+        <li [routerLink]="['/tipos/inmueble']" routerLinkActive="activo">
+          Inmuebles
+        </li>
+        <li [routerLink]="['/tipos/contrato']" routerLinkActive="activo">
+          Contratos
+        </li>
+        <li [routerLink]="['/tipos/interviniente']" routerLinkActive="activo">
+          Interviniente
+        </li>
+        <li [routerLink]="['/tipos/periodo']" routerLinkActive="activo">
+          Periodos
+        </li>
+        <li [routerLink]="['/tipos/rol']" routerLinkActive="activo">
+          Roles
+        </li>
+        <li [routerLink]="['/tipos/concepto']" routerLinkActive="activo">
+          Concepto
+        </li>
+        <li [routerLink]="['/tipos/pago']" routerLinkActive="activo">
+          Pagos
+        </li>
+        <li [routerLink]="['/tipos/categoria']" routerLinkActive="activo">
+          Categoria
+        </li>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+  <tiposAyuda></tiposAyuda>
 </div>
-<router-outlet></router-outlet>
-</div>
-<tiposAyuda></tiposAyuda>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ingresogastointerface } from 'src/app/interfaces/ingresoGasto';
 import { Globales } from 'src/app/services/Globales.service';
+import { PermisosService } from 'src/app/services/Permisos.service';
 
 @Component({
   selector: 'inicioLista',
@@ -14,6 +15,7 @@ export class InicioListaComponent implements OnInit {
 
   constructor(
     private metodosGlobales: Globales,
+    public permisos: PermisosService
   ) { }
 
   async ngOnInit() {

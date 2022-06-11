@@ -1,12 +1,12 @@
 <div class="pagina">
   <div class="botonNuevosRegistros">
-   
+
   </div>
   <div class="listado">
     <button type="button" class="button" [routerLink]="['/tipos/rol/']" data-toggle="modal"
-    data-target="#registroRoles">
-    Nuevo Tipo de Rol
-  </button>
+      data-target="#registroRoles">
+      Nuevo Tipo de Rol
+    </button>
     <table class="lista">
       <thead>
         <tr>
@@ -18,7 +18,7 @@
         <tr (click)="navegar(tipo.idRol)" [routerLink]="['/rol/modificacion/'+tipo.idRol]">
           <td>{{tipo.nombreRol}}</td>
 
-          <td>
+          <td *ngIf="permisos.validacionTipos(tipo.administradorId)">
             <button type="button" class="buttonLista" data-toggle="modal" data-target="#registroRoles">
               Modificar
             </button>
