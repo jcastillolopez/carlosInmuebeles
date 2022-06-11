@@ -1,12 +1,6 @@
 
-.pagina{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; 
-}
-.especifico{
-  min-height: 80vh;
-}
+
+
 .listado {
   min-width: 100%;
   justify-content: space-between;

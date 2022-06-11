@@ -21,7 +21,7 @@
         <option [value]="1">Ingreso</option>
         <option [value]="2">Gasto</option>
       </select>
-      <select type="text" (change)="inmuebles($event)">
+      <select type="text" (change)="inmuebles($event)" >
         <option [value]="0">Seleccione un Inmueble</option>
         <option [value]="inmueble.idInmueble" *ngFor="let inmueble of selectInmuebles">
           {{inmueble.refcatastral}} {{inmueble.alias}}</option>
