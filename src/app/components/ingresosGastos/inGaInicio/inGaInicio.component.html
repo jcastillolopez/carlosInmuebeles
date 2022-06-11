@@ -47,23 +47,23 @@
       <table class="lista">
         <thead>
           <tr>
-            <th></th>
             <th>Inmueble</th>
             <th>Categoria</th>
             <th>Proveedor</th>
-            <th>Fecha Gasto</th>
-            <th>Total Importe</th>
+            <th>Fecha </th>
+            <th>Ingreso</th>
+            <th>Gasto</th>
 
           </tr>
         </thead>
         <tbody routerLinkActive="activo activoBoton" *ngFor="let inGa of arrIngresosGastosMostrar; let i = index">
           <tr (click)="navegar(inGa.idInGa)" [routerLink]="['/inga/detalle/'+inGa.idInGa]">
-            <td *ngIf="cambioBotones(inGa.totalGasto) as value">{{value}}</td>
             <td>{{inGa.aliasInmueble}}</td>
             <td>{{inGa.tipoCategoria}}</td>
             <td>{{inGa.nombreApellidosCliente}}</td>
             <td>{{inGa.fechaFactura|date:'dd-MM-YYYY'}}</td>
-            <td>{{inGa.totalImporte}} €</td>
+            <td>{{inGa.totalIngreso}} €</td>
+            <td>{{inGa.totalGasto}} €</td>
             <button *ngIf="inGa.totalGasto != 0; else elseBlock" type="button" class="botonOculto buttonLista"
               data-toggle="modal" data-target="#ingaGeneral">
               Modificar
@@ -96,7 +96,7 @@
                       <td>{{inGaDetalle.cantidad}} und</td>
                       <td>{{inGaDetalle.importe}} €</td>
                       <td>{{inGaDetalle.descuento}} %</td>
-                      <td>{{inGaDetalle.importeTotal}} €</td>
+
                       <td>{{inGaDetalle.ivaPorcentaje}} %</td>
                       <td>{{inGaDetalle.valorTotal}} €</td>
                     </tr>
@@ -116,13 +116,18 @@
           <label>Total Ingreso</label>
           <p>{{GastoTotal}}€</p>
         </div>
+        <div class="campoTotal">
+          <label> Balance</label>
+          <p>{{IngresoTotal - GastoTotal}}€</p>
+        </div>
       </div>
-
     </div>
+  </div>
 
+</div>
 
-    <router-outlet></router-outlet>
+<router-outlet></router-outlet>
 
-    <ingaRegistroGeneral></ingaRegistroGeneral>
-    <ingresoRegistroGeneral></ingresoRegistroGeneral>
-    <inGaAyuda></inGaAyuda>
+<ingaRegistroGeneral></ingaRegistroGeneral>
+<ingresoRegistroGeneral></ingresoRegistroGeneral>
+<inGaAyuda></inGaAyuda>

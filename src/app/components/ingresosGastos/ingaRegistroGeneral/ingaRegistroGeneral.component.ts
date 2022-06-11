@@ -113,7 +113,7 @@ export class IngaRegistroGeneralComponent implements OnInit {
       ]),
       totalImpuestoIva: new FormControl(0, [
         Validators.required,
-        Validators.min(1),
+        Validators.min(0),
       ]),
       totalGasto: new FormControl(0, [
         Validators.required,

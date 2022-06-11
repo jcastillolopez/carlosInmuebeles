@@ -20,17 +20,17 @@
     <div class="listado">
       <table class="lista">
         <thead>
-          <tr>
-            <th>Tipo Contrato</th>
+          <tr>           
             <th>Inmueble</th>
+            <th>Tipo Contrato</th>
             <th>Fecha Contrato</th>
             <th></th>
           </tr>
         </thead>
         <tbody routerLinkActive="activo activoBoton" *ngFor="let contrato of arrListaContratos; let i = index">
           <tr (click)="navegar(contrato.idContratos!)" [routerLink]="['/contratos/detalle/' + contrato.idContratos ]">
-            <td>{{contrato.tipoContrato}}</td>
             <td>{{contrato.aliasInmueble}}</td>
+            <td>{{contrato.tipoContrato}}</td>           
             <td>{{contrato.fechaContrato|date:'dd-MM-YYYY'}}</td>
             <td>
               <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#contrato">

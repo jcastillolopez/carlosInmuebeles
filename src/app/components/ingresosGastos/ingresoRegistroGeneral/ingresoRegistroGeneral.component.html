@@ -1,4 +1,4 @@
-<div class="modal ventana" id="ingresoGeneral" tabindex="1" rol="dialog" aria-labelledby="ingaGeneral"
+<div class="modal ventana" id="ingresoGeneral" data-backdrop="static" tabindex="1" rol="dialog" aria-labelledby="ingaGeneral"
   aria-hidden="false">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -139,10 +139,7 @@
               <div class="form-group campoTotal">
                 <label class="form-label">Total Impuesto Iva </label>
                 <input type="number" class="form-control" required="" formControlName="totalImpuestoIva">
-                <p class="error" *ngIf="checkError('totalImpuestoIva', 'required')">requerido
-                </p>
-                <p class="error" *ngIf="checkError('totalImpuestoIva', 'min')">requerido
-                </p>
+               
               </div>
               <div class="form-group campoTotal">
                 <label class="form-label">Total Ingreso </label>

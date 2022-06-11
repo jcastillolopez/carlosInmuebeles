@@ -6,7 +6,8 @@ export interface ingresogastodetalleinterface {
     ivaPorcentaje: number,
     cantidad: number,
     importe: number,
-    importeTotal: number,
+    importeIngreso: number,
+    importeGasto: number,
     valorTotal: number,
 
     inGaId: number,
