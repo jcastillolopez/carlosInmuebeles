@@ -101,7 +101,7 @@ export class IngresoRegistroGeneralComponent implements OnInit {
         }
       }
     }
-    // window.location.reload();
+    window.location.reload();
   }
 
   nuevoRegistro() {

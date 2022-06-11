@@ -54,7 +54,11 @@ export class InGaInicioComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.arrIngresosGastosTodos = await this.metodosGlobales.getAll(environment.APIPATH_INGRESOGASTOGENERAL + parseInt(sessionStorage.getItem('administradorId')!));
+    if (sessionStorage.getItem('validacionVisualizacion') === '1') {
+      this.arrIngresosGastosTodos = await this.metodosGlobales.getAll(environment.APIPATH_INGRESOGASTOGENERAL + parseInt(sessionStorage.getItem('administradorId')!));
+    } else {
+      this.arrIngresosGastosTodos = await this.metodosGlobales.getAll(environment.APIPATH_INGRESOGASTOGENERAL + parseInt(sessionStorage.getItem('administradorId')!) + "/" + sessionStorage.getItem('entidad'));
+    }
     this.arrIngresosGastosMostrar = this.arrIngresosGastosTodos;
     this.arrListaInmuebles = await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem('administradorId')!));
     this.selectInmuebles = this.arrListaInmuebles;

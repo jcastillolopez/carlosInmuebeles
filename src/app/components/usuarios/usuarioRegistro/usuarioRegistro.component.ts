@@ -82,7 +82,7 @@ export class UsuarioRegistroComponent implements OnInit {
         const temp = await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_USUARIO);
       } else { let result = 'hay datos no validos en el formulario' };
     }
-    // window.location.reload();
+    window.location.reload();
   }
 
   passwordValidation(formulario: FormGroup): ValidationErrors | null {

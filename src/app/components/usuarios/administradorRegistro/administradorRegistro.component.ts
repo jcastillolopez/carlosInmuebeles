@@ -77,7 +77,7 @@ export class AdministradorRegistroComponent implements OnInit {
         sessionStorage.setItem('nombreUsuario', usuario[0].nombre);
         sessionStorage.setItem('idUsuario', usuario[0].idUsuario);
         sessionStorage.setItem('validacion', 'true')
-        sessionStorage.setItem('validacionVisualizacion', usuario.rolId)
+        sessionStorage.setItem('validacionVisualizacion', usuario[0].rolId)
         sessionStorage.setItem('entidad', usuario[0].entidadId)
 
         if (administrador.idPersonasPagadora !== null) {

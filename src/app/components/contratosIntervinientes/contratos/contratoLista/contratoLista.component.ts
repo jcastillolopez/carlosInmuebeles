@@ -36,9 +36,11 @@ export class ContratoListaComponent implements OnInit {
   }
 
   async ngOnInit() {
-
-    this.arrListaContratos = await this.metodosGlobales.getById(environment.APIPATH_CONTRATO, parseInt(sessionStorage.getItem('administradorId')!));
-
+    if (sessionStorage.getItem('validacionVisualizacion') === '1' || sessionStorage.getItem('validacionVisualizacion') === '2') {
+      this.arrListaContratos = await this.metodosGlobales.getAll(environment.APIPATH_CONTRATO + parseInt(sessionStorage.getItem('administradorId')!));
+    } else {
+      this.arrListaContratos = await this.metodosGlobales.getAll(environment.APIPATH_CONTRATO + parseInt(sessionStorage.getItem('administradorId')!) + "/" + sessionStorage.getItem('entidad'));
+    }
     this.activateRouter.params.subscribe(params => {
       this.contratoSeleccionadoId = params['id']
     })

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Globales } from 'src/app/services/Globales.service';
 import { tiposService } from 'src/app/services/tipos.service';
 import { environment } from 'src/environments/environment';
+import { BalanceXInmuebleComponent } from '../balanceXInmueble/balanceXInmueble.component';
 
 @Component({
   selector: 'balanceXAnio',
@@ -20,6 +21,7 @@ export class BalanceXAnioComponent implements OnInit {
     private metodosTipos: tiposService,
     private router: Router,
     private activateRouter: ActivatedRoute,
+    private balanceinmueble: BalanceXInmuebleComponent
   ) {
     this.informesBalancesXAnios = [{
       totalBalance: 0,
@@ -36,6 +38,7 @@ export class BalanceXAnioComponent implements OnInit {
   async ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
       this.selectedInmueble = params['idInmueble']
+      this.selectedCliente = this.balanceinmueble.selectedCliente
       this.informesBalancesXAnios = await this.metodosGlobales.getAll('informe/inmueble/anio/' + params['idInmueble'] + "/" + parseInt(sessionStorage.getItem('administradorId')!));
     })
   }
