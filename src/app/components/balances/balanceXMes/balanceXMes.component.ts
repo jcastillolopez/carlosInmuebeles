@@ -34,7 +34,7 @@ export class BalanceXMesComponent implements OnInit {
 
   async ngOnInit() {
     this.activateRouter.params.subscribe(async params => {
-      this.informesBalancesXAnios = await this.metodosGlobales.getAll('informe/inmueble/mes/' + this.balanceXAnio.selectedInmueble + "/" + params['anio'] + "/" + parseInt(sessionStorage.getItem('administradorId')!));
+      this.informesBalancesXAnios = await this.metodosGlobales.getAll('informe/inmueble/mes/' + this.balanceXAnio.selectedInmueble + "/" + params['anio']);
     })
   }
 

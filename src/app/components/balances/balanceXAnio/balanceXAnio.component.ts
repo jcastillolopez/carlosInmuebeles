@@ -39,7 +39,7 @@ export class BalanceXAnioComponent implements OnInit {
     this.activateRouter.params.subscribe(async params => {
       this.selectedInmueble = params['idInmueble']
       this.selectedCliente = this.balanceinmueble.selectedCliente
-      this.informesBalancesXAnios = await this.metodosGlobales.getAll('informe/inmueble/anio/' + params['idInmueble'] + "/" + parseInt(sessionStorage.getItem('administradorId')!));
+      this.informesBalancesXAnios = await this.metodosGlobales.getAll('informe/inmueble/anio/' + params['idInmueble']);
     })
   }
 

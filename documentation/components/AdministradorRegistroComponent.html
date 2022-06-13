@@ -1,0 +1,980 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>carlos-inmuebles documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">carlos-inmuebles documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  AdministradorRegistroComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/usuarios/administradorRegistro/administradorRegistro.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>administradorRegistro</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./administradorRegistro.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./administradorRegistro.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#administradorId" >administradorId</a>
+                            </li>
+                            <li>
+                                <a href="#idUsuario" >idUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#nombreUsuario" >nombreUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#path_create_update" >path_create_update</a>
+                            </li>
+                            <li>
+                                <a href="#registroForm" >registroForm</a>
+                            </li>
+                            <li>
+                                <a href="#result" >result</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#checkError" >checkError</a>
+                            </li>
+                            <li>
+                                <a href="#dniValidators" >dniValidators</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#enviar" >enviar</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(metodosGlobales: <a href="../injectables/Globales.html" target="_self">Globales</a>, activateRouter: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/usuarios/administradorRegistro/administradorRegistro.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>metodosGlobales</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Globales.html" target="_self" >Globales</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>activateRouter</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkError"></a>
+                    <span class="name">
+                        <span ><b>checkError</b></span>
+                        <a href="#checkError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkError(fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, errorType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">src/app/components/usuarios/administradorRegistro/administradorRegistro.component.ts:112</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>errorType</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dniValidators"></a>
+                    <span class="name">
+                        <span ><b>dniValidators</b></span>
+                        <a href="#dniValidators"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dniValidators(pControl: <a href="https://angular.io/api/forms/FormControl" target="_blank">FormControl</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/app/components/usuarios/administradorRegistro/administradorRegistro.component.ts:92</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>pControl</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{ dnivalidator: boolean; }</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enviar"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>enviar</b></span>
+                        <a href="#enviar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>enviar()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">src/app/components/usuarios/administradorRegistro/administradorRegistro.component.ts:65</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/components/usuarios/administradorRegistro/administradorRegistro.component.ts:62</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="administradorId"></a>
+                    <span class="name">
+                        <span ><b>administradorId</b></span>
+                        <a href="#administradorId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/usuarios/administradorRegistro/administradorRegistro.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="idUsuario"></a>
+                    <span class="name">
+                        <span ><b>idUsuario</b></span>
+                        <a href="#idUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/usuarios/administradorRegistro/administradorRegistro.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nombreUsuario"></a>
+                    <span class="name">
+                        <span ><b>nombreUsuario</b></span>
+                        <a href="#nombreUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/usuarios/administradorRegistro/administradorRegistro.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="path_create_update"></a>
+                    <span class="name">
+                        <span ><b>path_create_update</b></span>
+                        <a href="#path_create_update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/usuarios/administradorRegistro/administradorRegistro.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registroForm"></a>
+                    <span class="name">
+                        <span ><b>registroForm</b></span>
+                        <a href="#registroForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/usuarios/administradorRegistro/administradorRegistro.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="result"></a>
+                    <span class="name">
+                        <span ><b>result</b></span>
+                        <a href="#result"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/usuarios/administradorRegistro/administradorRegistro.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DatePipe } from &#x27;@angular/common&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormGroup, FormControl, Validators } from &#x27;@angular/forms&#x27;;
+import { ActivatedRoute, Router, } from &#x27;@angular/router&#x27;;
+import { Globales } from &#x27;src/app/services/Globales.service&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
+
+@Component({
+  selector: &#x27;administradorRegistro&#x27;,
+  templateUrl: &#x27;./administradorRegistro.component.html&#x27;,
+  styleUrls: [&#x27;./administradorRegistro.component.css&#x27;]
+})
+export class AdministradorRegistroComponent implements OnInit {
+  registroForm: FormGroup;
+  result: any;
+  administradorId: any;
+  idUsuario: any;
+  nombreUsuario: any;
+
+  path_create_update: string;
+  constructor(
+    private metodosGlobales: Globales,
+    private activateRouter: ActivatedRoute,
+    private router: Router,
+  ) {
+    this.administradorId &#x3D; 0;
+    this.idUsuario &#x3D; 0;
+    this.nombreUsuario &#x3D; &#x27;&#x27;;
+    this.registroForm &#x3D; new FormGroup({
+      idPersonasPagadora: new FormControl(),
+      nombre: new FormControl(&#x27;&#x27;, [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(45),
+      ]),
+      apellidos: new FormControl(&#x27;&#x27;, [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(45),
+      ]),
+      email: new FormControl(&#x27;&#x27;, [
+        Validators.required,
+        Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/)
+      ]),
+      nie: new FormControl(&#x27;&#x27;, [
+        Validators.required,
+        this.dniValidators
+      ]),
+      fechaNacimiento: new FormControl(),
+      tlf: new FormControl(),
+      tlfMovil: new FormControl(),
+      localidad: new FormControl(),
+      direccion: new FormControl(),
+      codigoPostal: new FormControl(),
+      borrado: new FormControl(false),
+      createTime: new FormControl(),
+      updateTime: new FormControl()
+
+    })
+  }
+
+  ngOnInit() {
+  }
+
+  async enviar() {
+    if (this.registroForm.value.idPersonasPagadora !&#x3D;&#x3D; null) {
+      this.registroForm.value.updateTime &#x3D; new Date();
+      await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_PERSONASPAGADORA);
+    } else {
+      if (this.registroForm.valid) {
+        this.registroForm.value.createTime &#x3D; new Date();
+        this.registroForm.value.updateTime &#x3D; new Date();
+        const administrador &#x3D; await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_PERSONASPAGADORA);
+        const usuario &#x3D; await this.metodosGlobales.getAll(environment.APIPATH_USUARIO + administrador.idPersonasPagadora);
+
+        sessionStorage.setItem(&#x27;administradorId&#x27;, usuario[0].administradorId);
+        sessionStorage.setItem(&#x27;nombreUsuario&#x27;, usuario[0].nombre);
+        sessionStorage.setItem(&#x27;idUsuario&#x27;, usuario[0].idUsuario);
+        sessionStorage.setItem(&#x27;validacion&#x27;, &#x27;true&#x27;);
+        sessionStorage.setItem(&#x27;validacionVisualizacion&#x27;, usuario[0].rolId)
+        sessionStorage.setItem(&#x27;entidad&#x27;, usuario[0].entidadId)
+
+        if (administrador.idPersonasPagadora !&#x3D;&#x3D; null) {
+          this.router.navigate([&#x27;/inicio&#x27;]);
+        }
+      } else {
+        sessionStorage.setItem(&#x27;validacion&#x27;, &#x27;false&#x27;);
+        let result &#x3D; &#x27;hay datos no validos en el formulario&#x27;
+      };
+    }
+  }
+  dniValidators(pControl: FormControl) {
+    const value &#x3D; pControl.value;
+    const grupoLetras &#x3D; &#x27;TRWAGMYFPDXBNJZSQVHLCKET&#x27;;
+
+    if (/^\d{8}[a-zA-Z]$/.test(value)) {
+      const numero &#x3D; value.substring(0, value.length - 1);
+      const letra &#x3D; value.substring(value.length - 1, value.length);
+      const resto &#x3D; numero % 23;
+      const letraSeleccionada &#x3D; grupoLetras.substring(resto, resto + 1);
+
+      if (letraSeleccionada !&#x3D; letra.toUpperCase()) {
+        return { dnivalidator: true };
+      } else {
+        return null;
+      }
+    } else {
+      return { dnivalidator: true };
+    }
+  }
+
+  checkError(fieldName: string, errorType: string) {
+    return this.registroForm.get(fieldName)!.hasError(errorType) &amp;&amp; this.registroForm.get(fieldName)!.touched
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;modal ventana&quot; id&#x3D;&quot;registro&quot; data-backdrop&#x3D;&quot;static&quot; tabindex&#x3D;&quot;1&quot; rol&#x3D;&quot;dialog&quot; aria-labelledby&#x3D;&quot;registro&quot; aria-hidden&#x3D;&quot;false&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+      &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+        &lt;h3&gt;Datos del Administrador&lt;/h3&gt;
+      &lt;/div&gt;
+      &lt;form class&#x3D;&quot;registro&quot; [formGroup]&#x3D;&quot;registroForm&quot; (ngSubmit)&#x3D;&quot;enviar()&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+          &lt;div class&#x3D;&quot;form&quot;&gt;
+            &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+              &lt;label class&#x3D;&quot;form-label&quot;&gt;Nombre&lt;/label&gt;
+              &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;nombre&quot;&gt;
+              &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;nombre&#x27;, &#x27;required&#x27;)&quot;&gt;requerido&lt;/p&gt;
+              &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;nombre&#x27;, &#x27;minlength&#x27;)&quot;&gt;
+                debe tener más de 3 caracteres
+              &lt;/p&gt;
+              &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;nombre&#x27;, &#x27;maxlength&#x27;)&quot;&gt;
+                debe tener menos de 45 caracteres
+              &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+              &lt;label class&#x3D;&quot;form-label&quot;&gt;Apellidos&lt;/label&gt;
+              &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;apellidos&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+              &lt;label class&#x3D;&quot;form-label&quot;&gt;Nif&lt;/label&gt;
+              &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;nie&quot;&gt;
+              &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;nie&#x27;, &#x27;required&#x27;)&quot;&gt;
+                requerido
+              &lt;/p&gt;
+              &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;nie&#x27;, &#x27;dnivalidator&#x27;)&quot;&gt;
+                El campo Nif no es valido
+              &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+              &lt;label class&#x3D;&quot;form-label&quot;&gt;Fecha Nacimiento&lt;/label&gt;
+              &lt;input type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;fechaNacimiento&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+              &lt;label class&#x3D;&quot;form-label&quot;&gt;Email&lt;/label&gt;
+              &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;email&quot;&gt;
+              &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;email&#x27;,&#x27;required&#x27;)&quot;&gt;
+                requerido&lt;/p&gt;
+              &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;email&#x27;,&#x27;pattern&#x27;)&quot;&gt;
+                El campo Email no es valido
+              &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;mform-group campo&quot;&gt;
+              &lt;label class&#x3D;&quot;form-label&quot;&gt;Tlf&lt;/label&gt;
+              &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;tlf&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+              &lt;label class&#x3D;&quot;form-label&quot;&gt;Tlf. Movil&lt;/label&gt;
+              &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;tlfMovil&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+              &lt;label class&#x3D;&quot;form-label&quot;&gt;Localidad&lt;/label&gt;
+              &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;localidad&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+              &lt;label class&#x3D;&quot;form-label&quot;&gt;Direccion&lt;/label&gt;
+              &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;direccion&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+              &lt;label class&#x3D;&quot;form-label&quot;&gt;Codigo Postal&lt;/label&gt;
+              &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;codigoPostal&quot;&gt;
+            &lt;/div&gt;
+
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+          &lt;button type&#x3D;&quot;button&quot; data-dismiss&#x3D;&quot;modal&quot; data-backdrop&#x3D;&quot;false&quot;&gt;Close&lt;/button&gt;
+          &lt;button [hidden]&#x3D;&quot;registroForm.errors || registroForm.invalid&quot; data-dismiss&#x3D;&quot;modal&quot; (click)&#x3D;&quot;enviar()&quot;&gt;Save
+            changes&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./administradorRegistro.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="modal ventana" id="registro" data-backdrop="static" tabindex="1" rol="dialog" aria-labelledby="registro" aria-hidden="false">  <div class="modal-dialog">    <div class="modal-content">      <div class="modal-header">        <h3>Datos del Administrador</h3>      </div>      <form class="registro" [formGroup]="registroForm" (ngSubmit)="enviar()">        <div class="modal-body">          <div class="form">            <div class="form-group campo">              <label class="form-label">Nombre</label>              <input type="text" class="form-control" formControlName="nombre">              <p class="error" *ngIf="checkError(\'nombre\', \'required\')">requerido</p>              <p class="error" *ngIf="checkError(\'nombre\', \'minlength\')">                debe tener más de 3 caracteres              </p>              <p class="error" *ngIf="checkError(\'nombre\', \'maxlength\')">                debe tener menos de 45 caracteres              </p>            </div>            <div class="form-group campo">              <label class="form-label">Apellidos</label>              <input type="text" class="form-control" formControlName="apellidos">            </div>            <div class="form-group campo">              <label class="form-label">Nif</label>              <input type="text" class="form-control" formControlName="nie">              <p class="error" *ngIf="checkError(\'nie\', \'required\')">                requerido              </p>              <p class="error" *ngIf="checkError(\'nie\', \'dnivalidator\')">                El campo Nif no es valido              </p>            </div>            <div class="form-group campo">              <label class="form-label">Fecha Nacimiento</label>              <input type="date" class="form-control" formControlName="fechaNacimiento">            </div>            <div class="form-group campo">              <label class="form-label">Email</label>              <input type="text" class="form-control" formControlName="email">              <p class="error" *ngIf="checkError(\'email\',\'required\')">                requerido</p>              <p class="error" *ngIf="checkError(\'email\',\'pattern\')">                El campo Email no es valido              </p>            </div>            <div class="mform-group campo">              <label class="form-label">Tlf</label>              <input type="text" class="form-control" formControlName="tlf">            </div>            <div class="form-group campo">              <label class="form-label">Tlf. Movil</label>              <input type="text" class="form-control" formControlName="tlfMovil">            </div>            <div class="form-group campo">              <label class="form-label">Localidad</label>              <input type="text" class="form-control" formControlName="localidad">            </div>            <div class="form-group campo">              <label class="form-label">Direccion</label>              <input type="text" class="form-control" formControlName="direccion">            </div>            <div class="form-group campo">              <label class="form-label">Codigo Postal</label>              <input type="text" class="form-control" formControlName="codigoPostal">            </div>          </div>        </div>        <div class="modal-footer">          <button type="button" data-dismiss="modal" data-backdrop="false">Close</button>          <button [hidden]="registroForm.errors || registroForm.invalid" data-dismiss="modal" (click)="enviar()">Save            changes</button>        </div>      </form>    </div>  </div></div>'
+    var COMPONENTS = [{'name': 'AdministradorRegistroComponent', 'selector': 'administradorRegistro'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BalanceAyudaComponent', 'selector': 'balanceAyuda'},{'name': 'BalanceListaComponent', 'selector': 'balanceLista'},{'name': 'BalanceXAnioComponent', 'selector': 'balanceXAnio'},{'name': 'BalanceXInmuebleComponent', 'selector': 'balanceXInmueble'},{'name': 'BalanceXMesComponent', 'selector': 'balanceXMes'},{'name': 'ClienteDetalleComponent', 'selector': 'clienteDetalle'},{'name': 'ClienteListaComponent', 'selector': 'clienteLista'},{'name': 'ClienteRegistroComponent', 'selector': 'clienteRegistro'},{'name': 'ComoFuncionaComponent', 'selector': 'comoFunciona'},{'name': 'ContactoComponent', 'selector': 'contacto'},{'name': 'ContratoAyudaComponent', 'selector': 'contratoAyuda'},{'name': 'ContratoDetalleComponent', 'selector': 'contratoDetalle'},{'name': 'ContratoListaComponent', 'selector': 'contratoLista'},{'name': 'ContratoRegistroComponent', 'selector': 'contratoRegistro'},{'name': 'EntidadesAyudaComponent', 'selector': 'app-entidadesAyuda'},{'name': 'InGaAyudaComponent', 'selector': 'inGaAyuda'},{'name': 'IngaDetalleComponent', 'selector': 'ingaDetalle'},{'name': 'InGaInicioComponent', 'selector': 'inGaInicio'},{'name': 'IngaRegistroGeneralComponent', 'selector': 'ingaRegistroGeneral'},{'name': 'IngresoRegistroGeneralComponent', 'selector': 'ingresoRegistroGeneral'},{'name': 'InicioAyudaComponent', 'selector': 'inicioAyuda'},{'name': 'InicioListaComponent', 'selector': 'inicioLista'},{'name': 'InmuebleDetalleComponent', 'selector': 'inmuebleDetalle'},{'name': 'InmuebleListaComponent', 'selector': 'inmuebleLista'},{'name': 'InmueblesAyudaComponent', 'selector': 'inmueblesAyuda'},{'name': 'InmueblesRegistroComponent', 'selector': 'inmueblesRegistro'},{'name': 'IntervinienteDetalleComponent', 'selector': 'app-intervinienteDetalle'},{'name': 'IntervinienteListaComponent', 'selector': 'intervinienteLista'},{'name': 'IntervinienteRegistroComponent', 'selector': 'intervinienteRegistro'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'LoginNavComponent', 'selector': 'loginNav'},{'name': 'ModificacionTiposComponent', 'selector': 'modificacionTipos'},{'name': 'NavAppComponent', 'selector': 'navApp'},{'name': 'PeriodoListaComponent', 'selector': 'periodoLista'},{'name': 'PeriodoRegistroComponent', 'selector': 'periodoRegistro'},{'name': 'PreciosComponent', 'selector': 'precios'},{'name': 'PubliInicioComponent', 'selector': 'publiInicio'},{'name': 'QuienessomosComponent', 'selector': 'quienessomos'},{'name': 'RolListaComponent', 'selector': 'rolLista'},{'name': 'RolRegistroComponent', 'selector': 'rolRegistro'},{'name': 'SliderComponent', 'selector': 'slider'},{'name': 'TipoCategoriaListaComponent', 'selector': 'tipoCategoriaLista'},{'name': 'TipoCategoriaRegistroComponent', 'selector': 'tipoCategoriaRegistro'},{'name': 'TipoCoceptoListaComponent', 'selector': 'tipoCoceptoLista'},{'name': 'TipoConceptoRegistroComponent', 'selector': 'tipoConceptoRegistro'},{'name': 'TipoContratoListaComponent', 'selector': 'tipoContratoLista'},{'name': 'TipoContratoRegistroComponent', 'selector': 'tipoContratoRegistro'},{'name': 'TipoInmuebleListaComponent', 'selector': 'tipoInmuebleLista'},{'name': 'TipoInmuebleRegistroComponent', 'selector': 'tipoInmuebleRegistro'},{'name': 'TipoIntervinienteListaComponent', 'selector': 'tipoIntervinienteLista'},{'name': 'TipoIntervinienteRegistroComponent', 'selector': 'tipoIntervinienteRegistro'},{'name': 'TipoPagoListaComponent', 'selector': 'tipoPagoLista'},{'name': 'TipoPagoRegistroComponent', 'selector': 'tipoPagoRegistro'},{'name': 'TiposAyudaComponent', 'selector': 'tiposAyuda'},{'name': 'TiposComponent', 'selector': 'tipos'},{'name': 'UsuarioAyudaComponent', 'selector': 'usuarioAyuda'},{'name': 'UsuarioDetalleComponent', 'selector': 'usuarioDetalle'},{'name': 'UsuarioListaComponent', 'selector': 'usuarioLista'},{'name': 'UsuarioRegistroComponent', 'selector': 'usuarioRegistro'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AdministradorRegistroComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdministradorRegistroComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

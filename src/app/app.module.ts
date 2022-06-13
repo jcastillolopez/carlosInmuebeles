@@ -79,11 +79,6 @@ import { PreciosComponent } from './components/publiRegistros/publicidad/precios
 import { ContactoComponent } from './components/publiRegistros/contacto/contacto.component';
 
 
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,7 +101,7 @@ import { ContactoComponent } from './components/publiRegistros/contacto/contacto
     BalanceXAnioComponent,
     BalanceXInmuebleComponent,
     BalanceXMesComponent,
-    
+
 
     //Ingreso Gasto
     IngaRegistroGeneralComponent,
@@ -144,7 +139,7 @@ import { ContactoComponent } from './components/publiRegistros/contacto/contacto
     ComoFuncionaComponent,
     PreciosComponent,
     ContactoComponent,
-   
+
     LoginComponent,
 
     //Tipos  
@@ -179,9 +174,9 @@ import { ContactoComponent } from './components/publiRegistros/contacto/contacto
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-   
+
     HttpClientModule,
-    
+
 
   ],
   providers: [],

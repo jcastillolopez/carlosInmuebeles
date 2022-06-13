@@ -1,0 +1,1663 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>carlos-inmuebles documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">carlos-inmuebles documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  IngaRegistroGeneralComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ingaRegistroGeneral</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./ingaRegistroGeneral.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./ingaRegistroGeneral.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#contratoSeleccionadoId" >contratoSeleccionadoId</a>
+                            </li>
+                            <li>
+                                <a href="#registroForm" >registroForm</a>
+                            </li>
+                            <li>
+                                <a href="#resultado" >resultado</a>
+                            </li>
+                            <li>
+                                <a href="#selectInmueble" >selectInmueble</a>
+                            </li>
+                            <li>
+                                <a href="#selectProveedor" >selectProveedor</a>
+                            </li>
+                            <li>
+                                <a href="#selectTipoCategoria" >selectTipoCategoria</a>
+                            </li>
+                            <li>
+                                <a href="#selectTipoConcepto" >selectTipoConcepto</a>
+                            </li>
+                            <li>
+                                <a href="#selectTipoPago" >selectTipoPago</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#anadirDetalle" >anadirDetalle</a>
+                            </li>
+                            <li>
+                                <a href="#borrarDetalle" >borrarDetalle</a>
+                            </li>
+                            <li>
+                                <a href="#calcularTotales" >calcularTotales</a>
+                            </li>
+                            <li>
+                                <a href="#checkError" >checkError</a>
+                            </li>
+                            <li>
+                                <a href="#checkErrorForm" >checkErrorForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#enviar" >enviar</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#filtroConcepto" >filtroConcepto</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#nuevoRegistro" >nuevoRegistro</a>
+                            </li>
+                            <li>
+                                <a href="#validacionFechaPago" >validacionFechaPago</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#obtenerDetalle" >obtenerDetalle</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(metodosGlobales: <a href="../injectables/Globales.html" target="_self">Globales</a>, metodosTipos: <a href="../injectables/tiposService.html" target="_self">tiposService</a>, activateRouter: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, builder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>metodosGlobales</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Globales.html" target="_self" >Globales</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>metodosTipos</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/tiposService.html" target="_self" >tiposService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>activateRouter</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>builder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="anadirDetalle"></a>
+                    <span class="name">
+                        <span ><b>anadirDetalle</b></span>
+                        <a href="#anadirDetalle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>anadirDetalle()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="152"
+                            class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:152</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="borrarDetalle"></a>
+                    <span class="name">
+                        <span ><b>borrarDetalle</b></span>
+                        <a href="#borrarDetalle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>borrarDetalle(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:148</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>index</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcularTotales"></a>
+                    <span class="name">
+                        <span ><b>calcularTotales</b></span>
+                        <a href="#calcularTotales"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calcularTotales()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="173"
+                            class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:173</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkError"></a>
+                    <span class="name">
+                        <span ><b>checkError</b></span>
+                        <a href="#checkError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkError(fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, errorType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="210"
+                            class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:210</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>errorType</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkErrorForm"></a>
+                    <span class="name">
+                        <span ><b>checkErrorForm</b></span>
+                        <a href="#checkErrorForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkErrorForm(fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, errorType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="214"
+                            class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:214</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>errorType</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enviar"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>enviar</b></span>
+                        <a href="#enviar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>enviar()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:67</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filtroConcepto"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>filtroConcepto</b></span>
+                        <a href="#filtroConcepto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>filtroConcepto($event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="194"
+                            class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:194</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>$event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nuevoRegistro"></a>
+                    <span class="name">
+                        <span ><b>nuevoRegistro</b></span>
+                        <a href="#nuevoRegistro"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>nuevoRegistro()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:101</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validacionFechaPago"></a>
+                    <span class="name">
+                        <span ><b>validacionFechaPago</b></span>
+                        <a href="#validacionFechaPago"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validacionFechaPago(formulario: <a href="https://angular.io/api/forms/FormGroup" target="_blank">FormGroup</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="198"
+                            class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:198</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>formulario</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>ValidationErrors | null</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contratoSeleccionadoId"></a>
+                    <span class="name">
+                        <span ><b>contratoSeleccionadoId</b></span>
+                        <a href="#contratoSeleccionadoId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registroForm"></a>
+                    <span class="name">
+                        <span ><b>registroForm</b></span>
+                        <a href="#registroForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resultado"></a>
+                    <span class="name">
+                        <span ><b>resultado</b></span>
+                        <a href="#resultado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectInmueble"></a>
+                    <span class="name">
+                        <span ><b>selectInmueble</b></span>
+                        <a href="#selectInmueble"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectProveedor"></a>
+                    <span class="name">
+                        <span ><b>selectProveedor</b></span>
+                        <a href="#selectProveedor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectTipoCategoria"></a>
+                    <span class="name">
+                        <span ><b>selectTipoCategoria</b></span>
+                        <a href="#selectTipoCategoria"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectTipoConcepto"></a>
+                    <span class="name">
+                        <span ><b>selectTipoConcepto</b></span>
+                        <a href="#selectTipoConcepto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectTipoPago"></a>
+                    <span class="name">
+                        <span ><b>selectTipoPago</b></span>
+                        <a href="#selectTipoPago"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="obtenerDetalle"></a>
+                        <span class="name"><b>obtenerDetalle</b><a href="#obtenerDetalle"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>obtenerDetalle()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="144" class="link-to-prism">src/app/components/ingresosGastos/ingaRegistroGeneral/ingaRegistroGeneral.component.ts:144</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormGroup, FormControl, FormArray, FormBuilder, Validators, ValidatorFn, ValidationErrors } from &#x27;@angular/forms&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import * as dayjs from &#x27;dayjs&#x27;;
+
+import { Globales } from &#x27;src/app/services/Globales.service&#x27;;
+import { tiposService } from &#x27;src/app/services/tipos.service&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
+
+@Component({
+  selector: &#x27;ingaRegistroGeneral&#x27;,
+  templateUrl: &#x27;./ingaRegistroGeneral.component.html&#x27;,
+  styleUrls: [&#x27;./ingaRegistroGeneral.component.css&#x27;]
+})
+export class IngaRegistroGeneralComponent implements OnInit {
+
+  contratoSeleccionadoId &#x3D; &quot;&quot;;
+  registroForm: FormGroup;
+  selectInmueble: any;
+  selectProveedor: any;
+  selectTipoConcepto: any;
+  selectTipoCategoria: any;
+  selectTipoPago: any;
+  resultado: number
+  constructor(
+    private metodosGlobales: Globales,
+    private metodosTipos: tiposService,
+    private activateRouter: ActivatedRoute,
+    private router: Router,
+    private builder: FormBuilder,
+
+  ) {
+    this.contratoSeleccionadoId &#x3D; &quot;&quot;;
+
+    this.selectInmueble &#x3D; [];
+    this.selectProveedor &#x3D; [];
+    this.selectInmueble &#x3D; [];
+    this.selectTipoConcepto &#x3D; [];
+    this.selectTipoCategoria &#x3D; [];
+    this.selectTipoPago &#x3D; [];
+    this.resultado &#x3D; 0;
+  }
+
+  async ngOnInit() {
+    this.nuevoRegistro();
+    this.selectInmueble &#x3D; await this.metodosGlobales.getAll(environment.APIPATH_INMUEBLE + parseInt(sessionStorage.getItem(&#x27;administradorId&#x27;)!));
+    this.selectProveedor &#x3D; await this.metodosGlobales.getAll(environment.APIPATH_CLIENTE + parseInt(sessionStorage.getItem(&#x27;administradorId&#x27;)!));
+    this.selectTipoCategoria &#x3D; await this.metodosTipos.getAllTipos(&#x27;categoria/concepto&#x27;);
+    this.selectTipoPago &#x3D; await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOPAGO + parseInt(sessionStorage.getItem(&#x27;administradorId&#x27;)!));
+
+    this.activateRouter.params.subscribe(async params &#x3D;&gt; {
+      if (params[&#x27;id&#x27;]) {
+        this.nuevoRegistro();
+        let response &#x3D; await this.metodosGlobales.getById(environment.APIPATH_INGRESOGASTOGENERALDETALLE, params[&#x27;id&#x27;])
+        this.selectTipoConcepto &#x3D; await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONCEPTO + &quot;categoria/&quot; + response[0].tipoCategoriaId + &quot;/&quot; + parseInt(sessionStorage.getItem(&#x27;administradorId&#x27;)!));
+        response[0].fechaFactura &#x3D; dayjs(response[0].fechaFactura).format(&#x27;YYYY-MM-DD&#x27;)
+        response[0].fechaPago &#x3D; dayjs(response[0].fechaPago).format(&#x27;YYYY-MM-DD&#x27;)
+        this.registroForm.patchValue(response[0])
+        let inGaDetalles &#x3D; await this.metodosGlobales.getAll(environment.APIPATH_INGRESOGASTOESPECIFICO + response[0].idInGa)
+        for (const detalleInGa of inGaDetalles) {
+          this.anadirDetalle()
+        }
+        this.obtenerDetalle.patchValue(inGaDetalles);
+      }
+    })
+  }
+  async enviar() {
+    if (this.registroForm.value.idInGa !&#x3D; null) {
+      this.registroForm.value.updateTime &#x3D; new Date();
+      if (this.registroForm.value.fechaPago &#x3D;&#x3D;&#x3D; &#x27;Invalid Date&#x27;) {
+        this.registroForm.value.fechaPago &#x3D; null
+      }
+      const newIngreso &#x3D; await this.metodosGlobales.update(this.registroForm.value, environment.APIPATH_INGRESOGASTOGENERAL);
+      if (this.obtenerDetalle.length &gt; 0) {
+        for (const detalle of this.obtenerDetalle.controls) {
+          detalle.value.createTime &#x3D; new Date();
+          detalle.value.updateTime &#x3D; new Date();
+          detalle.value.inGaId &#x3D; newIngreso.idInGa;
+          const newIngresoDetalle &#x3D; await this.metodosGlobales.create(detalle.value, environment.APIPATH_INGRESOGASTOESPECIFICO);
+        }
+      }
+    } else {
+      this.registroForm.value.createTime &#x3D; new Date();
+      this.registroForm.value.updateTime &#x3D; new Date();
+      if (this.registroForm.value.fechaPago &#x3D;&#x3D;&#x3D; &#x27;Invalid Date&#x27;) {
+        this.registroForm.value.fechaPago &#x3D; null
+      }
+      const newIngreso &#x3D; await this.metodosGlobales.create(this.registroForm.value, environment.APIPATH_INGRESOGASTOGENERAL);
+      if (this.obtenerDetalle.length &gt; 0) {
+        for (const detalle of this.obtenerDetalle.controls) {
+          detalle.value.createTime &#x3D; new Date();
+          detalle.value.updateTime &#x3D; new Date();
+          detalle.value.inGaId &#x3D; newIngreso.idInGa;
+          const newIngresoDetalle &#x3D; await this.metodosGlobales.create(detalle.value, environment.APIPATH_INGRESOGASTOESPECIFICO);
+        }
+      }
+    }
+    window.location.reload();
+  }
+
+  nuevoRegistro() {
+    this.registroForm &#x3D; new FormGroup({
+      idInGa: new FormControl(),
+      concepto: new FormControl(),
+      fechaFactura: new FormControl(new Date(), [
+        Validators.required]),
+      fechaPago: new FormControl(),
+      numeroFactura: new FormControl(&#x27;&#x27;, [
+        Validators.required]),
+      totalBaseImponible: new FormControl(0, [
+        Validators.required,
+        Validators.min(1),
+      ]),
+      totalImpuestoIva: new FormControl(0, [
+        Validators.required,
+        Validators.min(0),
+      ]),
+      totalGasto: new FormControl(0, [
+        Validators.required,
+        Validators.min(1)]),
+      totalIngreso: new FormControl(0),
+      cuentaCorrienteProveedor: new FormControl(),
+      cuentaCorrienteCliente: new FormControl(),
+      conceptoPersonal: new FormControl(),
+
+
+      clienteId: new FormControl(),
+      tipoPagoId: new FormControl(),
+      inmuebleId: new FormControl(),
+      tipoCategoriaId: new FormControl(),
+      tipoConceptoId: new FormControl(),
+
+      usuarioId: new FormControl(parseInt(sessionStorage.getItem(&#x27;idUsuario&#x27;)!)),
+      administradorId: new FormControl(parseInt(sessionStorage.getItem(&#x27;administradorId&#x27;)!)),
+      createTime: new FormControl(),
+      updateTime: new FormControl(),
+      borrado: new FormControl(),
+
+      arrRegistroDetalle: new FormArray([])
+    },
+      { validators: [this.validacionFechaPago] });
+  }
+
+  get obtenerDetalle(): FormArray {
+    return this.registroForm.get(&#x27;arrRegistroDetalle&#x27;) as FormArray;
+  }
+
+  borrarDetalle(index: number) {
+    this.obtenerDetalle.removeAt(index);
+  }
+
+  anadirDetalle() {
+    const detalle &#x3D; this.builder.group({
+      idInGaDetalle: new FormControl(),
+      conceptoDetalle: new FormControl(),
+      pv: new FormControl(0),
+      descuento: new FormControl(0),
+      ivaPorcentaje: new FormControl(21),
+      cantidad: new FormControl(0),
+
+      inGaId: new FormControl(),
+
+      usuarioId: new FormControl(parseInt(sessionStorage.getItem(&#x27;idUsuario&#x27;)!)),
+      administradorId: new FormControl(parseInt(sessionStorage.getItem(&#x27;administradorId&#x27;)!)),
+      createTime: new FormControl(),
+      updateTime: new FormControl(),
+      borrado: new FormControl()
+    });
+
+    this.obtenerDetalle.push(detalle);
+  }
+
+  calcularTotales() {
+    let totalBaseImponible &#x3D; 0;
+    let totalImpuestoIva &#x3D; 0;
+    let totalGasto &#x3D; 0;
+    let baseImponibleXdetalle &#x3D; 0;
+    let impuestoIva &#x3D; 0;
+
+    for (const detalles of this.obtenerDetalle.controls) {
+      baseImponibleXdetalle &#x3D; (detalles.value.pv * detalles.value.cantidad) - (((detalles.value.pv * detalles.value.cantidad) * detalles.value.descuento) / 100);
+      totalBaseImponible &#x3D; totalBaseImponible + baseImponibleXdetalle;
+
+      impuestoIva &#x3D; ((baseImponibleXdetalle * detalles.value.ivaPorcentaje) / 100);
+      totalImpuestoIva &#x3D; totalImpuestoIva + impuestoIva;
+    }
+    totalGasto &#x3D; totalBaseImponible + totalImpuestoIva;
+
+    this.registroForm.get(&#x27;totalBaseImponible&#x27;).patchValue(totalBaseImponible);
+    this.registroForm.get(&#x27;totalImpuestoIva&#x27;).patchValue(totalImpuestoIva);
+    this.registroForm.get(&#x27;totalGasto&#x27;).patchValue(totalGasto);
+  }
+
+  async filtroConcepto($event) {
+    this.selectTipoConcepto &#x3D; await this.metodosTipos.getAllTipos(environment.APIPATH_TIPOCONCEPTO + &quot;categoria/&quot; + $event.target.value + &quot;/&quot; + parseInt(sessionStorage.getItem(&#x27;administradorId&#x27;)!));
+  }
+
+  validacionFechaPago(formulario: FormGroup): ValidationErrors | null {
+    let fechaFactura &#x3D; formulario.get(&quot;fechaFactura&quot;).value
+    let fechaPago &#x3D; formulario.get(&quot;fechaPago&quot;).value
+    let result
+    if (fechaPago) {
+      result &#x3D; (fechaFactura &gt; fechaPago) ? { validacionFechaPago: true } : null
+    } else {
+      result &#x3D; null
+    }
+    return result
+  }
+
+  checkError(fieldName: string, errorType: string) {
+    return this.registroForm.get(fieldName).hasError(errorType) &amp;&amp; this.registroForm.get(fieldName).touched
+  }
+
+  checkErrorForm(fieldName: string, errorType: string) {
+    return this.registroForm.hasError(errorType) &amp;&amp; this.registroForm.get(fieldName).touched
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;modal ventana&quot; id&#x3D;&quot;ingaGeneral&quot; data-backdrop&#x3D;&quot;static&quot;  tabindex&#x3D;&quot;1&quot; rol&#x3D;&quot;dialog&quot; aria-labelledby&#x3D;&quot;ingaGeneral&quot; aria-hidden&#x3D;&quot;false&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+      &lt;h3&gt;Introduccion de Datos de Gastos&lt;/h3&gt;
+      &lt;form class&#x3D;&quot;registro&quot; [formGroup]&#x3D;&quot;registroForm&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+          &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+            &lt;div class&#x3D;&quot;form&quot;&gt;
+              &lt;div class&#x3D;&quot;general&quot;&gt;
+                &lt;div class&#x3D;&quot;Selecion&quot;&gt;
+                  &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;Inmueble&lt;/label&gt;
+                    &lt;select required&#x3D;&quot;&quot; type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;inmuebleId&quot;&gt;
+                      &lt;option [value]&#x3D;&quot;inmueble.idInmueble&quot; *ngFor&#x3D;&quot;let inmueble of selectInmueble&quot;&gt;
+                        {{inmueble.refcatastral}} {{inmueble.alias}}&lt;/option&gt;
+                    &lt;/select&gt;
+                    &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;inmuebleId&#x27;, &#x27;required&#x27;)&quot;&gt;requerido
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;Proveedor&lt;/label&gt;
+                    &lt;select required&#x3D;&quot;&quot; type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;clienteId&quot;&gt;
+                      &lt;option [value]&#x3D;&quot;proveedor.idCliente&quot; *ngFor&#x3D;&quot;let proveedor of selectProveedor&quot;&gt;
+                        {{proveedor.nie}} {{proveedor.nombre}} {{proveedor.apellidos}} &lt;/option&gt;
+                    &lt;/select&gt;
+                    &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;clienteId&#x27;, &#x27;required&#x27;)&quot;&gt;requerido
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;Tipo Pago&lt;/label&gt;
+                    &lt;select required&#x3D;&quot;&quot; type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;tipoPagoId&quot;&gt;
+                      &lt;option [value]&#x3D;&quot;tipo.idTipoPago&quot; *ngFor&#x3D;&quot;let tipo of selectTipoPago&quot;&gt;
+                        {{tipo.tipoPagos}}&lt;/option&gt;
+                    &lt;/select&gt;
+                    &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;tipoPagoId&#x27;, &#x27;required&#x27;)&quot;&gt;requerido
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;Categoria&lt;/label&gt;
+                    &lt;select required&#x3D;&quot;&quot; (change)&#x3D;&quot;filtroConcepto($event)&quot; type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;tipoCategoriaId&quot;&gt;
+                      &lt;option [value]&#x3D;&quot;tipo.idCategoria&quot; *ngFor&#x3D;&quot;let tipo of selectTipoCategoria&quot;&gt;
+                        {{tipo.categoria}}&lt;/option&gt;
+                    &lt;/select&gt;
+                    &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;tipoCategoriaId&#x27;, &#x27;required&#x27;)&quot;&gt;requerido
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;Subcategoria &lt;/label&gt;
+                    &lt;select required&#x3D;&quot;&quot; type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;tipoConceptoId&quot;&gt;
+                      &lt;option [value]&#x3D;&quot;tipo.idTipoConcepto&quot; *ngFor&#x3D;&quot;let tipo of selectTipoConcepto&quot;&gt;
+                        {{tipo.tipoConcepto}}&lt;/option&gt;
+                    &lt;/select&gt;
+                    &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;tipoConceptoId&#x27;, &#x27;required&#x27;)&quot;&gt;requerido
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;Concepto&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;conceptoPersonal&quot;&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;campos&quot;&gt;
+                  &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;Fecha Gasto &lt;/label&gt;
+                    &lt;input type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;fechaFactura&quot;&gt;
+                    &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;fechaFactura&#x27;, &#x27;required&#x27;)&quot;&gt;requerido
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;Numero Factura &lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;numeroFactura&quot;&gt;
+                    &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;numeroFactura&#x27;, &#x27;required&#x27;)&quot;&gt;requerido
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;Cuenta Corriente Proveedor &lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;cuentaCorrienteProveedor&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;Cuenta Corriente Cliente &lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;cuentaCorrienteCliente&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;form-group campo&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;Fecha Pago &lt;/label&gt;
+                    &lt;input type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;fechaPago&quot;&gt;
+                    &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkErrorForm(&#x27;fechaPago&#x27;, &#x27;validacionFechaPago&#x27;)&quot;&gt;
+                      La fecha de Pago no es valida
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;button (click)&#x3D;&quot;anadirDetalle()&quot;&gt;Añadir Detalles&lt;/button&gt;
+            &lt;!--Subformulario detalle dinamico--&gt;
+            &lt;div class&#x3D;&quot;regiDetalle&quot;&gt;
+              &lt;div formArrayName&#x3D;&quot;arrRegistroDetalle&quot;&gt;
+                &lt;div class&#x3D;&quot;regiDetalle&quot; *ngFor&#x3D;&quot;let detalle of obtenerDetalle.controls, let i &#x3D; index&quot;
+                  [formGroupName]&#x3D;&quot;i&quot;&gt;
+                  &lt;div class&#x3D;&quot;form-group campoTabla&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;Concepto detalle&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;conceptoDetalle&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;form-group campoTabla&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;Cantidad &lt;/label&gt;
+                    &lt;input (change)&#x3D;&quot;calcularTotales()&quot; type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;cantidad&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;form-group campoTabla&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;PVP &lt;/label&gt;
+                    &lt;input (change)&#x3D;&quot;calcularTotales()&quot; type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;pv&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;form-group campoTabla&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;descuento &lt;/label&gt;
+                    &lt;input (change)&#x3D;&quot;calcularTotales()&quot; type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;descuento&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;form-group campoTabla&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label&quot;&gt;% de IVA &lt;/label&gt;
+                    &lt;input (change)&#x3D;&quot;calcularTotales()&quot; type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot;
+                      formControlName&#x3D;&quot;ivaPorcentaje&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;button (click)&#x3D;&quot;borrarDetalle(i)&quot;&gt;Borrar Detalle&lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!--Fin Subformulario detalle dinamico--&gt;
+
+            &lt;div class&#x3D;&quot;totales&quot;&gt;
+              &lt;div class&#x3D;&quot;form-group campoTotal&quot;&gt;
+                &lt;label class&#x3D;&quot;form-label&quot;&gt;Total Base Imponible &lt;/label&gt;
+                &lt;input class&#x3D;&quot;form-control&quot; type&#x3D;&quot;number&quot; formControlName&#x3D;&quot;totalBaseImponible&quot;&gt;
+                &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;totalBaseImponible&#x27;, &#x27;required&#x27;)&quot;&gt;requerido&lt;/p&gt;
+                &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;totalBaseImponible&#x27;, &#x27;min&#x27;)&quot;&gt;min 0&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;form-group campoTotal&quot;&gt;
+                &lt;label class&#x3D;&quot;form-label&quot;&gt;Total Impuesto Iva &lt;/label&gt;
+                &lt;input type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot; required&#x3D;&quot;&quot; formControlName&#x3D;&quot;totalImpuestoIva&quot;&gt;
+                &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;totalImpuestoIva&#x27;, &#x27;required&#x27;)&quot;&gt;requerido
+                &lt;/p&gt;
+                &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;totalImpuestoIva&#x27;, &#x27;min&#x27;)&quot;&gt;requerido
+                &lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;form-group campoTotal&quot;&gt;
+                &lt;label class&#x3D;&quot;form-label&quot;&gt;Total Gasto &lt;/label&gt;
+                &lt;input type&#x3D;&quot;number&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;totalGasto&quot;&gt;
+                &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;totalGasto&#x27;, &#x27;required&#x27;)&quot;&gt;requerido
+                &lt;/p&gt;
+                &lt;p class&#x3D;&quot;error&quot; *ngIf&#x3D;&quot;checkError(&#x27;totalGasto&#x27;, &#x27;min&#x27;)&quot;&gt;requerido
+                &lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+                &lt;div class&#x3D;&quot;form-group campoTotal&quot;&gt;
+                  &lt;label class&#x3D;&quot;form-label&quot;&gt;Eliminar Gasto&lt;/label&gt;
+                  &lt;input type&#x3D;&quot;checkbox&quot; formControlName&#x3D;&quot;borrado&quot;&gt;
+                &lt;/div&gt;
+                &lt;button type&#x3D;&quot;button&quot; data-dismiss&#x3D;&quot;modal&quot; data-backdrop&#x3D;&quot;true&quot;&gt;Close&lt;/button&gt;
+                &lt;button [hidden]&#x3D;&quot;registroForm.errors || registroForm.invalid&quot; data-dismiss&#x3D;&quot;modal&quot; data-backdrop&#x3D;&quot;true&quot;
+                  (click)&#x3D;&quot;enviar()&quot;&gt;Save changes&lt;/button&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./ingaRegistroGeneral.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.modal-dialog {
+    min-width: 90%;
+}
+
+.totales {
+    display: flex;
+    flex-direction: row;
+}
+
+.campoTotal {
+    display: flex;
+    flex-direction: column;
+    max-width: 20%;
+    margin: 20px 20px;
+}
+
+p {
+    color: red;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="modal ventana" id="ingaGeneral" data-backdrop="static"  tabindex="1" rol="dialog" aria-labelledby="ingaGeneral" aria-hidden="false">  <div class="modal-dialog">    <div class="modal-content">      <h3>Introduccion de Datos de Gastos</h3>      <form class="registro" [formGroup]="registroForm">        <div class="modal-header">          <div class="modal-body">            <div class="form">              <div class="general">                <div class="Selecion">                  <div class="form-group campo">                    <label class="form-label">Inmueble</label>                    <select required="" type="text" formControlName="inmuebleId">                      <option [value]="inmueble.idInmueble" *ngFor="let inmueble of selectInmueble">                        {{inmueble.refcatastral}} {{inmueble.alias}}</option>                    </select>                    <p class="error" *ngIf="checkError(\'inmuebleId\', \'required\')">requerido                    </p>                  </div>                  <div class="form-group campo">                    <label class="form-label">Proveedor</label>                    <select required="" type="text" formControlName="clienteId">                      <option [value]="proveedor.idCliente" *ngFor="let proveedor of selectProveedor">                        {{proveedor.nie}} {{proveedor.nombre}} {{proveedor.apellidos}} </option>                    </select>                    <p class="error" *ngIf="checkError(\'clienteId\', \'required\')">requerido                    </p>                  </div>                  <div class="form-group campo">                    <label class="form-label">Tipo Pago</label>                    <select required="" type="text" formControlName="tipoPagoId">                      <option [value]="tipo.idTipoPago" *ngFor="let tipo of selectTipoPago">                        {{tipo.tipoPagos}}</option>                    </select>                    <p class="error" *ngIf="checkError(\'tipoPagoId\', \'required\')">requerido                    </p>                  </div>                  <div class="form-group campo">                    <label class="form-label">Categoria</label>                    <select required="" (change)="filtroConcepto($event)" type="text" formControlName="tipoCategoriaId">                      <option [value]="tipo.idCategoria" *ngFor="let tipo of selectTipoCategoria">                        {{tipo.categoria}}</option>                    </select>                    <p class="error" *ngIf="checkError(\'tipoCategoriaId\', \'required\')">requerido                    </p>                  </div>                  <div class="form-group campo">                    <label class="form-label">Subcategoria </label>                    <select required="" type="text" formControlName="tipoConceptoId">                      <option [value]="tipo.idTipoConcepto" *ngFor="let tipo of selectTipoConcepto">                        {{tipo.tipoConcepto}}</option>                    </select>                    <p class="error" *ngIf="checkError(\'tipoConceptoId\', \'required\')">requerido                    </p>                  </div>                  <div class="form-group campo">                    <label class="form-label">Concepto</label>                    <input type="text" class="form-control" formControlName="conceptoPersonal">                  </div>                </div>                <div class="campos">                  <div class="form-group campo">                    <label class="form-label">Fecha Gasto </label>                    <input type="date" class="form-control" formControlName="fechaFactura">                    <p class="error" *ngIf="checkError(\'fechaFactura\', \'required\')">requerido                    </p>                  </div>                  <div class="form-group campo">                    <label class="form-label">Numero Factura </label>                    <input type="text" class="form-control" formControlName="numeroFactura">                    <p class="error" *ngIf="checkError(\'numeroFactura\', \'required\')">requerido                    </p>                  </div>                  <div class="form-group campo">                    <label class="form-label">Cuenta Corriente Proveedor </label>                    <input type="text" class="form-control" formControlName="cuentaCorrienteProveedor">                  </div>                  <div class="form-group campo">                    <label class="form-label">Cuenta Corriente Cliente </label>                    <input type="text" class="form-control" formControlName="cuentaCorrienteCliente">                  </div>                  <div class="form-group campo">                    <label class="form-label">Fecha Pago </label>                    <input type="date" class="form-control" formControlName="fechaPago">                    <p class="error" *ngIf="checkErrorForm(\'fechaPago\', \'validacionFechaPago\')">                      La fecha de Pago no es valida                    </p>                  </div>                </div>              </div>            </div>            <button (click)="anadirDetalle()">Añadir Detalles</button>            <!--Subformulario detalle dinamico-->            <div class="regiDetalle">              <div formArrayName="arrRegistroDetalle">                <div class="regiDetalle" *ngFor="let detalle of obtenerDetalle.controls, let i = index"                  [formGroupName]="i">                  <div class="form-group campoTabla">                    <label class="form-label">Concepto detalle</label>                    <input type="text" class="form-control" formControlName="conceptoDetalle">                  </div>                  <div class="form-group campoTabla">                    <label class="form-label">Cantidad </label>                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="cantidad">                  </div>                  <div class="form-group campoTabla">                    <label class="form-label">PVP </label>                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="pv">                  </div>                  <div class="form-group campoTabla">                    <label class="form-label">descuento </label>                    <input (change)="calcularTotales()" type="number" class="form-control" formControlName="descuento">                  </div>                  <div class="form-group campoTabla">                    <label class="form-label">% de IVA </label>                    <input (change)="calcularTotales()" type="number" class="form-control"                      formControlName="ivaPorcentaje">                  </div>                  <button (click)="borrarDetalle(i)">Borrar Detalle</button>                </div>              </div>            </div>            <!--Fin Subformulario detalle dinamico-->            <div class="totales">              <div class="form-group campoTotal">                <label class="form-label">Total Base Imponible </label>                <input class="form-control" type="number" formControlName="totalBaseImponible">                <p class="error" *ngIf="checkError(\'totalBaseImponible\', \'required\')">requerido</p>                <p class="error" *ngIf="checkError(\'totalBaseImponible\', \'min\')">min 0</p>              </div>              <div class="form-group campoTotal">                <label class="form-label">Total Impuesto Iva </label>                <input type="number" class="form-control" required="" formControlName="totalImpuestoIva">                <p class="error" *ngIf="checkError(\'totalImpuestoIva\', \'required\')">requerido                </p>                <p class="error" *ngIf="checkError(\'totalImpuestoIva\', \'min\')">requerido                </p>              </div>              <div class="form-group campoTotal">                <label class="form-label">Total Gasto </label>                <input type="number" class="form-control" formControlName="totalGasto">                <p class="error" *ngIf="checkError(\'totalGasto\', \'required\')">requerido                </p>                <p class="error" *ngIf="checkError(\'totalGasto\', \'min\')">requerido                </p>              </div>              <div class="modal-footer">                <div class="form-group campoTotal">                  <label class="form-label">Eliminar Gasto</label>                  <input type="checkbox" formControlName="borrado">                </div>                <button type="button" data-dismiss="modal" data-backdrop="true">Close</button>                <button [hidden]="registroForm.errors || registroForm.invalid" data-dismiss="modal" data-backdrop="true"                  (click)="enviar()">Save changes</button>              </div>            </div>          </div>        </div>      </form>    </div>  </div></div>'
+    var COMPONENTS = [{'name': 'AdministradorRegistroComponent', 'selector': 'administradorRegistro'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BalanceAyudaComponent', 'selector': 'balanceAyuda'},{'name': 'BalanceListaComponent', 'selector': 'balanceLista'},{'name': 'BalanceXAnioComponent', 'selector': 'balanceXAnio'},{'name': 'BalanceXInmuebleComponent', 'selector': 'balanceXInmueble'},{'name': 'BalanceXMesComponent', 'selector': 'balanceXMes'},{'name': 'ClienteDetalleComponent', 'selector': 'clienteDetalle'},{'name': 'ClienteListaComponent', 'selector': 'clienteLista'},{'name': 'ClienteRegistroComponent', 'selector': 'clienteRegistro'},{'name': 'ComoFuncionaComponent', 'selector': 'comoFunciona'},{'name': 'ContactoComponent', 'selector': 'contacto'},{'name': 'ContratoAyudaComponent', 'selector': 'contratoAyuda'},{'name': 'ContratoDetalleComponent', 'selector': 'contratoDetalle'},{'name': 'ContratoListaComponent', 'selector': 'contratoLista'},{'name': 'ContratoRegistroComponent', 'selector': 'contratoRegistro'},{'name': 'EntidadesAyudaComponent', 'selector': 'app-entidadesAyuda'},{'name': 'InGaAyudaComponent', 'selector': 'inGaAyuda'},{'name': 'IngaDetalleComponent', 'selector': 'ingaDetalle'},{'name': 'InGaInicioComponent', 'selector': 'inGaInicio'},{'name': 'IngaRegistroGeneralComponent', 'selector': 'ingaRegistroGeneral'},{'name': 'IngresoRegistroGeneralComponent', 'selector': 'ingresoRegistroGeneral'},{'name': 'InicioAyudaComponent', 'selector': 'inicioAyuda'},{'name': 'InicioListaComponent', 'selector': 'inicioLista'},{'name': 'InmuebleDetalleComponent', 'selector': 'inmuebleDetalle'},{'name': 'InmuebleListaComponent', 'selector': 'inmuebleLista'},{'name': 'InmueblesAyudaComponent', 'selector': 'inmueblesAyuda'},{'name': 'InmueblesRegistroComponent', 'selector': 'inmueblesRegistro'},{'name': 'IntervinienteDetalleComponent', 'selector': 'app-intervinienteDetalle'},{'name': 'IntervinienteListaComponent', 'selector': 'intervinienteLista'},{'name': 'IntervinienteRegistroComponent', 'selector': 'intervinienteRegistro'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'LoginNavComponent', 'selector': 'loginNav'},{'name': 'ModificacionTiposComponent', 'selector': 'modificacionTipos'},{'name': 'NavAppComponent', 'selector': 'navApp'},{'name': 'PeriodoListaComponent', 'selector': 'periodoLista'},{'name': 'PeriodoRegistroComponent', 'selector': 'periodoRegistro'},{'name': 'PreciosComponent', 'selector': 'precios'},{'name': 'PubliInicioComponent', 'selector': 'publiInicio'},{'name': 'QuienessomosComponent', 'selector': 'quienessomos'},{'name': 'RolListaComponent', 'selector': 'rolLista'},{'name': 'RolRegistroComponent', 'selector': 'rolRegistro'},{'name': 'SliderComponent', 'selector': 'slider'},{'name': 'TipoCategoriaListaComponent', 'selector': 'tipoCategoriaLista'},{'name': 'TipoCategoriaRegistroComponent', 'selector': 'tipoCategoriaRegistro'},{'name': 'TipoCoceptoListaComponent', 'selector': 'tipoCoceptoLista'},{'name': 'TipoConceptoRegistroComponent', 'selector': 'tipoConceptoRegistro'},{'name': 'TipoContratoListaComponent', 'selector': 'tipoContratoLista'},{'name': 'TipoContratoRegistroComponent', 'selector': 'tipoContratoRegistro'},{'name': 'TipoInmuebleListaComponent', 'selector': 'tipoInmuebleLista'},{'name': 'TipoInmuebleRegistroComponent', 'selector': 'tipoInmuebleRegistro'},{'name': 'TipoIntervinienteListaComponent', 'selector': 'tipoIntervinienteLista'},{'name': 'TipoIntervinienteRegistroComponent', 'selector': 'tipoIntervinienteRegistro'},{'name': 'TipoPagoListaComponent', 'selector': 'tipoPagoLista'},{'name': 'TipoPagoRegistroComponent', 'selector': 'tipoPagoRegistro'},{'name': 'TiposAyudaComponent', 'selector': 'tiposAyuda'},{'name': 'TiposComponent', 'selector': 'tipos'},{'name': 'UsuarioAyudaComponent', 'selector': 'usuarioAyuda'},{'name': 'UsuarioDetalleComponent', 'selector': 'usuarioDetalle'},{'name': 'UsuarioListaComponent', 'selector': 'usuarioLista'},{'name': 'UsuarioRegistroComponent', 'selector': 'usuarioRegistro'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'IngaRegistroGeneralComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'IngaRegistroGeneralComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
