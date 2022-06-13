@@ -102,23 +102,23 @@
               <div formArrayName="arrRegistroDetalle">
                 <div class="regiDetalle" *ngFor="let detalle of obtenerDetalle.controls, let i = index"
                   [formGroupName]="i">
-                  <div class="form-group campoTabla">
+                  <div class="form-group campo">
                     <label class="form-label">Concepto detalle</label>
                     <input type="text" class="form-control" formControlName="conceptoDetalle">
                   </div>
-                  <div class="form-group campoTabla">
+                  <div class="form-group campo">
                     <label class="form-label">Cantidad </label>
                     <input (change)="calcularTotales()" type="number" class="form-control" formControlName="cantidad">
                   </div>
-                  <div class="form-group campoTabla">
+                  <div class="form-group campo">
                     <label class="form-label">PVP </label>
                     <input (change)="calcularTotales()" type="number" class="form-control" formControlName="pv">
                   </div>
-                  <div class="form-group campoTabla">
+                  <div class="form-group campo">
                     <label class="form-label">descuento </label>
                     <input (change)="calcularTotales()" type="number" class="form-control" formControlName="descuento">
                   </div>
-                  <div class="form-group campoTabla">
+                  <div class="form-group campo">
                     <label class="form-label">% de IVA </label>
                     <input (change)="calcularTotales()" type="number" class="form-control"
                       formControlName="ivaPorcentaje">
@@ -130,18 +130,18 @@
             <!--Fin Subformulario detalle dinamico-->
 
             <div class="totales">
-              <div class="form-group campoTotal">
+              <div class="form-group campo">
                 <label class="form-label">Total Base Imponible </label>
                 <input class="form-control" type="number" formControlName="totalBaseImponible">
                 <p class="error" *ngIf="checkError('totalBaseImponible', 'required')">requerido</p>
                 <p class="error" *ngIf="checkError('totalBaseImponible', 'min')">requerido</p>
               </div>
-              <div class="form-group campoTotal">
+              <div class="form-group campo">
                 <label class="form-label">Total Impuesto Iva </label>
                 <input type="number" class="form-control" required="" formControlName="totalImpuestoIva">
                
               </div>
-              <div class="form-group campoTotal">
+              <div class="form-group campo">
                 <label class="form-label">Total Ingreso </label>
                 <input type="number" class="form-control" formControlName="totalIngreso">
                 <p class="error" *ngIf="checkError('totalIngreso', 'required')">requerido

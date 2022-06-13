@@ -1,5 +1,30 @@
-h4{
-   width: 100%;
+label{
+   color: greenyellow;
+   margin-right: 1em;
+   min-width: 4em;
+   text-align: left;
+}
+p{
+   color: white;
 }
 
+.campo{
+   display: flex;
+   flex-direction: row;
+  
+}
+ @media(min-width:1024px) {
+   .detalle {
+       display: flex;
+       flex-direction: row;
+      margin-left: 2em;
+   }
+   .caracteristicas{
+      margin-left: 2em;
+   }
+   .listado{
+      display: flex;
+      flex-direction: row;
+   }
+}
 

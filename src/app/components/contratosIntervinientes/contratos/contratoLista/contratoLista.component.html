@@ -1,22 +1,6 @@
 <navApp></navApp>
 
-<div class="pagina">
-  <div class="navEspecifico">
-    <button [routerLink]="['/contratos/']" type="button" data-toggle="modal" data-target="#contrato">
-      Nuevo Contrato
-    </button>
-    <button type="button" data-toggle="modal" data-target="#contratoAyuda">
-      Ayuda Contrato
-    </button>
-    <button type="button" data-toggle="modal" data-target="#clienteRegistro">
-      Nueva Entidad
-    </button>
-    <button type="button" data-toggle="modal" data-target="#inmuebleRegistro">
-      Nuevo Inmueble
-    </button>
-    
-  </div>
-  <div class="especifico">
+<div class="detalles">  
     <div class="listado">
       <table class="lista">
         <thead>
@@ -24,7 +8,7 @@
             <th>Inmueble</th>
             <th>Tipo Contrato</th>
             <th>Fecha Contrato</th>
-            <th></th>
+          
           </tr>
         </thead>
         <tbody routerLinkActive="activo activoBoton" *ngFor="let contrato of arrListaContratos; let i = index">
@@ -39,9 +23,23 @@
             </td>
           </tr>
         </tbody>
-      </table>
-    </div>
+      </table>   
     <router-outlet></router-outlet>
+  </div>
+  <div class="navEspecifico">
+    <button  [routerLink]="['/contratos/']" type="button" data-toggle="modal" data-target="#contrato">
+      Nuevo Contrato
+    </button>   
+    <button type="button" data-toggle="modal" data-target="#clienteRegistro">
+      Nueva Entidad
+    </button>
+    <button type="button" data-toggle="modal" data-target="#inmuebleRegistro">
+      Nuevo Inmueble
+    </button>
+    <button type="button" data-toggle="modal" data-target="#contratoAyuda">
+      Ayuda Contrato
+    </button>
+    
   </div>
 </div>
 

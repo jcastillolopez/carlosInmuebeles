@@ -1,325 +1,215 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border: 0;
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
-/*Contenedores Generales de APP*/
-.app {
-    color: gold;
-    text-shadow: 2px 2px 2px black;
-    font-style: oblique;
-    display: flex;
-    flex-direction: column;
-    min-width: 100%;
-    min-height: 100vh;
-    background-color: rgb(58, 58, 208);
+/* Remove default padding */
+ul[class],
+ol[class] {
+	padding: 0;
 }
 
-.header {
-    max-height: 10vh;
-    max-width: 100%;
-    display: flex;
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	scroll-behavior: smooth;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class],
+li {
+	list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+	max-width: 100%;
+	display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article>*+* {
+	margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+:root {
+	--colorPrincipal: rgb(28, 28, 86);
+	--colorDetalle:gray;
+	--colorRegistro: rgb(14, 14, 126);
+	--colorTexto: gold;
+	--colorTextoSecundario: white;
+}
+
+
+body {
+	background-color: var(--colorPrincipal);
+	color: var(--colorTexto);
+	font-style: oblique;
+	text-shadow: 2px 2px 2px black;
+}
+
+header {
+	display: flex;
+	text-align: center;
+	flex: wrap;
+	padding: 1em;
+	justify-content: center;
+	max-height: 5em;
+
 }
 
 footer {
-    min-height: 5vh;
-    min-width: 100%;
-    text-align: center;
-    background-color: rgb(58, 58, 208);
+	max-height: 2em;
+	text-align: center;
 }
 
-/*Contenedores de Paginas */
+.navEspecifico {	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	text-align: left;
+	background-color: var(--colorPrincipal);
+}
+
 .pagina {
-    margin: 10px;
-    color: gold;
-    text-shadow: 2px 2px 2px black;
-    font-style: oblique;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    text-align: center;
-    max-width: 100%;
-    max-height: 75vh;
-    min-height: 75vh;
-    background-color: gray;
+	display: flex;
+	flex-direction: row;
+	max-width: 95%;
+	min-height: 85%;
+	color: var(--colorDetalle)
 }
-
-.router {
-    margin: 0 auto;
-    width: 99%;
-    background-color: aquamarine;
-}
-
-/*Contenedores de Navegadores */
-
-.nav {
-    margin-bottom: 10px;
-    font-size: 125%;
-    width: 100%;
-    max-height: 5vh;
-    background-color: rgb(58, 58, 208);
-    display: flex;
-    justify-content: space-around;
-
-}
-
-.general {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.navEspecifico {
-    min-width: 10%;
-    min-height: 70vh;
-    max-height: 70vh;
-    background-color: rgb(96, 91, 91);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-ul {
-    list-style: none;
-}
-
-li {
-    list-style: none;
-    margin-right: 20px;
-}
-
-li:hover {
-    padding: 15px;
-    background-color: rgb(81, 181, 85);
-    color: black;
-    text-shadow: 1px 1px 1px gray;
-    border-radius: 10px;
-}
-
-.activo {
-    color: white;
-    text-shadow: none;
-    padding: 15px;
-    background-color: rgb(16, 99, 19);
-    border-radius: 10px;
-}
-
-/* Contenedores de Listados */
-.detalles {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.especifico {
-    padding-left: 10px;
-    margin-top: 20px;
-    min-width: 60%;
-    max-width: 0%;
-    display: flex;
-
-}
-
-.caracteristicas {
-    max-width: 100%;
-    margin: 0 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.publis {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    min-width: 40%;
-    min-height: 40vh;
-
-}
-
-/* Listados  y  listas*/
-
-.listado {
-    max-width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    font-size: 125%;
-}
-
-.lista {
-    max-width: 100%;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    color: lightgreen;
-    font-style: oblique;
-    text-shadow: 1px 1px 1px black
-}
-
-thead {
-    color: gold;
-}
-
-thead tr th {
-    border-top: 0;
-}
-
-tbody {
-
-    color: white;
-    border: 0 !important;
-}
-
-tbody tr:hover {
-
-    background-color: rgb(81, 181, 85);
-}
-
-tbody tr td {
-    border: 0 !important;
-
-}
-
-tr th {
-    min-width: 125px;
-    text-align: left;
-}
-
-tr td {
-    min-width: 125px;
-    text-align: left;
-}
-
-td {
-    padding: 5px;
-    text-align: center;
-    max-width: 125px;
-}
-
-th {
-    padding: 5px;
-    max-width: 125px;
-    text-align: center;
-    color: gold;
-}
-
-.buttonLista {
-    min-width: 0;
-    width: 50px;
-}
-
-.botonOculto {
-    visibility: hidden;
-}
-
-.activoBoton .botonOculto {
-
-    visibility: visible;
-}
-
-/* Modales  Formularios */
-.modal-dialog {
-    min-width: 40%;
-}
-
-.modal-content {
-    background-color: rgb(58, 58, 208);
-    border-radius: 25px;
-    text-align: left;
-}
-
-.modal-header {
-    margin: 0 auto;
-}
-
-
-.modal-footer {
-    border: none;
-}
-
-.regiDetalle {
-
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    background-color: green;
-}
-
-.campo {
-
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    flex-direction: column;
-    margin-bottom: 0.5em;
-    text-align: left;
-}
-
-.campoTabla {
-    margin-right: 5px;
-
-}
-
-label {
-    grid-column: 1;
-    text-align: left;
-    margin-right: 5px;
-}
-
-input {
-    background-color: rgba(255, 255, 255, 0.827);
-    grid-column: 2/4;
-    font-style: oblique;
-}
-
-select {
-    min-height: 18px;
-    color: white;
-    background-color: black;
-    font-style: oblique;
-}
-
-option {
-    background-color: black;
-}
-
-
-/* ****Boton*********************/
 
 button {
-    margin-right: 10px;
-    min-width: 100px;
-    height: 30px;
-    padding: 5px;
-    border-radius: 10px;
-    background-color: transparent;
-    color: white;
-    font-style: oblique;
-    font-size: 100%;
-    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+	color: white;
+	background: transparent;
+	border-radius: 5px;
+	font-style: oblique;
+	text-shadow: 2px 2px 2px black;
+	border: 0;
+	min-width: 5em;
+	margin-right: 2em;
+	
 }
 
 button:hover {
-    min-width: 100px;
-    color: rgb(0, 0, 0);
-    text-shadow: 1px 1px 1px black;
-    background-color: lightblue;
+	color: black;
+	background-color: lightblue;
 }
 
-/*   titulos parrafos y otros*/
-h4 {
-    text-shadow: 1px 1px 1px rgb(0, 0, 0);
-    color: gold;
+.boton {
+	
+	color: var(--colorTexto);
+	background: transparent;
+	border-radius: 5px;
+	font-style: oblique;
+	text-shadow: 2px 2px 2px black;
+	border: 0;
+	min-width: 7em;
+	margin-right: 2em;
+	margin-bottom: 2em;
+
 }
 
-h2,
-h3,
-p {
-    text-shadow: 2px 2px 2px rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    font-size: 125%;
+.boton:hover {
+	background-color: lightblue;
+}
+
+div.modal-content {
+	background-color: var(--colorRegistro);
+	border-radius: 20px;
+	max-width: 90%;
+}
+
+.modal-dialog {	
+	height: auto;	
+}
+
+.detalles {
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: gray;
+}
+.listado{
+    min-height: 50vh;
+    text-align: center;
+    margin-top: 1em;
+	margin-left: 1em;
+}
+
+.especifico {
+	max-width: 90%;
+}
+tr{
+	display: flex;		
+	max-height: 2em;
+	
+}
+
+tr th  {
+    text-align: left;
+    min-width: 115px;
+}
+tr td{
+    text-align: left;
+    min-width: 115px;
+	color: white;    
+}
+
+tbody tr:hover{
+	background-color:lightgreen;
+}
+.activo{
+	background-color: green;
+}
+.lista{
+	max-height: 50%;
+	
 }

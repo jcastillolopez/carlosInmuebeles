@@ -1,5 +1,5 @@
-<div class="nav">
-  <div class="general">
+<div class="pagina">
+  <div class="nav">
     <li [routerLink]="['/inicio']" routerLinkActive="activo">
       Inicio
     </li>
@@ -21,15 +21,14 @@
     <li [routerLink]="['/balances']" routerLinkActive="activo">
       Balance
     </li>
-    <li *ngIf="validacionUser()" [routerLink]="['/tipos']" routerLinkActive="activo">
-      Tipos</li>
-    <li></li>
-    <li [routerLink]="['/publi']" routerLinkActive="activo">
-      Salir</li>
+    <li *ngIf="validacionUser()" [routerLink]="['/tipos']" routerLinkActive="activo">Tipos</li> 
 
   </div>
   <div class="bienvenida">
+    <li [routerLink]="['/publi']" routerLinkActive="activo">
+     Salir APP</li>
     <p>Bienvenido/a:</p>
     <p>{{nombreUsuario}}</p>
+  
   </div>
 </div>

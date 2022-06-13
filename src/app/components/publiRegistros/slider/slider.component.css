@@ -1,10 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
 
-}
 li{
-    font-size: 200%;
+    font-size: 150%;
     color: greenyellow;
     text-shadow: 1px 1px 1px black;
 }
@@ -12,13 +8,12 @@ li:hover{
     background-color: transparent;
     padding: 0;
     text-shadow: 1px 1px 1px black;
-
 }
 
 .slider-frame {
-    width: 800px;
-    height: 600px;
-    margin: 10px auto 0;
+    max-width: 80%;
+    height: 75%;
+    margin: 5px auto 0;
     overflow: hidden;
 }
 

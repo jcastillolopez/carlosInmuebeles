@@ -1,0 +1,13 @@
+.campo{
+    display: flex;
+    flex-direction: row;
+}
+label{
+    min-width: 10em;
+}
+ input {
+    max-width: 15em;
+}
+select{
+    min-width: 12em;
+}

@@ -1,20 +1,13 @@
-
-.modal-dialog {
-    min-width: 90%;
-}
-
-.totales {
+.campo{
     display: flex;
     flex-direction: row;
 }
-
-.campoTotal {
-    display: flex;
-    flex-direction: column;
-    max-width: 20%;
-    margin: 20px 20px;
+label{
+    min-width: 10em;
 }
-
-p {
-    color: red;
+ input {
+    max-width: 15em;
+}
+select{
+    min-width: 13em;
 }

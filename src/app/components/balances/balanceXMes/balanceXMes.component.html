@@ -1,10 +1,8 @@
-<div class="especifico">
+
   <div class="listado">
     <table class="lista">
       <thead>
-        <tr>
-          <th>Inmueble</th>
-          <th>Año</th>
+        <tr>          
           <th>Mes</th>
           <th>Ingreso Total</th>
           <th>Gasto Total</th>
@@ -12,9 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr routerLinkActive="activo" *ngFor="let anio of informesBalancesXAnios">
-          <td>{{anio.inmuebleAlias}}</td>
-          <td>{{anio.anio}}</td>
+        <tr routerLinkActive="activo" *ngFor="let anio of informesBalancesXAnios">         
           <td>{{anio.nombreMes}}</td>
           <td>{{anio.totalIngresos}} €</td>
           <td>{{anio.totalGastos}} €</td>
@@ -23,4 +19,3 @@
       </tbody>
     </table>
   </div>
-</div>

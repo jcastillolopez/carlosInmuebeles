@@ -1,5 +1,13 @@
 
-
+@media(min-width:768px) {
+    .listado {
+        display: flex;
+        flex-direction: row;
+    }
+    .navEspecifico{
+        justify-content: space-around;
+    }
+}
 
 
 

@@ -1,0 +1,37 @@
+
+   <header class="nav">   
+    <button class="boton"[routerLink]="['/administrador/registro']" type="button" data-toggle="modal"
+      data-target="#registro">
+      Registro
+    </button>
+    <button class="boton" [routerLink]="['/login']" type="button" routerLinkActive="activo" data-toggle="modal"
+      data-target="#login">
+      Login</button>
+  </header>     
+  <div class="bienvenida">
+  <h3>Bienvenido a la APP.  Gestione sus :</h3>
+ 
+  </div>
+  <div class="pagina">
+  
+  <div class="navpubli">
+    <button routerLink="/publi/quienes"> Quienes Somos </button>
+    <button routerLink="/publi/como"> Que hace </button>
+    <button routerLink="/publi/precios"> Precios </button>
+    <button routerLink="/publi/contacto"> Contacto </button>    
+  </div>
+  <div class="slider">
+    <div class="router">
+    <router-outlet></router-outlet>
+  </div>
+  <slider></slider>
+</div>
+</div>
+
+
+
+ 
+
+ <administradorRegistro></administradorRegistro>
+<login></login>
+ 

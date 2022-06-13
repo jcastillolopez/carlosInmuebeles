@@ -1,17 +1,8 @@
 <div class="valdacion" *ngIf="validacionUser()">
   <navApp></navApp>
 
-  <div class="pagina">
-    <div class="navEspecifico">
-      <button [routerLink]="['/usuarios/']" type="button" data-toggle="modal" data-target="#registro">
-        Nuevo Usuario
-      </button>
-      <button type="button" data-toggle="modal" data-target="#usuarioAyuda">
-        Ayuda Usuario
-      </button>
-    </div>
-    <div class="especifico">
-      <div class="listado">
+  <div class="detalles"> 
+    <div class="listado">
         <table class="lista">
           <thead>
             <tr>
@@ -20,22 +11,33 @@
               <th></th>
             </tr>
           </thead>
-          <tbody routerLinkActive="activo activoBoton" *ngFor="let usuario of arrListaUsuarios; let i = index">
-            <tr (click)="navegar(usuario.idUsuario)" [routerLink]="['/usuarios/detalle/'+usuario.idUsuario]">
+          <tbody routerLinkActive="activo activoBoton"
+            *ngFor="let usuario of arrListaUsuarios; let i = index">
+            <tr (click)="navegar(usuario.idUsuario)"
+              [routerLink]="['/usuarios/detalle/'+usuario.idUsuario]">
               <td>{{usuario.nombre}}</td>
               <td>{{usuario.email}}</td>
-              <td>
-                <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#registro">
+              <td >
+                <button type="button" class="botonOculto buttonLista" data-toggle="modal"
+                  data-target="#registro">
                   Modificar
                 </button>
               </td>
             </tr>
           </tbody>
-        </table>
-      </div>
-      <router-outlet></router-outlet>
+        </table>     
+      <router-outlet></router-outlet>   
+   
+    </div>
+    <div class="navEspecifico">
+      <button [routerLink]="['/usuarios/']" type="button" data-toggle="modal"
+        data-target="#registro">
+        Nuevo Usuario
+      </button>
+      <button type="button" data-toggle="modal" data-target="#usuarioAyuda">
+        Ayuda Usuario
+      </button>
     </div>
   </div>
   <usuarioRegistro></usuarioRegistro>
   <usuarioAyuda></usuarioAyuda>
-</div>

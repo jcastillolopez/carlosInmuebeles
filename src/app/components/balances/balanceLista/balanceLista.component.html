@@ -1,10 +1,6 @@
 <navApp></navApp>
 
-<div class="pagina">
-  <div class="navEspecifico">
-    <button type="button" data-toggle="modal" data-target="#balanceAyuda">
-      Ayuda Balance
-    </button>
+<div class="detalles"> 
     <div class="listado">
       <h4> Selecionar Clientes </h4>
       <table class="lista">
@@ -23,11 +19,13 @@
             <td>{{cliente.nie}}</td>
           </tr>
         </tbody>
-      </table>
-    </div>
-
-  </div>
-
-  <router-outlet></router-outlet>
+      </table> 
+      <router-outlet></router-outlet>
+  </div>  
+  <div class="navEspecifico">
+<button type="button" data-toggle="modal" data-target="#balanceAyuda">
+  Ayuda Balance
+</button>
 </div>
+
 <balanceAyuda></balanceAyuda>

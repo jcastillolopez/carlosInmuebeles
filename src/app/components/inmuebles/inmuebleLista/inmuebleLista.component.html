@@ -1,24 +1,13 @@
 <navApp></navApp>
 
-<div class="pagina">
-  <div class="navEspecifico">
-    <button *ngIf="validaciones()" [routerLink]="['/inmuebles/']" type="button" data-toggle="modal"
-      data-target="#inmuebleRegistro">
-      Nuevo Inmueble
-    </button>
-    <button type="button" data-toggle="modal" data-target="#inmueblesAyuda">
-      Ayuda Inmueble
-    </button>
-  </div>
-  <div class="especifico">
+<div class="detalles">  
     <div class="listado">
       <table class="lista">
         <thead>
           <tr>
             <th>Inmuebles</th>
-            <th>Tipo Inmueble</th>        
+            <th>Tipo</th>        
             <th>Ref Catastral</th>
-            <th></th>
           </tr>
         </thead>
         <tbody routerLinkActive="activo activoBoton" *ngFor="let inmueble of arrListaInmuebles; let i = index">
@@ -33,9 +22,17 @@
             </td>
           </tr>
         </tbody>
-      </table>
-    </div>
+      </table>   
     <router-outlet></router-outlet>
+  </div>
+  <div class="navEspecifico">
+    <button *ngIf="validaciones()" [routerLink]="['/inmuebles/']" type="button" data-toggle="modal"
+      data-target="#inmuebleRegistro">
+      Nuevo Inmueble
+    </button>
+    <button type="button" data-toggle="modal" data-target="#inmueblesAyuda">
+      Ayuda Inmueble
+    </button>
   </div>
 </div>
 
