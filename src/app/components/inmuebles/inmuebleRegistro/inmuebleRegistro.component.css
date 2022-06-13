@@ -1,0 +1,23 @@
+.campo{
+    display: flex;
+    flex-direction: row;
+}
+label{
+    min-width: 10em;
+   
+}
+ input {
+    max-width: 15em;
+}
+select{
+   
+    min-width: 15em;
+}
+.regidetalle{
+    display: flex;
+    flex-direction: row;
+}
+.totales{
+    display: flex;
+    flex-direction: row;
+}

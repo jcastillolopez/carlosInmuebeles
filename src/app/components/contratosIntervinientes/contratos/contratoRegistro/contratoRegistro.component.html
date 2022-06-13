@@ -5,7 +5,6 @@
         <h3>Datos del Contrato</h3>
       </div>
       <form class="registro" [formGroup]="registroForm">
-
         <div class="modal-body">
           <div class="form">
             <div class="form-group campo">
@@ -49,7 +48,7 @@
                 requerido
               </p>
             </div>
-            <div class="mform-group campo">
+            <div class="form-group campo">
               <label class="form-label">Fecha de Fin</label>
               <input type="date" class="form-control" formControlName="fechaFin">
               <p class="error" *ngIf="checkErrorForm('fechaFin', 'validacionFechaPago')">

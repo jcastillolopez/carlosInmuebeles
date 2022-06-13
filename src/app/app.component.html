@@ -1,19 +1,16 @@
-<div class="app">
-    <div class="header">
-        <div class="logo">
-            <img class="icono"
+
+    <header>
+        <img class="logo" 
                 src="../assets/construction_project_plan_building_architect_design_develop-75_icon-icons.com_60218.png"
-                alt="">
-        </div>
-        <div class="titulo">
+                alt="">     
             <h2>APP GESTION DE INMUEBLES</h2>
-        </div>
-    </div>         
-            <router-outlet>    
-                    
-            </router-outlet> 
+       
+    </header>  
+    <main>
+        <router-outlet> </router-outlet>
+     </main>       
+    
            
     <footer>
-        <h4>{{fechasistema}} </h4>
+        <h4>{{fechasistema|date:"dd / MMMM / YYYY"}} </h4>
     </footer>
-</div>

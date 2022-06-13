@@ -21,11 +21,10 @@ import { UsuarioListaComponent } from './components/usuarios/usuarioLista/usuari
 import { UsuarioRegistroComponent } from './components/usuarios/usuarioRegistro/usuarioRegistro.component';
 
 import { NavAppComponent } from './components/navegadores/generalNav/navApp.component';
-import { PubliInicioComponent } from './components/publiRegistros/publicidad/publiInicio/publiInicio.component';
+import { PubliInicioComponent } from './components/publiRegistros/publiInicio/publiInicio.component';
 
 import { AdministradorRegistroComponent } from './components/usuarios/administradorRegistro/administradorRegistro.component';
 import { LoginComponent } from './components/publiRegistros/login/login.component';
-import { LoginNavComponent } from './components/navegadores/loginNav/loginNav.component';
 
 import { RolListaComponent } from './components/tipos/roles/rolLista/rolLista.component';
 import { RolRegistroComponent } from './components/tipos/roles/rolRegistro/rolRegistro.component';
@@ -76,7 +75,7 @@ import { SliderComponent } from './components/publiRegistros/slider/slider.compo
 import { QuienessomosComponent } from './components/publiRegistros/publicidad/quienessomos/quienessomos.component';
 import { ComoFuncionaComponent } from './components/publiRegistros/publicidad/comoFunciona/comoFunciona.component';
 import { PreciosComponent } from './components/publiRegistros/publicidad/precios/precios.component';
-import { ContactoComponent } from './components/publiRegistros/contacto/contacto.component';
+import { ContactoComponent } from './components/publiRegistros/publicidad/contacto/contacto.component';
 
 
 @NgModule({
@@ -85,7 +84,7 @@ import { ContactoComponent } from './components/publiRegistros/contacto/contacto
 
     //Navegadores//
     NavAppComponent,
-    LoginNavComponent,
+ 
     //Ayudas//
     InicioAyudaComponent,
     UsuarioAyudaComponent,

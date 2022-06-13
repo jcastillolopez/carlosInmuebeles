@@ -1,39 +1,40 @@
 <div class="validacion" *ngIf="permisos.validacionProp()">
   <navApp></navApp>
-
-  <div class="pagina">
+ 
+  <div class="detalles">
+    <div class="listado">
+      <h5>Pendiente Comprobacion</h5>
+      <table class="lista">
+        <thead>
+          <tr>
+            <th>Inmueble</th>
+            <th>Fecha Factura</th>
+            <th>Proveedor</th>
+            <th>Total Importe</th>
+          </tr>
+        </thead>
+        <tbody [routerLink]="['/inga/detalle/'+inGa.idInGa]" routerLinkActive="activo activoBoton"
+          *ngFor="let inGa of arrFacturasAvisos; let i = index">
+          <tr>
+            <td>{{inGa.aliasInmueble}}</td>
+            <td>{{inGa.fechaFactura |date:'dd-MM-YYYY'}}</td>
+            <td>{{inGa.nombreApellidosCliente}}</td>
+            <div *ngIf="inGa.totalGasto != 0; else elseBlock">{{inGa.totalGasto}} €</div>
+            <ng-template #elseBlock>
+              <td>{{inGa.totalIngreso}}€</td>
+            </ng-template>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="navEspecifico">
-      <button type="button" data-toggle="modal" data-target="#inicioAyuda">
+      <button type="boton" data-toggle="modal" data-target="#inicioAyuda">
         Ayuda
       </button>
     </div>
-    <div class="especifico">
-      <div class="listado">
-        <h3>Pendiente Comprobacion</h3>
-        <table class="lista">
-          <thead>
-            <tr>
-              <th>Alias</th>
-              <th>Fecha Factura</th>
-              <th>Proveedor</th>
-              <th>Total Importe</th>
-            </tr>
-          </thead>
-          <tbody [routerLink]="['/inga/detalle/'+inGa.idInGa]" routerLinkActive="activo activoBoton"
-            *ngFor="let inGa of arrFacturasAvisos; let i = index">
-            <tr>
-              <td>{{inGa.aliasInmueble}}</td>
-              <td>{{inGa.fechaFactura |date:'dd-MM-YYYY'}}</td>
-              <td>{{inGa.nombreApellidosCliente}}</td>
-              <div *ngIf="inGa.totalGasto != 0; else elseBlock">{{inGa.totalGasto}} €</div>
-              <ng-template #elseBlock>
-                <td>{{inGa.totalIngreso}}€</td>
-              </ng-template>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
   </div>
-  <inicioAyuda></inicioAyuda>
+ 
+
+<inicioAyuda></inicioAyuda>
+
 </div>

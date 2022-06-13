@@ -1,4 +1,27 @@
-.botonLista1{
-    width: 250px;
-    height: 50px;
+label{
+    color: greenyellow;
+    margin-right: 1em;
+    min-width: 4em;
+    text-align: left;
+ }
+ p{
+    color: white;
+ }
+ 
+ .campo{
+    display: flex;
+    flex-direction: row;
+   
+ }
+ thead tr{
+     color:greenyellow;
+     text-shadow: 1 1 1 black;
+ }
+ @media(min-width:1024px) {
+   .detalles {
+       display: flex;
+       flex-direction: row;
+      margin-left: 2em;
+   }
+ 
 }

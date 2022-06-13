@@ -1,35 +1,33 @@
 <div class="validacion" *ngIf="permisos.validacionProp()">
   <navApp></navApp>
 
-  <div class="pagina">
+  <div class="detalles">
+    <div class="listado">
+      <h4> Selecionar Clientes </h4>
+      <table class="lista">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>nie</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let cliente of arrListaClientes;">
+          <tr routerLinkActive="activo activoBoton" (click)="navegarClientes(cliente.idCliente!)"
+            [routerLink]="['/balances/cliente/' + cliente.idCliente]">
+            <td>{{cliente.nombre}}</td>
+            <td>{{cliente.apellidos}}</td>
+            <td>{{cliente.nie}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <router-outlet></router-outlet>
+    </div>
     <div class="navEspecifico">
       <button type="button" data-toggle="modal" data-target="#balanceAyuda">
         Ayuda Balance
       </button>
-      <div class="listado">
-        <h4> Selecionar Clientes </h4>
-        <table class="lista">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Apellidos</th>
-              <th>nie</th>
-            </tr>
-          </thead>
-          <tbody *ngFor="let cliente of arrListaClientes;">
-            <tr routerLinkActive="activo activoBoton" (click)="navegarClientes(cliente.idCliente!)"
-              [routerLink]="['/balances/cliente/' + cliente.idCliente]">
-              <td>{{cliente.nombre}}</td>
-              <td>{{cliente.apellidos}}</td>
-              <td>{{cliente.nie}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
     </div>
 
-    <router-outlet></router-outlet>
+    <balanceAyuda></balanceAyuda>
   </div>
-  <balanceAyuda></balanceAyuda>
-</div>

@@ -1,62 +1,45 @@
-.listado {
-  min-width: 100%;
-  justify-content: space-between;
+.selecciones {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-align: center;
 }
 
-.lista {
-  min-width: 100%;
+select {
+    background-color: var(--colorPrincipal);
+    color: white;
+    min-width: 13em;
 }
-
-.campo {
-  display: flex;
-  flex-direction: column;
-  min-width: 100%;
-
-}
-
-.navEspecifico {
-  min-width: auto;
-  min-height: 90%;
-  font-size: 125%;
-}
-
-tr th {
-  min-width: 125px;
-  text-align: left;
-}
-
-tr td {
-  min-width: 125px;
-  text-align: left;
-}
-
 
 .totales {
-  max-height: 10%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 0 auto;
-  margin-bottom: 20px;
-}
-
-
-p {
-
-  margin-right: 30px;
-}
-
-h4 {
-  margin-left: 20%;
-  max-width: 20%;
-
+    margin-top: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 
 }
 
-.inactivoDetalle {
-  display: none;
+.campoT {
+    text-align: center;
+    margin-right: 4em;
+    color: gold;
 }
 
-.activoDetalle .inactivoDetalle {
-  display: flex;
+.campoT p {
+    color: white;
+}
+
+.filtrar {
+    min-width: 30%;
+    font-size: 125%;
+}
+
+.activoDetalle {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+}
+
+.activo .activoDetalle {
+    max-height: 10em;
 }

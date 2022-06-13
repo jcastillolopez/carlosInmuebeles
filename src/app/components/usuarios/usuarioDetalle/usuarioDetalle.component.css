@@ -1,3 +1,21 @@
-.router{
-   max-width: 50%;
+
+label{
+   color: greenyellow;
+   margin-right: 1em;
+   min-width: 4em;
+   text-align: left;
+}
+p{
+   color: white;
+}
+
+.campo{
+   display: flex;
+   flex-direction: row;
+  
+}
+.lista{
+   flex-direction: row;
+   justify-content: space-around;
+   max-width: 40%;
 }

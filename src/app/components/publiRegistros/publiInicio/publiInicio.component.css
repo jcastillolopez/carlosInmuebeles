@@ -1,0 +1,28 @@
+
+.bienvenida{ 
+    display: flex;
+    flex-direction: row; 
+    margin: 0 auto; 
+}
+.navpubli {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	text-align: left;
+	background-color: var(--colorPrincipal);
+}
+h5{
+    max-width: 100%;
+    color: gold;   
+    margin-top: 10px;
+}
+.slider{
+    max-width: 85%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.router{
+    max-width: 85%;
+}
+

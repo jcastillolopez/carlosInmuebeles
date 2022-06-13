@@ -1,11 +1,44 @@
 
-.bienvenida{  
-    width: 20%;
-    display: flex;    
-    justify-content: space-around;
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;    
 }
-.bienvenida p {  
-    color: gold;
-    text-shadow: 1px,1px,1px,black;
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    position: relative;   
+    color: gold;  
+}
+.activo{
+    background-color: green;
+}
+li{
+    color: var(--colorTexto);
+	background: transparent;
+	border-radius: 10px;
+	font-style: oblique;
+	text-shadow: 2px 2px 2px black;
+    text-align: center;
+	border: 0;
+	min-width: 5em;
+	margin-left: 1em;
+    max-height: 3em;
+	
+
+}
+li:hover{
+    background-color: lightblue;
 }
 
+@media(min-width:1024px) {
+    .nav{
+        margin-left: 10%;
+    }
+    .bienvenida {
+     margin-left: 5%;  
+    }
+   
+    
+}

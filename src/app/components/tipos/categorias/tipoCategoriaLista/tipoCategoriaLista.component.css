@@ -1,0 +1,22 @@
+
+
+.lista{
+   text-align: left; 
+  
+}
+h3{
+   color: gold;
+}
+li{
+   color: white;   
+}
+li:hover{
+   background-color: lightgreen;
+}
+tbody{
+   max-height: 2em;
+   margin: 0;
+}
+th{
+   color: gold;
+}

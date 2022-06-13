@@ -1,9 +1,18 @@
-.pagina {
-   justify-content: left;
+
+.listado{
+   display: flex;
+   flex-direction: row;
+}
+.lista{
+   text-align: left;
+  
 }
 h3{
    color: gold;
 }
 li{
-   color: white;
+   color: white;   
+}
+li:hover{
+   background-color: lightgreen;
 }

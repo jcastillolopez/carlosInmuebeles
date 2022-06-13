@@ -1,20 +1,19 @@
-<div class="especifico">
+
     <div class="listado">
         <table class="lista">
             <thead>
-                <tr>
-                    <th>Inmueble</th>
+                <tr>                   
                     <th>Año</th>
-                    <th>Ingreso Total</th>
-                    <th>Gasto Total</th>
-                    <th>Total Balance</th>
+                    <th>Ingreso </th>
+                    <th>Gasto </th>
+                    <th>Balance</th>
                 </tr>
             </thead>
             <tbody>
                 <tr routerLinkActive="activo" *ngFor="let anio of informesBalancesXAnios"
                     [routerLink]="['/balances/cliente/' + this.selectedCliente + '/anios/' + this.selectedInmueble + '/mes/' + anio.anio]"
                     (click)="navegarAnios(anio.anio!)">
-                    <td>{{anio.inmuebleAlias}}</td>
+                   
                     <td>{{anio.anio}}</td>
                     <td>{{anio.totalIngresos}} €</td>
                     <td>{{anio.totalGastos}} €</td>
@@ -22,6 +21,6 @@
                 </tr>
             </tbody>
         </table>
+        <router-outlet></router-outlet>
     </div>
-</div>
-<router-outlet></router-outlet>
+

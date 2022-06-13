@@ -17,7 +17,7 @@ import { UsuarioListaComponent } from './components/usuarios/usuarioLista/usuari
 import { UsuarioDetalleComponent } from './components/usuarios/usuarioDetalle/usuarioDetalle.component';
 
 //Publi
-import { PubliInicioComponent } from './components/publiRegistros/publicidad/publiInicio/publiInicio.component';
+import { PubliInicioComponent } from './components/publiRegistros/publiInicio/publiInicio.component';
 
 //Tipos
 import { TiposComponent } from './components/tipos/tipos/tipos.component';
@@ -52,7 +52,7 @@ import { IngaDetalleComponent } from './components/ingresosGastos/ingaDetalle/in
 import { QuienessomosComponent } from './components/publiRegistros/publicidad/quienessomos/quienessomos.component';
 import { ComoFuncionaComponent } from './components/publiRegistros/publicidad/comoFunciona/comoFunciona.component';
 import { PreciosComponent } from './components/publiRegistros/publicidad/precios/precios.component';
-import { ContactoComponent } from './components/publiRegistros/contacto/contacto.component';
+import { ContactoComponent } from './components/publiRegistros/publicidad/contacto/contacto.component';
 
 
 

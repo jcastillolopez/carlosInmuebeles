@@ -1,35 +1,14 @@
 
 
-h2 {
-    font-size: 175%;
-    color: gold;
-    text-shadow: 10px,10px,10px,black;
-    font-style: oblique;
-    margin-top: 10px;
-   
+.logo{
+    width: 3em;
 }
 
-.logo {
-    width: 10%;
-    display: flex;
-    padding: 10px;
-    justify-content: left;
+h2{
+    width: 90%;
+    align-self: center;
 }
-
-.titulo{
-    margin: 0 auto;
-}
-
-.icono {
-    top: 5px;
-    left: 5px;
-    width: 60px;
-    height: 60px;
-}
-
-h4 {
-    font-style: oblique;
-    top: 75px;
-    margin-left: 15px;
+main{
+    min-height: 85vh;
 }
 
