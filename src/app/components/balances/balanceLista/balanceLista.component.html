@@ -1,6 +1,7 @@
-<navApp></navApp>
+<div class="validacion" *ngIf="permisos.validacionProp()">
+  <navApp></navApp>
 
-<div class="detalles"> 
+  <div class="detalles">
     <div class="listado">
       <h4> Selecionar Clientes </h4>
       <table class="lista">
@@ -19,13 +20,14 @@
             <td>{{cliente.nie}}</td>
           </tr>
         </tbody>
-      </table> 
+      </table>
       <router-outlet></router-outlet>
-  </div>  
-  <div class="navEspecifico">
-<button type="button" data-toggle="modal" data-target="#balanceAyuda">
-  Ayuda Balance
-</button>
-</div>
+    </div>
+    <div class="navEspecifico">
+      <button type="button" data-toggle="modal" data-target="#balanceAyuda">
+        Ayuda Balance
+      </button>
+    </div>
 
-<balanceAyuda></balanceAyuda>
+    <balanceAyuda></balanceAyuda>
+  </div>

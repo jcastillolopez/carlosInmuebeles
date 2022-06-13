@@ -76,14 +76,17 @@ export class AdministradorRegistroComponent implements OnInit {
         sessionStorage.setItem('administradorId', usuario[0].administradorId);
         sessionStorage.setItem('nombreUsuario', usuario[0].nombre);
         sessionStorage.setItem('idUsuario', usuario[0].idUsuario);
-        sessionStorage.setItem('validacion', 'true')
+        sessionStorage.setItem('validacion', 'true');
         sessionStorage.setItem('validacionVisualizacion', usuario[0].rolId)
         sessionStorage.setItem('entidad', usuario[0].entidadId)
 
         if (administrador.idPersonasPagadora !== null) {
           this.router.navigate(['/inicio']);
         }
-      } else { let result = 'hay datos no validos en el formulario' };
+      } else {
+        sessionStorage.setItem('validacion', 'false');
+        let result = 'hay datos no validos en el formulario'
+      };
     }
   }
   dniValidators(pControl: FormControl) {

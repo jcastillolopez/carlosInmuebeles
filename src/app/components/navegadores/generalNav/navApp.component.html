@@ -3,10 +3,10 @@
     <li [routerLink]="['/inicio']" routerLinkActive="activo">
       Inicio
     </li>
-    <li *ngIf="validacionAdministrador()" [routerLink]="['/usuarios']" routerLinkActive="activo">
+    <li *ngIf="permisos.validacionAdministrador()" [routerLink]="['/usuarios']" routerLinkActive="activo">
       Usuarios
     </li>
-    <li *ngIf="validacionUser()" [routerLink]="['/clientes']" routerLinkActive="activo">
+    <li *ngIf="permisos.validacionProp()" [routerLink]="['/clientes']" routerLinkActive="activo">
       Entidades
     </li>
     <li [routerLink]="['/inmuebles']" routerLinkActive="activo">
@@ -21,7 +21,11 @@
     <li [routerLink]="['/balances']" routerLinkActive="activo">
       Balance
     </li>
-    <li *ngIf="validacionUser()" [routerLink]="['/tipos']" routerLinkActive="activo">Tipos</li> 
+    <li *ngIf="permisos.validacionUser()" [routerLink]="['/tipos']" routerLinkActive="activo">
+      Tipos</li>
+    <li></li>
+    <li [routerLink]="['/publi']" routerLinkActive="activo">
+      Salir</li>
 
   </div>
   <div class="bienvenida">

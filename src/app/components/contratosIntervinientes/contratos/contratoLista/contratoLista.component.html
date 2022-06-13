@@ -4,7 +4,7 @@
     <div class="listado">
       <table class="lista">
         <thead>
-          <tr>           
+          <tr>
             <th>Inmueble</th>
             <th>Tipo Contrato</th>
             <th>Fecha Contrato</th>
@@ -14,9 +14,9 @@
         <tbody routerLinkActive="activo activoBoton" *ngFor="let contrato of arrListaContratos; let i = index">
           <tr (click)="navegar(contrato.idContratos!)" [routerLink]="['/contratos/detalle/' + contrato.idContratos ]">
             <td>{{contrato.aliasInmueble}}</td>
-            <td>{{contrato.tipoContrato}}</td>           
+            <td>{{contrato.tipoContrato}}</td>
             <td>{{contrato.fechaContrato|date:'dd-MM-YYYY'}}</td>
-            <td>
+            <td *ngIf="permisos.validacionUser()">
               <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#contrato">
                 Modificar
               </button>

@@ -1,4 +1,5 @@
-<navApp></navApp>
+<div class="validacion" *ngIf="permisos.validacionProp()">
+  <navApp></navApp>
 <div class="detalles">
   <div class="listado">
     <label class="form-label"> Seleccione el filtro :</label>
@@ -45,10 +46,12 @@
           <td>{{inGa.nombreApellidosCliente}}</td>
           <td>{{inGa.totalIngreso}} €</td>
           <td>{{inGa.totalGasto}} €</td>
-          <button *ngIf="inGa.totalGasto != 0; else elseBlock" type="button"
+          <div class="validacion" *ngIf="permisos.validacionUser()">
+            <button *ngIf="inGa.totalGasto != 0; else elseBlock" type="button"
             class="botonOculto buttonLista" data-toggle="modal" data-target="#ingaGeneral">
             Modificar
           </button>
+          </div>
           <ng-template #elseBlock>
             <button type="button" class="botonOculto buttonLista" data-toggle="modal"
               data-target="#ingresoGeneral">
@@ -106,10 +109,10 @@
     <router-outlet></router-outlet>
   </div>
   <div class="navEspecifico">
-    <button [routerLink]="['/inga']" type="button" data-toggle="modal" data-target="#ingaGeneral">
+    <button *ngIf="permisos.validacionUser()" [routerLink]="['/inga']" type="button" data-toggle="modal" data-target="#ingaGeneral">
       Nuevo Gasto
     </button>
-    <button [routerLink]="['/inga']" type="button" data-toggle="modal"
+    <button *ngIf="permisos.validacionUser()" [routerLink]="['/inga']" type="button" data-toggle="modal"
       data-target="#ingresoGeneral">
       Nuevo Ingreso
     </button>
@@ -122,3 +125,5 @@
 <ingaRegistroGeneral></ingaRegistroGeneral>
 <ingresoRegistroGeneral></ingresoRegistroGeneral>
 <inGaAyuda></inGaAyuda>
+
+</div>

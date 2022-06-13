@@ -1,40 +1,40 @@
-<navApp></navApp>
-<div class="detalles">
-  <h3>Clasificacion de :</h3>
-  <div class="listado">   
-  <div class="lista">   
-    <li [routerLink]="['/tipos/inmueble']" routerLinkActive="activo">
-      Inmuebles
-    </li>
-    <li [routerLink]="['/tipos/contrato']" routerLinkActive="activo">
-      Contratos
-    </li>
-    <li [routerLink]="['/tipos/interviniente']" routerLinkActive="activo">
-      Interviniente
-    </li>
-    <li [routerLink]="['/tipos/periodo']" routerLinkActive="activo">
-      Periodos
-    </li>
-    <li [routerLink]="['/tipos/rol']" routerLinkActive="activo">
-      Roles
-    </li>
-    <li [routerLink]="['/tipos/concepto']" routerLinkActive="activo">
-      Concepto
-    </li>
-    <li [routerLink]="['/tipos/pago']" routerLinkActive="activo">
-      Pagos
-    </li>
-    <li [routerLink]="['/tipos/categoria']" routerLinkActive="activo">
-      Categoria
-    </li>
+<div class="validacion" *ngIf="permisos.validacionProp()">
+  <navApp></navApp>
+  <div class="detalles">
+    <h3>Clasificacion de :</h3>
+    <div class="listado">
+      <div class="lista">
+        <li [routerLink]="['/tipos/inmueble']" routerLinkActive="activo">
+          Inmuebles
+        </li>
+        <li [routerLink]="['/tipos/contrato']" routerLinkActive="activo">
+          Contratos
+        </li>
+        <li [routerLink]="['/tipos/interviniente']" routerLinkActive="activo">
+          Interviniente
+        </li>
+        <li [routerLink]="['/tipos/periodo']" routerLinkActive="activo">
+          Periodos
+        </li>
+        <li [routerLink]="['/tipos/concepto']" routerLinkActive="activo">
+          Concepto
+        </li>
+        <li [routerLink]="['/tipos/pago']" routerLinkActive="activo">
+          Pagos
+        </li>
+        <li [routerLink]="['/tipos/categoria']" routerLinkActive="activo">
+          Categoria
+        </li>
+      </div>
+      <router-outlet></router-outlet>
     </div>
-    <router-outlet></router-outlet>
-  </div>
 
-<div class="navEspecifico">
-  <button type="button" data-toggle="modal" data-target="#tiposAyuda">
-    Ayuda Tipos
-  </button> 
+    <div class="navEspecifico">
+      <button type="button" data-toggle="modal" data-target="#tiposAyuda">
+        Ayuda Tipos
+      </button>
+    </div>
+  </div>
+  <tiposAyuda></tiposAyuda>
+
 </div>
-</div>
-<tiposAyuda></tiposAyuda>

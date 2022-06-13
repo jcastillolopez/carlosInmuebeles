@@ -1,13 +1,13 @@
 <div class="pagina">
   <div class="botonNuevosRegistros">
-   
+
   </div>
 
   <div class="listado">
     <button type="button" class="button" [routerLink]="['/tipos/interviniente/']" data-toggle="modal"
-    data-target="#registroTiposInterviniente">
-    Nuevo Tipo de Interviniente
-  </button>
+      data-target="#registroTiposInterviniente">
+      Nuevo Tipo de Interviniente
+    </button>
     <table class="lista">
       <thead>
         <tr>
@@ -19,7 +19,7 @@
         <tr (click)="navegar(tipo.idTipoInterviniente)"
           [routerLink]="['/interviniente/modificacion/'+tipo.idTipoInterviniente]">
           <td>{{tipo.tipoInterviniente}}</td>
-          <td>
+          <td *ngIf="permisos.validacionTipos(tipo.administradorId)">
             <button type="button" class="buttonLista" data-toggle="modal" data-target="#registroTiposInterviniente">
               Modificar
             </button>

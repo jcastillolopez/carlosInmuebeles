@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ingresogastointerface } from 'src/app/interfaces/ingresoGasto';
 import { ingresogastodetalleinterface } from 'src/app/interfaces/ingresoGastoDetalle';
 import { Globales } from 'src/app/services/Globales.service';
+import { PermisosService } from 'src/app/services/Permisos.service';
 import { tiposService } from 'src/app/services/tipos.service';
 import { environment } from 'src/environments/environment';
 
@@ -39,6 +40,7 @@ export class InGaInicioComponent implements OnInit {
     private metodosTipos: tiposService,
     private router: Router,
     private activateRouter: ActivatedRoute,
+    public permisos: PermisosService
   ) {
     this.arrIngresosGastosMostrar = [];
     this.arrIngresosGastosFiltrados = [];

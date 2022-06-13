@@ -1,6 +1,6 @@
 <div class="pagina">
   <div class="botonNuevosRegistros">
-    
+
   </div>
   <div class="listado">
     <button type="button" [routerLink]="['/tipos/contrato']" class="button" data-toggle="modal"
@@ -16,7 +16,7 @@
       <tbody routerLinkActive="activo activoBoton" *ngFor="let tipo of arrListaTipoContrato; let i = index">
         <tr (click)="navegar(tipo.idTipoContrato)" [routerLink]="['/contrato/modificacion/'+tipo.idTipoContrato]">
           <td>{{tipo.tipoContrato}}</td>
-          <td>
+          <td *ngIf="permisos.validacionTipos(tipo.administradorId)">
             <button type="button" class="buttonLista" data-toggle="modal" data-target="#registroTiposContrato">
               Modificar
             </button>

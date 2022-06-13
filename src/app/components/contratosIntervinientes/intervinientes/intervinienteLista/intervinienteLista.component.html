@@ -3,7 +3,7 @@
   <div class="detalles"> 
     <div class="listado">
     <h4>Intervinientes</h4>
-    <button  (click)="navegarNuevo()" type="button" data-toggle="modal"
+    <button *ngIf="permisos.validacionUser()" (click)="navegarNuevo()" type="button" data-toggle="modal"
     data-target="#interviniente">
     Nuevo Interviniente
   </button>
@@ -15,16 +15,14 @@
             <th>% Propiedad</th>
           </tr>
         </thead>
-        <tbody 
-          *ngFor="let interviniente of arrListaIntervinientes; let i = index">
+        <tbody *ngFor="let interviniente of arrListaIntervinientes; let i = index">
           <tr (click)="navegar(interviniente.contratosId! ,interviniente.idInterviniente!)"
             [routerLink]="['/contratos/detalle/' + interviniente.contratosId + '/interviniente/' + interviniente.idInterviniente]">
             <td>{{interviniente.apellidosNombreCliente}}</td>
             <td>{{interviniente.tipoInterviniente}}</td>           
             <td>{{interviniente.porcentajePropiedad}}</td>
-            <td>
-              <button type="button" class="buttonLista" data-toggle="modal"
-                data-target="#interviniente">
+            <td *ngIf="permisos.validacionUser()">
+              <button type="button" class="buttonLista" data-toggle="modal" data-target="#interviniente">
                 Modificar
               </button>
             </td>

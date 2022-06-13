@@ -188,7 +188,7 @@ div.modal-content {
 	max-width: 90%;
 }
 tr{
-	display: flex;		
+	display: flex;
 	max-height: 2em;
 	
 }
@@ -211,5 +211,4 @@ tbody tr:hover{
 }
 .lista{
 	max-height: 50%;
-	
 }
