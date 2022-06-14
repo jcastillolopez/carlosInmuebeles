@@ -392,13 +392,11 @@ export class BalanceXMesComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;especifico&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">
   &lt;div class&#x3D;&quot;listado&quot;&gt;
     &lt;table class&#x3D;&quot;lista&quot;&gt;
       &lt;thead&gt;
-        &lt;tr&gt;
-          &lt;th&gt;Inmueble&lt;/th&gt;
-          &lt;th&gt;Año&lt;/th&gt;
+        &lt;tr&gt;          
           &lt;th&gt;Mes&lt;/th&gt;
           &lt;th&gt;Ingreso Total&lt;/th&gt;
           &lt;th&gt;Gasto Total&lt;/th&gt;
@@ -406,9 +404,7 @@ export class BalanceXMesComponent implements OnInit {
         &lt;/tr&gt;
       &lt;/thead&gt;
       &lt;tbody&gt;
-        &lt;tr routerLinkActive&#x3D;&quot;activo&quot; *ngFor&#x3D;&quot;let anio of informesBalancesXAnios&quot;&gt;
-          &lt;td&gt;{{anio.inmuebleAlias}}&lt;/td&gt;
-          &lt;td&gt;{{anio.anio}}&lt;/td&gt;
+        &lt;tr routerLinkActive&#x3D;&quot;activo&quot; *ngFor&#x3D;&quot;let anio of informesBalancesXAnios&quot;&gt;         
           &lt;td&gt;{{anio.nombreMes}}&lt;/td&gt;
           &lt;td&gt;{{anio.totalIngresos}} €&lt;/td&gt;
           &lt;td&gt;{{anio.totalGastos}} €&lt;/td&gt;
@@ -417,7 +413,7 @@ export class BalanceXMesComponent implements OnInit {
       &lt;/tbody&gt;
     &lt;/table&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -425,13 +421,20 @@ export class BalanceXMesComponent implements OnInit {
                     <code>./balanceXMes.component.css</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">
-tr th{
-    min-width: 150px; 
+
+tr{
+    max-width: 90%;
+ }
+ tr th{
+    max-width: 100px; 
     text-align: left;
  }
  tr td{
-     min-width: 150px; 
+     max-width: 100px; 
     text-align: left; 
+ }
+ .listado{
+    margin-left: 0;
  }</code></pre>
     </div>
 
@@ -460,8 +463,8 @@ tr th{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="especifico">  <div class="listado">    <table class="lista">      <thead>        <tr>          <th>Inmueble</th>          <th>Año</th>          <th>Mes</th>          <th>Ingreso Total</th>          <th>Gasto Total</th>          <th>Total Balance</th>        </tr>      </thead>      <tbody>        <tr routerLinkActive="activo" *ngFor="let anio of informesBalancesXAnios">          <td>{{anio.inmuebleAlias}}</td>          <td>{{anio.anio}}</td>          <td>{{anio.nombreMes}}</td>          <td>{{anio.totalIngresos}} €</td>          <td>{{anio.totalGastos}} €</td>          <td>{{anio.totalBalance}} €</td>        </tr>      </tbody>    </table>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AdministradorRegistroComponent', 'selector': 'administradorRegistro'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BalanceAyudaComponent', 'selector': 'balanceAyuda'},{'name': 'BalanceListaComponent', 'selector': 'balanceLista'},{'name': 'BalanceXAnioComponent', 'selector': 'balanceXAnio'},{'name': 'BalanceXInmuebleComponent', 'selector': 'balanceXInmueble'},{'name': 'BalanceXMesComponent', 'selector': 'balanceXMes'},{'name': 'ClienteDetalleComponent', 'selector': 'clienteDetalle'},{'name': 'ClienteListaComponent', 'selector': 'clienteLista'},{'name': 'ClienteRegistroComponent', 'selector': 'clienteRegistro'},{'name': 'ComoFuncionaComponent', 'selector': 'comoFunciona'},{'name': 'ContactoComponent', 'selector': 'contacto'},{'name': 'ContratoAyudaComponent', 'selector': 'contratoAyuda'},{'name': 'ContratoDetalleComponent', 'selector': 'contratoDetalle'},{'name': 'ContratoListaComponent', 'selector': 'contratoLista'},{'name': 'ContratoRegistroComponent', 'selector': 'contratoRegistro'},{'name': 'EntidadesAyudaComponent', 'selector': 'app-entidadesAyuda'},{'name': 'InGaAyudaComponent', 'selector': 'inGaAyuda'},{'name': 'IngaDetalleComponent', 'selector': 'ingaDetalle'},{'name': 'InGaInicioComponent', 'selector': 'inGaInicio'},{'name': 'IngaRegistroGeneralComponent', 'selector': 'ingaRegistroGeneral'},{'name': 'IngresoRegistroGeneralComponent', 'selector': 'ingresoRegistroGeneral'},{'name': 'InicioAyudaComponent', 'selector': 'inicioAyuda'},{'name': 'InicioListaComponent', 'selector': 'inicioLista'},{'name': 'InmuebleDetalleComponent', 'selector': 'inmuebleDetalle'},{'name': 'InmuebleListaComponent', 'selector': 'inmuebleLista'},{'name': 'InmueblesAyudaComponent', 'selector': 'inmueblesAyuda'},{'name': 'InmueblesRegistroComponent', 'selector': 'inmueblesRegistro'},{'name': 'IntervinienteDetalleComponent', 'selector': 'app-intervinienteDetalle'},{'name': 'IntervinienteListaComponent', 'selector': 'intervinienteLista'},{'name': 'IntervinienteRegistroComponent', 'selector': 'intervinienteRegistro'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'LoginNavComponent', 'selector': 'loginNav'},{'name': 'ModificacionTiposComponent', 'selector': 'modificacionTipos'},{'name': 'NavAppComponent', 'selector': 'navApp'},{'name': 'PeriodoListaComponent', 'selector': 'periodoLista'},{'name': 'PeriodoRegistroComponent', 'selector': 'periodoRegistro'},{'name': 'PreciosComponent', 'selector': 'precios'},{'name': 'PubliInicioComponent', 'selector': 'publiInicio'},{'name': 'QuienessomosComponent', 'selector': 'quienessomos'},{'name': 'RolListaComponent', 'selector': 'rolLista'},{'name': 'RolRegistroComponent', 'selector': 'rolRegistro'},{'name': 'SliderComponent', 'selector': 'slider'},{'name': 'TipoCategoriaListaComponent', 'selector': 'tipoCategoriaLista'},{'name': 'TipoCategoriaRegistroComponent', 'selector': 'tipoCategoriaRegistro'},{'name': 'TipoCoceptoListaComponent', 'selector': 'tipoCoceptoLista'},{'name': 'TipoConceptoRegistroComponent', 'selector': 'tipoConceptoRegistro'},{'name': 'TipoContratoListaComponent', 'selector': 'tipoContratoLista'},{'name': 'TipoContratoRegistroComponent', 'selector': 'tipoContratoRegistro'},{'name': 'TipoInmuebleListaComponent', 'selector': 'tipoInmuebleLista'},{'name': 'TipoInmuebleRegistroComponent', 'selector': 'tipoInmuebleRegistro'},{'name': 'TipoIntervinienteListaComponent', 'selector': 'tipoIntervinienteLista'},{'name': 'TipoIntervinienteRegistroComponent', 'selector': 'tipoIntervinienteRegistro'},{'name': 'TipoPagoListaComponent', 'selector': 'tipoPagoLista'},{'name': 'TipoPagoRegistroComponent', 'selector': 'tipoPagoRegistro'},{'name': 'TiposAyudaComponent', 'selector': 'tiposAyuda'},{'name': 'TiposComponent', 'selector': 'tipos'},{'name': 'UsuarioAyudaComponent', 'selector': 'usuarioAyuda'},{'name': 'UsuarioDetalleComponent', 'selector': 'usuarioDetalle'},{'name': 'UsuarioListaComponent', 'selector': 'usuarioLista'},{'name': 'UsuarioRegistroComponent', 'selector': 'usuarioRegistro'}];
+        var COMPONENT_TEMPLATE = '<div>  <div class="listado">    <table class="lista">      <thead>        <tr>                    <th>Mes</th>          <th>Ingreso Total</th>          <th>Gasto Total</th>          <th>Total Balance</th>        </tr>      </thead>      <tbody>        <tr routerLinkActive="activo" *ngFor="let anio of informesBalancesXAnios">                   <td>{{anio.nombreMes}}</td>          <td>{{anio.totalIngresos}} €</td>          <td>{{anio.totalGastos}} €</td>          <td>{{anio.totalBalance}} €</td>        </tr>      </tbody>    </table>  </div></div>'
+    var COMPONENTS = [{'name': 'AdministradorRegistroComponent', 'selector': 'administradorRegistro'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BalanceAyudaComponent', 'selector': 'balanceAyuda'},{'name': 'BalanceListaComponent', 'selector': 'balanceLista'},{'name': 'BalanceXAnioComponent', 'selector': 'balanceXAnio'},{'name': 'BalanceXInmuebleComponent', 'selector': 'balanceXInmueble'},{'name': 'BalanceXMesComponent', 'selector': 'balanceXMes'},{'name': 'ClienteDetalleComponent', 'selector': 'clienteDetalle'},{'name': 'ClienteListaComponent', 'selector': 'clienteLista'},{'name': 'ClienteRegistroComponent', 'selector': 'clienteRegistro'},{'name': 'ComoFuncionaComponent', 'selector': 'comoFunciona'},{'name': 'ContactoComponent', 'selector': 'contacto'},{'name': 'ContratoAyudaComponent', 'selector': 'contratoAyuda'},{'name': 'ContratoDetalleComponent', 'selector': 'contratoDetalle'},{'name': 'ContratoListaComponent', 'selector': 'contratoLista'},{'name': 'ContratoRegistroComponent', 'selector': 'contratoRegistro'},{'name': 'EntidadesAyudaComponent', 'selector': 'app-entidadesAyuda'},{'name': 'InGaAyudaComponent', 'selector': 'inGaAyuda'},{'name': 'IngaDetalleComponent', 'selector': 'ingaDetalle'},{'name': 'InGaInicioComponent', 'selector': 'inGaInicio'},{'name': 'IngaRegistroGeneralComponent', 'selector': 'ingaRegistroGeneral'},{'name': 'IngresoRegistroGeneralComponent', 'selector': 'ingresoRegistroGeneral'},{'name': 'InicioAyudaComponent', 'selector': 'inicioAyuda'},{'name': 'InicioListaComponent', 'selector': 'inicioLista'},{'name': 'InmuebleDetalleComponent', 'selector': 'inmuebleDetalle'},{'name': 'InmuebleListaComponent', 'selector': 'inmuebleLista'},{'name': 'InmueblesAyudaComponent', 'selector': 'inmueblesAyuda'},{'name': 'InmueblesRegistroComponent', 'selector': 'inmueblesRegistro'},{'name': 'IntervinienteDetalleComponent', 'selector': 'app-intervinienteDetalle'},{'name': 'IntervinienteListaComponent', 'selector': 'intervinienteLista'},{'name': 'IntervinienteRegistroComponent', 'selector': 'intervinienteRegistro'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'ModificacionTiposComponent', 'selector': 'modificacionTipos'},{'name': 'NavAppComponent', 'selector': 'navApp'},{'name': 'PeriodoListaComponent', 'selector': 'periodoLista'},{'name': 'PeriodoRegistroComponent', 'selector': 'periodoRegistro'},{'name': 'PreciosComponent', 'selector': 'precios'},{'name': 'PubliInicioComponent', 'selector': 'publiInicio'},{'name': 'QuienessomosComponent', 'selector': 'quienessomos'},{'name': 'RolListaComponent', 'selector': 'rolLista'},{'name': 'RolRegistroComponent', 'selector': 'rolRegistro'},{'name': 'SliderComponent', 'selector': 'slider'},{'name': 'TipoCategoriaListaComponent', 'selector': 'tipoCategoriaLista'},{'name': 'TipoCategoriaRegistroComponent', 'selector': 'tipoCategoriaRegistro'},{'name': 'TipoCoceptoListaComponent', 'selector': 'tipoCoceptoLista'},{'name': 'TipoConceptoRegistroComponent', 'selector': 'tipoConceptoRegistro'},{'name': 'TipoContratoListaComponent', 'selector': 'tipoContratoLista'},{'name': 'TipoContratoRegistroComponent', 'selector': 'tipoContratoRegistro'},{'name': 'TipoInmuebleListaComponent', 'selector': 'tipoInmuebleLista'},{'name': 'TipoInmuebleRegistroComponent', 'selector': 'tipoInmuebleRegistro'},{'name': 'TipoIntervinienteListaComponent', 'selector': 'tipoIntervinienteLista'},{'name': 'TipoIntervinienteRegistroComponent', 'selector': 'tipoIntervinienteRegistro'},{'name': 'TipoPagoListaComponent', 'selector': 'tipoPagoLista'},{'name': 'TipoPagoRegistroComponent', 'selector': 'tipoPagoRegistro'},{'name': 'TiposAyudaComponent', 'selector': 'tiposAyuda'},{'name': 'TiposComponent', 'selector': 'tipos'},{'name': 'UsuarioAyudaComponent', 'selector': 'usuarioAyuda'},{'name': 'UsuarioDetalleComponent', 'selector': 'usuarioDetalle'},{'name': 'UsuarioListaComponent', 'selector': 'usuarioLista'},{'name': 'UsuarioRegistroComponent', 'selector': 'usuarioRegistro'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'BalanceXMesComponent'};
 </script>

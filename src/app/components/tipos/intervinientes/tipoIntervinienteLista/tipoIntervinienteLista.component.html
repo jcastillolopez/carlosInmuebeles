@@ -15,7 +15,7 @@
           <th></th>
         </tr>
       </thead>
-      <tbody routerLinkActive="activo activoBoton" *ngFor="let tipo of arrListaTipoInterviniente; let i = index">
+      <tbody routerlinkactive="activo activoBoton" *ngFor="let tipo of arrListaTipoInterviniente; let i = index">
         <tr (click)="navegar(tipo.idTipoInterviniente)"
           [routerLink]="['/interviniente/modificacion/'+tipo.idTipoInterviniente]">
           <td>{{tipo.tipoInterviniente}}</td>

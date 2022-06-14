@@ -432,12 +432,8 @@ export class ClienteDetalleComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;pagina&quot;&gt;
-  &lt;div class&#x3D;&quot;titulo&quot;&gt;
-    &lt;h4&gt;Detalles &lt;/h4&gt;
-
-    &lt;div class&#x3D;&quot;detalles&quot;&gt;
-      &lt;div class&#x3D;&quot;caracteristicas&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;detalle&quot;&gt; 
+ 
         &lt;div class&#x3D;&quot;lista&quot;&gt;
           &lt;h4&gt; Datos Personales&lt;/h4&gt;
           &lt;div class&#x3D;&quot;campo&quot;&gt;
@@ -468,8 +464,7 @@ export class ClienteDetalleComponent implements OnInit {
             &lt;label&gt; Codigo Postal:&lt;/label&gt;
             &lt;p&gt; {{cliente.codigoPostal}}&lt;/p&gt;
           &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
+        &lt;/div&gt;    
       &lt;div class&#x3D;&quot;caracteristicas&quot;&gt;
         &lt;h4&gt;Propiedades&lt;/h4&gt;
         &lt;table&gt;
@@ -502,9 +497,7 @@ export class ClienteDetalleComponent implements OnInit {
        &lt;/div&gt;
 
         &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+    &lt;/div&gt; 
 &lt;/div&gt;
 &lt;clienteRegistro&gt;&lt;/clienteRegistro&gt;</code></pre>
     </div>
@@ -514,6 +507,31 @@ export class ClienteDetalleComponent implements OnInit {
                     <code>./clienteDetalle.component.css</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">
+label{
+    color: greenyellow;
+    margin-right: 1em;
+    min-width: 4em;
+    text-align: left;
+ }
+ p{
+    color: white;
+ }
+ 
+ .campo{
+    display: flex;
+    flex-direction: row;
+   
+ }
+ @media(min-width:1024px) {
+   .detalle {
+       display: flex;
+       flex-direction: row;
+      margin-left: 2em;
+   }
+   .caracteristicas{
+      margin-left: 2em;
+   }
+}
 </code></pre>
     </div>
 
@@ -542,8 +560,8 @@ export class ClienteDetalleComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="pagina">  <div class="titulo">    <h4>Detalles </h4>    <div class="detalles">      <div class="caracteristicas">        <div class="lista">          <h4> Datos Personales</h4>          <div class="campo">            <label> Fecha Nacimiento:</label>            <p>{{cliente.fechaNacimiento|date:\'dd-MM-YYYY\'}}</p>          </div>          <div class="campo">            <label> Email:</label>            <p>{{cliente.email}}</p>          </div>          <div class="campo">            <label> Tlf:</label>            <p>{{cliente.tlf}}</p>          </div>          <div class="campo">            <label> Tlf Movil:</label>            <p>{{cliente.tlfMovil}}</p>          </div>          <div class="campo">            <label> Localidad:</label>            <p>{{cliente.localidad}}</p>          </div>          <div class="campo">            <label> Direccion:</label>            <p>{{cliente.direccion}}</p>          </div>          <div class="campo">            <label> Codigo Postal:</label>            <p> {{cliente.codigoPostal}}</p>          </div>        </div>      </div>      <div class="caracteristicas">        <h4>Propiedades</h4>        <table>          <thead>            <tr>              <th>Alias</th>              <th>% Propiedad</th>            </tr>          </thead>          <tbody *ngFor="let inmueble of arrInmueblesXCliente">            <tr>              <td>{{inmueble.alias}}</td>              <td>{{inmueble.porcentajePropiedad}}</td>            </tr>          </tbody>        </table>        <h4> Inversiones</h4>        <div class="lista">          <div class="campo">          <label> Compra:  </label>          <p>{{inversion[0].compra}} €</p>        </div>        <div class="campo">          <label> Inversiones:</label>          <p> {{inversion[0].inversiones}} €</p>        </div>        <div class="campo">          <label> Total: </label>          <p>{{inversion[0].total}} €</p>       </div>        </div>      </div>    </div>  </div></div><clienteRegistro></clienteRegistro></div>'
-    var COMPONENTS = [{'name': 'AdministradorRegistroComponent', 'selector': 'administradorRegistro'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BalanceAyudaComponent', 'selector': 'balanceAyuda'},{'name': 'BalanceListaComponent', 'selector': 'balanceLista'},{'name': 'BalanceXAnioComponent', 'selector': 'balanceXAnio'},{'name': 'BalanceXInmuebleComponent', 'selector': 'balanceXInmueble'},{'name': 'BalanceXMesComponent', 'selector': 'balanceXMes'},{'name': 'ClienteDetalleComponent', 'selector': 'clienteDetalle'},{'name': 'ClienteListaComponent', 'selector': 'clienteLista'},{'name': 'ClienteRegistroComponent', 'selector': 'clienteRegistro'},{'name': 'ComoFuncionaComponent', 'selector': 'comoFunciona'},{'name': 'ContactoComponent', 'selector': 'contacto'},{'name': 'ContratoAyudaComponent', 'selector': 'contratoAyuda'},{'name': 'ContratoDetalleComponent', 'selector': 'contratoDetalle'},{'name': 'ContratoListaComponent', 'selector': 'contratoLista'},{'name': 'ContratoRegistroComponent', 'selector': 'contratoRegistro'},{'name': 'EntidadesAyudaComponent', 'selector': 'app-entidadesAyuda'},{'name': 'InGaAyudaComponent', 'selector': 'inGaAyuda'},{'name': 'IngaDetalleComponent', 'selector': 'ingaDetalle'},{'name': 'InGaInicioComponent', 'selector': 'inGaInicio'},{'name': 'IngaRegistroGeneralComponent', 'selector': 'ingaRegistroGeneral'},{'name': 'IngresoRegistroGeneralComponent', 'selector': 'ingresoRegistroGeneral'},{'name': 'InicioAyudaComponent', 'selector': 'inicioAyuda'},{'name': 'InicioListaComponent', 'selector': 'inicioLista'},{'name': 'InmuebleDetalleComponent', 'selector': 'inmuebleDetalle'},{'name': 'InmuebleListaComponent', 'selector': 'inmuebleLista'},{'name': 'InmueblesAyudaComponent', 'selector': 'inmueblesAyuda'},{'name': 'InmueblesRegistroComponent', 'selector': 'inmueblesRegistro'},{'name': 'IntervinienteDetalleComponent', 'selector': 'app-intervinienteDetalle'},{'name': 'IntervinienteListaComponent', 'selector': 'intervinienteLista'},{'name': 'IntervinienteRegistroComponent', 'selector': 'intervinienteRegistro'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'LoginNavComponent', 'selector': 'loginNav'},{'name': 'ModificacionTiposComponent', 'selector': 'modificacionTipos'},{'name': 'NavAppComponent', 'selector': 'navApp'},{'name': 'PeriodoListaComponent', 'selector': 'periodoLista'},{'name': 'PeriodoRegistroComponent', 'selector': 'periodoRegistro'},{'name': 'PreciosComponent', 'selector': 'precios'},{'name': 'PubliInicioComponent', 'selector': 'publiInicio'},{'name': 'QuienessomosComponent', 'selector': 'quienessomos'},{'name': 'RolListaComponent', 'selector': 'rolLista'},{'name': 'RolRegistroComponent', 'selector': 'rolRegistro'},{'name': 'SliderComponent', 'selector': 'slider'},{'name': 'TipoCategoriaListaComponent', 'selector': 'tipoCategoriaLista'},{'name': 'TipoCategoriaRegistroComponent', 'selector': 'tipoCategoriaRegistro'},{'name': 'TipoCoceptoListaComponent', 'selector': 'tipoCoceptoLista'},{'name': 'TipoConceptoRegistroComponent', 'selector': 'tipoConceptoRegistro'},{'name': 'TipoContratoListaComponent', 'selector': 'tipoContratoLista'},{'name': 'TipoContratoRegistroComponent', 'selector': 'tipoContratoRegistro'},{'name': 'TipoInmuebleListaComponent', 'selector': 'tipoInmuebleLista'},{'name': 'TipoInmuebleRegistroComponent', 'selector': 'tipoInmuebleRegistro'},{'name': 'TipoIntervinienteListaComponent', 'selector': 'tipoIntervinienteLista'},{'name': 'TipoIntervinienteRegistroComponent', 'selector': 'tipoIntervinienteRegistro'},{'name': 'TipoPagoListaComponent', 'selector': 'tipoPagoLista'},{'name': 'TipoPagoRegistroComponent', 'selector': 'tipoPagoRegistro'},{'name': 'TiposAyudaComponent', 'selector': 'tiposAyuda'},{'name': 'TiposComponent', 'selector': 'tipos'},{'name': 'UsuarioAyudaComponent', 'selector': 'usuarioAyuda'},{'name': 'UsuarioDetalleComponent', 'selector': 'usuarioDetalle'},{'name': 'UsuarioListaComponent', 'selector': 'usuarioLista'},{'name': 'UsuarioRegistroComponent', 'selector': 'usuarioRegistro'}];
+        var COMPONENT_TEMPLATE = '<div><div class="detalle">          <div class="lista">          <h4> Datos Personales</h4>          <div class="campo">            <label> Fecha Nacimiento:</label>            <p>{{cliente.fechaNacimiento|date:\'dd-MM-YYYY\'}}</p>          </div>          <div class="campo">            <label> Email:</label>            <p>{{cliente.email}}</p>          </div>          <div class="campo">            <label> Tlf:</label>            <p>{{cliente.tlf}}</p>          </div>          <div class="campo">            <label> Tlf Movil:</label>            <p>{{cliente.tlfMovil}}</p>          </div>          <div class="campo">            <label> Localidad:</label>            <p>{{cliente.localidad}}</p>          </div>          <div class="campo">            <label> Direccion:</label>            <p>{{cliente.direccion}}</p>          </div>          <div class="campo">            <label> Codigo Postal:</label>            <p> {{cliente.codigoPostal}}</p>          </div>        </div>          <div class="caracteristicas">        <h4>Propiedades</h4>        <table>          <thead>            <tr>              <th>Alias</th>              <th>% Propiedad</th>            </tr>          </thead>          <tbody *ngFor="let inmueble of arrInmueblesXCliente">            <tr>              <td>{{inmueble.alias}}</td>              <td>{{inmueble.porcentajePropiedad}}</td>            </tr>          </tbody>        </table>        <h4> Inversiones</h4>        <div class="lista">          <div class="campo">          <label> Compra:  </label>          <p>{{inversion[0].compra}} €</p>        </div>        <div class="campo">          <label> Inversiones:</label>          <p> {{inversion[0].inversiones}} €</p>        </div>        <div class="campo">          <label> Total: </label>          <p>{{inversion[0].total}} €</p>       </div>        </div>    </div> </div><clienteRegistro></clienteRegistro></div>'
+    var COMPONENTS = [{'name': 'AdministradorRegistroComponent', 'selector': 'administradorRegistro'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BalanceAyudaComponent', 'selector': 'balanceAyuda'},{'name': 'BalanceListaComponent', 'selector': 'balanceLista'},{'name': 'BalanceXAnioComponent', 'selector': 'balanceXAnio'},{'name': 'BalanceXInmuebleComponent', 'selector': 'balanceXInmueble'},{'name': 'BalanceXMesComponent', 'selector': 'balanceXMes'},{'name': 'ClienteDetalleComponent', 'selector': 'clienteDetalle'},{'name': 'ClienteListaComponent', 'selector': 'clienteLista'},{'name': 'ClienteRegistroComponent', 'selector': 'clienteRegistro'},{'name': 'ComoFuncionaComponent', 'selector': 'comoFunciona'},{'name': 'ContactoComponent', 'selector': 'contacto'},{'name': 'ContratoAyudaComponent', 'selector': 'contratoAyuda'},{'name': 'ContratoDetalleComponent', 'selector': 'contratoDetalle'},{'name': 'ContratoListaComponent', 'selector': 'contratoLista'},{'name': 'ContratoRegistroComponent', 'selector': 'contratoRegistro'},{'name': 'EntidadesAyudaComponent', 'selector': 'app-entidadesAyuda'},{'name': 'InGaAyudaComponent', 'selector': 'inGaAyuda'},{'name': 'IngaDetalleComponent', 'selector': 'ingaDetalle'},{'name': 'InGaInicioComponent', 'selector': 'inGaInicio'},{'name': 'IngaRegistroGeneralComponent', 'selector': 'ingaRegistroGeneral'},{'name': 'IngresoRegistroGeneralComponent', 'selector': 'ingresoRegistroGeneral'},{'name': 'InicioAyudaComponent', 'selector': 'inicioAyuda'},{'name': 'InicioListaComponent', 'selector': 'inicioLista'},{'name': 'InmuebleDetalleComponent', 'selector': 'inmuebleDetalle'},{'name': 'InmuebleListaComponent', 'selector': 'inmuebleLista'},{'name': 'InmueblesAyudaComponent', 'selector': 'inmueblesAyuda'},{'name': 'InmueblesRegistroComponent', 'selector': 'inmueblesRegistro'},{'name': 'IntervinienteDetalleComponent', 'selector': 'app-intervinienteDetalle'},{'name': 'IntervinienteListaComponent', 'selector': 'intervinienteLista'},{'name': 'IntervinienteRegistroComponent', 'selector': 'intervinienteRegistro'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'ModificacionTiposComponent', 'selector': 'modificacionTipos'},{'name': 'NavAppComponent', 'selector': 'navApp'},{'name': 'PeriodoListaComponent', 'selector': 'periodoLista'},{'name': 'PeriodoRegistroComponent', 'selector': 'periodoRegistro'},{'name': 'PreciosComponent', 'selector': 'precios'},{'name': 'PubliInicioComponent', 'selector': 'publiInicio'},{'name': 'QuienessomosComponent', 'selector': 'quienessomos'},{'name': 'RolListaComponent', 'selector': 'rolLista'},{'name': 'RolRegistroComponent', 'selector': 'rolRegistro'},{'name': 'SliderComponent', 'selector': 'slider'},{'name': 'TipoCategoriaListaComponent', 'selector': 'tipoCategoriaLista'},{'name': 'TipoCategoriaRegistroComponent', 'selector': 'tipoCategoriaRegistro'},{'name': 'TipoCoceptoListaComponent', 'selector': 'tipoCoceptoLista'},{'name': 'TipoConceptoRegistroComponent', 'selector': 'tipoConceptoRegistro'},{'name': 'TipoContratoListaComponent', 'selector': 'tipoContratoLista'},{'name': 'TipoContratoRegistroComponent', 'selector': 'tipoContratoRegistro'},{'name': 'TipoInmuebleListaComponent', 'selector': 'tipoInmuebleLista'},{'name': 'TipoInmuebleRegistroComponent', 'selector': 'tipoInmuebleRegistro'},{'name': 'TipoIntervinienteListaComponent', 'selector': 'tipoIntervinienteLista'},{'name': 'TipoIntervinienteRegistroComponent', 'selector': 'tipoIntervinienteRegistro'},{'name': 'TipoPagoListaComponent', 'selector': 'tipoPagoLista'},{'name': 'TipoPagoRegistroComponent', 'selector': 'tipoPagoRegistro'},{'name': 'TiposAyudaComponent', 'selector': 'tiposAyuda'},{'name': 'TiposComponent', 'selector': 'tipos'},{'name': 'UsuarioAyudaComponent', 'selector': 'usuarioAyuda'},{'name': 'UsuarioDetalleComponent', 'selector': 'usuarioDetalle'},{'name': 'UsuarioListaComponent', 'selector': 'usuarioLista'},{'name': 'UsuarioRegistroComponent', 'selector': 'usuarioRegistro'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ClienteDetalleComponent'};
 </script>

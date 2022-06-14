@@ -453,42 +453,43 @@ export class InicioListaComponent implements OnInit {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;validacion&quot; *ngIf&#x3D;&quot;permisos.validacionProp()&quot;&gt;
   &lt;navApp&gt;&lt;/navApp&gt;
-
-  &lt;div class&#x3D;&quot;pagina&quot;&gt;
+ 
+  &lt;div class&#x3D;&quot;detalles&quot;&gt;
+    &lt;div class&#x3D;&quot;listado&quot;&gt;
+      &lt;h5&gt;Pendiente Comprobacion&lt;/h5&gt;
+      &lt;table class&#x3D;&quot;lista&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Inmueble&lt;/th&gt;
+            &lt;th&gt;Fecha Factura&lt;/th&gt;
+            &lt;th&gt;Proveedor&lt;/th&gt;
+            &lt;th&gt;Total Importe&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody [routerLink]&#x3D;&quot;[&#x27;/inga/detalle/&#x27;+inGa.idInGa]&quot; routerLinkActive&#x3D;&quot;activo activoBoton&quot;
+          *ngFor&#x3D;&quot;let inGa of arrFacturasAvisos; let i &#x3D; index&quot;&gt;
+          &lt;tr&gt;
+            &lt;td&gt;{{inGa.aliasInmueble}}&lt;/td&gt;
+            &lt;td&gt;{{inGa.fechaFactura |date:&#x27;dd-MM-YYYY&#x27;}}&lt;/td&gt;
+            &lt;td&gt;{{inGa.nombreApellidosCliente}}&lt;/td&gt;
+            &lt;div *ngIf&#x3D;&quot;inGa.totalGasto !&#x3D; 0; else elseBlock&quot;&gt;{{inGa.totalGasto}} €&lt;/div&gt;
+            &lt;ng-template #elseBlock&gt;
+              &lt;td&gt;{{inGa.totalIngreso}}€&lt;/td&gt;
+            &lt;/ng-template&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
     &lt;div class&#x3D;&quot;navEspecifico&quot;&gt;
-      &lt;button type&#x3D;&quot;button&quot; data-toggle&#x3D;&quot;modal&quot; data-target&#x3D;&quot;#inicioAyuda&quot;&gt;
+      &lt;button type&#x3D;&quot;boton&quot; data-toggle&#x3D;&quot;modal&quot; data-target&#x3D;&quot;#inicioAyuda&quot;&gt;
         Ayuda
       &lt;/button&gt;
     &lt;/div&gt;
-    &lt;div class&#x3D;&quot;especifico&quot;&gt;
-      &lt;div class&#x3D;&quot;listado&quot;&gt;
-        &lt;h3&gt;Pendiente Comprobacion&lt;/h3&gt;
-        &lt;table class&#x3D;&quot;lista&quot;&gt;
-          &lt;thead&gt;
-            &lt;tr&gt;
-              &lt;th&gt;Alias&lt;/th&gt;
-              &lt;th&gt;Fecha Factura&lt;/th&gt;
-              &lt;th&gt;Proveedor&lt;/th&gt;
-              &lt;th&gt;Total Importe&lt;/th&gt;
-            &lt;/tr&gt;
-          &lt;/thead&gt;
-          &lt;tbody [routerLink]&#x3D;&quot;[&#x27;/inga/detalle/&#x27;+inGa.idInGa]&quot; routerLinkActive&#x3D;&quot;activo activoBoton&quot;
-            *ngFor&#x3D;&quot;let inGa of arrFacturasAvisos; let i &#x3D; index&quot;&gt;
-            &lt;tr&gt;
-              &lt;td&gt;{{inGa.aliasInmueble}}&lt;/td&gt;
-              &lt;td&gt;{{inGa.fechaFactura |date:&#x27;dd-MM-YYYY&#x27;}}&lt;/td&gt;
-              &lt;td&gt;{{inGa.nombreApellidosCliente}}&lt;/td&gt;
-              &lt;div *ngIf&#x3D;&quot;inGa.totalGasto !&#x3D; 0; else elseBlock&quot;&gt;{{inGa.totalGasto}} €&lt;/div&gt;
-              &lt;ng-template #elseBlock&gt;
-                &lt;td&gt;{{inGa.totalIngreso}}€&lt;/td&gt;
-              &lt;/ng-template&gt;
-            &lt;/tr&gt;
-          &lt;/tbody&gt;
-        &lt;/table&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
   &lt;/div&gt;
-  &lt;inicioAyuda&gt;&lt;/inicioAyuda&gt;
+ 
+
+&lt;inicioAyuda&gt;&lt;/inicioAyuda&gt;
+
 &lt;/div&gt;</code></pre>
     </div>
 
@@ -496,14 +497,8 @@ export class InicioListaComponent implements OnInit {
                 <p class="comment">
                     <code>./inicioLista.component.css</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">tr th  {
-    text-align: left;
-    min-width: 150px;
-}
-tr td{
-    text-align: left;
-    min-width: 150px;  
-}</code></pre>
+                <pre class="line-numbers"><code class="language-scss">
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -531,8 +526,8 @@ tr td{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="validacion" *ngIf="permisos.validacionProp()">  <navApp></navApp>  <div class="pagina">    <div class="navEspecifico">      <button type="button" data-toggle="modal" data-target="#inicioAyuda">        Ayuda      </button>    </div>    <div class="especifico">      <div class="listado">        <h3>Pendiente Comprobacion</h3>        <table class="lista">          <thead>            <tr>              <th>Alias</th>              <th>Fecha Factura</th>              <th>Proveedor</th>              <th>Total Importe</th>            </tr>          </thead>          <tbody [routerLink]="[\'/inga/detalle/\'+inGa.idInGa]" routerLinkActive="activo activoBoton"            *ngFor="let inGa of arrFacturasAvisos; let i = index">            <tr>              <td>{{inGa.aliasInmueble}}</td>              <td>{{inGa.fechaFactura |date:\'dd-MM-YYYY\'}}</td>              <td>{{inGa.nombreApellidosCliente}}</td>              <div *ngIf="inGa.totalGasto != 0; else elseBlock">{{inGa.totalGasto}} €</div>              <ng-template #elseBlock>                <td>{{inGa.totalIngreso}}€</td>              </ng-template>            </tr>          </tbody>        </table>      </div>    </div>  </div>  <inicioAyuda></inicioAyuda></div></div>'
-    var COMPONENTS = [{'name': 'AdministradorRegistroComponent', 'selector': 'administradorRegistro'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BalanceAyudaComponent', 'selector': 'balanceAyuda'},{'name': 'BalanceListaComponent', 'selector': 'balanceLista'},{'name': 'BalanceXAnioComponent', 'selector': 'balanceXAnio'},{'name': 'BalanceXInmuebleComponent', 'selector': 'balanceXInmueble'},{'name': 'BalanceXMesComponent', 'selector': 'balanceXMes'},{'name': 'ClienteDetalleComponent', 'selector': 'clienteDetalle'},{'name': 'ClienteListaComponent', 'selector': 'clienteLista'},{'name': 'ClienteRegistroComponent', 'selector': 'clienteRegistro'},{'name': 'ComoFuncionaComponent', 'selector': 'comoFunciona'},{'name': 'ContactoComponent', 'selector': 'contacto'},{'name': 'ContratoAyudaComponent', 'selector': 'contratoAyuda'},{'name': 'ContratoDetalleComponent', 'selector': 'contratoDetalle'},{'name': 'ContratoListaComponent', 'selector': 'contratoLista'},{'name': 'ContratoRegistroComponent', 'selector': 'contratoRegistro'},{'name': 'EntidadesAyudaComponent', 'selector': 'app-entidadesAyuda'},{'name': 'InGaAyudaComponent', 'selector': 'inGaAyuda'},{'name': 'IngaDetalleComponent', 'selector': 'ingaDetalle'},{'name': 'InGaInicioComponent', 'selector': 'inGaInicio'},{'name': 'IngaRegistroGeneralComponent', 'selector': 'ingaRegistroGeneral'},{'name': 'IngresoRegistroGeneralComponent', 'selector': 'ingresoRegistroGeneral'},{'name': 'InicioAyudaComponent', 'selector': 'inicioAyuda'},{'name': 'InicioListaComponent', 'selector': 'inicioLista'},{'name': 'InmuebleDetalleComponent', 'selector': 'inmuebleDetalle'},{'name': 'InmuebleListaComponent', 'selector': 'inmuebleLista'},{'name': 'InmueblesAyudaComponent', 'selector': 'inmueblesAyuda'},{'name': 'InmueblesRegistroComponent', 'selector': 'inmueblesRegistro'},{'name': 'IntervinienteDetalleComponent', 'selector': 'app-intervinienteDetalle'},{'name': 'IntervinienteListaComponent', 'selector': 'intervinienteLista'},{'name': 'IntervinienteRegistroComponent', 'selector': 'intervinienteRegistro'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'LoginNavComponent', 'selector': 'loginNav'},{'name': 'ModificacionTiposComponent', 'selector': 'modificacionTipos'},{'name': 'NavAppComponent', 'selector': 'navApp'},{'name': 'PeriodoListaComponent', 'selector': 'periodoLista'},{'name': 'PeriodoRegistroComponent', 'selector': 'periodoRegistro'},{'name': 'PreciosComponent', 'selector': 'precios'},{'name': 'PubliInicioComponent', 'selector': 'publiInicio'},{'name': 'QuienessomosComponent', 'selector': 'quienessomos'},{'name': 'RolListaComponent', 'selector': 'rolLista'},{'name': 'RolRegistroComponent', 'selector': 'rolRegistro'},{'name': 'SliderComponent', 'selector': 'slider'},{'name': 'TipoCategoriaListaComponent', 'selector': 'tipoCategoriaLista'},{'name': 'TipoCategoriaRegistroComponent', 'selector': 'tipoCategoriaRegistro'},{'name': 'TipoCoceptoListaComponent', 'selector': 'tipoCoceptoLista'},{'name': 'TipoConceptoRegistroComponent', 'selector': 'tipoConceptoRegistro'},{'name': 'TipoContratoListaComponent', 'selector': 'tipoContratoLista'},{'name': 'TipoContratoRegistroComponent', 'selector': 'tipoContratoRegistro'},{'name': 'TipoInmuebleListaComponent', 'selector': 'tipoInmuebleLista'},{'name': 'TipoInmuebleRegistroComponent', 'selector': 'tipoInmuebleRegistro'},{'name': 'TipoIntervinienteListaComponent', 'selector': 'tipoIntervinienteLista'},{'name': 'TipoIntervinienteRegistroComponent', 'selector': 'tipoIntervinienteRegistro'},{'name': 'TipoPagoListaComponent', 'selector': 'tipoPagoLista'},{'name': 'TipoPagoRegistroComponent', 'selector': 'tipoPagoRegistro'},{'name': 'TiposAyudaComponent', 'selector': 'tiposAyuda'},{'name': 'TiposComponent', 'selector': 'tipos'},{'name': 'UsuarioAyudaComponent', 'selector': 'usuarioAyuda'},{'name': 'UsuarioDetalleComponent', 'selector': 'usuarioDetalle'},{'name': 'UsuarioListaComponent', 'selector': 'usuarioLista'},{'name': 'UsuarioRegistroComponent', 'selector': 'usuarioRegistro'}];
+        var COMPONENT_TEMPLATE = '<div><div class="validacion" *ngIf="permisos.validacionProp()">  <navApp></navApp>   <div class="detalles">    <div class="listado">      <h5>Pendiente Comprobacion</h5>      <table class="lista">        <thead>          <tr>            <th>Inmueble</th>            <th>Fecha Factura</th>            <th>Proveedor</th>            <th>Total Importe</th>          </tr>        </thead>        <tbody [routerLink]="[\'/inga/detalle/\'+inGa.idInGa]" routerLinkActive="activo activoBoton"          *ngFor="let inGa of arrFacturasAvisos; let i = index">          <tr>            <td>{{inGa.aliasInmueble}}</td>            <td>{{inGa.fechaFactura |date:\'dd-MM-YYYY\'}}</td>            <td>{{inGa.nombreApellidosCliente}}</td>            <div *ngIf="inGa.totalGasto != 0; else elseBlock">{{inGa.totalGasto}} €</div>            <ng-template #elseBlock>              <td>{{inGa.totalIngreso}}€</td>            </ng-template>          </tr>        </tbody>      </table>    </div>    <div class="navEspecifico">      <button type="boton" data-toggle="modal" data-target="#inicioAyuda">        Ayuda      </button>    </div>  </div> <inicioAyuda></inicioAyuda></div></div>'
+    var COMPONENTS = [{'name': 'AdministradorRegistroComponent', 'selector': 'administradorRegistro'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BalanceAyudaComponent', 'selector': 'balanceAyuda'},{'name': 'BalanceListaComponent', 'selector': 'balanceLista'},{'name': 'BalanceXAnioComponent', 'selector': 'balanceXAnio'},{'name': 'BalanceXInmuebleComponent', 'selector': 'balanceXInmueble'},{'name': 'BalanceXMesComponent', 'selector': 'balanceXMes'},{'name': 'ClienteDetalleComponent', 'selector': 'clienteDetalle'},{'name': 'ClienteListaComponent', 'selector': 'clienteLista'},{'name': 'ClienteRegistroComponent', 'selector': 'clienteRegistro'},{'name': 'ComoFuncionaComponent', 'selector': 'comoFunciona'},{'name': 'ContactoComponent', 'selector': 'contacto'},{'name': 'ContratoAyudaComponent', 'selector': 'contratoAyuda'},{'name': 'ContratoDetalleComponent', 'selector': 'contratoDetalle'},{'name': 'ContratoListaComponent', 'selector': 'contratoLista'},{'name': 'ContratoRegistroComponent', 'selector': 'contratoRegistro'},{'name': 'EntidadesAyudaComponent', 'selector': 'app-entidadesAyuda'},{'name': 'InGaAyudaComponent', 'selector': 'inGaAyuda'},{'name': 'IngaDetalleComponent', 'selector': 'ingaDetalle'},{'name': 'InGaInicioComponent', 'selector': 'inGaInicio'},{'name': 'IngaRegistroGeneralComponent', 'selector': 'ingaRegistroGeneral'},{'name': 'IngresoRegistroGeneralComponent', 'selector': 'ingresoRegistroGeneral'},{'name': 'InicioAyudaComponent', 'selector': 'inicioAyuda'},{'name': 'InicioListaComponent', 'selector': 'inicioLista'},{'name': 'InmuebleDetalleComponent', 'selector': 'inmuebleDetalle'},{'name': 'InmuebleListaComponent', 'selector': 'inmuebleLista'},{'name': 'InmueblesAyudaComponent', 'selector': 'inmueblesAyuda'},{'name': 'InmueblesRegistroComponent', 'selector': 'inmueblesRegistro'},{'name': 'IntervinienteDetalleComponent', 'selector': 'app-intervinienteDetalle'},{'name': 'IntervinienteListaComponent', 'selector': 'intervinienteLista'},{'name': 'IntervinienteRegistroComponent', 'selector': 'intervinienteRegistro'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'ModificacionTiposComponent', 'selector': 'modificacionTipos'},{'name': 'NavAppComponent', 'selector': 'navApp'},{'name': 'PeriodoListaComponent', 'selector': 'periodoLista'},{'name': 'PeriodoRegistroComponent', 'selector': 'periodoRegistro'},{'name': 'PreciosComponent', 'selector': 'precios'},{'name': 'PubliInicioComponent', 'selector': 'publiInicio'},{'name': 'QuienessomosComponent', 'selector': 'quienessomos'},{'name': 'RolListaComponent', 'selector': 'rolLista'},{'name': 'RolRegistroComponent', 'selector': 'rolRegistro'},{'name': 'SliderComponent', 'selector': 'slider'},{'name': 'TipoCategoriaListaComponent', 'selector': 'tipoCategoriaLista'},{'name': 'TipoCategoriaRegistroComponent', 'selector': 'tipoCategoriaRegistro'},{'name': 'TipoCoceptoListaComponent', 'selector': 'tipoCoceptoLista'},{'name': 'TipoConceptoRegistroComponent', 'selector': 'tipoConceptoRegistro'},{'name': 'TipoContratoListaComponent', 'selector': 'tipoContratoLista'},{'name': 'TipoContratoRegistroComponent', 'selector': 'tipoContratoRegistro'},{'name': 'TipoInmuebleListaComponent', 'selector': 'tipoInmuebleLista'},{'name': 'TipoInmuebleRegistroComponent', 'selector': 'tipoInmuebleRegistro'},{'name': 'TipoIntervinienteListaComponent', 'selector': 'tipoIntervinienteLista'},{'name': 'TipoIntervinienteRegistroComponent', 'selector': 'tipoIntervinienteRegistro'},{'name': 'TipoPagoListaComponent', 'selector': 'tipoPagoLista'},{'name': 'TipoPagoRegistroComponent', 'selector': 'tipoPagoRegistro'},{'name': 'TiposAyudaComponent', 'selector': 'tiposAyuda'},{'name': 'TiposComponent', 'selector': 'tipos'},{'name': 'UsuarioAyudaComponent', 'selector': 'usuarioAyuda'},{'name': 'UsuarioDetalleComponent', 'selector': 'usuarioDetalle'},{'name': 'UsuarioListaComponent', 'selector': 'usuarioLista'},{'name': 'UsuarioRegistroComponent', 'selector': 'usuarioRegistro'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'InicioListaComponent'};
 </script>

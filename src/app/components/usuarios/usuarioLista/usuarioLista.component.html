@@ -1,37 +1,33 @@
 <div class="valdacion" *ngIf="permisos.validacionUser()">
   <navApp></navApp>
 
-  <div class="detalles"> 
+  <div class="detalles">
     <div class="listado">
-        <table class="lista">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Email</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody routerLinkActive="activo activoBoton"
-            *ngFor="let usuario of arrListaUsuarios; let i = index">
-            <tr (click)="navegar(usuario.idUsuario)"
-              [routerLink]="['/usuarios/detalle/'+usuario.idUsuario]">
-              <td>{{usuario.nombre}}</td>
-              <td>{{usuario.email}}</td>
-              <td >
-                <button type="button" class="botonOculto buttonLista" data-toggle="modal"
-                  data-target="#registro">
-                  Modificar
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>     
-      <router-outlet></router-outlet>   
-   
+      <table class="lista">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody routerlinkactive="activo activoBoton" *ngFor="let usuario of arrListaUsuarios; let i = index">
+          <tr (click)="navegar(usuario.idUsuario)" [routerLink]="['/usuarios/detalle/'+usuario.idUsuario]">
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.email}}</td>
+            <td>
+              <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#registro">
+                Modificar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <router-outlet></router-outlet>
+
     </div>
     <div class="navEspecifico">
-      <button [routerLink]="['/usuarios/']" type="button" data-toggle="modal"
-        data-target="#registro">
+      <button [routerLink]="['/usuarios/']" type="button" data-toggle="modal" data-target="#registro">
         Nuevo Usuario
       </button>
       <button type="button" data-toggle="modal" data-target="#usuarioAyuda">

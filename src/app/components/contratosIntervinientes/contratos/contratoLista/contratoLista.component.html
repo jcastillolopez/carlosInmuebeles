@@ -1,35 +1,35 @@
 <navApp></navApp>
 
-<div class="detalles">  
-    <div class="listado">
-      <table class="lista">
-        <thead>
-          <tr>
-            <th>Inmueble</th>
-            <th>Tipo Contrato</th>
-            <th>Fecha Contrato</th>
-          
-          </tr>
-        </thead>
-        <tbody routerLinkActive="activo activoBoton" *ngFor="let contrato of arrListaContratos; let i = index">
-          <tr (click)="navegar(contrato.idContratos!)" [routerLink]="['/contratos/detalle/' + contrato.idContratos ]">
-            <td>{{contrato.aliasInmueble}}</td>
-            <td>{{contrato.tipoContrato}}</td>
-            <td>{{contrato.fechaContrato|date:'dd-MM-YYYY'}}</td>
-            <td *ngIf="permisos.validacionUser()">
-              <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#contrato">
-                Modificar
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>   
+<div class="detalles">
+  <div class="listado">
+    <table class="lista">
+      <thead>
+        <tr>
+          <th>Inmueble</th>
+          <th>Tipo Contrato</th>
+          <th>Fecha Contrato</th>
+
+        </tr>
+      </thead>
+      <tbody routerlinkactive="activo activoBoton" *ngFor="let contrato of arrListaContratos; let i = index">
+        <tr (click)="navegar(contrato.idContratos!)" [routerLink]="['/contratos/detalle/' + contrato.idContratos ]">
+          <td>{{contrato.aliasInmueble}}</td>
+          <td>{{contrato.tipoContrato}}</td>
+          <td>{{contrato.fechaContrato|date:'dd-MM-YYYY'}}</td>
+          <td *ngIf="permisos.validacionUser()">
+            <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#contrato">
+              Modificar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
     <router-outlet></router-outlet>
   </div>
   <div class="navEspecifico">
-    <button  [routerLink]="['/contratos/']" type="button" data-toggle="modal" data-target="#contrato">
+    <button [routerLink]="['/contratos/']" type="button" data-toggle="modal" data-target="#contrato">
       Nuevo Contrato
-    </button>   
+    </button>
     <button type="button" data-toggle="modal" data-target="#clienteRegistro">
       Nueva Entidad
     </button>
@@ -39,7 +39,7 @@
     <button type="button" data-toggle="modal" data-target="#contratoAyuda">
       Ayuda Contrato
     </button>
-    
+
   </div>
 </div>
 

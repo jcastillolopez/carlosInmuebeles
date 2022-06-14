@@ -80,7 +80,7 @@ select {
 
 :root {
 	--colorPrincipal: rgb(28, 28, 86);
-	--colorDetalle:gray;
+	--colorDetalle: gray;
 	--colorRegistro: rgb(14, 14, 126);
 	--colorTexto: gold;
 	--colorTextoSecundario: white;
@@ -109,7 +109,7 @@ footer {
 	text-align: center;
 }
 
-.navEspecifico {	
+.navEspecifico {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -134,7 +134,7 @@ button {
 	border: 0;
 	min-width: 5em;
 	margin-right: 2em;
-	
+
 }
 
 button:hover {
@@ -143,7 +143,7 @@ button:hover {
 }
 
 .boton {
-	
+
 	color: var(--colorTexto);
 	background: transparent;
 	border-radius: 5px;
@@ -166,49 +166,54 @@ div.modal-content {
 	max-width: 90%;
 }
 
-.modal-dialog {	
-	height: auto;	
+.modal-dialog {
+	height: auto;
 }
 
 .detalles {
-	
+
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	background-color: gray;
 }
-.listado{
-    min-height: 50vh;
-    text-align: center;
-    margin-top: 1em;
+
+.listado {
+	min-height: 50vh;
+	text-align: center;
+	margin-top: 1em;
 	margin-left: 1em;
 }
 
 .especifico {
 	max-width: 90%;
 }
-tr{
+
+tr {
 	display: flex;
 	max-height: 2em;
-	
+
 }
 
-tr th  {
-    text-align: left;
-    min-width: 115px;
-}
-tr td{
-    text-align: left;
-    min-width: 115px;
-	color: white;    
+tr th {
+	text-align: left;
+	min-width: 115px;
 }
 
-tbody tr:hover{
-	background-color:lightgreen;
+tr td {
+	text-align: left;
+	min-width: 115px;
+	color: white;
 }
-.activo{
+
+tbody tr:hover {
+	background-color: lightgreen;
+}
+
+.activo {
 	background-color: green;
 }
-.lista{
+
+.lista {
 	max-height: 50%;
 }

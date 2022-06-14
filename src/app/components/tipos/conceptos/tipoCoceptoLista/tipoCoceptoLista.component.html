@@ -14,7 +14,7 @@
           <th></th>
         </tr>
       </thead>
-      <tbody routerLinkActive="activo activoBoton" *ngFor="let tipo of arrListaTipoConcepto; let i = index">
+      <tbody routerlinkactive="activo activoBoton" *ngFor="let tipo of arrListaTipoConcepto; let i = index">
         <tr (click)="navegar(tipo.idTipoConcepto)" [routerLink]="['/concepto/modificacion/'+tipo.idTipoConcepto]">
           <td>{{tipo.tipoConcepto}}</td>
           <td *ngIf="permisos.validacionTipos(tipo.administradorId)">

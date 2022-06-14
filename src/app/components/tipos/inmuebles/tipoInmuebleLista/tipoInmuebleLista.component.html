@@ -14,7 +14,7 @@
           <th></th>
         </tr>
       </thead>
-      <tbody routerLinkActive="activo activoBoton" *ngFor="let tipo of arrListaTipoInmueble; let i = index">
+      <tbody routerlinkactive="activo activoBoton" *ngFor="let tipo of arrListaTipoInmueble; let i = index">
         <tr (click)="navegar(tipo.idTipoInmueble)" [routerLink]="['/inmueble/modificacion/'+tipo.idTipoInmueble]">
           <td>{{tipo.tipoInmueble}} {{tipo.tipoEspecifico}}</td>
 

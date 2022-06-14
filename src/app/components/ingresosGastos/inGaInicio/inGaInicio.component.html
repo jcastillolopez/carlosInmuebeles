@@ -1,68 +1,66 @@
 <div class="validacion" *ngIf="permisos.validacionProp()">
   <navApp></navApp>
-<div class="detalles">
-  <div class="listado">
-    <label class="form-label"> Seleccione el filtro :</label>
-    <div class="selecciones">
+  <div class="detalles">
+    <div class="listado">
+      <label class="form-label"> Seleccione el filtro :</label>
+      <div class="selecciones">
 
-      <select type="text" (change)="ingresoGasto($event)">
-        <option [value]="0">Seleccione ingreso o gasto</option>
-        <option [value]="1">Ingreso</option>
-        <option [value]="2">Gasto</option>
-      </select>
-      <select type="text" (change)="anios($event)">
-        <option [value]="0">Seleccione el Año</option>
-        <option [value]="anio" *ngFor="let anio of selectAnio">
-          {{anio}}
-        </option>
-      </select>
-      <select type="text" (change)="inmuebles($event)">
-        <option [value]="0">Seleccione un Inmueble</option>
-        <option [value]="inmueble.idInmueble" *ngFor="let inmueble of selectInmuebles">
-          {{inmueble.refcatastral}} {{inmueble.alias}}</option>
-      </select>
+        <select type="text" (change)="ingresoGasto($event)">
+          <option [value]="0">Seleccione ingreso o gasto</option>
+          <option [value]="1">Ingreso</option>
+          <option [value]="2">Gasto</option>
+        </select>
+        <select type="text" (change)="anios($event)">
+          <option [value]="0">Seleccione el Año</option>
+          <option [value]="anio" *ngFor="let anio of selectAnio">
+            {{anio}}
+          </option>
+        </select>
+        <select type="text" (change)="inmuebles($event)">
+          <option [value]="0">Seleccione un Inmueble</option>
+          <option [value]="inmueble.idInmueble" *ngFor="let inmueble of selectInmuebles">
+            {{inmueble.refcatastral}} {{inmueble.alias}}</option>
+        </select>
 
-      <select type="text" (change)="mes($event)">
-        <option [value]="0">Seleccione el Mes</option>
-        <option [value]="mes.numero" *ngFor="let mes of selectMes">
-          {{mes.mes}}
-        </option>
-      </select>
-    </div>
-    <button class="filtrar" (click)="filtrar()">filtrar</button>
-    <table class="lista">
-      <thead>
-        <tr>
-          <th>Inmueble</th>
-          <th>Proveedor</th>
-          <th>Ingreso</th>
-          <th>Gasto</th>
-        </tr>
-      </thead>
-      <tbody routerLinkActive="activo activoBoton"
-        *ngFor="let inGa of arrIngresosGastosMostrar; let i = index">
-        <tr (click)="navegar(inGa.idInGa)" [routerLink]="['/inga/detalle/'+inGa.idInGa]">
-          <td>{{inGa.aliasInmueble}}</td>
-          <td>{{inGa.nombreApellidosCliente}}</td>
-          <td>{{inGa.totalIngreso}} €</td>
-          <td>{{inGa.totalGasto}} €</td>
-          <div class="validacion" *ngIf="permisos.validacionUser()">
-            <button *ngIf="inGa.totalGasto != 0; else elseBlock" type="button"
-            class="botonOculto buttonLista" data-toggle="modal" data-target="#ingaGeneral">
-            Modificar
-          </button>
-          </div>
-          <ng-template #elseBlock>
-            <button type="button" class="botonOculto buttonLista" data-toggle="modal"
-              data-target="#ingresoGeneral">
-              Modificar
-            </button>
-          </ng-template>
+        <select type="text" (change)="mes($event)">
+          <option [value]="0">Seleccione el Mes</option>
+          <option [value]="mes.numero" *ngFor="let mes of selectMes">
+            {{mes.mes}}
+          </option>
+        </select>
+      </div>
+      <button class="filtrar" (click)="filtrar()">filtrar</button>
+      <table class="lista">
+        <thead>
+          <tr>
+            <th>Inmueble</th>
+            <th>Proveedor</th>
+            <th>Ingreso</th>
+            <th>Gasto</th>
+          </tr>
+        </thead>
+        <tbody routerlinkactive="activo activoBoton" *ngFor="let inGa of arrIngresosGastosMostrar; let i = index">
+          <tr (click)="navegar(inGa.idInGa)" [routerLink]="['/inga/detalle/'+inGa.idInGa]">
+            <td>{{inGa.aliasInmueble}}</td>
+            <td>{{inGa.nombreApellidosCliente}}</td>
+            <td>{{inGa.totalIngreso}} €</td>
+            <td>{{inGa.totalGasto}} €</td>
+            <div class="validacion" *ngIf="permisos.validacionUser()">
+              <button *ngIf="inGa.totalGasto != 0; else elseBlock" type="button" class="botonOculto buttonLista"
+                data-toggle="modal" data-target="#ingaGeneral">
+                Modificar
+              </button>
+            </div>
+            <ng-template #elseBlock>
+              <button type="button" class="botonOculto buttonLista" data-toggle="modal" data-target="#ingresoGeneral">
+                Modificar
+              </button>
+            </ng-template>
 
-        </tr>
-        <tr class="activoDetalle">
-          <td colspan="20" class="inactivoDetalle">
-          
+          </tr>
+          <tr class="activoDetalle">
+            <td colspan="20" class="inactivoDetalle">
+
               <table class="campo">
                 <tbody *ngFor="let inGaDetalle of arrInGaDetalle, let i = index">
                   <tr class="thead" *ngIf="i<1 && detalle(inGaDetalle.inGaId, inGa.idInGa)">
@@ -87,43 +85,44 @@
                   </tr>
                 </tbody>
               </table>
-        
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="totales">
-      <div class="campoT">
-        <label>Total Ingreso</label>
-        <p>{{IngresoTotal}}€</p>
-      </div>
-      <div class="campoT">
-        <label>Total Gasto</label>
-        <p>{{GastoTotal}}€</p>
-      </div>
-      <div class="campoT">
-        <label> Balance</label>
-        <p>{{IngresoTotal - GastoTotal}}€</p>
-      </div>
-    </div>
-    <router-outlet></router-outlet>
-  </div>
-  <div class="navEspecifico">
-    <button *ngIf="permisos.validacionUser()" [routerLink]="['/inga']" type="button" data-toggle="modal" data-target="#ingaGeneral">
-      Nuevo Gasto
-    </button>
-    <button *ngIf="permisos.validacionUser()" [routerLink]="['/inga']" type="button" data-toggle="modal"
-      data-target="#ingresoGeneral">
-      Nuevo Ingreso
-    </button>
-    <button [routerLink]="['/inga']" type="button" data-toggle="modal" data-target="#inGaAyuda">
-      Ayuda Ingreso / Gasto
-    </button>
 
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="totales">
+        <div class="campoT">
+          <label>Total Ingreso</label>
+          <p>{{IngresoTotal}}€</p>
+        </div>
+        <div class="campoT">
+          <label>Total Gasto</label>
+          <p>{{GastoTotal}}€</p>
+        </div>
+        <div class="campoT">
+          <label> Balance</label>
+          <p>{{IngresoTotal - GastoTotal}}€</p>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+    <div class="navEspecifico">
+      <button *ngIf="permisos.validacionUser()" [routerLink]="['/inga']" type="button" data-toggle="modal"
+        data-target="#ingaGeneral">
+        Nuevo Gasto
+      </button>
+      <button *ngIf="permisos.validacionUser()" [routerLink]="['/inga']" type="button" data-toggle="modal"
+        data-target="#ingresoGeneral">
+        Nuevo Ingreso
+      </button>
+      <button [routerLink]="['/inga']" type="button" data-toggle="modal" data-target="#inGaAyuda">
+        Ayuda Ingreso / Gasto
+      </button>
+
+    </div>
   </div>
-</div>
-<ingaRegistroGeneral></ingaRegistroGeneral>
-<ingresoRegistroGeneral></ingresoRegistroGeneral>
-<inGaAyuda></inGaAyuda>
+  <ingaRegistroGeneral></ingaRegistroGeneral>
+  <ingresoRegistroGeneral></ingresoRegistroGeneral>
+  <inGaAyuda></inGaAyuda>
 
 </div>
