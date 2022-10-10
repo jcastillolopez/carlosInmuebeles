@@ -10,7 +10,7 @@ RUN npm install
 
 COPY . /app
 
-RUN npm run config -- --environment=prod && npm build
+RUN npm run config -- --environment=prod && npm run build
 
 #Segunda Etapa
 FROM nginx:1.17.10-perl
