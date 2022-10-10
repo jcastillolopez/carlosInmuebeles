@@ -15,4 +15,4 @@ RUN npm run config -- --environment=prod && npm run build
 #Segunda Etapa
 FROM nginx:1.17.10-perl
 	#Si estas utilizando otra aplicacion cambia PokeApp por el nombre de tu app
-COPY --from=build-step /app/dist/TFGAngular /usr/share/nginx/html
+COPY --from=build-step /app/dist/tfgangular /usr/share/nginx/html

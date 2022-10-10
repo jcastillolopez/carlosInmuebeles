@@ -1,6 +1,6 @@
 {
-    "name": "carlos-inmuebles",
-    "version": "0.0.0",
+    "name": "tfgangular",
+    "version": "1.0.0",
     "scripts": {
         "ng": "ng",
         "config": "npx ts-node ./scripts/setenv.ts",
