@@ -1,16 +1,16 @@
 {
-    "name": "carlos-inmuebles",
-    "version": "0.0.0",
+    "name": "tfgangular",
+    "version": "1.0.0",
     "scripts": {
         "ng": "ng",
         "config": "npx ts-node ./scripts/setenv.ts",
-        "start": "ng serve",
+        "start": "node server.js",
         "build": "npm run config -- --environment=prod && ng build",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "compodoc": "npx compodoc -p tsconfig.json -w -s"
     },
-    "private": true,
+    "private": false,
     "dependencies": {
         "@angular/animations": "~13.2.0",
         "@angular/common": "~13.2.0",
